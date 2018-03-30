@@ -5,12 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <ul class="list-group">
-                <a href="home" class="list-group-item list-group-item-action">Dashboard</a>
-                <a href="pegawai" class="list-group-item list-group-item-action">Pegawai</a>
-                <a href="dapur" class="list-group-item list-group-item-action">Dapur</a>
-                <a href="gudang" class="list-group-item list-group-item-action">Gudang</a>
-                <a href="akuntansi" class="list-group-item list-group-item-action">Akuntansi</a>
-                <a href="pelayanan" class="list-group-item list-group-item-action active">Pelayanan</a>
+                <a href="../admin" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="../admin/pegawai" class="list-group-item list-group-item-action">Pegawai</a>
+                <a href="../admin/dapur" class="list-group-item list-group-item-action">Dapur</a>
+                <a href="../admin/akuntansi" class="list-group-item list-group-item-action">Akuntansi</a>
+                <a href="../admin/pelayanan" class="list-group-item list-group-item-action active">Pelayanan</a>
             </ul>
         </div>
         <div class="col-md-9">

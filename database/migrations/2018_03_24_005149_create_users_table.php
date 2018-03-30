@@ -16,8 +16,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('email');
             $table->string('password');
+            $table->string('jabatan');
+            $table->string('remember_token');
             $table->timestamps();
+            //DB::statement("ALTER TABLE users MODIFY jabatan ENUM('Admin', 'Pegawai')");
         });
     }
 

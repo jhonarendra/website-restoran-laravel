@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5bca48e56bbf3a25645858fcab9c285",
+    "content-hash": "01f1bbe9578952b8cad883327fad65dd",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -455,16 +455,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.12",
+            "version": "v5.6.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450"
+                "reference": "fba33e59fd43661933e9cecb84dfb0a64c5323ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/fba33e59fd43661933e9cecb84dfb0a64c5323ce",
+                "reference": "fba33e59fd43661933e9cecb84dfb0a64c5323ce",
                 "shasum": ""
             },
             "require": {
@@ -589,7 +589,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-14T17:29:38+00:00"
+            "time": "2018-03-28T14:17:03+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2221,6 +2221,74 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "zizaco/entrust",
+            "version": "5.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zizaco/entrust.git",
+                "reference": "3623cc052937d9e62543402b50f24065720d44b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/3623cc052937d9e62543402b50f24065720d44b9",
+                "reference": "3623cc052937d9e62543402b50f24065720d44b9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~5.0",
+                "illuminate/console": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1",
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/commands"
+                ],
+                "psr-4": {
+                    "Zizaco\\Entrust\\": "src/Entrust/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Elkins",
+                    "homepage": "http://andrewelkins.com"
+                },
+                {
+                    "name": "Zizaco Zizuini",
+                    "email": "zizaco@gmail.com"
+                },
+                {
+                    "name": "Ben Batschelet",
+                    "homepage": "http://github.com/bbatsche"
+                },
+                {
+                    "name": "Michele Angioni",
+                    "email": "michele.angioni@gmail.com"
+                }
+            ],
+            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
+            "keywords": [
+                "acl",
+                "auth",
+                "illuminate",
+                "laravel",
+                "permission",
+                "roles"
+            ],
+            "time": "2016-12-29T06:25:06+00:00"
         }
     ],
     "packages-dev": [
@@ -3177,16 +3245,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.0.2",
+            "version": "7.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9"
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/536f4d853c12d8189963435088e8ff7c0daeab2e",
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e",
                 "shasum": ""
             },
             "require": {
@@ -3200,7 +3268,7 @@
                 "phar-io/version": "^1.0",
                 "php": "^7.1",
                 "phpspec/prophecy": "^1.7",
-                "phpunit/php-code-coverage": "^6.0",
+                "phpunit/php-code-coverage": "^6.0.1",
                 "phpunit/php-file-iterator": "^1.4.3",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.0",
@@ -3253,7 +3321,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-02-26T07:03:12+00:00"
+            "time": "2018-03-26T07:36:48+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3967,7 +4035,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "zizaco/entrust": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

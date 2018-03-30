@@ -45,6 +45,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        /*
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'pemiliks',
+        ],
+        */
     ],
 
     /*
@@ -70,10 +76,10 @@ return [
             'model' => App\User::class,
         ],
 
-        //'users' => [
-        //    'driver' => 'database',
-        //    'table' => 'tb_pelanggan',
-        //],
+        /*'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],*/
     ],
 
     /*

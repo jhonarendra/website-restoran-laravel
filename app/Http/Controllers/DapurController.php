@@ -1,12 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class DapurController extends Controller
 {
     public function index(){
-    	return view('dapur');
+    	if(isset(Auth::user()->name)){ // Mengecek apakah dia sudah login apa belum
+            if(Auth::user()->jabatan == 'Pelanggan'){ // Kalau sudah login, jabatannya dia Admin apa Pelanggan
+                return redirect()->intended('/pelanggan'); // Kalau pelanggan, gak dikasi akses ke Admin
+            }
+            return view('admin.dapur');
+        } else {
+            return redirect()->intended('/admin'); // Kalau belum login, ditampilkan form login
+        }
     }
 }

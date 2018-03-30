@@ -5,10 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <ul class="list-group">
-                <a href="pelanggan" class="list-group-item list-group-item-action active">Dashboard</a>
-                <a href="pelanggan/reservasi" class="list-group-item list-group-item-action">Reservasi</a>
-                <a href="pelanggan/pengaturan" class="list-group-item list-group-item-action">Pengaturan</a>
-            
+                <a href="admin" class="list-group-item list-group-item-action active">Dashboard</a>
+                <a href="admin/pegawai" class="list-group-item list-group-item-action">Pegawai</a>
+                <a href="admin/dapur" class="list-group-item list-group-item-action">Dapur</a>
+                <a href="admin/akuntansi" class="list-group-item list-group-item-action">Akuntansi</a>
+                <a href="admin/pelayanan" class="list-group-item list-group-item-action">Pelayanan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -23,18 +24,6 @@
                     @endif
 
                     Selamat datang {{Auth::user()->name}}
-
-                    @if(Auth::user()->jabatan == 'Admin')
-                    kamu admin
-                    @else
-                    kamu siapa
-                    @endif
-
-                    @if(Auth::user()->jabatan == 'Pelanggan')
-                    kamu pelanggan
-                    @endif
-
-                    {{Auth::user()->jabatan}}
                 </div>
             </div>
         </div>

@@ -26,8 +26,7 @@ Kalau sudah, copy kode yg ada di file **.env.example** masukin ke **.env**. Lalu
 
 ### 4. Jalankan
 
-Buka browser, indexnya di public
-
-### 5. Pull
-
-Yg jadi kontributor silahkan edit dan pull ke sini
+Buka browser, indexnya di
+```bash
+http://localhost/prognet8/public
+```

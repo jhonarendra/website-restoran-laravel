@@ -8,7 +8,6 @@
                 <a href="home" class="list-group-item list-group-item-action">Dashboard</a>
                 <a href="pegawai" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="dapur" class="list-group-item list-group-item-action">Dapur</a>
-                <a href="gudang" class="list-group-item list-group-item-action">Gudang</a>
                 <a href="akuntansi" class="list-group-item list-group-item-action active">Akuntansi</a>
                 <a href="pelayanan" class="list-group-item list-group-item-action">Pelayanan</a>
             </ul>

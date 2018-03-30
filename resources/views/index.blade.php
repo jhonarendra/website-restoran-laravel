@@ -165,23 +165,21 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="index.html#">myRestoran</a>
+                <a class="navbar-brand" href="">myRestoran</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
-                        <!--
-                            @auth
-                                <a href="{{ url('/pelanggan') }}">{{Auth::user()->name}}</a>
-                            @else
-                                <a href="{{ route('login') }}">Login</a>
-                                <a href="{{ route('register') }}">Register</a>
-                            @endauth
-                        -->
                         @auth
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html#">{{Auth::user()->name}} <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="
+                                @if(Auth::user()->jabatan == 'Admin')
+                                admin
+                                @else
+                                pelanggan
+                                @endif
+                            ">{{Auth::user()->name}} <span class="sr-only">(current)</span></a>
                         </li>
                         @else
                         <li class="nav-item active">
@@ -352,5 +350,8 @@
                 </div>
             </div>
         </div>-->
+        <script type="text/javascript">
+            alert('Kolom jabatan tipe datanya enum, gak bisa di migrate? Edit sendiri ya');
+        </script>
     </body>
 </html>

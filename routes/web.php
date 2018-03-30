@@ -17,22 +17,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/pelanggan', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'pelanggan'], function(){
 	Route::get('/', 'PelangganController@index');
 	Route::get('/reservasi', 'ReservasiController@index');
 	Route::get('/pengaturan', 'PengaturanPelangganController@index');
 });
 
-//YG INI KEBAWAH MASIH SALAH
-//Route::get('/admin','AdminController@showloginpemilik');
+Route::group(['prefix'=>'admin'], function(){
+	Route::get('/login','AdminController@form');
+	Route::post('attempt','AdminController@attempt')->name('admin.attempt');
 
-//Route::group(['prefix'=>'admin', 'middleware'=> ['auth:admin']], function(){
-//	Route::get('/', 'AdminController@showloginadmin');
-//});
-
-//Route::get('/pegawai', 'PegawaiController@index');
-//Route::get('/dapur', 'DapurController@index');
-//Route::get('/gudang', 'GudangController@index');
-//Route::get('/akuntansi', 'AkuntansiController@index');
-//Route::get('/pelayanan', 'PelayananController@index');
+	Route::get('/','AdminController@index');
+	Route::get('/pegawai', 'PegawaiController@index');
+	Route::get('/dapur', 'DapurController@index');
+	Route::get('/gudang', 'GudangController@index');
+	Route::get('/akuntansi', 'AkuntansiController@index');
+	Route::get('/pelayanan', 'PelayananController@index');
+});
