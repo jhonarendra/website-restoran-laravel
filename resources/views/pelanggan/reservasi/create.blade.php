@@ -15,14 +15,14 @@
                 </div>
             </div>
             <ul class="list-group">
-                <a href="../pelanggan" class="list-group-item list-group-item-action">Dashboard</a>
-                <a href="../pelanggan/reservasi" class="list-group-item list-group-item-action">Reservasi</a>
-                <a href="../pelanggan/pengaturan" class="list-group-item list-group-item-action active">Pengaturan</a>
+                <a href="pelanggan" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="pelanggan/reservasi" class="list-group-item list-group-item-action active">Reservasi</a>
+                <a href="pelanggan/pengaturan" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">Pengaturan</div>
+                <div class="card-header">Buat Reservasi</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -30,26 +30,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form action="" method="POST">
+
+                    
+                    <form method="POST" action="{{ URL('pelanggan/reservasi/store') }}">
+                        {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">Nama</label>
+                            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" id="name" value="{{Auth::user()->name}}" />
+                                <input type="text" class="form-control" id="nama" placeholder="{{Auth::user()->name}}" readonly="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" name="email" id="email" value="{{Auth::user()->email}}" />
+                                <input type="email" class="form-control" id="email" placeholder="{{Auth::user()->email}}" readonly="">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-sm-2 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
-                            </div>
-                        </div>
-                        <input type="submit" class="btn btn-primary mt-3" value="Edit" />
+                        <input type="hidden" value="{{Auth::user()->id}}" name="id_pelanggan" />
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                            <a class="btn btn-danger" href="../reservasi">Batal</a>
                         </div>
                     </form>
                 </div>

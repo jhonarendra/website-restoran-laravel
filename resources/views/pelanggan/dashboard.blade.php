@@ -3,12 +3,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
+            <div class="card mb-3" style="max-width: 20rem;">
+                <div class="card-header">Profil</div>
+                <div class="card-body">
+                    <div style="text-align: center">
+                        <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
+                        <h4 class="card-title">{{Auth::user()->name}}</h4>
+                        <p class="card-text">{{Auth::user()->email}}</p>
+                    </div>
+                </div>
+            </div>
             <ul class="list-group">
                 <a href="pelanggan" class="list-group-item list-group-item-action active">Dashboard</a>
                 <a href="pelanggan/reservasi" class="list-group-item list-group-item-action">Reservasi</a>
                 <a href="pelanggan/pengaturan" class="list-group-item list-group-item-action">Pengaturan</a>
-            
             </ul>
         </div>
         <div class="col-md-9">
@@ -23,18 +32,6 @@
                     @endif
 
                     Selamat datang {{Auth::user()->name}}
-
-                    @if(Auth::user()->jabatan == 'Admin')
-                    kamu admin
-                    @else
-                    kamu siapa
-                    @endif
-
-                    @if(Auth::user()->jabatan == 'Pelanggan')
-                    kamu pelanggan
-                    @endif
-
-                    {{Auth::user()->jabatan}}
                 </div>
             </div>
         </div>

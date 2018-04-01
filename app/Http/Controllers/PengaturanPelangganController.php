@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Pengaturan;
 use Illuminate\Http\Request;
 
 class PengaturanPelangganController extends Controller
@@ -10,6 +11,7 @@ class PengaturanPelangganController extends Controller
     	if(Auth::user()->jabatan == 'Admin'){ // Kalau dia Admin, gak boleh ngakses halaman pelanggan
     	    return redirect()->intended('/admin');
     	}
-    	return view('pelanggan.pengaturan');
+    	$pengaturan = Pengaturan::all();
+    	return view('pelanggan.pengaturan', ['pengaturan'=>$pengaturan]);
     }
 }

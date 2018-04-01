@@ -21,8 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('jabatan');
             $table->string('remember_token');
             $table->timestamps();
-            //DB::statement("ALTER TABLE users MODIFY jabatan ENUM('Admin', 'Pegawai')");
         });
+        DB::statement("ALTER TABLE users MODIFY jabatan ENUM('Admin', 'Pelanggan') DEFAULT 'Pelanggan';");
+        DB::statement("ALTER TABLE users MODIFY remember_token VARCHAR(255) DEFAULT NULL;");
     }
 
     /**

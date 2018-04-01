@@ -13,9 +13,9 @@ class AdminController extends Controller
             }
             return view('admin.admin');
         } else {
-            return $this->form(); // Kalau belum login, ditampilkan form login
+            return redirect()->intended('/login'); // Kalau belum login, ditampilkan form login
         }
-    }
+    }/*
     public function form(){
     	return view('admin.login');
     }
@@ -33,5 +33,5 @@ class AdminController extends Controller
     		return redirect()->intended('/admin');
     	}
     	return redirect()->back();
-    }
+    }*/
 }

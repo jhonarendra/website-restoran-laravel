@@ -15,8 +15,8 @@
                 </div>
             </div>
             <ul class="list-group">
-                <a href="{{URL('admin')}}" class="list-group-item list-group-item-action active">Dashboard</a>
-                <a href="{{URL('admin/reservasi')}}" class="list-group-item list-group-item-action">Reservasi</a>
+                <a href="{{URL('admin')}}" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="{{URL('admin/reservasi')}}" class="list-group-item list-group-item-action active">Reservasi</a>
                 <a href="{{URL('admin/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('admin/dapur')}}" class="list-group-item list-group-item-action">Dapur</a>
                 <a href="{{URL('admin/akuntansi')}}" class="list-group-item list-group-item-action">Akuntansi</a>
@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Reservasi</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -33,35 +33,34 @@
                         </div>
                     @endif
 
-                    Selamat datang {{Auth::user()->name}}<br /><br />
-                    <table class="table table-bordered">
+                    <table class="table table-striped table-responsive">
                         <thead>
                             <tr>
-                                <th>Menu</th>
-                                <th>Isi</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nama Pelanggan</th>
+                                <th scope="col">Tanggal Buat</th>
+                                <th scope="col">Nomor Meja</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Nama Pegawai</th>
+                                <th scope="col">Tanggal Update</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($reservasi as $reservasi)
                             <tr>
-                                <td>Dashboard</td>
-                                <td>Ringkasan semuanya</td>
+                                <td>{{$reservasi->id_reservation}}</td>
+                                <td>{{$reservasi->nama_pelanggan}}Nama pelanggan gak muncul</td>
+                                <td>{{$reservasi->created_at}}</td>
+                                <td>{{$reservasi->no_meja_reservasi}}</td>
+                                <td>{{$reservasi->status_reservasi}}</td>
+                                <td>{{$reservasi->nama_admin}}Nama pegawai gak muncul</td>
+                                <td>{{$reservasi->updated_at}}</td>
+                                <td>
+                                    <a class="btn btn-success" href="{{URL('admin/reservasi/edit/'.$reservasi->id_reservation)}}">Edit</a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Reservasi</td>
-                                <td>CRUD Reservasi</td>
-                            </tr>
-                            <tr>
-                                <td>Pegawai</td>
-                                <td>CRUD Pegawai</td>
-                            </tr>
-                            <tr>
-                                <td>Dapur</td>
-                                <td>CRUD Resep, CRUD Menu</td>
-                            </tr>
-                            <tr>
-                                <td>Akuntansi</td>
-                                <td>Transaksi</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

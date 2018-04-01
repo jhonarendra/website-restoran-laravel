@@ -19,18 +19,22 @@ Auth::routes();
 
 Route::group(['prefix'=>'pelanggan'], function(){
 	Route::get('/', 'PelangganController@index');
-	Route::get('/reservasi', 'ReservasiController@index');
+	Route::group(['prefix'=>'reservasi'], function(){
+		Route::get('/', 'ReservasiController@index');
+		Route::get('/create', 'ReservasiController@create');
+		Route::post('/store', 'ReservasiController@store');
+	});
 	Route::get('/pengaturan', 'PengaturanPelangganController@index');
 });
 
 Route::group(['prefix'=>'admin'], function(){
-	Route::get('/login','AdminController@form');
-	Route::post('attempt','AdminController@attempt')->name('admin.attempt');
-
 	Route::get('/','AdminController@index');
+	Route::group(['prefix'=>'reservasi'], function(){
+		Route::get('/', 'ReservasiController@index');
+		Route::get('/edit/{id_reservation}', 'ReservasiController@show');
+		Route::post('/update/{id_reservation}', 'ReservasiController@update');
+	});
 	Route::get('/pegawai', 'PegawaiController@index');
 	Route::get('/dapur', 'DapurController@index');
-	Route::get('/gudang', 'GudangController@index');
 	Route::get('/akuntansi', 'AkuntansiController@index');
-	Route::get('/pelayanan', 'PelayananController@index');
 });
