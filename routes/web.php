@@ -17,8 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::group(['prefix'=>'pelanggan'], function(){
 	Route::get('', 'PelangganController@index');
 	Route::resource('reservasi', 'PelangganReservasiController');

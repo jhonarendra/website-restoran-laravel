@@ -35,7 +35,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     @foreach($reservasi as $reservasi)
                     <form method="POST" action="{{ URL('pelanggan/reservasi') }}">
                         {{ csrf_field() }}
