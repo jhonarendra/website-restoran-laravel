@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action active">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -39,6 +39,35 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
+                    <a href="{{URL('pegawai/restoran/create')}}" class="btn btn-success">Tambah Restoran</a>
+
+                    <table class="table table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Alamat</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($restoran as $restoran)
+                            <tr>
+                                <td>{{$restoran->nama_restoran}}</td>
+                                <td>{{$restoran->alamat_restoran}}</td>
+                                <td>
+                                    <a href="{{URL('pegawai/restoran/'.$restoran->id_restoran.'/edit')}}" class="btn btn-primary">Edit</a>
+                                    <form action="{{URL('pegawai/restoran/'.$restoran->id_restoran)}}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE')}}
+                                        <input type="submit" class="btn btn-danger" value="Hapus">
+                                    </form>
+                                    
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
                 </div>
             </div>

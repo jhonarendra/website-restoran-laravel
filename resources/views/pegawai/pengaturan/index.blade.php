@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action active">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action active">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -40,6 +40,28 @@
                         </div>
                     @endif
 
+                    @foreach($pegawai as $pegawai)
+                    <a href="{{URL('pegawai/pengaturan/'.$pegawai->id_pegawai.'/edit')}}" class="btn-primary btn">Edit Profil</a>
+
+                    <table class="table mt-3">
+                        <tr>
+                            <td>Nama</td>
+                            <td>{{$pegawai->nama_pegawai}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{$pegawai->email_pegawai}}</td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td>{{$pegawai->username_pegawai}}</td>
+                        </tr>
+                        <tr>
+                            <td>Jabatan</td>
+                            <td>{{$pegawai->jabatan_pegawai}}</td>
+                        </tr>
+                    </table>
+                    @endforeach
                 </div>
             </div>
         </div>

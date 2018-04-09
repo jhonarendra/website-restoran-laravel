@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Pemesanan;
 use App\DetilPemesanan;
+use App\Restoran;
+use App\Hidangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +29,9 @@ class PelangganPemesananController extends Controller
      */
     public function create()
     {
-        return view('pelanggan.pemesanan.create');
+        $restoran = Restoran::all();
+        $hidangan = Hidangan::all();
+        return view('pelanggan.pemesanan.create', compact('restoran', 'hidangan'));
     }
 
     /*public function hidangan(){
@@ -42,35 +46,66 @@ class PelangganPemesananController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'id_restoran' => 'required',
-            'id_pelanggan' => 'required',
-            'id_hidangan' => 'required',
-            'jumlah_hidangan' => 'required'
-        ]);
+        /*---------------------------------------------+
+        |             ALUR KERJA PEMESANAN             |
+        |-----------------------------------------------
+        | 1. Pertama insert ke tb_pemesanan dulu       |
+        | 2. Diambil id_pemesanan terakhir             |
+        | 3. Diambil id_hidangan dari checkbox yang di |
+        |    check                                     |
+        | 4. Looping untuk inset ke tb_detil_pemesanan |
+        |    sebanyak hidangan yang dipesan            |
+        | 5. Update tb_pemesanan ubah nilai total      |
+        |    pemesanannya                              |
+        +---------------------------------------------*/
 
+        // 1.
         $data = [
+            'id_pelanggan' => 1,
             'id_restoran' => $request->id_restoran,
             'id_pegawai' => 1,
-            'id_pelanggan' => $request->id_pelanggan,
+            'id_pelanggan' => 1,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s")
         ];
         Pemesanan::insert($data);
 
+        // 2.
         $sql = Pemesanan::select('id_pemesanan')->where('id_pelanggan', '=', 1)->orderBy('id_pemesanan', 'desc')->first();
-
         $id_pemesanan = $sql['id_pemesanan'];
 
-        $data2 = [
-            'id_pemesanan' => $id_pemesanan,
-            'id_hidangan' => $request->id_hidangan,
-            'jumlah_hidangan' => $request->jumlah_hidangan,
-            'total_harga_hidangan' => 0,
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at' => date("Y-m-d H:i:s")
+        // 3.
+        $id_hidangan = $request->hidangan;
+
+        // 4.
+        $total_pemesanan = 0;
+
+        foreach ($id_hidangan as $id_hidangan) {
+            $jml = 'jumlah_hidangan'.$id_hidangan;
+            $hrg = 'harga_hidangan'.$id_hidangan;
+
+            $jumlah_hidangan = $_POST[$jml];
+            $harga_hidangan = $_POST[$hrg];
+            $total_harga_hidangan = ((int)$jumlah_hidangan * (int)$harga_hidangan);
+            $data2 = [
+                'id_pemesanan' => $id_pemesanan,
+                'id_hidangan' => $id_hidangan,
+                'jumlah_hidangan' => $jumlah_hidangan,
+                'total_harga_hidangan' => $total_harga_hidangan,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            ];
+            DetilPemesanan::insert($data2);
+
+            $total_pemesanan = $total_pemesanan + $total_harga_hidangan;
+        }
+
+        // 5.
+        $data3 = [
+            'total_pemesanan' => $total_pemesanan,
         ];
-        DetilPemesanan::insert($data2);
+        Pemesanan::where('id_pemesanan', $id_pemesanan)->update($data3);
+
         return redirect('pelanggan/pemesanan');
     }
 

@@ -51,15 +51,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="id_restoran" class="col-sm-2 col-form-label">ID Restoran</label>
+                            <label for="id_restoran" class="col-sm-2 col-form-label">Restoran</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id_restoran" name="id_restoran" placeholder="ID Restoran">
+                                <select name="id_restoran" class="form-control">
+                                    @foreach($restoran as $restoran)
+                                    <option value="{{$restoran->id_restoran}}">{{$restoran->nama_restoran.' - '.$restoran->alamat_restoran}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                        <input type="hidden" value="{{$reservasi->id_pelanggan}}" name="id_pelanggan" />
                         <div style="text-align: right;">
                             <button type="submit" class="btn btn-primary">Lanjutkan</button>
-                            <a class="btn btn-danger" href="../reservasi">Batal</a>
+                            <a class="btn btn-danger" href="{{URL('pelanggan/reservasi')}}">Batal</a>
                         </div>
                     </form>
                     @endforeach

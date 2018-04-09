@@ -59,6 +59,14 @@ class DatabaseSeeder extends Seeder
         DB::table('tb_hidangan')->insert([
             'nama_hidangan' => 'Nasi Goreng',
             'jenis_hidangan' => 'Makanan',
+            'harga_hidangan' => 10000,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
+        ]);
+        DB::table('tb_hidangan')->insert([
+            'nama_hidangan' => 'Es Teh',
+            'jenis_hidangan' => 'Minuman',
+            'harga_hidangan' => 3000,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s")
         ]);

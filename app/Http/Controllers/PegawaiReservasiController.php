@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Pelanggan;
+use App\Reservasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PegawaiReservasiController extends Controller
 {
@@ -13,7 +16,8 @@ class PegawaiReservasiController extends Controller
      */
     public function index()
     {
-        return view('pegawai.reservasi.index');
+        $reservasi = Reservasi::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_reservasi.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_reservasi.id_pelanggan')->select('tb_reservasi.*', 'nama_restoran', 'nama_pegawai', 'nama_pelanggan')->get();
+        return view('pegawai.reservasi.index', compact('reservasi'));
     }
 
     /**
@@ -23,7 +27,7 @@ class PegawaiReservasiController extends Controller
      */
     public function create()
     {
-        return('pegawai.reservasi.create');
+        return view('pegawai.reservasi.create');
     }
 
     /**
@@ -56,7 +60,8 @@ class PegawaiReservasiController extends Controller
      */
     public function edit($id)
     {
-        return('pegawai.reservasi.edit');
+        $reservasi = Reservasi::where('id_reservasi', $id)->get();
+        return view('pegawai.reservasi.edit', compact('reservasi'));
     }
 
     /**
@@ -68,7 +73,16 @@ class PegawaiReservasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'id_restoran' => $request->id_restoran,
+            'id_pegawai' => $request->id_pegawai,
+            'id_pelanggan' => $request->id_pelanggan,
+            'no_meja_reservasi' => $request->no_meja_reservasi,
+            'status_reservasi' => $request->status_reservasi,
+            'updated_at' => date("Y-m-d H:i:s")
+        ];
+        Reservasi::where('id_reservasi', $id)->update($data);
+        return redirect('pegawai/reservasi');
     }
 
     /**
@@ -79,6 +93,7 @@ class PegawaiReservasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Reservasi::where('id_reservasi', $id)->delete();
+        return redirect('pegawai/reservasi');
     }
 }

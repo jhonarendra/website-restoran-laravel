@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Restoran;
 use Illuminate\Http\Request;
 
 class PegawaiRestoranController extends Controller
@@ -13,7 +14,8 @@ class PegawaiRestoranController extends Controller
      */
     public function index()
     {
-        return view('pegawai.restoran.index');
+        $restoran = Restoran::all();
+        return view('pegawai.restoran.index', compact('restoran'));
     }
 
     /**
@@ -34,7 +36,19 @@ class PegawaiRestoranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_restoran' => 'required',
+            'alamat_restoran' => 'required',
+        ]);
+
+        $data = [
+            'nama_restoran' => $request->nama_restoran,
+            'alamat_restoran' => $request->alamat_restoran,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
+        ];
+        Restoran::insert($data);
+        return redirect('pegawai/restoran');
     }
 
     /**
@@ -56,7 +70,8 @@ class PegawaiRestoranController extends Controller
      */
     public function edit($id)
     {
-        return view('pegawai.restoran.edit');
+        $restoran = Restoran::where('id_restoran', $id)->get();
+        return view('pegawai.restoran.edit', compact('restoran'));
     }
 
     /**
@@ -68,7 +83,14 @@ class PegawaiRestoranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'nama_restoran' => $request->nama_restoran,
+            'alamat_restoran' => $request->alamat_restoran,
+            'updated_at' => date("Y-m-d H:i:s"),
+        ];
+
+        Restoran::where('id_restoran', $id)->update($data);
+        return redirect('pegawai/restoran');
     }
 
     /**
@@ -79,6 +101,7 @@ class PegawaiRestoranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Restoran::where('id_restoran', $id)->delete();
+        return redirect('pegawai/restoran');
     }
 }

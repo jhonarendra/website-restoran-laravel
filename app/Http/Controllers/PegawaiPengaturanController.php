@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Pegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PegawaiPengaturanController extends Controller
 {
@@ -13,7 +15,9 @@ class PegawaiPengaturanController extends Controller
      */
     public function index()
     {
-        return view('pegawai.pengaturan.index');
+        $id_pegawai = 2;
+        $pegawai = Pegawai::where('id_pegawai', $id_pegawai)->get();
+        return view('pegawai.pengaturan.index', compact('pegawai'));
     }
 
     /**
@@ -56,7 +60,9 @@ class PegawaiPengaturanController extends Controller
      */
     public function edit($id)
     {
-        return view('pegawai.pengaturan.edit');
+        $id_pegawai = 2;
+        $pegawai = Pegawai::where('id_pegawai', $id_pegawai)->get();
+        return view('pegawai.pengaturan.edit', compact('pegawai'));
     }
 
     /**
@@ -68,7 +74,18 @@ class PegawaiPengaturanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'nama_pegawai' => $request->nama_pegawai,
+            'email_pegawai' => $request->email_pegawai,
+            'username_pegawai' => $request->username_pegawai,
+            'password_pegawai' => bcrypt($request->password_pegawai),
+            'jabatan_pegawai' => $request->jabatan_pegawai,
+            'updated_at' => date("Y-m-d H:i:s"),
+        ];
+
+        Pegawai::where('id_pegawai', $id)->update($data);
+
+        return redirect('pegawai/pengaturan');
     }
 
     /**

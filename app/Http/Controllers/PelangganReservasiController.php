@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pelanggan;
 use App\Reservasi;
+use App\Restoran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,7 +29,8 @@ class PelangganReservasiController extends Controller
     public function create()
     {
         $reservasi = Pelanggan::where('id_pelanggan', 1)->get();
-        return view('pelanggan.reservasi.create', compact('reservasi'));
+        $restoran = Restoran::all();
+        return view('pelanggan.reservasi.create', compact('reservasi','restoran'));
     }
 
     /**
@@ -40,12 +42,11 @@ class PelangganReservasiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id_pelanggan' => 'required',
             'id_restoran' => 'required'
         ]);
 
         $data = [
-            'id_pelanggan' => $request->id_pelanggan,
+            'id_pelanggan' => 1,
             'id_restoran' => $request->id_restoran,
             'id_pegawai' => 1,
             'created_at' => date("Y-m-d H:i:s"),

@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">

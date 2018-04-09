@@ -17,6 +17,7 @@ class CreateTbHidanganTable extends Migration
             $table->increments('id_hidangan');
             $table->string('nama_hidangan');
             $table->string('jenis_hidangan');
+            $table->unsignedInteger('harga_hidangan');
             $table->timestamps();
         });
         DB::statement("ALTER TABLE tb_hidangan MODIFY jenis_hidangan ENUM('Makanan', 'Minuman') DEFAULT NULL;");

@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -42,10 +42,11 @@
 
                     <a href="{{URL('pegawai/pemesanan/create')}}" class="btn btn-success">Tambah Pemesanan</a>
 
-                    <table class="table table-bordered mt-3">
+                    <table class="table table-bordered table-responsive mt-3">
                         <thead>
                             <tr>
                                 <th scope="col">ID Pemesanan</th>
+                                <th scope="col">Nama Pelanggan</th>
                                 <th scope="col">Restoran</th>
                                 <th scope="col">Tanggal Pemesanan</th>
                                 <th scope="col">Nama Pegawai</th>
@@ -58,6 +59,7 @@
                             @foreach($pemesanan as $pemesanan)
                             <tr>
                                 <td>{{$pemesanan->id_pemesanan}}</td>
+                                <td>{{$pemesanan->nama_pelanggan}}</td>
                                 <td>{{$pemesanan->nama_restoran}}</td>
                                 <td>{{$pemesanan->created_at}}</td>
                                 <td>{{$pemesanan->nama_pegawai}}</td>
@@ -65,6 +67,7 @@
                                 <td>{{$pemesanan->status_pemesanan}}</td>
                                 <td>
                                     <a href="{{URL('pegawai/pemesanan/'.$pemesanan->id_pemesanan)}}" class="btn btn-primary">Rincian</a>
+                                    <a href="{{URL('pegawai/pemesanan/'.$pemesanan->id_pemesanan.'/edit')}}" class="btn btn-success">Edit</a>
                                     <form action="{{URL('pegawai/pemesanan/'.$pemesanan->id_pemesanan)}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE')}}

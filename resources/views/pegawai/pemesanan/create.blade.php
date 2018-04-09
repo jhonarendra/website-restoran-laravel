@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -50,6 +50,12 @@
                         </div>
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">ID Pelanggan</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" name="id_pelanggan" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">ID Pegawai</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="" name="id_pegawai" >
                             </div>

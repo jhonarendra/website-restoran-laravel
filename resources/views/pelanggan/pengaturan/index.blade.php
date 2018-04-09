@@ -36,40 +36,23 @@
                         </div>
                     @endif
 
-                    @foreach($pengaturan as $pengaturan)
-                        <div class="row">
-                            <div class="col-2">
-                                Nama
-                            </div>
-                            <div class="col-10">
-                                : {{$pengaturan->nama_pelanggan}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                Email
-                            </div>
-                            <div class="col-10">
-                                : {{$pengaturan->email_pelanggan}}
-                            </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col-2">
-                                Username
-                            </div>
-                            <div class="col-10">
-                                : {{$pengaturan->username_pelanggan}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                Password
-                            </div>
-                            <div class="col-10">
-                                : Password Anda
-                            </div>
-                        </div>
-                        <a href="{{URL('pelanggan/pengaturan/1/edit')}}" class="btn btn-primary">Edit Profil</a>
+                    @foreach($pelanggan as $pelanggan)
+                    <a href="{{URL('pelanggan/pengaturan/'.$pelanggan->id_pelanggan.'/edit')}}" class="btn-primary btn">Edit Profil</a>
+
+                    <table class="table mt-3">
+                        <tr>
+                            <td>Nama</td>
+                            <td>{{$pelanggan->nama_pelanggan}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{$pelanggan->email_pelanggan}}</td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td>{{$pelanggan->username_pelanggan}}</td>
+                        </tr>
+                    </table>
                     @endforeach
                     
                 </div>

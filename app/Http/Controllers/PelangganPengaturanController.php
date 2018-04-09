@@ -16,8 +16,8 @@ class PelangganPengaturanController extends Controller
     public function index()
     {
         $id_pelanggan = 1;
-        $pengaturan = Pelanggan::where('id_pelanggan', $id_pelanggan)->get();
-        return view('pelanggan.pengaturan.index', compact('pengaturan'));
+        $pelanggan = Pelanggan::where('id_pelanggan', $id_pelanggan)->get();
+        return view('pelanggan.pengaturan.index', compact('pelanggan'));
     }
 
     /**

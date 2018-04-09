@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -40,6 +40,74 @@
                         </div>
                     @endif
 
+                    @foreach($reservasi as $reservasi)
+                    <form method="POST" action="{{URL('pegawai/reservasi', $reservasi->id_reservasi)}}">
+                        {{ csrf_field() }}
+                        {{ method_field('PATCH')}}
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">ID Restoran</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="id_restoran" class="form-control" id="" value="{{$reservasi->id_restoran}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">ID Pelanggan</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="id_pelanggan" class="form-control" id="" value="{{$reservasi->id_pelanggan}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">ID Pegawai</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="id_pegawai" class="form-control" id="" value="{{$reservasi->id_pegawai}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Nomor Meja</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="no_meja_reservasi" class="form-control" id="" value="{{$reservasi->no_meja_reservasi}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Status</label>
+                            <div class="col-sm-10">
+                                <select name="status_reservasi" class="form-control">
+                                    Batal, Dikonfirmasi, Menunggu Konfirmasi, Sedang Berlangsung, Selesai
+                                    <option value="Batal"
+                                    @if($reservasi->status_reservasi=='Batal')
+                                    selected
+                                    @endif
+                                    >Batal</option>
+                                    <option value="Dikonfirmasi"
+                                    @if($reservasi->status_reservasi=='Dikonfirmasi')
+                                    selected
+                                    @endif
+                                    >Dikonfirmasi</option>
+                                    <option value="Menunggu Konfirmasi"
+                                    @if($reservasi->status_reservasi=='Menunggu Konfirmasi')
+                                    selected
+                                    @endif
+                                    >Menunggu Konfirmasi</option>
+                                    <option value="Sedang Berlangsung"
+                                    @if($reservasi->status_reservasi=='Sedang Berlangsung')
+                                    selected
+                                    @endif
+                                    >Sedang Berlangsung</option>
+                                    <option value="Selesai"
+                                    @if($reservasi->status_reservasi=='Selesai')
+                                    selected
+                                    @endif
+                                    >Selesai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" value="{{$reservasi->id_pelanggan}}" name="id_pelanggan" />
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                            <a class="btn btn-danger" href="../reservasi">Batal</a>
+                        </div>
+                    </form>
+                    @endforeach
                 </div>
             </div>
         </div>

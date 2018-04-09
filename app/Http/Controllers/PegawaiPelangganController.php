@@ -107,7 +107,7 @@ class PegawaiPelangganController extends Controller
      */
     public function destroy($id)
     {
-        Pelanggan::where('id_pelanggan', '=', $id)->delete();
+        Pelanggan::where('id_pelanggan', $id)->delete();
         return redirect('pegawai/pelanggan');
     }
 }

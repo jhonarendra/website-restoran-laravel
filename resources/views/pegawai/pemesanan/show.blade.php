@@ -19,15 +19,19 @@
                 </div>
             </div>
             <ul class="list-group">
-                <a href="{{URL('pelanggan')}}" class="list-group-item list-group-item-action">Dashboard</a>
-                <a href="{{URL('pelanggan/reservasi')}}" class="list-group-item list-group-item-action">Reservasi</a>
-                <a href="{{URL('pelanggan/pemesanan')}}" class="list-group-item list-group-item-action active">Pemesanan</a>
-                <a href="{{URL('pelanggan/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai')}}" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="{{URL('pegawai/reservasi')}}" class="list-group-item list-group-item-action">Reservasi</a>
+                <a href="{{URL('pegawai/pemesanan')}}" class="list-group-item list-group-item-action active">Pemesanan</a>
+                <a href="{{URL('pegawai/pelanggan')}}" class="list-group-item list-group-item-action">Pelanggan</a>
+                <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
+                <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action">Restoran</a>
+                <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">Detil Pemesanan</div>
+                <div class="card-header">Edit Pemesanan</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -36,15 +40,14 @@
                         </div>
                     @endif
 
-                    <a href="{{URL('pelanggan/pemesanan/create')}}" class="btn btn-success">Pesan</a>
-
+                    <a href="{{URL('pegawai/pemesanan/create')}}" class="btn btn-success">Tambah Pemesanan</a>
 
                     <table class="table table-bordered mt-3">
                         <thead>
                             <tr>
                                 <th scope="col">Nama Hidangan</th>
                                 <th scope="col">Jenis</th>
-                                <th scope="col">Harga</th>
+                                <th scope="col">Harga Satuan</th>
                                 <th scope="col">Jumlah</th>
                                 <th scope="col">Total Harga Hidangan</th>
                             </tr>
@@ -61,7 +64,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    
+
                 </div>
             </div>
         </div>

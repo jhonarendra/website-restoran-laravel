@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action active">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -39,6 +39,28 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
+                    @foreach($restoran as $restoran)
+                    <form method="POST" action="{{URL('pegawai/restoran', $restoran->id_restoran)}}">
+                        {{ csrf_field() }}
+                        {{ method_field('PATCH')}}
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Nama Restoran</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" name="nama_restoran" value="{{$restoran->nama_restoran}}" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Alamat Restoran</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" name="alamat_restoran" value="{{$restoran->alamat_restoran}}" >
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    @endforeach
 
                 </div>
             </div>

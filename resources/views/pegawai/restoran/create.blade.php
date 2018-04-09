@@ -26,7 +26,7 @@
                 <a href="{{URL('pegawai/pegawai')}}" class="list-group-item list-group-item-action">Pegawai</a>
                 <a href="{{URL('pegawai/restoran')}}" class="list-group-item list-group-item-action active">Restoran</a>
                 <a href="{{URL('pegawai/hidangan')}}" class="list-group-item list-group-item-action">Hidangan</a>
-                <a href="{{URL('pegawai/pegaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pegawai/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -39,6 +39,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
+
+                    <form method="POST" action="{{ URL('pegawai/restoran') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Nama Restoran</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" name="nama_restoran" placeholder="Nama Restoran" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Alamat Restoran</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" name="alamat_restoran" placeholder="Alamat Restoran" >
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
 
                 </div>
             </div>
