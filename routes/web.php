@@ -19,6 +19,13 @@ Auth::routes();
 
 Route::group(['prefix'=>'pelanggan'], function(){
 	Route::get('', 'PelangganController@index');
+
+	Route::get('login', 'PelangganController@showLoginForm');
+	Route::post('login', 'PelangganController@login');
+	Route::get('logout', 'PelangganController@logout');
+	Route::get('register', 'PelangganController@showRegisterForm');
+	Route::post('register', 'PelangganController@register');
+
 	Route::resource('reservasi', 'PelangganReservasiController');
 	Route::resource('pemesanan', 'PelangganPemesananController');
 	Route::resource('pengaturan', 'PelangganPengaturanController');

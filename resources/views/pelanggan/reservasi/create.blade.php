@@ -23,6 +23,7 @@
                 <a href="{{URL('pelanggan/reservasi')}}" class="list-group-item list-group-item-action active">Reservasi</a>
                 <a href="{{URL('pelanggan/pemesanan')}}" class="list-group-item list-group-item-action">Pemesanan</a>
                 <a href="{{URL('pelanggan/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pelanggan/logout')}}" class="list-group-item list-group-item-action">Logout</a>
             </ul>
         </div>
         <div class="col-md-9">

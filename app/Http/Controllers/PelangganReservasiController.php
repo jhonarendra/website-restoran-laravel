@@ -7,30 +7,27 @@ use App\Reservasi;
 use App\Restoran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PelangganController;
 
-class PelangganReservasiController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $reservasi = Reservasi::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_reservasi.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->select('tb_reservasi.*', 'nama_restoran', 'nama_pegawai')->where('id_pelanggan', 1)->get();
-        return view('pelanggan.reservasi.index', compact('reservasi'));
+class PelangganReservasiController extends Controller {
+
+    public function index(){
+        if(!PelangganController::getPelanggan()){
+            return redirect('pelanggan/login');
+        }
+        $pelanggan = PelangganController::getPelanggan();
+        $reservasi = Reservasi::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_reservasi.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->select('tb_reservasi.*', 'nama_restoran', 'nama_pegawai')->where('id_pelanggan', $pelanggan['id_pelanggan'])->get();
+        return view('pelanggan.reservasi.index', compact('reservasi', 'pelanggan'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $reservasi = Pelanggan::where('id_pelanggan', 1)->get();
+    
+    public function create(){
+        if(!PelangganController::getPelanggan()){
+            return redirect('pelanggan/login');
+        }
+        $pelanggan = PelangganController::getPelanggan();
+        $reservasi = Pelanggan::where('id_pelanggan', $pelanggan['id_pelanggan'])->get();
         $restoran = Restoran::all();
-        return view('pelanggan.reservasi.create', compact('reservasi','restoran'));
+        return view('pelanggan.reservasi.create', compact('reservasi', 'restoran', 'pelanggan'));
     }
 
     /**
@@ -39,14 +36,15 @@ class PelangganReservasiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+        $pelanggan = PelangganController::getPelanggan();
+
         $this->validate($request, [
             'id_restoran' => 'required'
         ]);
 
         $data = [
-            'id_pelanggan' => 1,
+            'id_pelanggan' => $pelanggan['id_pelanggan'],
             'id_restoran' => $request->id_restoran,
             'id_pegawai' => 1,
             'created_at' => date("Y-m-d H:i:s"),

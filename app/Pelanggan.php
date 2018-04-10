@@ -9,8 +9,6 @@ class Pelanggan extends Authenticatable
 {
     use Notifiable;
 
-    protected $guard = 'pelanggan';
-
     protected $table = 'tb_pelanggan';
 
     /**

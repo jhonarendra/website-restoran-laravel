@@ -10,10 +10,10 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            <!--Auth::user()->name--> Jhonarendra
+                            {{$pelanggan['nama_pelanggan']}}
                         </h4>
                         <p class="card-text">
-                            <!--Auth::user()->email--> jhonarendra@gmail.com
+                            {{$pelanggan['email_pelanggan']}}
                         </p>
                     </div>
                 </div>
@@ -23,6 +23,7 @@
                 <a href="{{URL('pelanggan/reservasi')}}" class="list-group-item list-group-item-action">Reservasi</a>
                 <a href="{{URL('pelanggan/pemesanan')}}" class="list-group-item list-group-item-action">Pemesanan</a>
                 <a href="{{URL('pelanggan/pengaturan')}}" class="list-group-item list-group-item-action active">Pengaturan</a>
+                <a href="{{URL('pelanggan/logout')}}" class="list-group-item list-group-item-action">Logout</a>
             </ul>
         </div>
         <div class="col-md-9">
@@ -36,26 +37,25 @@
                         </div>
                     @endif
 
-                    @foreach ($pengaturan as $pengaturan)
-                    <form method="POST" action="{{URL('pelanggan/pengaturan', $pengaturan->id_pelanggan)}}">
+                    <form method="POST" action="{{URL('pelanggan/pengaturan', $pelanggan['id_pelanggan'])}}">
                         {{ csrf_field() }}
                         {{ method_field('PATCH') }}
                         <div class="form-group row">
                             <label for="nama_pelanggan" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" value="{{$pengaturan->nama_pelanggan}}" >
+                                <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" value="{{$pelanggan['nama_pelanggan']}}" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email_pelanggan" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="email_pelanggan" name="email_pelanggan" value="{{$pengaturan->email_pelanggan}}" >
+                                <input type="text" class="form-control" id="email_pelanggan" name="email_pelanggan" value="{{$pelanggan['email_pelanggan']}}" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="username_pelanggan" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="username_pelanggan" name="username_pelanggan" value="{{$pengaturan->username_pelanggan}}" >
+                                <input type="text" class="form-control" id="username_pelanggan" name="username_pelanggan" value="{{$pelanggan['username_pelanggan']}}" >
                             </div>
                         </div>
                         <div class="form-group row">
@@ -67,7 +67,6 @@
                         <button type="submit" class="btn btn-primary">Lanjutkan</button>
                         <a class="btn btn-danger" href="../reservasi">Batal</a>
                     </form>
-                    @endforeach
 
                 </div>
             </div>

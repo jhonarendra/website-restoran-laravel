@@ -1,4 +1,3 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 # Website Restoran
 
 Website restoran dengan framework Laravel 5.6
@@ -16,7 +15,7 @@ git clone https://github.com/jhonarendra/prognet8.git
 2. Pada cmd, pindah ke folder prognet8 contohnya
 
 ```
-cd c:/xampp/htdocs/prognet8`
+cd c:/xampp/htdocs/prognet8
 ```
 
 lalu instal composer
@@ -50,16 +49,15 @@ Lalu masukkan perintah berikut untuk insert beberapa data ke database
 php artisan db:seed
 ```
 
-5. Siap dijalankan...
-
+5. Siap dijalankan... 
 
 ## Kelompok 8
 
-1605551049	Putu Jhonarendra
-1605551113	ILHAM YOGA PRABHASWARA
-1605551054	I MADE ADHIARTA WIKANTYASA
-1605551023	Anak Agung Bagus Arya Wiradarma
-1605551097	MARRIA TESALONIKA SIREGAR
-1605552028	Dwiki Surya Chen
-1605552033	Boy Jehezkiel Kamanang Mahar
+<p>1605551049 - Putu Jhonarendra</p>
+<p>1605551113 - ILHAM YOGA PRABHASWARA</p>
+<p>1605551054 - I MADE ADHIARTA WIKANTYASA</p>
+<p>1605551023 - Anak Agung Bagus Arya Wiradarma</p>
+<p>1605551097 - MARRIA TESALONIKA SIREGAR</p>
+<p>1605552028 - Dwiki Surya Chen</p>
+<p>1605552033 - Boy Jehezkiel Kamanang Mahar</p>
 

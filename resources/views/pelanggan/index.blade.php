@@ -10,10 +10,10 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            <!--Auth::user()->name--> Jhonarendra
+                            {{$pelanggan['nama_pelanggan']}}
                         </h4>
                         <p class="card-text">
-                            <!--Auth::user()->email--> jhonarendra@gmail.com
+                            {{$pelanggan['email_pelanggan']}}
                         </p>
                     </div>
                 </div>
@@ -23,6 +23,7 @@
                 <a href="{{URL('pelanggan/reservasi')}}" class="list-group-item list-group-item-action">Reservasi</a>
                 <a href="{{URL('pelanggan/pemesanan')}}" class="list-group-item list-group-item-action">Pemesanan</a>
                 <a href="{{URL('pelanggan/pengaturan')}}" class="list-group-item list-group-item-action">Pengaturan</a>
+                <a href="{{URL('pelanggan/logout')}}" class="list-group-item list-group-item-action">Logout</a>
             </ul>
         </div>
         <div class="col-md-9">

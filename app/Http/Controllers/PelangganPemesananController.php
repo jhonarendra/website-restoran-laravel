@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Pelanggan;
 use App\Pemesanan;
 use App\DetilPemesanan;
 use App\Restoran;
 use App\Hidangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PelangganController;
 
-class PelangganPemesananController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $pemesanan = Pemesanan::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_pemesanan.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->select('tb_pemesanan.*', 'nama_restoran', 'nama_pegawai')->where('id_pelanggan', 1)->get();
-        return view('pelanggan.pemesanan.index', compact('pemesanan'));
+class PelangganPemesananController extends Controller {
+    public function index(){
+        if(!PelangganController::getPelanggan()){
+            return redirect('pelanggan/login');
+        }
+        $pelanggan = PelangganController::getPelanggan();
+        $pemesanan = Pemesanan::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_pemesanan.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->select('tb_pemesanan.*', 'nama_restoran', 'nama_pegawai')->where('id_pelanggan', $pelanggan['id_pelanggan'])->get();
+        return view('pelanggan.pemesanan.index', compact('pemesanan', 'pelanggan'));
     }
 
     /**
@@ -27,16 +26,14 @@ class PelangganPemesananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
+        if(!PelangganController::getPelanggan()){
+            return redirect('pelanggan/login');
+        }
         $restoran = Restoran::all();
         $hidangan = Hidangan::all();
-        return view('pelanggan.pemesanan.create', compact('restoran', 'hidangan'));
+        return view('pelanggan.pemesanan.create', compact('restoran', 'hidangan', 'pelanggan'));
     }
-
-    /*public function hidangan(){
-        return view('pelanggan.pemesanan.hidangan');
-    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -44,8 +41,7 @@ class PelangganPemesananController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         /*---------------------------------------------+
         |             ALUR KERJA PEMESANAN             |
         |-----------------------------------------------
@@ -60,18 +56,18 @@ class PelangganPemesananController extends Controller
         +---------------------------------------------*/
 
         // 1.
+        $pelanggan = PelangganController::getPelanggan();
         $data = [
-            'id_pelanggan' => 1,
+            'id_pelanggan' => $pelanggan['id_pelanggan'],
             'id_restoran' => $request->id_restoran,
             'id_pegawai' => 1,
-            'id_pelanggan' => 1,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s")
         ];
         Pemesanan::insert($data);
 
         // 2.
-        $sql = Pemesanan::select('id_pemesanan')->where('id_pelanggan', '=', 1)->orderBy('id_pemesanan', 'desc')->first();
+        $sql = Pemesanan::select('id_pemesanan')->where('id_pelanggan', '=', $pelanggan['id_pelanggan'])->orderBy('id_pemesanan', 'desc')->first();
         $id_pemesanan = $sql['id_pemesanan'];
 
         // 3.
@@ -115,25 +111,19 @@ class PelangganPemesananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //$pemesanan = Pemesanan::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_pemesanan.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->select('tb_pemesanan.*', 'nama_restoran', 'nama_pegawai')->where('id_pelanggan', 1)->get();
+    public function show($id){
+        if(!PelangganController::getPelanggan()){
+            return redirect('pelanggan/login');
+        }
+        $pelanggan = PelangganController::getPelanggan();
         $detil_pemesanan = DetilPemesanan::join('tb_pemesanan', 'tb_pemesanan.id_pemesanan', '=', 'tb_detil_pemesanan.id_pemesanan')
         ->join('tb_hidangan', 'tb_hidangan.id_hidangan', '=', 'tb_detil_pemesanan.id_hidangan')
         ->join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_pemesanan.id_restoran')
         ->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')
         ->where('tb_pemesanan.id_pemesanan', $id)
-        ->where('tb_pemesanan.id_pelanggan', 1)
+        ->where('tb_pemesanan.id_pelanggan', $pelanggan['id_pelanggan'])
         ->get();
-
-        /*$detil_pemesanan = DB::raw("SELECT * FROM tb_detil_pemesanan
-INNER JOIN tb_pemesanan ON tb_detil_pemesanan.`id_pemesanan`=tb_pemesanan.`id_pemesanan`
-INNER JOIN tb_restoran ON tb_pemesanan.`id_restoran`=tb_restoran.`id_restoran`
-INNER JOIN tb_pegawai ON tb_pemesanan.`id_pegawai`=tb_pegawai.`id_pegawai`
-INNER JOIN tb_hidangan ON tb_detil_pemesanan.`id_hidangan`=tb_hidangan.`id_hidangan`
-WHERE tb_pemesanan.`id_pemesanan`=$id AND tb_pemesanan.`id_pelanggan`=1");*/
-
-        return view('pelanggan.pemesanan.show', compact('detil_pemesanan'));
+        return view('pelanggan.pemesanan.show', compact('detil_pemesanan', 'pelanggan'));
     }
 
     /**

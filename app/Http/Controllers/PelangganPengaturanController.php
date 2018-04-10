@@ -5,18 +5,15 @@ namespace App\Http\Controllers;
 use App\Pelanggan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PelangganController;
 
-class PelangganPengaturanController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $id_pelanggan = 1;
-        $pelanggan = Pelanggan::where('id_pelanggan', $id_pelanggan)->get();
+class PelangganPengaturanController extends Controller {
+
+    public function index(){
+        if(!PelangganController::getPelanggan()){
+            return redirect('pelanggan/login');
+        }
+        $pelanggan = PelangganController::getPelanggan();
         return view('pelanggan.pengaturan.index', compact('pelanggan'));
     }
 
@@ -60,8 +57,8 @@ class PelangganPengaturanController extends Controller
      */
     public function edit($id)
     {
-        $pengaturan = Pelanggan::where('id_pelanggan', $id)->get();
-        return view('pelanggan.pengaturan.edit', compact('pengaturan'));
+        $pelanggan = PelangganController::getPelanggan();
+        return view('pelanggan.pengaturan.edit', compact('pelanggan'));
     }
 
     /**

@@ -136,11 +136,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">Register</a>
                         </li>-->
-                        <li class="nav-item active">
-                            <a class="nav-link" href="pelanggan">Halaman Pelanggan <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pelanggan/login">Login Pelanggan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pegawai">Halaman Pegawai</a>
+                            <a class="nav-link" href="pegawai/login">Login Pegawai</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pelanggan/register">Register Pelanggan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pegawai/register">Register Pegawai</a>
                         </li>
                         @endauth
                     </ul>
