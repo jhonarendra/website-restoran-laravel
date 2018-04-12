@@ -10,10 +10,11 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            <!--Auth::user()->name--> Jhonarendra
+                            {{$pegawai['nama_pegawai']}}
                         </h4>
                         <p class="card-text">
-                            <!--Auth::user()->email--> jhonarendra@gmail.com
+                            {{$pegawai['email_pegawai']}}<br />
+                            {{$pegawai['jabatan_pegawai']}}
                         </p>
                     </div>
                 </div>
@@ -56,18 +57,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($pegawai as $pegawai)
+                            @foreach($pegawais as $pegawais)
                             <tr>
-                                <td>{{$pegawai->id_pegawai}}</td>
-                                <td>{{$pegawai->nama_pegawai}}</td>
-                                <td>{{$pegawai->email_pegawai}}</td>
-                                <td>{{$pegawai->username_pegawai}}</td>
-                                <td>{{$pegawai->jabatan_pegawai}}</td>
-                                <td>{{$pegawai->created_at}}</td>
-                                <td>{{$pegawai->updated_at}}</td>
+                                <td>{{$pegawais->id_pegawai}}</td>
+                                <td>{{$pegawais->nama_pegawai}}</td>
+                                <td>{{$pegawais->email_pegawai}}</td>
+                                <td>{{$pegawais->username_pegawai}}</td>
+                                <td>{{$pegawais->jabatan_pegawai}}</td>
+                                <td>{{$pegawais->created_at}}</td>
+                                <td>{{$pegawais->updated_at}}</td>
                                 <td>
-                                    <a href="{{URL('pegawai/pegawai/'.$pegawai->id_pegawai.'/edit')}}" class="btn btn-primary">Edit</a>
-                                    <form action="{{URL('pegawai/pegawai/'.$pegawai->id_pegawai)}}" method="POST">
+                                    <a href="{{URL('pegawai/pegawai/'.$pegawais->id_pegawai.'/edit')}}" class="btn btn-primary">Edit</a>
+                                    <form action="{{URL('pegawai/pegawai/'.$pegawais->id_pegawai)}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE')}}
                                         <input type="submit" class="btn btn-danger" value="Hapus">

@@ -45,21 +45,45 @@
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Restoran</label>
+                            <label for="" class="col-sm-2 col-form-label">Restoran</label>
                             <div class="col-sm-10">
-                                <input type="text" name="id_restoran" class="form-control" id="" value="{{$reservasi->id_restoran}}">
+                                <select name="id_restoran" class="form-control">
+                                    @foreach($restoran as $restoran)
+                                    <option value="{{$restoran->id_restoran}}"
+                                        @if($restoran->id_restoran == $reservasi->id_restoran)
+                                        selected
+                                        @endif
+                                        >{{$restoran->nama_restoran.' - '.$restoran->alamat_restoran}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Pelanggan</label>
+                            <label for="" class="col-sm-2 col-form-label">Nama Pelanggan</label>
                             <div class="col-sm-10">
-                                <input type="text" name="id_pelanggan" class="form-control" id="" value="{{$reservasi->id_pelanggan}}">
+                                <select name="id_pelanggan" class="form-control">
+                                    @foreach($pelanggan as $pelanggan)
+                                    <option value="{{$pelanggan->id_pelanggan}}"
+                                        @if($pelanggan->id_pelanggan == $reservasi->id_pelanggan)
+                                        selected
+                                        @endif
+                                        >{{$pelanggan->nama_pelanggan}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Pegawai</label>
+                            <label for="" class="col-sm-2 col-form-label">Nama Pegawai</label>
                             <div class="col-sm-10">
-                                <input type="text" name="id_pegawai" class="form-control" id="" value="{{$reservasi->id_pegawai}}">
+                                <select name="id_pegawai" class="form-control">
+                                    @foreach($pegawais as $pegawais)
+                                    <option value="{{$pegawais->id_pegawai}}"
+                                        @if($pegawais->id_pegawai == $reservasi->id_pegawai)
+                                        selected
+                                        @endif
+                                        >{{$pegawais->nama_pegawai}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -103,8 +127,8 @@
                         </div>
                         <input type="hidden" value="{{$reservasi->id_pelanggan}}" name="id_pelanggan" />
                         <div style="text-align: right;">
-                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
-                            <a class="btn btn-danger" href="../reservasi">Batal</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a class="btn btn-danger" href="{{URL('pegawai/reservasi')}}">Batal</a>
                         </div>
                     </form>
                     @endforeach

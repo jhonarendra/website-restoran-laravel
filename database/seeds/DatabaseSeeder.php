@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         	'nama_pelanggan' => 'Lorem Ipsum',
         	'email_pelanggan' => 'loremipsum@mail.app',
         	'username_pelanggan' => 'loremipsum',
-        	'password_pelanggan' => bcrypt('jonajona'),
+        	'password_pelanggan' => md5('jonajona'),
         	'created_at' => date("Y-m-d H:i:s"),
         	'updated_at' => date("Y-m-d H:i:s")
         ]);
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'nama_pelanggan' => 'Lorem Ipsum2',
             'email_pelanggan' => 'loremipsum2@mail.app',
             'username_pelanggan' => 'loremipsum2',
-            'password_pelanggan' => bcrypt('jonajona'),
+            'password_pelanggan' => md5('jonajona'),
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s")
         ]);
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         	'nama_pegawai' => 'Jhonarendra',
         	'email_pegawai' => 'jhonarendra@gmail.com',
         	'username_pegawai' => 'jhonarendra',
-        	'password_pegawai' => bcrypt('jonajona'),
+        	'password_pegawai' => md5('jonajona'),
         	'created_at' => date("Y-m-d H:i:s"),
         	'updated_at' => date("Y-m-d H:i:s")
         ]);

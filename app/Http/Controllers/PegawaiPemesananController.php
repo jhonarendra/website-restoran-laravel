@@ -2,49 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Pelanggan;
+use App\Pegawai;
 use App\Pemesanan;
+use App\Restoran;
+use App\Hidangan;
 use App\DetilPemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PegawaiController;
 
-class PegawaiPemesananController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+class PegawaiPemesananController extends Controller {
+
+    public function index(){
+        if(!PegawaiController::getPegawai()){
+            return redirect('pegawai/login');
+        }
+        $pegawai = PegawaiController::getPegawai();
         $pemesanan = Pemesanan::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_pemesanan.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->select('tb_pemesanan.*', 'nama_restoran', 'nama_pegawai', 'nama_pelanggan')->get();
-        return view('pegawai.pemesanan.index', compact('pemesanan'));
+        return view('pegawai.pemesanan.index', compact('pemesanan', 'pegawai'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('pegawai.pemesanan.create');
+    public function create(){
+        if(!PegawaiController::getPegawai()){
+            return redirect('pegawai/login');
+        }
+        $pegawai = PegawaiController::getPegawai();
+        $restoran = Restoran::all();
+        $pelanggan = Pelanggan::all();
+        $pegawais = Pegawai::all();
+        $hidangan = Hidangan::all();
+        return view('pegawai.pemesanan.create', compact('pegawais', 'restoran', 'pelanggan', 'hidangan', 'pegawai'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'id_restoran' => 'required',
-            'id_pegawai' => 'required',
-            'id_pelanggan' => 'required',
-            'id_hidangan' => 'required',
-            'jumlah_hidangan' => 'required',
-        ]);
+    public function store(Request $request){
+        $pegawai = PegawaiController::getPegawai();
 
         $data = [
             'id_restoran' => $request->id_restoran,
@@ -55,33 +47,46 @@ class PegawaiPemesananController extends Controller
         ];
         Pemesanan::insert($data);
 
-        $id_pelanggan = $request->id_pelanggan;
-
-        $sql = Pemesanan::select('id_pemesanan')->where('id_pelanggan', '=', $id_pelanggan)->orderBy('id_pemesanan', 'desc')->first();
-
+        $sql = Pemesanan::select('id_pemesanan')->where('id_pelanggan', $request->id_pelanggan)->orderBy('id_pemesanan', 'desc')->first();
         $id_pemesanan = $sql['id_pemesanan'];
 
-        $data2 = [
-            'id_pemesanan' => $id_pemesanan,
-            'id_hidangan' => $request->id_hidangan,
-            'jumlah_hidangan' => $request->jumlah_hidangan,
-            'total_harga_hidangan' => 0,
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at' => date("Y-m-d H:i:s")
+        $id_hidangan = $request->hidangan;
+
+        $total_pemesanan = 0;
+
+        foreach ($id_hidangan as $id_hidangan) {
+            $jml = 'jumlah_hidangan'.$id_hidangan;
+            $hrg = 'harga_hidangan'.$id_hidangan;
+
+            $jumlah_hidangan = $_POST[$jml];
+            $harga_hidangan = $_POST[$hrg];
+            $total_harga_hidangan = ((int)$jumlah_hidangan * (int)$harga_hidangan);
+            $data2 = [
+                'id_pemesanan' => $id_pemesanan,
+                'id_hidangan' => $id_hidangan,
+                'jumlah_hidangan' => $jumlah_hidangan,
+                'total_harga_hidangan' => $total_harga_hidangan,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            ];
+            DetilPemesanan::insert($data2);
+
+            $total_pemesanan = $total_pemesanan + $total_harga_hidangan;
+        }
+
+        $data3 = [
+            'total_pemesanan' => $total_pemesanan,
         ];
-        DetilPemesanan::insert($data2);
+        Pemesanan::where('id_pemesanan', $id_pemesanan)->update($data3);
 
         return redirect('pegawai/pemesanan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    public function show($id){
+        if(!PegawaiController::getPegawai()){
+            return redirect('pegawai/login');
+        }
+        $pegawai = PegawaiController::getPegawai();
         $detil_pemesanan = DetilPemesanan::join('tb_pemesanan', 'tb_pemesanan.id_pemesanan', '=', 'tb_detil_pemesanan.id_pemesanan')
         ->join('tb_hidangan', 'tb_hidangan.id_hidangan', '=', 'tb_detil_pemesanan.id_hidangan')
         ->join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_pemesanan.id_restoran')
@@ -89,30 +94,19 @@ class PegawaiPemesananController extends Controller
         ->where('tb_pemesanan.id_pemesanan', $id)
         ->get();
 
-        return view('pegawai.pemesanan.show', compact('detil_pemesanan'));
+        return view('pegawai.pemesanan.show', compact('detil_pemesanan', 'pegawai'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id){
+        if(!PegawaiController::getPegawai()){
+            return redirect('pegawai/login');
+        }
+        $pegawai = PegawaiController::getPegawai();
         $pemesanan = Pemesanan::where('id_pemesanan', $id)->get();
-        return view('pegawai.pemesanan.edit', compact('pemesanan'));
+        return view('pegawai.pemesanan.edit', compact('pemesanan', 'pegawai'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $data = [
             'id_restoran' => $request->id_restoran,
             'id_pelanggan' => $request->id_pelanggan,
@@ -125,14 +119,7 @@ class PegawaiPemesananController extends Controller
         return redirect('pegawai/pemesanan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function destroy($id){
         DetilPemesanan::where('id_pemesanan', $id)->delete();
         Pemesanan::where('id_pemesanan', $id)->delete();
         return redirect('pegawai/pemesanan');

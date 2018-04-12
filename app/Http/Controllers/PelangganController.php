@@ -5,7 +5,7 @@ use App\Pelanggan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PelangganController extends Controller{
+class PelangganController extends Controller {
 
     public function index(){
         if (!isset($_SESSION['id_pelanggan'])) {
@@ -39,12 +39,16 @@ class PelangganController extends Controller{
     }
 
     public static function showLoginForm(){
-    	return view('pelanggan.auth.login');
+        if (!isset($_SESSION['id_pelanggan'])) {
+            return view('pelanggan.auth.login');
+        } else {
+            return redirect('pelanggan');
+        }
     }
 
     public static function login(Request $request){
     	$email_pelanggan = $request->email;
-    	$password_pelanggan = $request->password;
+    	$password_pelanggan = md5($request->password);
 
     	$row = Pelanggan::where('email_pelanggan', $email_pelanggan)->where('password_pelanggan', $password_pelanggan)->exists();
     	$rows = $row['exists'];
@@ -54,9 +58,6 @@ class PelangganController extends Controller{
             foreach ($pelanggan as $pelanggan) {
                 $_SESSION = [
                     'id_pelanggan' => $pelanggan->id_pelanggan,
-                    'nama_pelanggan' => $pelanggan->nama_pelanggan,
-                    'email_pelanggan' => $pelanggan->email_pelanggan,
-                    'username_pelanggan' => $pelanggan->username_pelanggan,
                 ];
             }
             return redirect('pelanggan');
@@ -75,7 +76,7 @@ class PelangganController extends Controller{
             'nama_pelanggan' => $request->name,
             'email_pelanggan' => $request->email,
             'username_pelanggan' => $request->username,
-            'password_pelanggan' => $request->password,
+            'password_pelanggan' => md5($request->password),
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ];

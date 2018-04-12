@@ -10,10 +10,11 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            <!--Auth::user()->name--> Jhonarendra
+                            {{$pegawai['nama_pegawai']}}
                         </h4>
                         <p class="card-text">
-                            <!--Auth::user()->email--> jhonarendra@gmail.com
+                            {{$pegawai['email_pegawai']}}<br />
+                            {{$pegawai['jabatan_pegawai']}}
                         </p>
                     </div>
                 </div>
@@ -52,6 +53,7 @@
                                 <th scope="col">Nama Pegawai</th>
                                 <th scope="col">Total Pemesanan</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Tanggal Diperbarui</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -65,6 +67,7 @@
                                 <td>{{$pemesanan->nama_pegawai}}</td>
                                 <td>{{$pemesanan->total_pemesanan}}</td>
                                 <td>{{$pemesanan->status_pemesanan}}</td>
+                                <td>{{$pemesanan->updated_at}}</td>
                                 <td>
                                     <a href="{{URL('pegawai/pemesanan/'.$pemesanan->id_pemesanan)}}" class="btn btn-primary">Rincian</a>
                                     <a href="{{URL('pegawai/pemesanan/'.$pemesanan->id_pemesanan.'/edit')}}" class="btn btn-success">Edit</a>

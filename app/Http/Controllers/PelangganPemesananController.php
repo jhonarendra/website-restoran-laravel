@@ -32,15 +32,10 @@ class PelangganPemesananController extends Controller {
         }
         $restoran = Restoran::all();
         $hidangan = Hidangan::all();
+        $pelanggan = PelangganController::getPelanggan();
         return view('pelanggan.pemesanan.create', compact('restoran', 'hidangan', 'pelanggan'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request){
         /*---------------------------------------------+
         |             ALUR KERJA PEMESANAN             |

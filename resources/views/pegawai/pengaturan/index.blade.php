@@ -10,10 +10,11 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            <!--Auth::user()->name--> Jhonarendra
+                            {{$pegawai['nama_pegawai']}}
                         </h4>
                         <p class="card-text">
-                            <!--Auth::user()->email--> jhonarendra@gmail.com
+                            {{$pegawai['email_pegawai']}}<br />
+                            {{$pegawai['jabatan_pegawai']}}
                         </p>
                     </div>
                 </div>
@@ -40,28 +41,26 @@
                         </div>
                     @endif
 
-                    @foreach($pegawai as $pegawai)
-                    <a href="{{URL('pegawai/pengaturan/'.$pegawai->id_pegawai.'/edit')}}" class="btn-primary btn">Edit Profil</a>
+                    <a href="{{URL('pegawai/pengaturan/'.$pegawai['id_pegawai'].'/edit')}}" class="btn-primary btn">Edit Profil</a>
 
                     <table class="table mt-3">
                         <tr>
                             <td>Nama</td>
-                            <td>{{$pegawai->nama_pegawai}}</td>
+                            <td>{{$pegawai['nama_pegawai']}}</td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td>{{$pegawai->email_pegawai}}</td>
+                            <td>{{$pegawai['email_pegawai']}}</td>
                         </tr>
                         <tr>
                             <td>Username</td>
-                            <td>{{$pegawai->username_pegawai}}</td>
+                            <td>{{$pegawai['username_pegawai']}}</td>
                         </tr>
                         <tr>
                             <td>Jabatan</td>
-                            <td>{{$pegawai->jabatan_pegawai}}</td>
+                            <td>{{$pegawai['jabatan_pegawai']}}</td>
                         </tr>
                     </table>
-                    @endforeach
                 </div>
             </div>
         </div>

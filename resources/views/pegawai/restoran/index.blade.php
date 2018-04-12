@@ -62,13 +62,12 @@
                                         {{ method_field('DELETE')}}
                                         <input type="submit" class="btn btn-danger" value="Hapus">
                                     </form>
-                                    
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
+                    Jangan hapus restoran, nanti semua pemesanan, detilpemesanan, reservasi yang id restorannya dihapus ikut kehapus
                 </div>
             </div>
         </div>

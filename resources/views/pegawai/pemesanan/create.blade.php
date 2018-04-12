@@ -10,10 +10,11 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            <!--Auth::user()->name--> Jhonarendra
+                            {{$pegawai['nama_pegawai']}}
                         </h4>
                         <p class="card-text">
-                            <!--Auth::user()->email--> jhonarendra@gmail.com
+                            {{$pegawai['email_pegawai']}}<br />
+                            {{$pegawai['jabatan_pegawai']}}
                         </p>
                     </div>
                 </div>
@@ -43,34 +44,43 @@
                     <form method="POST" action="{{ URL('pegawai/pemesanan/') }}">
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="id_restoran" class="col-sm-2 col-form-label">ID Restoran</label>
+                            <label for="id_restoran" class="col-sm-2 col-form-label">Restoran</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id_restoran" name="id_restoran" >
+                                <select name="id_restoran" class="form-control">
+                                    @foreach($restoran as $restoran)
+                                    <option value="{{$restoran->id_restoran}}">{{$restoran->nama_restoran.' - '.$restoran->alamat_restoran}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Pelanggan</label>
+                            <label for="" class="col-sm-2 col-form-label">Nama Pegawai</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="" name="id_pelanggan" >
+                                <select name="id_pegawai" class="form-control">
+                                    @foreach($pegawais as $pegawais)
+                                    <option value="{{$pegawais->id_pegawai}}">{{$pegawais->nama_pegawai}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Pegawai</label>
+                            <label for="" class="col-sm-2 col-form-label">Nama Pelanggan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="" name="id_pegawai" >
+                                <select name="id_pelanggan" class="form-control">
+                                    @foreach($pelanggan as $pelanggan)
+                                    <option value="{{$pelanggan->id_pelanggan}}">{{$pelanggan->nama_pelanggan}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="id_hidangan" class="col-sm-2 col-form-label">ID Hidangan</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id_hidangan" name="id_hidangan" >
+                        <div class="row">
+                            @foreach($hidangan as $hidangan)
+                            <div class="col-md-3">
+                                <input type="checkbox" name="hidangan[]" value="{{$hidangan->id_hidangan}}">{{$hidangan->nama_hidangan}}
+                                <input type="text" class="form-control" name="harga_hidangan{{$hidangan->id_hidangan}}" value="{{$hidangan->harga_hidangan}}" readonly="">
+                                <input type="text" class="form-control" name="jumlah_hidangan{{$hidangan->id_hidangan}}" placeholder="Jumlah">
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="jumlah_hidangan" class="col-sm-2 col-form-label">Jumlah</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="jumlah_hidangan" name="jumlah_hidangan" >
-                            </div>
+                            @endforeach
                         </div>
                         <input type="hidden" name="id_pegawai" value="1">
                         <div style="text-align: right;">

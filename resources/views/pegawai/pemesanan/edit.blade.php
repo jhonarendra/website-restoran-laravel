@@ -10,10 +10,11 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            <!--Auth::user()->name--> Jhonarendra
+                            {{$pegawai['nama_pegawai']}}
                         </h4>
                         <p class="card-text">
-                            <!--Auth::user()->email--> jhonarendra@gmail.com
+                            {{$pegawai['email_pegawai']}}<br />
+                            {{$pegawai['jabatan_pegawai']}}
                         </p>
                     </div>
                 </div>
@@ -40,8 +41,8 @@
                         </div>
                     @endif
 
-
-                    @foreach($pemesanan as $pemesanan)
+                    Apakah perlu diedit?
+                    <!--@foreach($pemesanan as $pemesanan)
                     <form method="POST" action="{{URL('pegawai/pemesanan', $pemesanan->id_pemesanan)}}">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
@@ -90,7 +91,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    @endforeach
+                    @endforeach-->
 
                 </div>
             </div>

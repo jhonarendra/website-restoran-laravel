@@ -60,35 +60,8 @@
                             @endforeach
                         </div>
 
-                        <!--<a id="tambah-hidangan" class="btn btn-success">Tambah Hidangan</a>
-
-                        <div id="hidangan">
-                            <div class="form-group row">
-                                <label for="id_restoran" class="col-sm-2 col-form-label">Hidangan</label>
-                                <div class="col-sm-10">
-                                    <select name="id_hidangan" class="form-control">
-                                        foreach($hidangan as $hidangan)
-                                        <option value="$hidangan->id_hidangan}}">$hidangan->nama_hidangan}}</option>
-                                        endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="jumlah_hidangan" class="col-sm-2 col-form-label">Jumlah</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="jumlah_hidangan" name="jumlah_hidangan" >
-                                </div>
-                            </div>
-                        </div>
-
-                        <script type="text/javascript">
-                            $("#tambah-hidangan").click(function(){
-                                $('#hidangan').append('<div class="form-group row"><label for="id_restoran" class="col-sm-2 col-form-label">Hidangan</label><div class="col-sm-10"><select name="id_hidangan" class="form-control">foreach($hidangan as $hidangan)<option value="$hidangan->id_hidangan}}">$hidangan->nama_hidangan}}</option>endforeach</select></div></div><div class="form-group row"><label for="jumlah_hidangan" class="col-sm-2 col-form-label">Jumlah</label><div class="col-sm-10"><input type="text" class="form-control" id="jumlah_hidangan" name="jumlah_hidangan" ></div></div>');
-                            });
-                        </script>-->
-
                         <div style="text-align: right;">
-                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                             <a class="btn btn-danger" href="{{URL('pelanggan/pemesanan')}}">Batal</a>
                         </div>
                     </form>

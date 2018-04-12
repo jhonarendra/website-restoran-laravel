@@ -33,6 +33,13 @@ Route::group(['prefix'=>'pelanggan'], function(){
 
 Route::group(['prefix'=>'pegawai'], function(){
 	Route::get('', 'PegawaiController@index');
+
+	Route::get('login', 'PegawaiController@showLoginForm');
+	Route::post('login', 'PegawaiController@login');
+	Route::get('logout', 'PegawaiController@logout');
+	Route::get('register', 'PegawaiController@showRegisterForm');
+	Route::post('register', 'PegawaiController@register');
+
 	Route::resource('reservasi', 'PegawaiReservasiController');
 	Route::resource('pemesanan', 'PegawaiPemesananController');
 	Route::resource('pelanggan', 'PegawaiPelangganController');
