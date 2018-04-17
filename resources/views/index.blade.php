@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>myRestoran</title>
+        <title>8-Star Restaurant</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -113,7 +113,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="">myRestoran</a>
+                <a class="navbar-brand" href="">8-Star Restaurant</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -167,17 +167,17 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                        <img class="first-slide" src="http://backgroundcheckall.com/wp-content/uploads/2017/12/background-restaurant-6.jpg" alt="First slide">
                         <div class="container">
                             <div class="carousel-caption text-left">
-                                <h1>myRestoran</h1>
+                                <h1>8-Star Restaurant</h1>
                                 <p>Website sistem restoran</p>
                                 <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button">Sign up today</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                        <img class="second-slide" src="http://backgroundcheckall.com/wp-content/uploads/2017/12/background-restaurant-6.jpg" alt="Second slide">
                         <div class="container">
                             <div class="carousel-caption">
                                 <h1>Dilengkapi Berbagai Fitur</h1>
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                        <img class="https://image.freepik.com/foto-gratis/mesa-de-madera-vacia-con-borrosa-cafe-montaje-de-productos-de-fondo-de-pantalla_1936-7.jpg" alt="Third slide">
                         <div class="container">
                             <div class="carousel-caption text-right">
                                 <h1>Mudah Digunakan</h1>
@@ -217,21 +217,21 @@
             <!-- Three columns of text below the carousel -->
                 <div class="row">
                     <div class="col-lg-4">
-                        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                        <h2>Heading</h2>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                        <img class="rounded-circle" src="https://i2-prod.mirror.co.uk/incoming/article2061122.ece/ALTERNATES/s615/Liam-Gallagher.jpg" alt="Generic placeholder image" width="140" height="140">
+                        <h2>World-Class Taste</h2>
+                        <p>Dengan pengalaman lebih dari 20 tahun, 8-Star Restaurant sudah diakui oleh seluruh masyrakat di berbagai belahan dunia mengenai rasa dari masakan yang kami hidangkan. Taste is Power.</p>
                         <p><a class="btn btn-secondary" href="index.html#" role="button">View details &raquo;</a></p>
                     </div><!-- /.col-lg-4 -->
                     <div class="col-lg-4">
-                        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                        <h2>Heading</h2>
-                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                        <img class="rounded-circle" src="http://www.fullersbbq.com/images/circle-300-3-plate.png" alt="Generic placeholder image" width="140" height="140">
+                        <h2>High-Quality Assurance</h2>
+                        <p>Kualitas makanan yang kami persembahkan sudah diakui oleh organisasi kesehatan WHO dan diberikan sertifikasi ISO-8000. Kami pastikan semua bahan yang kami gunakan telah siap dikonsumsi.</p>
                         <p><a class="btn btn-secondary" href="index.html#" role="button">View details &raquo;</a></p>
                     </div><!-- /.col-lg-4 -->
                     <div class="col-lg-4">
-                        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                        <h2>Heading</h2>
-                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <img class="rounded-circle" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/money-circle-green-3-512.png" alt="Generic placeholder image" width="140" height="140">
+                        <h2>World-Standart Pricing</h2>
+                        <p>Anda akan mendapatkan harga yang bersaing di 8-Star Restaurant. Dengan variasi menu yang disediakan oleh kami, anda bebas memilih level makanan yang anda inginkan, tentunya dengan harga yang sesuai.</p>
                         <p><a class="btn btn-secondary" href="index.html#" role="button">View details &raquo;</a></p>
                     </div><!-- /.col-lg-4 -->
                 </div><!-- /.row -->
