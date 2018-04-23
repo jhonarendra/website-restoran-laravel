@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AyuFood &mdash; Food Specialty </title>
+    <title>MyRestaurant &mdash; Food Specialty </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Warung Ayu, Food Specialty" />
     <meta name="keywords" content="Food, Warung Ayu, AyuFood, Kuta, Bali" />
@@ -54,8 +54,8 @@
                 <div class="fh5co-text">
                     <div class="container">
                         <div class="row">
-                            <h1 class="to-animate">AyuFood</h1>
-                            <h2 class="to-animate">Warung Ayu <span>by</span> <a href="#" target="_blank">Ayu Kadek</a></h2>
+                            <h1 class="to-animate">MyResto</h1>
+                            <h2 class="to-animate">Warung <span>by</span> <a href="#" target="_blank">Kelompok 8</a></h2>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                         <a href="#" data-nav-section="features">Special Menu</a>
                     </div>
                     <div class="fh5co-logo">
-                        <a href="index.html">ayufood</a>
+                        <a href="index.html">MyRestoran</a>
                     </div>
                     <div class="fh5co-menu-2">
                         <a href="#" data-nav-section="menu">Menu</a>
