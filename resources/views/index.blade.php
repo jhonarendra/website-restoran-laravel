@@ -83,7 +83,6 @@
                         <a href="#" data-nav-section="menu">Menu</a>
                         <a href="#" data-nav-section="events">Events</a>
                         @guest
-                        <a href="/pelanggan/login">Sign In</a>
                         @else
                         <a href="#" data-nav-section="reservation">Reservation</a>
                         @endguest
@@ -98,7 +97,7 @@
             <div class="fh5co-2col fh5co-text">
                 <h2 class="heading to-animate">About Us</h2>
                 <p class="to-animate"><span class="firstcharacter">W</span>arung ayu, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1967, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. Warung ayu menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
-                <p class="text-center to-animate"><a href="#" class="btn btn-primary btn-outline">Get in touch</a></p>
+                <p class="text-center to-animate"><a href="/pelanggan/login" class="btn btn-primary btn-outline">RESERVATION</a></p>
             </div>
         </div>
 
