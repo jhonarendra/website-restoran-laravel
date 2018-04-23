@@ -68,7 +68,6 @@
             </div>
             
         </div>
-        
         <div class="js-sticky">
             <div class="fh5co-main-nav">
                 <div class="container-fluid">
@@ -83,7 +82,11 @@
                     <div class="fh5co-menu-2">
                         <a href="#" data-nav-section="menu">Menu</a>
                         <a href="#" data-nav-section="events">Events</a>
+                        @guest
+                        <a href="/pelanggan/login">Sign In</a>
+                        @else
                         <a href="#" data-nav-section="reservation">Reservation</a>
+                        @endguest
                     </div>
                 </div>
                 
@@ -546,6 +549,10 @@
             </div>
         </div>
 
+
+@guest
+
+@else
         <div id="fh5co-contact" data-section="reservation">
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
@@ -566,7 +573,8 @@
                             <li><i class="icon-envelope"></i>warungayu@gmail.com</li>
                             <li><i class="icon-globe"></i> <a href="#" target="_blank">warungayu.co</a></li>
                         </ul>
-                    </div>                    
+                    </div> 
+       
                     <div class="col-md-6 to-animate-2">
                         <h3>Reservation Form</h3>
 
@@ -606,7 +614,7 @@
                 </div>
             </div>
         </div>
-
+    @endguest
         
     </div>
 
