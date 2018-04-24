@@ -1,6 +1,6 @@
-# Website Restoran
+<h1 align="center">Website Restoran</h1>
 
-Website restoran dengan framework Laravel 5.6
+<p align="center">Website restoran dengan framework Laravel 5.6</p>
 
 ## Installation
 
@@ -24,14 +24,7 @@ lalu instal composer
 composer install
 ```
 
-3. Ubah nama `.env.example` menjadi `.env` misalkan dengan perintah
-
-```
-ren .env.example .env
-```
-
-Lalu edit pengaturan databasenya.
-Juga masukkan perintah ini untuk mengisi `APP_KEY`
+3. Edit pengaturan database di file `.env`, juga masukkan perintah ini untuk mengisi `APP_KEY`
 
 ```
 php artisan key:generate
@@ -51,6 +44,29 @@ php artisan db:seed
 
 5. Siap dijalankan... 
 
+## Contributing
+
+1. Jika sudah di clone, pull dulu repository ini dengan perintah berikut, supaya dapat editan terbaru
+
+```
+git pull origin master
+```
+
+2. Edit projek sesuai keinginan
+3. Kalau sudah diedit, push kembali seperti perintah berikut
+
+```
+git add .
+```
+
+```
+git commit -m "pesan"
+```
+
+```
+git push origin master
+```
+
 ## Kelompok 8
 
 <p>1605551049 - Putu Jhonarendra</p>
@@ -60,4 +76,3 @@ php artisan db:seed
 <p>1605551097 - MARRIA TESALONIKA SIREGAR</p>
 <p>1605552028 - Dwiki Surya Chen</p>
 <p>1605552033 - Boy Jehezkiel Kamanang Mahar</p>
-

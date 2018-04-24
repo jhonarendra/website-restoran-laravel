@@ -1,296 +1,665 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<!DOCTYPE html>
+<html class="no-js" lang="{{ app()->getLocale() }}">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AyuFood &mdash; Food Specialty </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Warung Ayu, Food Specialty" />
+    <meta name="keywords" content="Food, Warung Ayu, AyuFood, Kuta, Bali" />
+    <meta name="author" content="" />
 
-        <title>8-Star Restaurant</title>
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <!-- Simple Line Icons -->
+    <link rel="stylesheet" href="{{ asset('css/simple-line-icons.css') }}">
+    <!-- Datetimepicker -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
+    <!-- Flexslider -->
+    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
-        <!-- Custom Style -->
-        <style type="text/css">
-            /* GLOBAL STYLES
-            -------------------------------------------------- */
-            /* Padding below the footer and lighter body text */
-
-            body {
-              padding-top: 3rem;
-              padding-bottom: 3rem;
-              color: #5a5a5a;
-            }
-
-
-            /* CUSTOMIZE THE CAROUSEL
-            -------------------------------------------------- */
-
-            /* Carousel base class */
-            .carousel {
-              margin-bottom: 4rem;
-            }
-            /* Since positioning the image, we need to help out the caption */
-            .carousel-caption {
-              bottom: 3rem;
-              z-index: 10;
-            }
-
-            /* Declare heights because of positioning of img element */
-            .carousel-item {
-              height: 32rem;
-              background-color: #777;
-            }
-            .carousel-item > img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              min-width: 100%;
-              height: 32rem;
-            }
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
-            /* MARKETING CONTENT
-            -------------------------------------------------- */
+    <!-- Modernizr JS -->
+    <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
 
-            /* Center align the text within the three columns below the carousel */
-            .marketing .col-lg-4 {
-              margin-bottom: 1.5rem;
-              text-align: center;
-            }
-            .marketing h2 {
-              font-weight: 400;
-            }
-            .marketing .col-lg-4 p {
-              margin-right: .75rem;
-              margin-left: .75rem;
-            }
-
-
-            /* Featurettes
-            ------------------------- */
-
-            .featurette-divider {
-              margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-            }
-
-            /* Thin out the marketing headings */
-            .featurette-heading {
-              font-weight: 300;
-              line-height: 1;
-              letter-spacing: -.05rem;
-            }
-
-
-            /* RESPONSIVE CSS
-            -------------------------------------------------- */
-
-            @media (min-width: 40em) {
-              /* Bump up size of carousel content */
-              .carousel-caption p {
-                margin-bottom: 1.25rem;
-                font-size: 1.25rem;
-                line-height: 1.4;
-              }
-
-              .featurette-heading {
-                font-size: 50px;
-              }
-            }
-
-            @media (min-width: 62em) {
-              .featurette-heading {
-                margin-top: 7rem;
-              }
-            }
-
-        </style>
     </head>
     <body>
-        <header>
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="">8-Star Restaurant</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        @auth
-                        <li class="nav-item active">
-                            <a class="nav-link" href="
-                                @if(Auth::user()->jabatan == 'Admin')
-                                admin
-                                @else
-                                pelanggan
-                                @endif
-                            ">{{Auth::user()->name}} <span class="sr-only">(current)</span></a>
-                        </li>
-                        @else
-                        <!--<li class="nav-item active">
-                            <a class="nav-link" href="{{ route('login') }}">Login <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
-                        </li>-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="pelanggan/login">Login Pelanggan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pegawai/login">Login Pegawai</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pelanggan/register">Register Pelanggan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pegawai/register">Register Pegawai</a>
-                        </li>
-                        @endauth
-                    </ul>
-                    <form class="form-inline mt-2 mt-md-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
-        </header>
+    <div id="fh5co-container">
+        <div id="fh5co-home" class="js-fullheight" data-section="home">
 
-        <main role="main">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="first-slide" src="http://backgroundcheckall.com/wp-content/uploads/2017/12/background-restaurant-6.jpg" alt="First slide">
-                        <div class="container">
-                            <div class="carousel-caption text-left">
-                                <h1>8-Star Restaurant</h1>
-                                <p>Website sistem restoran</p>
-                                <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button">Sign up today</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="second-slide" src="http://backgroundcheckall.com/wp-content/uploads/2017/12/background-restaurant-6.jpg" alt="Second slide">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Dilengkapi Berbagai Fitur</h1>
-                                <p>User Panel, Dashboard Admin, Reservation Order and many more...</p>
-                                <p><a class="btn btn-lg btn-primary" href="" role="button">Learn more</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="https://image.freepik.com/foto-gratis/mesa-de-madera-vacia-con-borrosa-cafe-montaje-de-productos-de-fondo-de-pantalla_1936-7.jpg" alt="Third slide">
-                        <div class="container">
-                            <div class="carousel-caption text-right">
-                                <h1>Mudah Digunakan</h1>
-                                <p>Mudah dipakai semua kalangan</p>
-                                <p><a class="btn btn-lg btn-primary" href="" role="button">Browse gallery</a></p>
-                            </div>
+            <div class="flexslider">
+                
+                <div class="fh5co-overlay"></div>
+                <div class="fh5co-text">
+                    <div class="container">
+                        <div class="row">
+                            <h1 class="to-animate">AyuFood</h1>
+                            <h2 class="to-animate">Warung Ayu <span>by</span> <a href="#" target="_blank">Ayu Kadek</a></h2>
                         </div>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="index.html#myCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="index.html#myCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <ul class="slides">
+                <li style="background-image: url(images/steak1.jpg);" data-stellar-background-ratio="0.5"></li>
+                <li style="background-image: url(images/mushroom_soup1.jpg);" data-stellar-background-ratio="0.5"></li>
+                <li style="background-image: url(images/sushi1.jpg);" data-stellar-background-ratio="0.5"></li>
+                </ul>
+
             </div>
+            
+        </div>
+        
+        <div class="js-sticky">
+            <div class="fh5co-main-nav">
+                <div class="container-fluid">
+                    <div class="fh5co-menu-1">
+                        <a href="#" data-nav-section="home">Home</a>
+                        <a href="#" data-nav-section="about">About</a>
+                        <a href="#" data-nav-section="features">Special Menu</a>
+                    </div>
+                    <div class="fh5co-logo">
+                        <a href="index.html">ayufood</a>
+                    </div>
+                    <div class="fh5co-menu-2">
+                        <a href="#" data-nav-section="menu">Menu</a>
+                        <a href="#" data-nav-section="events">Events</a>
+                        <a href="#" data-nav-section="reservation">Reservation</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
 
+        <div id="fh5co-about" data-section="about">
+            <div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(images/dinner1.jpg)"></div>
+            <div class="fh5co-2col fh5co-text">
+                <h2 class="heading to-animate">About Us</h2>
+                <p class="to-animate"><span class="firstcharacter">W</span>arung ayu, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1967, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. Warung ayu menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
+                <p class="text-center to-animate"><a href="#" class="btn btn-primary btn-outline">Get in touch</a></p>
+            </div>
+        </div>
 
-            <!-- Marketing messaging and featurettes
-            ================================================== -->
-            <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div id="fh5co-sayings">
+            <div class="container">
+                <div class="row to-animate">
 
-            <div class="container marketing">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            
+                            <li>
+                                <blockquote>
+                                    <p>&ldquo;Cooking is an art, but all art requires knowing something about the techniques and materials&rdquo;</p>
+                                    <p class="quote-author">&mdash; Nathan Myhrvold</p>
+                                </blockquote>
+                            </li>
+                            <li>
+                                <blockquote>
+                                    <p>&ldquo;Give a man food, and he can eat for a day. Give a man a job, and he can only eat for 30 minutes on break.&rdquo;</p>
+                                    <p class="quote-author">&mdash; Lev L. Spiro</p>
+                                </blockquote>
+                            </li>
+                            <li>
+                                <blockquote>
+                                    <p>&ldquo;Find something you’re passionate about and keep tremendously interested in it.&rdquo;</p>
+                                    <p class="quote-author">&mdash; Julia Child</p>
+                                </blockquote>
+                            </li>
+                            <li>
+                                <blockquote>
+                                    <p>&ldquo;Never work before breakfast; if you have to work before breakfast, eat your breakfast first.&rdquo;</p>
+                                    <p class="quote-author">&mdash; Josh Billings</p>
+                                </blockquote>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
 
-            <!-- Three columns of text below the carousel -->
+                </div>
+            </div>
+        </div>
+
+        <div id="fh5co-featured" data-section="features">
+            <div class="container">
+                <div class="row text-center fh5co-heading row-padded">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="heading to-animate">Special Menu</h2>
+                        <p class="sub-heading to-animate">Menu spesial khusus yang menjadi andalan kami.</p>
+                    </div>
+                </div>
                 <div class="row">
-                    <div class="col-lg-4">
-                        <img class="rounded-circle" src="https://i2-prod.mirror.co.uk/incoming/article2061122.ece/ALTERNATES/s615/Liam-Gallagher.jpg" alt="Generic placeholder image" width="140" height="140">
-                        <h2>World-Class Taste</h2>
-                        <p>Dengan pengalaman lebih dari 20 tahun, 8-Star Restaurant sudah diakui oleh seluruh masyrakat di berbagai belahan dunia mengenai rasa dari masakan yang kami hidangkan. Taste is Power.</p>
-                        <p><a class="btn btn-secondary" href="index.html#" role="button">View details &raquo;</a></p>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <img class="rounded-circle" src="http://www.fullersbbq.com/images/circle-300-3-plate.png" alt="Generic placeholder image" width="140" height="140">
-                        <h2>High-Quality Assurance</h2>
-                        <p>Kualitas makanan yang kami persembahkan sudah diakui oleh organisasi kesehatan WHO dan diberikan sertifikasi ISO-8000. Kami pastikan semua bahan yang kami gunakan telah siap dikonsumsi.</p>
-                        <p><a class="btn btn-secondary" href="index.html#" role="button">View details &raquo;</a></p>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <img class="rounded-circle" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/money-circle-green-3-512.png" alt="Generic placeholder image" width="140" height="140">
-                        <h2>World-Standart Pricing</h2>
-                        <p>Anda akan mendapatkan harga yang bersaing di 8-Star Restaurant. Dengan variasi menu yang disediakan oleh kami, anda bebas memilih level makanan yang anda inginkan, tentunya dengan harga yang sesuai.</p>
-                        <p><a class="btn btn-secondary" href="index.html#" role="button">View details &raquo;</a></p>
-                    </div><!-- /.col-lg-4 -->
-                </div><!-- /.row -->
-
-
-                <!-- START THE FEATURETTES -->
-
-                <hr class="featurette-divider">
-
-                    <div class="row featurette">
-                        <div class="col-md-7">
-                            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <div class="fh5co-grid">
+                        <div class="fh5co-v-half to-animate-2">
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_1.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
+                                <h2>Fresh Mushrooms</h2>
+                                <span class="pricing">IDR 28k</span>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+                        <div class="fh5co-v-half">
+                            <div class="fh5co-h-row-2 to-animate-2">
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_2.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-text arrow-left">
+                                    <h2>Grilled Chiken Salad</h2>
+                                    <span class="pricing">IDR 22k</span>
+                                    <p>Far far away, behind the word mountains.</p>
+                                </div>
+                            </div>
+                            <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_8.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-text arrow-right">
+                                    <h2>Cheese and Garlic Toast</h2>
+                                    <span class="pricing">IDR 18k</span>
+                                    <p>Far far away, behind the word mountains.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <hr class="featurette-divider">
+                        <div class="fh5co-v-half">
+                            <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_7.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-text arrow-right">
+                                    <h2>Organic Egg</h2>
+                                    <span class="pricing">IDR 15k</span>
+                                    <p>Far far away, behind the word mountains.</p>
+                                </div>
+                            </div>
+                            <div class="fh5co-h-row-2 to-animate-2">
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_6.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-text arrow-left">
+                                    <h2>Salad with Crispy Chicken</h2>
+                                    <span class="pricing">IDR 32k</span>
+                                    <p>Far far away, behind the word mountains.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fh5co-v-half to-animate-2">
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_3.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
+                                <h2>Tomato Soup with Chicken</h2>
+                                <span class="pricing">IDR 25k</span>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            </div>
+                        </div>
 
-                <div class="row featurette">
-                    <div class="col-md-7 order-md-2">
-                        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-                        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                    </div>
-                    <div class="col-md-5 order-md-1">
-                        <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
                     </div>
                 </div>
 
-                <hr class="featurette-divider">
+            </div>
+        </div>
 
-                    <div class="row featurette">
-                        <div class="col-md-7">
-                            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                        </div>
-                        <div class="col-md-5">
-                            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <div id="fh5co-type" style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5">
+            <div class="fh5co-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 to-animate">
+                        <div class="fh5co-type">
+                            <h3 class="with-icon icon-1">Fruits</h3>
+                            <p>Buah-buahan segar yang dipilih dan dipetik langsung dari sumbernya.</p>
                         </div>
                     </div>
+                    <div class="col-md-3 to-animate">
+                        <div class="fh5co-type">
+                            <h3 class="with-icon icon-2">Sea food</h3>
+                            <p>Semua aneka hidangan laut yang fresh siap untuk anda nikmati.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 to-animate">
+                        <div class="fh5co-type">
+                            <h3 class="with-icon icon-3">Vegetables</h3>
+                            <p>Sayur-sayuran khusus yang kami panen khusus untuk anda.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 to-animate">
+                        <div class="fh5co-type">
+                            <h3 class="with-icon icon-4">Meat</h3>
+                            <p>Dipilih dengan kualitas daging yang terbaik dari peternakannya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <hr class="featurette-divider">
+        <div id="fh5co-menus" data-section="menu">
+            <div class="container">
+                <div class="row text-center fh5co-heading row-padded">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="heading to-animate">Food Menu</h2>
+                        <p class="sub-heading to-animate">Dipilih Dengan Bahan Terbaik dan Berkualitas.</p>
+                    </div>
+                </div>
+                <div class="row row-padded">
+                    <div class="col-md-6">
+                        <div class="fh5co-food-menu to-animate-2">
+                            <h2 class="fh5co-drinks">Drinks</h2>
+                            <ul>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/pinepple.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Pina Colada</h3>
+                                            <p>Icy mixed coconut cream with pinapple juice.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 28k
+                                    </div>
+                                </li>   
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/long_island.JPG" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Long Island</h3>
+                                            <p>Teq,gin,rum,vodka mixed with cola and orange juice.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 25k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/soft%20drink.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Soft Drinks</h3>
+                                            <p>Pepsi,7up,Sprite,Fanta.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 15k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/wine.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Winery</h3>
+                                            <p>Red & White, You know the best right?</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 65k
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="fh5co-food-menu to-animate-2">
+                            <h2 class="fh5co-dishes">Food</h2>
+                            <ul>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/spageti.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>spagetti bolognese </h3>
+                                            <p>pasta with sauce tomato.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 68k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/ribs.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Hot Grilled Ribs</h3>
+                                            <p>ribs with sauce BBQ</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 86K
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/salad.jpeg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Thai Chicken Salad</h3>
+                                            <p>salad with chiken sauce thai</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 52k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/sushi1.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>sushi</h3>
+                                            <p>five roll with cheese.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 47k
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="fh5co-food-menu to-animate-2">
+                            <h2 class="fh5co-drinks">Juice</h2>
+                            <ul>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/tropical.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Tropical Juice</h3>
+                                            <p>healty living with healty juice.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 30k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/green%20juice.jpg" class="img-responsive">
+                                        </figure>
+                                        <div>
+                                            <h3>Green Juice</h3>
+                                            <p>cucumber juice.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 22k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/beries.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Berries Juice</h3>
+                                            <p>with berries fresh.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 25k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/heart.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Heartbeat Juice</h3>
+                                            <p>with beetroot with apple and ginger.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 22k
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="fh5co-food-menu to-animate-2">
+                            <h2 class="fh5co-dishes">Steak</h2>
+                            <ul>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/beef.jpg" class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>Beef Steak</h3>
+                                            <p>Far far away, behind the word mountains.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 170k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/chiken.jpg" class="img-responsive">
+                                        </figure>
+                                        <div>
+                                            <h3 Chicken steak</h3>
+                                            <p>Far far away, behind the word mountains.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 75k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/saus.jpeg" class="img-responsive">
+                                        </figure>
+                                        <div>
+                                            <h3>Sausages from Italy</h3>
+                                            <p>Far far away, behind the word mountains.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 85k
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fh5co-food-desc">
+                                        <figure>
+                                            <img src="images/tuna.jpg"class="img-responsive" >
+                                        </figure>
+                                        <div>
+                                            <h3>tuna steak</h3>
+                                            <p>Far far away, behind the word mountains.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fh5co-food-pricing">
+                                        IDR 85k
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center to-animate-2">
+                        <p><a href="file:///C:/xampp/htdocs/WAB/menu_ext.html" class="btn btn-primary btn-outline">More Food Menu</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- /END THE FEATURETTES -->
+        <div id="fh5co-events" data-section="events" style="background-image: url(images/slide_2.jpg);" data-stellar-background-ratio="0.5">
+            <div class="fh5co-overlay"></div>
+            <div class="container">
+                <div class="row text-center fh5co-heading row-padded">
+                    <div class="col-md-8 col-md-offset-2 to-animate">
+                        <h2 class="heading">Upcoming Events</h2>
+                        <p class="sub-heading">Event Khusus yang akan datang untuk menemani malam anda.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="fh5co-event to-animate-2">
+                            <h3>Kitchen Workshops</h3>
+                            <span class="fh5co-event-meta">November 20th, 2017</span>
+                            <p>Ikuti spesial di restoran kami bersama dengan Chef Gordon Ramsey.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="fh5co-event to-animate-2">
+                            <h3>Music Concerts</h3>
+                            <span class="fh5co-event-meta">December 2nd, 2017</span>
+                            <p>Datanglah di Music Concerts spesial di malam Minggu bersama pasangan anda!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="fh5co-event to-animate-2">
+                            <h3>Free to Eat Party</h3>
+                            <span class="fh5co-event-meta">December 31th, 2017</span>
+                            <p>Ayo nikmati akhir tahun bersama kami di Free-to-eat party!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            </div><!-- /.container -->
+        <div id="fh5co-contact" data-section="reservation">
+            <div class="container">
+                <div class="row text-center fh5co-heading row-padded">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="heading to-animate">Reserve a Table</h2>
+                        <p class="sub-heading to-animate">Ingin memesan tempat? silahkan isi form dibawah, Terima Kasih.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 to-animate-2">
+                        <h3>Contact Info</h3>
+                        <ul class="fh5co-contact-info">
+                            <li class="fh5co-contact-address ">
+                                <i class="icon-home"></i>
+                                Jalan Raya Kuta no. 17, <br> Kuta, Bali
+                            </li>
+                            <li><i class="icon-phone"></i> (0536) 288-6282</li>
+                            <li><i class="icon-envelope"></i>warungayu@gmail.com</li>
+                            <li><i class="icon-globe"></i> <a href="#" target="_blank">warungayu.co</a></li>
+                        </ul>
+                    </div>                    
+                    <div class="col-md-6 to-animate-2">
+                        <h3>Reservation Form</h3>
 
+                        <form action="insert.php" method="post">
 
-                <!-- FOOTER -->
-            <footer class="container">
-            <p class="float-right"><a href="index.html#">Back to top</a></p>
-            <p>&copy; 2017 Company, Inc. &middot; <a href="index.html#">Privacy</a> &middot; <a href="index.html#">Terms</a></p>
-            </footer>
+                            <div class="form-group ">
+                                <label for="name" class="sr-only">Name</label>
+                                <input id="name" name="name" class="form-control" placeholder="Name" type="text">
+                            </div>
+                            <div class="form-group ">
+                                <label for="email" class="sr-only">Email</label>
+                                <input id="email" name="email" class="form-control" placeholder="Email" type="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="occation" class="sr-only">Occation</label>
+                                <select class="form-control" name="occation" id="occation">
+                                    <option>Select an Occation</option>
+                                  <option>Wedding Ceremony</option>
+                                  <option>Birthday</option>
+                                  <option>Others</option>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <label for="date" class="sr-only">Date</label>
+                                <input id="date" name="date" class="form-control" placeholder="Date &amp; Time" type="text">
+                            </div>                          
+                            <div class="form-group ">
+                                <label for="message" class="sr-only">Message</label>
+                                <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group ">
+                                <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Send Message" type="submit">
+                                
+                            </div>
+                        </form>
+                    </div>                    
+                </div>
+            </div>
+        </div>
 
-        </main>
-        <!--<script type="text/javascript">
-            alert("jangan lupa migrate, lalu db:seed")
-        </script>-->
-    </body>
-</html>
+        
+    </div>
+
+        <div id="fh5co-footer">
+            <div class="container">
+                <div class="row row-padded">
+                    <div class="col-md-12 text-center">
+                        <p class="to-animate">&copy; 2017 warungayu.co. <br> Designed by <a href="#" target="_blank">Boy & Dania</a> Demo Images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
+                        </p>
+                        <p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="fh5co-social">
+                            <li class="to-animate-2"><a href="facebook.com"><i class="icon-facebook"></i></a></li>
+                            <li class="to-animate-2"><a href="twitter.com"><i class="icon-twitter"></i></a></li>
+                            <li class="to-animate-2"><a href="instagram.com"><i class="icon-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+
+        
+        
+        
+        
+        <!-- jQuery -->
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <!-- jQuery Easing -->
+        <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+        <!-- Bootstrap -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- Bootstrap DateTimePicker -->
+        <script src="{{ asset('js/moment.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+        <!-- Waypoints -->
+        <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+        <!-- Stellar Parallax -->
+        <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+
+        <!-- Flexslider -->
+        <script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+        <script>
+            $(function () {
+               $('#date').datetimepicker();
+           });
+        </script>
+        <!-- Main JS -->
+        <script src="{{ asset('js/main.js') }}"></script>
+
+        </body>
+    </html>
+
