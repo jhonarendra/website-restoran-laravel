@@ -10,11 +10,10 @@
                     <div style="text-align: center">
                         <img src="" style="width: 100px;height: 100px;border-radius: 50%;" />
                         <h4 class="card-title">
-                            {{$pegawai['nama_pegawai']}}
+                            <!--Auth::user()->name--> Jhonarendra
                         </h4>
                         <p class="card-text">
-                            {{$pegawai['email_pegawai']}}<br />
-                            {{$pegawai['jabatan_pegawai']}}
+                            <!--Auth::user()->email--> jhonarendra@gmail.com
                         </p>
                     </div>
                 </div>
