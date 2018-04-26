@@ -96,7 +96,7 @@
             <div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(images/dinner1.jpg)"></div>
             <div class="fh5co-2col fh5co-text">
                 <h2 class="heading to-animate">About Us</h2>
-                <p class="to-animate"><span class="firstcharacter">W</span>arung ayu, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1967, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. Warung ayu menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
+                <p class="to-animate"><span class="firstcharacter">M</span>y Resto, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1967, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. My Resto menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
                 <p class="text-center to-animate"><a href="/pelanggan/login" class="btn btn-primary btn-outline">RESERVATION</a></p>
             </div>
         </div>
@@ -452,7 +452,7 @@
                                         </figure>
                                         <div>
                                             <h3>Beef Steak</h3>
-                                            <p>Far far away, behind the word mountains.</p>
+                                            <p>Beef Steak with Western Style sauce</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
@@ -465,8 +465,8 @@
                                             <img src="images/chiken.jpg" class="img-responsive">
                                         </figure>
                                         <div>
-                                            <h3 Chicken steak</h3>
-                                            <p>Far far away, behind the word mountains.</p>
+                                            <h3> Chicken steak</h3>
+                                            <p>Chicken Steak with Cheese sauce.</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
@@ -479,8 +479,8 @@
                                             <img src="images/saus.jpeg" class="img-responsive">
                                         </figure>
                                         <div>
-                                            <h3>Sausages from Italy</h3>
-                                            <p>Far far away, behind the word mountains.</p>
+                                            <h3>Italy Sausages</h3>
+                                            <p>Sausages from italy.</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
@@ -493,8 +493,8 @@
                                             <img src="images/tuna.jpg"class="img-responsive" >
                                         </figure>
                                         <div>
-                                            <h3>tuna steak</h3>
-                                            <p>Far far away, behind the word mountains.</p>
+                                            <h3>Tuna steak</h3>
+                                            <p>Fresh Tuna Steak.</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
@@ -621,7 +621,7 @@
             <div class="container">
                 <div class="row row-padded">
                     <div class="col-md-12 text-center">
-                        <p class="to-animate">&copy; 2017 warungayu.co. <br> Designed by <a href="#" target="_blank">Boy & Dania</a> Demo Images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
+                        <p class="to-animate">&copy; 2018 kelompok8.co. <br> Designed by <a href="#" target="_blank">Kelompok 8</a> Demo Images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
                         </p>
                         <p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
                     </div>
