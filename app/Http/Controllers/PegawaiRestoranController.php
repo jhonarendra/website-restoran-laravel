@@ -25,7 +25,7 @@ class PegawaiRestoranController extends Controller {
             return redirect('pegawai/login');
         }
         $pegawai = PegawaiController::getPegawai();
-        return view('pegawai.restoran.create');
+        return view('pegawai.restoran.create', compact('pegawai'));
     }
 
     public function store(Request $request){

@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MyRestaurant &mdash; Food Specialty </title>
+    <title>MyRestoran &mdash; Food Specialty </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Warung Ayu, Food Specialty" />
     <meta name="keywords" content="Food, Warung Ayu, AyuFood, Kuta, Bali" />
@@ -54,7 +54,7 @@
                 <div class="fh5co-text">
                     <div class="container">
                         <div class="row">
-                            <h1 class="to-animate">MyResto</h1>
+                            <h1 class="to-animate">MyRestoran</h1>
                             <h2 class="to-animate">Warung <span>by</span> <a href="#" target="_blank">Kelompok 8</a></h2>
                         </div>
                     </div>
@@ -82,13 +82,9 @@
                     <div class="fh5co-menu-2">
                         <a href="#" data-nav-section="menu">Menu</a>
                         <a href="#" data-nav-section="events">Events</a>
-                        @guest
-                        @else
                         <a href="#" data-nav-section="reservation">Reservation</a>
-                        @endguest
                     </div>
                 </div>
-                
             </div>
         </div>
 
@@ -97,7 +93,7 @@
             <div class="fh5co-2col fh5co-text">
                 <h2 class="heading to-animate">About Us</h2>
                 <p class="to-animate"><span class="firstcharacter">M</span>y Resto, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1967, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. My Resto menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
-                <p class="text-center to-animate"><a href="/pelanggan/login" class="btn btn-primary btn-outline">RESERVATION</a></p>
+                <p class="text-center to-animate"><a href="{{URL('pelanggan/login')}}" class="btn btn-primary btn-outline">RESERVATION</a></p>
             </div>
         </div>
 
@@ -110,26 +106,26 @@
                             
                             <li>
                                 <blockquote>
-                                    <p>&ldquo;Cooking is an art, but all art requires knowing something about the techniques and materials&rdquo;</p>
-                                    <p class="quote-author">&mdash; Nathan Myhrvold</p>
+                                    <p>&ldquo;Eat is my hobby.&rdquo;</p>
+                                    <p class="quote-author">&mdash; Adhiarta</p>
                                 </blockquote>
                             </li>
                             <li>
                                 <blockquote>
-                                    <p>&ldquo;Give a man food, and he can eat for a day. Give a man a job, and he can only eat for 30 minutes on break.&rdquo;</p>
-                                    <p class="quote-author">&mdash; Lev L. Spiro</p>
+                                    <p>&ldquo;Pelayanannya ramah, tempatnya bersih, mantap deh pokoknya.&rdquo;</p>
+                                    <p class="quote-author">&mdash; Marria Tesalonika</p>
                                 </blockquote>
                             </li>
                             <li>
                                 <blockquote>
-                                    <p>&ldquo;Find something you’re passionate about and keep tremendously interested in it.&rdquo;</p>
-                                    <p class="quote-author">&mdash; Julia Child</p>
+                                    <p>&ldquo;Harganya sangat sesuai dengan kantong mahasiswa.&rdquo;</p>
+                                    <p class="quote-author">&mdash; Gung Wira</p>
                                 </blockquote>
                             </li>
                             <li>
                                 <blockquote>
-                                    <p>&ldquo;Never work before breakfast; if you have to work before breakfast, eat your breakfast first.&rdquo;</p>
-                                    <p class="quote-author">&mdash; Josh Billings</p>
+                                    <p>&ldquo;Pelayannya cantik :)&rdquo;</p>
+                                    <p class="quote-author">&mdash; Boy J.</p>
                                 </blockquote>
                             </li>
                             
@@ -548,16 +544,12 @@
             </div>
         </div>
 
-
-@guest
-
-@else
         <div id="fh5co-contact" data-section="reservation">
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="heading to-animate">Reserve a Table</h2>
-                        <p class="sub-heading to-animate">Ingin memesan tempat? silahkan isi form dibawah, Terima Kasih.</p>
+                        <p class="sub-heading to-animate">Silahkan buat akun terlebih dahulu.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -577,7 +569,8 @@
                     <div class="col-md-6 to-animate-2">
                         <h3>Reservation Form</h3>
 
-                        <form action="insert.php" method="post">
+                        <form action="{{URL('pelanggan/register')}}" method="post">
+                            @csrf
 
                             <div class="form-group ">
                                 <label for="name" class="sr-only">Name</label>
@@ -587,6 +580,15 @@
                                 <label for="email" class="sr-only">Email</label>
                                 <input id="email" name="email" class="form-control" placeholder="Email" type="email">
                             </div>
+                            <div class="form-group ">
+                                <label for="username" class="sr-only">Username</label>
+                                <input id="username" name="username" class="form-control" placeholder="Username" type="text">
+                            </div>
+                            <div class="form-group ">
+                                <label for="password" class="sr-only">Password</label>
+                                <input id="password" name="password" class="form-control" placeholder="Password" type="password">
+                            </div>
+                            <!--
                             <div class="form-group">
                                 <label for="occation" class="sr-only">Occation</label>
                                 <select class="form-control" name="occation" id="occation">
@@ -603,9 +605,9 @@
                             <div class="form-group ">
                                 <label for="message" class="sr-only">Message</label>
                                 <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
-                            </div>
+                            </div>-->
                             <div class="form-group ">
-                                <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Send Message" type="submit">
+                                <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Sign Up" type="submit">
                                 
                             </div>
                         </form>
@@ -613,7 +615,6 @@
                 </div>
             </div>
         </div>
-    @endguest
         
     </div>
 

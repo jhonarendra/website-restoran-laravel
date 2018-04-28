@@ -210,7 +210,7 @@ p {
   margin: 0;
   padding: 0;
   font-family: "Playfair Display", serif;
-  font-size: 300px;
+  font-size: 200px;
   font-weight: 700;
   font-style: italic;
   color: #fff;
@@ -1170,9 +1170,9 @@ p {
   display: block;
 }
 @media screen and (max-width: 768px) {
-  .js-sticky {
+  /*.js-sticky {
     display: none;
-  }
+  }*/
 }
 
 .fh5co-nav-toggle {
@@ -1269,9 +1269,10 @@ p {
   border-radius: 4px;
 }
 @media screen and (max-width: 768px) {
-  .fh5co-nav-toggle {
+/*  .fh5co-nav-toggle {
     display: block;
   }
+*/
 }
 
 #fh5co-type {
