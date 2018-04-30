@@ -54,8 +54,8 @@
                 <div class="fh5co-text">
                     <div class="container">
                         <div class="row">
-                            <h1 class="to-animate">MyRestoran</h1>
-                            <h2 class="to-animate">Warung <span>by</span> <a href="#" target="_blank">Kelompok 8</a></h2>
+                            <h1 class="to-animate">8-Stars Restaurant</h1>
+                            <h2 class="to-animate">A Restaurant <span>by</span> <a href="#" target="_blank">Kelompok 8</a></h2>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         <a href="#" data-nav-section="features">Special Menu</a>
                     </div>
                     <div class="fh5co-logo">
-                        <a href="index.html">MyRestoran</a>
+                        <a href="index.html">8-Stars</a>
                     </div>
                     <div class="fh5co-menu-2">
                         <a href="#" data-nav-section="menu">Menu</a>
@@ -92,21 +92,21 @@
             <div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(images/dinner1.jpg)"></div>
             <div class="fh5co-2col fh5co-text">
                 <h2 class="heading to-animate">About Us</h2>
-                <p class="to-animate"><span class="firstcharacter">M</span>y Resto, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1967, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. My Resto menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
+                <p class="to-animate"><span class="firstcharacter">M</span>y 8-Stars Restaurant, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1867, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. 8-Stars Restaurant menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
                 <p class="text-center to-animate"><a href="{{URL('pelanggan/login')}}" class="btn btn-primary btn-outline">RESERVATION</a></p>
             </div>
         </div>
 
-        <div id="fh5co-sayings">
+        <div id="fh5co-sayings" style="background-image: url(http://paper-backgrounds.com/textureimages/2012/11/gray-soft-fabric-texture.jpg)">
             <div class="container">
                 <div class="row to-animate">
 
-                    <div class="flexslider">
+                    <div class="flexslider" style="background-image: url(https://i.pinimg.com/originals/5b/ff/c8/5bffc8784c8dda525c6548c0afd085a1.jpg)">
                         <ul class="slides">
                             
                             <li>
                                 <blockquote>
-                                    <p>&ldquo;Eat is my hobby.&rdquo;</p>
+                                    <p>&ldquo;Makan adalah hobiku. 8-Stars Restaurant mengirim hobiku ke tingkatan selanjutnya.&rdquo;</p>
                                     <p class="quote-author">&mdash; Adhiarta</p>
                                 </blockquote>
                             </li>
@@ -118,7 +118,7 @@
                             </li>
                             <li>
                                 <blockquote>
-                                    <p>&ldquo;Harganya sangat sesuai dengan kantong mahasiswa.&rdquo;</p>
+                                    <p>&ldquo;Harganya sangat sesuai dengan kantong mahasiswa. Apalagi saya mahasiswa rantau&rdquo;</p>
                                     <p class="quote-author">&mdash; Gung Wira</p>
                                 </blockquote>
                             </li>
@@ -126,6 +126,12 @@
                                 <blockquote>
                                     <p>&ldquo;Pelayannya cantik :)&rdquo;</p>
                                     <p class="quote-author">&mdash; Boy J.</p>
+                                </blockquote>
+                            </li>
+                            <li>
+                                <blockquote>
+                                    <p>&ldquo;Websitenya sangat bagus, apalagi restorannya, MANTAP.&rdquo;</p>
+                                    <p class="quote-author">&mdash; Urip Yogantara</p>
                                 </blockquote>
                             </li>
                             
@@ -142,62 +148,62 @@
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="heading to-animate">Special Menu</h2>
-                        <p class="sub-heading to-animate">Menu spesial khusus yang menjadi andalan kami.</p>
+                        <p class="sub-heading to-animate">Menu spesial khusus yang menjadi andalan kami untuk pelanggan tercinta.</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="fh5co-grid">
                         <div class="fh5co-v-half to-animate-2">
-                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_1.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(http://www.measuringcupsoptional.com/wp-content/uploads/2017/12/Fresh-Mushroom-Soup_3.jpg)"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Fresh Mushrooms</h2>
                                 <span class="pricing">IDR 28k</span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p>Jamur tersedia segar, kering, atau kalengan. Jamur segar tersedia sepanjang tahun, dengan musim puncak di Amerika Serikat adalah April hingga Juni. Jamur liar tersedia musiman, biasanya di musim panas dan musim gugur. Jamur kering dan kalengan juga dapat ditemukan sepanjang tahun. Mereka adalah pilihan makanan rendah kalori, rendah karbohidrat yang dapat digunakan secara berbeda dalam memasak. Restoran kami telah memproduksi Psilocybe cubensis grow kits selama lebih dari 25 tahun. Selama periode ini, kami telah mengoptimalkan kit kami hingga sempurna dan telah berkembang menjadi tidak kurang dari 11 jenis yang berbeda. Perangkat tumbuh kami tidak dijual di situs web ini atau langsung dari Freshmushrooms tetapi secara eksklusif tersedia melalui dealer dan toko online yang dipilih secara hati-hati. Berkat kualitasnya yang sangat terkenal, jaringan dealer ini telah menjadi begitu luas sehingga perangkat kami yang berkembang tersedia hampir di semua tempat di Eropa. Anda selalu dapat menemukan vendor online atau offline.</p>
                             </div>
                         </div>
                         <div class="fh5co-v-half">
                             <div class="fh5co-h-row-2 to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_2.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://tatyanaseverydayfood.com/wp-content/uploads/2014/04/Grilled-Chicken-Salad-2.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-left">
                                     <h2>Grilled Chiken Salad</h2>
                                     <span class="pricing">IDR 22k</span>
-                                    <p>Far far away, behind the word mountains.</p>
+                                    <p>Dada ayam panggang adalah sumber protein tanpa lemak dan sayuran berwarna menyediakan tubuh kita  nutrisi, dan antioksidan, tetapi salad ayam panggang bisa menjadi monoton. Biarkan rutinitas makan sehat Anda menjadi membosankan dan coba tebak? Anda tidak akan menaatinya. Itu sebabnya kami mengumpulkan sembilan resep besar untuk salad ayam panggang. Salad yang mudah dibuat ini adalah makanan yang sempurna setiap hari dalam seminggu. Jadi, jika Anda membutuhkan motivasi ekstra untuk makan sehat.</p>
                                 </div>
                             </div>
                             <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_8.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://copykat.com/wp-content/uploads/2015/08/Homemade-Garlic-Bread.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-right">
                                     <h2>Cheese and Garlic Toast</h2>
                                     <span class="pricing">IDR 18k</span>
-                                    <p>Far far away, behind the word mountains.</p>
+                                    <p>Ini tidak menjadi lebih baik daripada sepotong roti bawang putih hangat langsung dari oven. Sempurna untuk dicelupkan ke saus marinara atau disajikan sebagai sisi untuk semua pasta dan sup favorit Anda. Saya tidak berbagi banyak resep makanan enak yang memanjakan di sini selain makanan penutup jadi saya pikir ini adalah waktunya untuk berbagi resep seperti itu. Roti ini sangat enak, saya kesulitan mengetahui kapan harus berhenti! Saya ingin terus meraih potongan demi irisan. Lezat lezat, bawang putih!.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="fh5co-v-half">
                             <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_7.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://fitnpretty.files.wordpress.com/2010/03/eggs.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-right">
                                     <h2>Organic Egg</h2>
                                     <span class="pricing">IDR 15k</span>
-                                    <p>Far far away, behind the word mountains.</p>
+                                    <p>Telur organik berasal dari ayam yang harus memiliki akses ke luar ruangan sepanjang tahun. Ini berarti ayam mendapatkan latihan dan memiliki kesempatan untuk makan rumput, tanaman dan serangga lain selain pakan mereka, yang dapat meningkatkan kualitas gizi lemak yang ditemukan dalam telur. Menurut Susan Allport, penulis "The Queen of Fats," telur dari ayam yang bebas-range dan makan diet kaya omega-3 asam lemak - dari sumber seperti rumput dan gulma - bertelur yang lebih tinggi dalam asam lemak omega-3 daripada ayam yang hanya diberi makan biji-bijian.</p>
                                 </div>
                             </div>
                             <div class="fh5co-h-row-2 to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_6.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://thecozyapron.com/wp-content/uploads/2015/06/honey-mustard-chicken-chopped-salad_thecozyapron_05-31-15_2.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-left">
                                     <h2>Salad with Crispy Chicken</h2>
                                     <span class="pricing">IDR 32k</span>
-                                    <p>Far far away, behind the word mountains.</p>
+                                    <p>Almond manis dan mie chow mein menambahkan kegembiraan yang menyenangkan ke salad ini yang membuat sebagian besar sisa ayam. Kata Irene Dickhausen dari St. Paul, Minnesota, “Salad ini cepat, sederhana dan selalu populer di acara makan siang wanita.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="fh5co-v-half to-animate-2">
-                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_3.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://themom100.com/wp-content/uploads/2014/10/soup.jpg)"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Tomato Soup with Chicken</h2>
                                 <span class="pricing">IDR 25k</span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p>Sambil membuat sup yang menyenangkan ini, saya mencoba mengingat berbagai tekstur, warna dan rasa. Pangkal tomat manisnya penuh dengan ayam, brokoli, jagung, dan beberapa jenis kacang. Ini sangat lezat jika Anda menghiasinya dengan irisan cheddar dan daging hancur.</p>
                             </div>
                         </div>
 
@@ -207,7 +213,7 @@
             </div>
         </div>
 
-        <div id="fh5co-type" style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5">
+        <div id="fh5co-type" style="background-image: url(https://i.pinimg.com/originals/5b/ff/c8/5bffc8784c8dda525c6548c0afd085a1.jpg);" data-stellar-background-ratio="0.5">
             <div class="fh5co-overlay"></div>
             <div class="container">
                 <div class="row">
@@ -239,7 +245,7 @@
             </div>
         </div>
 
-        <div id="fh5co-menus" data-section="menu">
+        <div id="fh5co-menus" style="background-image: url(https://i.pinimg.com/originals/02/b5/7e/02b57e09918f8af5f95127d01211f83a.jpg);" data-section="menu">
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2">
@@ -544,7 +550,7 @@
             </div>
         </div>
 
-        <div id="fh5co-contact" data-section="reservation">
+        <div id="fh5co-contact" style="background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/white-paper-texture-with-flecks.jpg)" data-section="reservation">
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2">
@@ -622,7 +628,7 @@
             <div class="container">
                 <div class="row row-padded">
                     <div class="col-md-12 text-center">
-                        <p class="to-animate">&copy; 2018 kelompok8.co. <br> Designed by <a href="#" target="_blank">Kelompok 8</a> Demo Images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
+                        <p class="to-animate">&copy; 2018 kelompok8.co. <br> Designed by <a href="#" target="_blank"> ©Kelompok 8 Praktikum Prognet 2018</a> Demo Images: <a href="http://pexels.com/" target="_blank">Pexels</a> <br> Tasty Icons Free <a href="http://handdrawngoods.com/store/tasty-icons-free-food-icons/" target="_blank">handdrawngoods</a>
                         </p>
                         <p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
                     </div>
