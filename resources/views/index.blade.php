@@ -564,11 +564,11 @@
                         <ul class="fh5co-contact-info">
                             <li class="fh5co-contact-address ">
                                 <i class="icon-home"></i>
-                                Jalan Raya Kuta no. 17, <br> Kuta, Bali
+                                Jalan Raya Batu Belig no. 17X, <br> Seminyak, Bali
                             </li>
-                            <li><i class="icon-phone"></i> (0536) 288-6282</li>
-                            <li><i class="icon-envelope"></i>warungayu@gmail.com</li>
-                            <li><i class="icon-globe"></i> <a href="#" target="_blank">warungayu.co</a></li>
+                            <li><i class="icon-phone"></i> (0361)237-163</li>
+                            <li><i class="icon-envelope"></i>8-stars@gmail.com</li>
+                            <li><i class="icon-globe"></i> <a href="#" target="_blank">8-stars.com</a></li>
                         </ul>
                     </div> 
        
