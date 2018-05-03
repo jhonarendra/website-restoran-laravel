@@ -6,5 +6,8 @@
 @section('email_pelanggan', $pelanggan['email_pelanggan'])
 
 @section('content')
-kosong wkwkw
+
+@yield('nama_pelanggan')<br />
+@yield('email_pelanggan')<br />
+
 @endsection

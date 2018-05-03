@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MyRestoran &mdash; Food Specialty </title>
+    <title>8-Stars Restaurant &mdash; Food Specialty </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Warung Ayu, Food Specialty" />
     <meta name="keywords" content="Food, Warung Ayu, AyuFood, Kuta, Bali" />
@@ -199,7 +199,7 @@
                             </div>
                         </div>
                         <div class="fh5co-v-half to-animate-2">
-                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://themom100.com/wp-content/uploads/2014/10/soup.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(http://images.soupaddict.com/chicken-parmesan-soup-featured2.jpg)"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Tomato Soup with Chicken</h2>
                                 <span class="pricing">IDR 25k</span>
