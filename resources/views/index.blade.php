@@ -82,7 +82,13 @@
                     <div class="fh5co-menu-2">
                         <a href="#" data-nav-section="menu">Menu</a>
                         <a href="#" data-nav-section="events">Events</a>
+                        @if($islogin['login']=='pelanggan')
+                        <a href="#" data-nav-section="reservation">{{$pelanggan['nama_pelanggan']}}</a>
+                        @elseif($islogin['login']=='pegawai')
+                        <a href="#" data-nav-section="reservation">{{$pegawai['nama_pegawai']}}</a>
+                        @else
                         <a href="#" data-nav-section="reservation">Reservation</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -93,7 +99,7 @@
             <div class="fh5co-2col fh5co-text">
                 <h2 class="heading to-animate">About Us</h2>
                 <p class="to-animate"><span class="firstcharacter">M</span>y 8-Stars Restaurant, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1867, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. 8-Stars Restaurant menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
-                <p class="text-center to-animate"><a href="{{URL('pelanggan/login')}}" class="btn btn-primary btn-outline">RESERVATION</a></p>
+                <p class="text-center to-animate"><a href="{{URL('pelanggan/login')}}" class="btn btn-primary btn-outline">Sign in</a><a href="{{URL('pelanggan/register')}}" class="btn btn-primary btn-outline">Sign Up</a></p>
             </div>
         </div>
 
@@ -554,70 +560,96 @@
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="heading to-animate">Reserve a Table</h2>
-                        <p class="sub-heading to-animate">Silahkan buat akun terlebih dahulu.</p>
+
+                        <h2 class="heading to-animate">
+                            @if($islogin['login']=='pelanggan'||$islogin['login']=='pegawai')
+                                Dashboard
+                            @else
+                                Reserve a Table
+                            @endif
+                        </h2>
+                        <p class="sub-heading to-animate">
+                            @if($islogin['login']=='pelanggan'||$islogin['login']=='pegawai')
+                                
+                            @else
+                                Silahkan buat akun terlebih dahulu.
+                            @endif
+                        </p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 to-animate-2">
-                        <h3>Contact Info</h3>
-                        <ul class="fh5co-contact-info">
-                            <li class="fh5co-contact-address ">
-                                <i class="icon-home"></i>
-                                Jalan Raya Batu Belig no. 17X, <br> Seminyak, Bali
-                            </li>
-                            <li><i class="icon-phone"></i> (0361)237-163</li>
-                            <li><i class="icon-envelope"></i>8-stars@gmail.com</li>
-                            <li><i class="icon-globe"></i> <a href="#" target="_blank">8-stars.com</a></li>
-                        </ul>
-                    </div> 
-       
-                    <div class="col-md-6 to-animate-2">
-                        <h3>Reservation Form</h3>
+                    @if($islogin['login']=='pelanggan'||$islogin['login']=='pegawai')
+                        @if($islogin['login']=='pelanggan')
+                            <a href="{{URL('pelanggan')}}" class="btn btn-primary">Go To Dashboard</a>
+                        @else
+                            <a href="{{URL('pegawai')}}" class="btn btn-primary">Go To Dashboard</a>
+                        @endif
+                    @else
+                        
+                        <div class="col-md-6 to-animate-2">
+                            <h3>Contact Info</h3>
+                            <ul class="fh5co-contact-info">
+                                <li class="fh5co-contact-address ">
+                                    <i class="icon-home"></i>
+                                    Jalan Raya Batu Belig no. 17X, <br> Seminyak, Bali
+                                </li>
+                                <li><i class="icon-phone"></i> (0361)237-163</li>
+                                <li><i class="icon-envelope"></i>8-stars@gmail.com</li>
+                                <li><i class="icon-globe"></i> <a href="#" target="_blank">8-stars.com</a></li>
+                            </ul>
+                        </div> 
+           
+                        <div class="col-md-6 to-animate-2">
+                            <h3>Reservation Form</h3>
 
-                        <form action="{{URL('pelanggan/register')}}" method="post">
-                            @csrf
+                            <form action="{{URL('pelanggan/register')}}" method="post">
+                                @csrf
 
-                            <div class="form-group ">
-                                <label for="name" class="sr-only">Name</label>
-                                <input id="name" name="name" class="form-control" placeholder="Name" type="text">
-                            </div>
-                            <div class="form-group ">
-                                <label for="email" class="sr-only">Email</label>
-                                <input id="email" name="email" class="form-control" placeholder="Email" type="email">
-                            </div>
-                            <div class="form-group ">
-                                <label for="username" class="sr-only">Username</label>
-                                <input id="username" name="username" class="form-control" placeholder="Username" type="text">
-                            </div>
-                            <div class="form-group ">
-                                <label for="password" class="sr-only">Password</label>
-                                <input id="password" name="password" class="form-control" placeholder="Password" type="password">
-                            </div>
-                            <!--
-                            <div class="form-group">
-                                <label for="occation" class="sr-only">Occation</label>
-                                <select class="form-control" name="occation" id="occation">
-                                    <option>Select an Occation</option>
-                                  <option>Wedding Ceremony</option>
-                                  <option>Birthday</option>
-                                  <option>Others</option>
-                                </select>
-                            </div>
-                            <div class="form-group ">
-                                <label for="date" class="sr-only">Date</label>
-                                <input id="date" name="date" class="form-control" placeholder="Date &amp; Time" type="text">
-                            </div>                          
-                            <div class="form-group ">
-                                <label for="message" class="sr-only">Message</label>
-                                <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
-                            </div>-->
-                            <div class="form-group ">
-                                <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Sign Up" type="submit">
-                                
-                            </div>
-                        </form>
-                    </div>                    
+                                <div class="form-group ">
+                                    <label for="name" class="sr-only">Name</label>
+                                    <input id="name" name="name" class="form-control" placeholder="Name" type="text">
+                                </div>
+                                <div class="form-group ">
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input id="email" name="email" class="form-control" placeholder="Email" type="email">
+                                </div>
+                                <div class="form-group ">
+                                    <label for="username" class="sr-only">Username</label>
+                                    <input id="username" name="username" class="form-control" placeholder="Username" type="text">
+                                </div>
+                                <div class="form-group ">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input id="password" name="password" class="form-control" placeholder="Password" type="password">
+                                </div>
+                                <!--
+                                <div class="form-group">
+                                    <label for="occation" class="sr-only">Occation</label>
+                                    <select class="form-control" name="occation" id="occation">
+                                        <option>Select an Occation</option>
+                                      <option>Wedding Ceremony</option>
+                                      <option>Birthday</option>
+                                      <option>Others</option>
+                                    </select>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="date" class="sr-only">Date</label>
+                                    <input id="date" name="date" class="form-control" placeholder="Date &amp; Time" type="text">
+                                </div>                          
+                                <div class="form-group ">
+                                    <label for="message" class="sr-only">Message</label>
+                                    <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+                                </div>-->
+                                <div class="form-group ">
+                                    <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Sign Up" type="submit">
+                                    
+                                </div>
+                                <div class="form-group">
+                                    Already have an account? <a href="{{URL('pelanggan/login')}}" class="btn btn-primary">Sign in</a>
+                                </div>
+                            </form>
+                        </div>  
+
+                    @endif                  
                 </div>
             </div>
         </div>
