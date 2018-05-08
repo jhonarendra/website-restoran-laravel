@@ -1,111 +1,199 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ app()->getLocale() }}">
+<html lang="en" lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
-    <meta name="description" content="Warung Ayu, Food Specialty" />
-    <meta name="keywords" content="Food, Warung Ayu, AyuFood, Kuta, Bali" />
-    <meta name="author" content="" />
-
-    <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="og:description" content=""/>
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="" />
-    <meta name="twitter:url" content="" />
-    <meta name="twitter:card" content="" />
-
-
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <style type="text/css">
-        body{
-            background: #fff;
-        }
-        .custom-nav{
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            height:68px;
-            box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
-        }
-        .custom-nav .navbar-brand{
-            font-size: 40px;
-            font-weight: 700;
-            font-style: italic;
-        }
-        .nav{
-            background: url({{ asset('images/res_img_8.jpg') }} );
-            position:fixed;
-            height:100%;
-            top:68px;
-        }
-        .nav-link{
-            color:#5e493a;
-        }
-        .nav-link.active{
-            color:#fb6e14;
-        }
-        .custom-content{
-            background: url({{ asset('images/wood_1.png') }}) repeat;
-            padding-top:78px;
-            color:#a99c92;
-            line-height:2;
-            min-height:700px;
-        }
-    </style>
-
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <title>@yield('title') - 8-Stars Restaurant</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('ela/css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('ela/css/helper.css') }}" rel="stylesheet">
+    <link href="{{ asset('ela/css/style.css') }}" rel="stylesheet">
+    
+    <script src="{{ asset('ela/js/lib/jquery/jquery.min.js') }}"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
-<body>
-    <nav class="custom-nav navbar navbar-expand-lg navbar-light bg-white">
-      <a class="navbar-brand" href="{{URL('/')}}">8-Stars Restaurant</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              @yield('nama_pelanggan')
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{URL('pelanggan/pengaturan')}}">Profil</a>
-              <a class="dropdown-item" href="{{URL('pelanggan/logout')}}">Logout</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-        <ul class="nav flex-column col-md-2">
-          <li class="nav-item">
-            <a class="nav-link {{{(Request::is('pelanggan') ? 'active' : '')}}}" href="{{URL('pelanggan')}}">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{{(Request::is('pelanggan/reservasi') ? 'active' : '')}}}" href="{{URL('pelanggan/reservasi')}}">Reservasi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{{(Request::is('pelanggan/pemesanan') ? 'active' : '')}}}" href="{{URL('pelanggan/pemesanan')}}">Pemesanan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{{(Request::is('pelanggan/pengaturan') ? 'active' : '')}}}" href="{{URL('pelanggan/pengaturan')}}">Pengaturan</a>
-          </li>
-        </ul>
+<body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <div class="header">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- Logo -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{URL('/')}}">8-Stars Restaurant</a>
+                </div>
+                <!-- End Logo -->
+                <div class="navbar-collapse">
+                    <!-- toggle and nav items -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <!-- Messages -->
+                        <!-- End Messages -->
+                    </ul>
+                    <!-- User profile and search -->
+                    <ul class="navbar-nav my-lg-0">
 
-        <div class="custom-content col-md-10 offset-md-2 to-animate">
-            @yield('content')
+                        <!-- Search -->
+                        <!-- Comment -->
+                        <!-- End Comment -->
+                        <!-- Messages -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">You have 4 new messages</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('ela/images/users/5.jpg') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('ela/images/users/2.jpg') }}" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>John Doe</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('ela/images/users/3.jpg') }}" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Mr. John</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('ela/images/users/4.jpg') }}" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- End Messages -->
+                        <!-- Profile -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('ela/images/users/5.jpg') }}" alt="user" class="profile-pic" /></a>
+                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                <ul class="dropdown-user">
+                                    <li><a href="{{URL('pelanggan/pengaturan')}}"><i class="ti-user"></i> Profile</a></li>
+                                    <li><a href="{{URL('pelanggan/logout')}}"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
+        <!-- End header header -->
+        <!-- Left Sidebar  -->
+        <div class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+                        <li class="nav-label">Pelanggan</li>
 
+                        <li class="{{{(Request::is('pelanggan') ? 'active' : '')}}}"> <a href="{{URL('pelanggan')}}" aria-expanded="false"><i class="fa fa-tachometer"></i>Dashboard </a></li>
+                        <li class="{{{(Request::is('pelanggan/reservasi') ? 'active' : '')}}}"> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Reservasi</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{URL('pelanggan/reservasi')}}">Semua Reservasi</a></li>
+                                <li><a href="{{URL('pelanggan/reservasi/create')}}">Buat Reservasi</a></li>
+                            </ul>
+                        </li>
+                        <li class="{{{(Request::is('pelanggan/pemesanan') ? 'active' : '')}}}"> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Pemesanan</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{URL('pelanggan/pemesanan')}}">Semua Pemesanan</a></li>
+                                <li><a href="{{URL('pelanggan/pemesanan/create')}}">Buat Pemesanan</a></li>
+                            </ul>
+                        </li>
+                        <li class="{{{(Request::is('pelanggan/pengaturan') ? 'active' : '')}}}"> <a href="{{URL('pelanggan/pengaturan')}}" aria-expanded="false"><i class="fa fa-tachometer"></i>Profil </a></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </div>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">@yield('title')</h3> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                @yield('content')
+                <!-- /# row -->
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{{ asset('ela/js/lib/bootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ asset('ela/js/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{{ asset('ela/js/jquery.slimscroll.js') }}"></script>
+    <!--Menu sidebar -->
+    <script src="{{ asset('ela/js/sidebarmenu.js') }}"></script>
+    <!--stickey kit -->
+    <script src="{{ asset('ela/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ asset('ela/js/custom.min.js') }}"></script>
 
-	<script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 </html>

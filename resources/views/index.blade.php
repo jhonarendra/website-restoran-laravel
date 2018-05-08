@@ -21,23 +21,23 @@
     <meta name="twitter:card" content="" />
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('resto/css/animate.css') }}">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('resto/css/icomoon.css') }}">
     <!-- Simple Line Icons -->
-    <link rel="stylesheet" href="{{ asset('css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('resto/css/simple-line-icons.css') }}">
     <!-- Datetimepicker -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('resto/css/bootstrap-datetimepicker.min.css') }}">
     <!-- Flexslider -->
-    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('resto/css/flexslider.css') }}">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('resto/css/bootstrap.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('resto/css/style.css') }}">
 
 
     <!-- Modernizr JS -->
-    <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+    <script src="{{ asset('resto/js/modernizr-2.6.2.min.js') }}"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
     <script src="js/respond.min.js"></script>
@@ -103,11 +103,13 @@
             </div>
         </div>
 
-        <div id="fh5co-sayings" style="background-image: url(http://paper-backgrounds.com/textureimages/2012/11/gray-soft-fabric-texture.jpg)">
+        <!--<div id="fh5co-sayings" style="background-image: url(http://paper-backgrounds.com/textureimages/2012/11/gray-soft-fabric-texture.jpg)">-->
+        <div id="fh5co-sayings">
             <div class="container">
                 <div class="row to-animate">
 
-                    <div class="flexslider" style="background-image: url(https://i.pinimg.com/originals/5b/ff/c8/5bffc8784c8dda525c6548c0afd085a1.jpg)">
+                    <!--<div class="flexslider" style="background-image: url(https://i.pinimg.com/originals/5b/ff/c8/5bffc8784c8dda525c6548c0afd085a1.jpg)">-->
+                    <div class="flexslider">
                         <ul class="slides">
                             
                             <li>
@@ -160,7 +162,7 @@
                 <div class="row">
                     <div class="fh5co-grid">
                         <div class="fh5co-v-half to-animate-2">
-                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(http://www.measuringcupsoptional.com/wp-content/uploads/2017/12/Fresh-Mushroom-Soup_3.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu2.jpg)"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Fresh Mushrooms</h2>
                                 <span class="pricing">IDR 28k</span>
@@ -169,7 +171,7 @@
                         </div>
                         <div class="fh5co-v-half">
                             <div class="fh5co-h-row-2 to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://tatyanaseverydayfood.com/wp-content/uploads/2014/04/Grilled-Chicken-Salad-2.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu1.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-left">
                                     <h2>Grilled Chiken Salad</h2>
                                     <span class="pricing">IDR 22k</span>
@@ -177,7 +179,7 @@
                                 </div>
                             </div>
                             <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://copykat.com/wp-content/uploads/2015/08/Homemade-Garlic-Bread.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu2.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-right">
                                     <h2>Cheese and Garlic Toast</h2>
                                     <span class="pricing">IDR 18k</span>
@@ -188,7 +190,7 @@
 
                         <div class="fh5co-v-half">
                             <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://fitnpretty.files.wordpress.com/2010/03/eggs.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu3.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-right">
                                     <h2>Organic Egg</h2>
                                     <span class="pricing">IDR 15k</span>
@@ -196,7 +198,7 @@
                                 </div>
                             </div>
                             <div class="fh5co-h-row-2 to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(https://thecozyapron.com/wp-content/uploads/2015/06/honey-mustard-chicken-chopped-salad_thecozyapron_05-31-15_2.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu4.jpg)"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-left">
                                     <h2>Salad with Crispy Chicken</h2>
                                     <span class="pricing">IDR 32k</span>
@@ -205,7 +207,7 @@
                             </div>
                         </div>
                         <div class="fh5co-v-half to-animate-2">
-                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(http://images.soupaddict.com/chicken-parmesan-soup-featured2.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu5.jpg)"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Tomato Soup with Chicken</h2>
                                 <span class="pricing">IDR 25k</span>
@@ -219,7 +221,8 @@
             </div>
         </div>
 
-        <div id="fh5co-type" style="background-image: url(https://i.pinimg.com/originals/5b/ff/c8/5bffc8784c8dda525c6548c0afd085a1.jpg);" data-stellar-background-ratio="0.5">
+        <!--<div id="fh5co-type" style="background-image: url(https://i.pinimg.com/originals/5b/ff/c8/5bffc8784c8dda525c6548c0afd085a1.jpg);" data-stellar-background-ratio="0.5">-->
+        <div id="fh5co-type" data-stellar-background-ratio="0.5">
             <div class="fh5co-overlay"></div>
             <div class="container">
                 <div class="row">
@@ -251,7 +254,8 @@
             </div>
         </div>
 
-        <div id="fh5co-menus" style="background-image: url(https://i.pinimg.com/originals/02/b5/7e/02b57e09918f8af5f95127d01211f83a.jpg);" data-section="menu">
+        <!--<div id="fh5co-menus" style="background-image: url(https://i.pinimg.com/originals/02/b5/7e/02b57e09918f8af5f95127d01211f83a.jpg);" data-section="menu">-->
+        <div id="fh5co-menus" data-section="menu">
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2">
@@ -264,62 +268,22 @@
                         <div class="fh5co-food-menu to-animate-2">
                             <h2 class="fh5co-drinks">Drinks</h2>
                             <ul>
+                                @foreach($minuman as $minuman)
                                 <li>
                                     <div class="fh5co-food-desc">
                                         <figure>
                                             <img src="images/pinepple.jpg" class="img-responsive" >
                                         </figure>
                                         <div>
-                                            <h3>Pina Colada</h3>
+                                            <h3>{{$minuman->nama_hidangan}}</h3>
                                             <p>Icy mixed coconut cream with pinapple juice.</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
-                                        IDR 28k
-                                    </div>
-                                </li>   
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/long_island.JPG" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Long Island</h3>
-                                            <p>Teq,gin,rum,vodka mixed with cola and orange juice.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 25k
+                                        Rp {{$minuman->harga_hidangan}}
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/soft%20drink.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Soft Drinks</h3>
-                                            <p>Pepsi,7up,Sprite,Fanta.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 15k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/wine.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Winery</h3>
-                                            <p>Red & White, You know the best right?</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 65k
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -327,66 +291,26 @@
                         <div class="fh5co-food-menu to-animate-2">
                             <h2 class="fh5co-dishes">Food</h2>
                             <ul>
+                                @foreach($makanan as $makanan)
                                 <li>
                                     <div class="fh5co-food-desc">
                                         <figure>
                                             <img src="images/spageti.jpg" class="img-responsive" >
                                         </figure>
                                         <div>
-                                            <h3>spagetti bolognese </h3>
+                                            <h3>{{$makanan->nama_hidangan}}</h3>
                                             <p>pasta with sauce tomato.</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
-                                        IDR 68k
+                                        Rp {{$makanan->harga_hidangan}}
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/ribs.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Hot Grilled Ribs</h3>
-                                            <p>ribs with sauce BBQ</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 86K
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/salad.jpeg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Thai Chicken Salad</h3>
-                                            <p>salad with chiken sauce thai</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 52k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/sushi1.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>sushi</h3>
-                                            <p>five roll with cheese.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 47k
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <!--<div class="col-md-6">
                         <div class="fh5co-food-menu to-animate-2">
                             <h2 class="fh5co-drinks">Juice</h2>
                             <ul>
@@ -511,13 +435,13 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-md-4 col-md-offset-4 text-center to-animate-2">
                         <p><a href="file:///C:/xampp/htdocs/WAB/menu_ext.html" class="btn btn-primary btn-outline">More Food Menu</a></p>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
 
@@ -556,7 +480,8 @@
             </div>
         </div>
 
-        <div id="fh5co-contact" style="background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/white-paper-texture-with-flecks.jpg)" data-section="reservation">
+        <!--<div id="fh5co-contact" style="background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/white-paper-texture-with-flecks.jpg)" data-section="reservation">-->
+        <div id="fh5co-contact" data-section="reservation">
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2">
@@ -683,28 +608,28 @@
         
         
         <!-- jQuery -->
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('resto/js/jquery.min.js') }}"></script>
         <!-- jQuery Easing -->
-        <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+        <script src="{{ asset('resto/js/jquery.easing.1.3.js') }}"></script>
         <!-- Bootstrap -->
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('resto/js/bootstrap.min.js') }}"></script>
         <!-- Bootstrap DateTimePicker -->
-        <script src="{{ asset('js/moment.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+        <script src="{{ asset('resto/js/moment.js') }}"></script>
+        <script src="{{ asset('resto/js/bootstrap-datetimepicker.min.js') }}"></script>
         <!-- Waypoints -->
-        <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('resto/js/jquery.waypoints.min.js') }}"></script>
         <!-- Stellar Parallax -->
-        <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+        <script src="{{ asset('resto/js/jquery.stellar.min.js') }}"></script>
 
         <!-- Flexslider -->
-        <script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+        <script src="{{ asset('resto/js/jquery.flexslider-min.js') }}"></script>
         <script>
             $(function () {
                $('#date').datetimepicker();
            });
         </script>
         <!-- Main JS -->
-        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('resto/js/main.js') }}"></script>
 
         </body>
     </html>

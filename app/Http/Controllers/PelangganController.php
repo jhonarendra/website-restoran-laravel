@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 session_start();
 use App\Pelanggan;
+use App\Reservasi;
+use App\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,13 +13,22 @@ class PelangganController extends Controller {
         if (!isset($_SESSION['id_pelanggan'])) {
             return redirect('pelanggan/login');
         } else {
+            $kunjungan = Reservasi::where('status_reservasi','Selesai')->where('id_pelanggan', $_SESSION['id_pelanggan'])->get();
+            $jumlah_kunjungan = count($kunjungan);
+
+            $pemesanan_terakhir = Pemesanan::where('id_pelanggan', $_SESSION['id_pelanggan'])->orderBy('id_pelanggan', 'desc')->first();
+
+            $total_pemesanan = Pemesanan::where('id_pelanggan', $_SESSION['id_pelanggan'])->sum('total_pemesanan');
+
+
+
             $row = Pelanggan::where('id_pelanggan', $_SESSION['id_pelanggan'])->first();
             $pelanggan = [
                 'id_pelanggan' => $row['id_pelanggan'],
                 'nama_pelanggan' => $row['nama_pelanggan'],
                 'email_pelanggan' => $row['email_pelanggan'],
             ];
-            return view('pelanggan.index', compact('pelanggan'));
+            return view('pelanggan.index', compact('pelanggan', 'jumlah_kunjungan', 'pemesanan_terakhir', 'total_pemesanan'));
         }
         
         return view('pelanggan.index', compact('pelanggan'));
