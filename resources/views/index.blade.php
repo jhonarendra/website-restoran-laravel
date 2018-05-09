@@ -43,6 +43,12 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
+    <style type="text/css">
+        .fh5co-main-nav .fh5co-menu-2 a.with-icon-jon{
+            padding:0px;
+        }
+    </style>
+
     </head>
     <body>
     <div id="fh5co-container">
@@ -60,9 +66,9 @@
                     </div>
                 </div>
                 <ul class="slides">
-                <li style="background-image: url(images/steak1.jpg);" data-stellar-background-ratio="0.5"></li>
-                <li style="background-image: url(images/mushroom_soup1.jpg);" data-stellar-background-ratio="0.5"></li>
-                <li style="background-image: url(images/sushi1.jpg);" data-stellar-background-ratio="0.5"></li>
+                <li style="background-image: url({{ asset('resto/images/steak1.jpg') }})" data-stellar-background-ratio="0.5"></li>
+                <li style="background-image: url({{ asset('resto/images/mushroom_soup1.jpg') }})" data-stellar-background-ratio="0.5"></li>
+                <li style="background-image: url({{ asset('resto/images/sushi1.jpg)') }})" data-stellar-background-ratio="0.5"></li>
                 </ul>
 
             </div>
@@ -83,7 +89,9 @@
                         <a href="#" data-nav-section="menu">Menu</a>
                         <a href="#" data-nav-section="events">Events</a>
                         @if($islogin['login']=='pelanggan')
-                        <a href="#" data-nav-section="reservation">{{$pelanggan['nama_pelanggan']}}</a>
+                        <a href="#" data-nav-section="reservation" class="with-icon-jon">
+                            <img src="{{asset('images/profil')}}/{{$pelanggan['foto_pelanggan']}}" style="width:30px;height:30px;border-radius: 50%">
+                        </a>
                         @elseif($islogin['login']=='pegawai')
                         <a href="#" data-nav-section="reservation">{{$pegawai['nama_pegawai']}}</a>
                         @else
@@ -95,7 +103,7 @@
         </div>
 
         <div id="fh5co-about" data-section="about">
-            <div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(images/dinner1.jpg)"></div>
+            <div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url({{ asset('resto/images/dinner1.jpg')}})"></div>
             <div class="fh5co-2col fh5co-text">
                 <h2 class="heading to-animate">About Us</h2>
                 <p class="to-animate"><span class="firstcharacter">M</span>y 8-Stars Restaurant, Restoran dengan gaya khas Western yang sangat cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun 1867, Kami menggunakan bahan - bahan yang berkualitas dan dipilah secara baik dari sumbernya sehingga menghasilkan hasil masakan yang lezat dan berkualitas. 8-Stars Restaurant menyediakan tempat untuk anda yang ingin berbagi momen bersama orang - orang disekitar anda melalui makanan yang kami sediakan, mari pesan tempat anda sekarang.</p>
@@ -162,7 +170,7 @@
                 <div class="row">
                     <div class="fh5co-grid">
                         <div class="fh5co-v-half to-animate-2">
-                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu2.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu2.jpg') }})"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Fresh Mushrooms</h2>
                                 <span class="pricing">IDR 28k</span>
@@ -171,7 +179,7 @@
                         </div>
                         <div class="fh5co-v-half">
                             <div class="fh5co-h-row-2 to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu1.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu1.jpg')}})"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-left">
                                     <h2>Grilled Chiken Salad</h2>
                                     <span class="pricing">IDR 22k</span>
@@ -179,7 +187,7 @@
                                 </div>
                             </div>
                             <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu2.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu2.jpg')}})"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-right">
                                     <h2>Cheese and Garlic Toast</h2>
                                     <span class="pricing">IDR 18k</span>
@@ -190,7 +198,7 @@
 
                         <div class="fh5co-v-half">
                             <div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu3.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu3.jpg')}})"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-right">
                                     <h2>Organic Egg</h2>
                                     <span class="pricing">IDR 15k</span>
@@ -198,7 +206,7 @@
                                 </div>
                             </div>
                             <div class="fh5co-h-row-2 to-animate-2">
-                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu4.jpg)"></div>
+                                <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu4.jpg')}})"></div>
                                 <div class="fh5co-v-col-2 fh5co-text arrow-left">
                                     <h2>Salad with Crispy Chicken</h2>
                                     <span class="pricing">IDR 32k</span>
@@ -207,7 +215,7 @@
                             </div>
                         </div>
                         <div class="fh5co-v-half to-animate-2">
-                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(resto/images/special-menu5.jpg)"></div>
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu5.jpg')}})"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Tomato Soup with Chicken</h2>
                                 <span class="pricing">IDR 25k</span>
@@ -445,7 +453,7 @@
             </div>
         </div>
 
-        <div id="fh5co-events" data-section="events" style="background-image: url(images/slide_2.jpg);" data-stellar-background-ratio="0.5">
+        <div id="fh5co-events" data-section="events" style="background-image: url( {{ asset('resto/images/slide_2.jpg') }} );" data-stellar-background-ratio="0.5">
             <div class="fh5co-overlay"></div>
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
@@ -527,24 +535,28 @@
                         <div class="col-md-6 to-animate-2">
                             <h3>Reservation Form</h3>
 
-                            <form action="{{URL('pelanggan/register')}}" method="post">
+                            <form action="{{URL('pelanggan/register')}}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group ">
-                                    <label for="name" class="sr-only">Name</label>
+                                    <label for="name">Name</label>
                                     <input id="name" name="name" class="form-control" placeholder="Name" type="text">
                                 </div>
                                 <div class="form-group ">
-                                    <label for="email" class="sr-only">Email</label>
+                                    <label for="email">Email</label>
                                     <input id="email" name="email" class="form-control" placeholder="Email" type="email">
                                 </div>
                                 <div class="form-group ">
-                                    <label for="username" class="sr-only">Username</label>
+                                    <label for="username">Username</label>
                                     <input id="username" name="username" class="form-control" placeholder="Username" type="text">
                                 </div>
                                 <div class="form-group ">
-                                    <label for="password" class="sr-only">Password</label>
+                                    <label for="password">Password</label>
                                     <input id="password" name="password" class="form-control" placeholder="Password" type="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="foto_pelanggan">Foto</label>
+                                    <input id="foto_pelanggan" class="form-control" type="file" name="foto_pelanggan" required>
                                 </div>
                                 <!--
                                 <div class="form-group">

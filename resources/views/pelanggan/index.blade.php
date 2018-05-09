@@ -8,7 +8,7 @@
 
 @section('content')
                 <div class="row">
-
+                    <link href=" {{ asset('ela/css/lib/sweetalert/sweetalert.css') }}" rel="stylesheet">
                     <div class="col-md-4">
                         <div class="card p-30">
                             <div class="media">
@@ -49,5 +49,11 @@
                         </div>
                     </div>
                 </div>
+
+                <script src="{{ asset('ela/js/lib/sweetalert/sweetalert.min.js') }}"></script>
+                <!-- scripit init-->
+                <script type="text/javascript">
+                    swal("Hey, {{$pelanggan['nama_pelanggan']}}", "Selamat datang di dashboard 8-Stars Restaurant", "success")
+                </script>
 
 @endsection

@@ -138,13 +138,13 @@
                                 <li><a href="{{URL('pelanggan/reservasi/create')}}">Buat Reservasi</a></li>
                             </ul>
                         </li>
-                        <li class="{{{(Request::is('pelanggan/pemesanan') ? 'active' : '')}}}"> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Pemesanan</span></a>
+                        <li class="{{{(Request::is('pelanggan/pemesanan') ? 'active' : '')}}}"> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-list-ul"></i><span class="hide-menu">Pemesanan</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL('pelanggan/pemesanan')}}">Semua Pemesanan</a></li>
                                 <li><a href="{{URL('pelanggan/pemesanan/create')}}">Buat Pemesanan</a></li>
                             </ul>
                         </li>
-                        <li class="{{{(Request::is('pelanggan/pengaturan') ? 'active' : '')}}}"> <a href="{{URL('pelanggan/pengaturan')}}" aria-expanded="false"><i class="fa fa-tachometer"></i>Profil </a></li>
+                        <li class="{{{(Request::is('pelanggan/pengaturan') ? 'active' : '')}}}"> <a href="{{URL('pelanggan/pengaturan')}}" aria-expanded="false"><i class="fa fa-user"></i>Profil </a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -160,8 +160,8 @@
                     <h3 class="text-primary">@yield('title')</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item active">@yield('title')</li>
                     </ol>
                 </div>
             </div>

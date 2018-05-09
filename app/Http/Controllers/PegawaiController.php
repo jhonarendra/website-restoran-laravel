@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 session_start();
 use App\Pegawai;
+use App\Pelanggan;
+use App\DetilPemesanan;
+use App\Pemesanan;
+use App\Reservasi;
+use App\Hidangan;
+use App\Restoran;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller {
@@ -18,13 +24,26 @@ class PegawaiController extends Controller {
                 'email_pegawai' => $row['email_pegawai'],
                 'username_pegawai' => $row['username_pegawai'],
                 'jabatan_pegawai' => $row['jabatan_pegawai'],
+                'foto_pegawai' => $row['foto_pegawai'],
             ];
-            return view('pegawai.index', compact('pegawai'));
+            
+
+            $dashboard = [
+                'jumlah_pelanggan' => Pelanggan::count(),
+                'jumlah_pesanan' => Pemesanan::count(),
+                'jumlah_reservasi' => Reservasi::count(),
+                'jumlah_hidangan' => Hidangan::count(),
+            ];
+
+            //$pesanan = DetilPemesanan::join('tb_pemesanan', 'tb_pemesanan.id_pemesanan', '=', 'tb_detil_pemesanan.id_pemesanan')->join('tb_hidangan', 'tb_hidangan.id_hidangan', '=', 'tb_detil_pemesanan.id_hidangan')->join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->get();
+
+            $pesanan = Pemesanan::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->get();
+
+            return view('pegawai.index', compact('pegawai', 'dashboard', 'pesanan'));
         }
         
         return view('pegawai.index', compact('pegawai'));
     }
-
 
     public static function getPegawai(){
     	if (!isset($_SESSION['id_pegawai'])) {
@@ -37,6 +56,7 @@ class PegawaiController extends Controller {
                 'email_pegawai' => $row['email_pegawai'],
                 'username_pegawai' => $row['username_pegawai'],
                 'jabatan_pegawai' => $row['jabatan_pegawai'],
+                'foto_pegawai' => $row['foto_pegawai'],
             ];
             return $pegawai;
         }
@@ -79,11 +99,17 @@ class PegawaiController extends Controller {
     }
 
     public function register(Request $request){
+        $file = $request->file('foto_pegawai');
+        $format = $file->getClientOriginalExtension();
+        $name = $request->username.'.'.$format;
+        $file->move('images/profil', $name);
+
         $data = [
             'nama_pegawai' => $request->name,
             'email_pegawai' => $request->email,
             'username_pegawai' => $request->username,
             'password_pegawai' => md5($request->password),
+            'foto_pegawai' => $name,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ];

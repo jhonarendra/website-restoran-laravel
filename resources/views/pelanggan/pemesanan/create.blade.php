@@ -2,6 +2,7 @@
 
 @section('title', 'Buat Pemesanan')
 
+@section('foto_pelanggan', $pelanggan['foto_pelanggan'])
 @section('nama_pelanggan', $pelanggan['nama_pelanggan'])
 @section('email_pelanggan', $pelanggan['email_pelanggan'])
 

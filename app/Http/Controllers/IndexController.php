@@ -21,6 +21,7 @@ class IndexController extends Controller {
                 'nama_pelanggan' => $row['nama_pelanggan'],
                 'email_pelanggan' => $row['email_pelanggan'],
                 'username_pelanggan' => $row['username_pelanggan'],
+                'foto_pelanggan' => $row['foto_pelanggan'],
             ];
             $islogin = ['login' => 'pelanggan'];
             return view('index', compact('pelanggan', 'islogin', 'makanan', 'minuman'));
