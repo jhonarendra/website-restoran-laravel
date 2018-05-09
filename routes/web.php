@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('form', 'FileController@index');
+Route::post('form/upload', 'FileController@upload');
+
 
 Route::get('/', 'IndexController@index');
 

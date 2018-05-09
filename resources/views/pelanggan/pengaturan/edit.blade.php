@@ -2,13 +2,23 @@
 
 @section('title', 'Edit Profil')
 
+@section('foto_pelanggan', $pelanggan['foto_pelanggan'])
 @section('nama_pelanggan', $pelanggan['nama_pelanggan'])
 @section('email_pelanggan', $pelanggan['email_pelanggan'])
 
 @section('content')
-                    <form method="POST" action="{{URL('pelanggan/pengaturan', $pelanggan['id_pelanggan'])}}">
+                    <form method="POST" action="{{URL('pelanggan/pengaturan', $pelanggan['id_pelanggan'])}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PATCH') }}
+                        <div class="form-group row">
+                            <label for="foto_pelanggan" class="col-sm-2 col-form-label">Foto</label>
+                            <div class="col-sm-10">
+                                <img src="{{ asset('images/profil') }}/{{$pelanggan['foto_pelanggan']}}" style="width:200px; height:200px; border-radius:50%" />
+                                <div class="col-sm-8">
+                                    <input type="file" class="form-control" id="foto_pelanggan" name="foto_pelanggan" >
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="nama_pelanggan" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">

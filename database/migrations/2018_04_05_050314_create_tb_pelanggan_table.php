@@ -19,10 +19,12 @@ class CreateTbPelangganTable extends Migration
             $table->string('email_pelanggan');
             $table->string('username_pelanggan');
             $table->string('password_pelanggan');
+            $table->string('foto_pelanggan');
             $table->string('remember_token');
             $table->timestamps();
         });
         DB::statement("ALTER TABLE tb_pelanggan MODIFY remember_token VARCHAR(255) DEFAULT NULL;");
+        DB::statement("ALTER TABLE tb_pelanggan MODIFY foto_pelanggan VARCHAR(255) DEFAULT NULL;");
     }
 
     /**

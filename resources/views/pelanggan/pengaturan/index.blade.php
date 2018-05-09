@@ -2,6 +2,7 @@
 
 @section('title', 'Profil')
 
+@section('foto_pelanggan', $pelanggan['foto_pelanggan'])
 @section('nama_pelanggan', $pelanggan['nama_pelanggan'])
 @section('email_pelanggan', $pelanggan['email_pelanggan'])
 
@@ -10,7 +11,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="card">
-                                nanti disini fotonya
+                                    <img src="{{ asset('images/profil') }}/{{$pelanggan['foto_pelanggan']}}" style="width:200px; height:200px; border-radius:50%" />
                                 </div>
                             </div>
                             <div class="col-md-6">

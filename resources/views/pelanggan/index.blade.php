@@ -2,6 +2,7 @@
 
 @section('title', 'Dashboard')
 
+@section('foto_pelanggan', $pelanggan['foto_pelanggan'])
 @section('nama_pelanggan', $pelanggan['nama_pelanggan'])
 @section('email_pelanggan', $pelanggan['email_pelanggan'])
 
@@ -28,7 +29,7 @@
                                     <span><i class="fa fa-shopping-cart f-s-40 color-success"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>{{$pemesanan_terakhir->total_pemesanan}}</h2>
+                                    <h2>{{$pemesanan_terakhir}}</h2>
                                     <p class="m-b-0">Pemesanan Terakhir</p>
                                 </div>
                             </div>
