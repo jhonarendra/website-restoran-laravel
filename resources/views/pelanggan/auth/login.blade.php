@@ -22,6 +22,9 @@
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    @if($alert)
+    <link href=" {{ asset('ela/css/lib/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    @endif
 </head>
 
 <body class="fix-header fix-sidebar" style="background-image: url('{{ asset('resto/images/Background_menu.jpg') }}')">
@@ -78,6 +81,14 @@
     <script src="{{ asset('ela/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('ela/js/custom.min.js') }}"></script>
+
+    @if($alert)
+    <script src="{{ asset('ela/js/lib/sweetalert/sweetalert.min.js') }}"></script>
+    <!-- scripit init-->
+    <script type="text/javascript">
+        sweetAlert("Oops...", "Something went wrong !!", "error");
+    </script>
+    @endif
 
 </body>
 

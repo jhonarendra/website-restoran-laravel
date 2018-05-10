@@ -29,6 +29,7 @@ Route::group(['prefix'=>'pelanggan'], function(){
 
 	Route::resource('reservasi', 'PelangganReservasiController');
 	Route::resource('pemesanan', 'PelangganPemesananController');
+	Route::resource('hidangan', 'PelangganHidanganController');
 	Route::resource('pengaturan', 'PelangganPengaturanController');
 });
 

@@ -144,6 +144,7 @@
                                 <li><a href="{{URL('pelanggan/pemesanan/create')}}">Buat Pemesanan</a></li>
                             </ul>
                         </li>
+                        <li class="{{{(Request::is('pelanggan/hidangan') ? 'active' : '')}}}"> <a href="{{URL('pelanggan/hidangan')}}" aria-expanded="false"><i class="fa fa-fire"></i>Hidangan </a></li>
                         <li class="{{{(Request::is('pelanggan/pengaturan') ? 'active' : '')}}}"> <a href="{{URL('pelanggan/pengaturan')}}" aria-expanded="false"><i class="fa fa-user"></i>Profil </a></li>
                     </ul>
                 </nav>

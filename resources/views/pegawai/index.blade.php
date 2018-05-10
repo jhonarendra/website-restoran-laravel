@@ -99,7 +99,13 @@
 	                            </td>
 	                            <td><span>{{$pesanan['created_at']}}</span></td>
 	                            <td>
-	                            	<span class="badge badge-success">
+                                    @if($pesanan['status_pemesanan']=='Belum Dibayar')
+	                            	<span class="badge badge-danger">
+                                    @elseif($pesanan['status_pemesanan']=='Lunas')
+                                    <span class="badge badge-success">
+                                    @else
+                                    <span class="badge">
+                                    @endif
 	                            		{{$pesanan['status_pemesanan']}}
 	                            	</span>
 	                            </td>
@@ -109,6 +115,7 @@
 	                    </tbody>
 	                </table>
 	            </div>
+                <a href="{{ URL('pegawai/pemesanan') }}" class="btn btn-primary">Selengkapnya</a>
 	        </div>
 	    </div>
 	</div>

@@ -25,10 +25,16 @@
                                         @foreach($hidangan as $hidangan)
                                         <div class="col-md-3">
                                             <div class="card">
-                                                <p>Nanti ada gambarnya disini</p>
-                                                <input type="checkbox" name="hidangan[]" value="{{$hidangan->id_hidangan}}">{{$hidangan->nama_hidangan}}
-                                                <input type="text" class="form-control" name="harga_hidangan{{$hidangan->id_hidangan}}" value="{{$hidangan->harga_hidangan}}" readonly="">
-                                                <input type="text" class="form-control" name="jumlah_hidangan{{$hidangan->id_hidangan}}" placeholder="Masukkan Jumlah">
+                                              <img class="card-img-top" src="{{ asset('images/hidangan/'.$hidangan->foto_hidangan) }}">
+                                              <div class="card-body">
+                                                <h4 class="card-title">{{$hidangan->nama_hidangan}}</h4>
+                                                <p class="card-text">Rp {{$hidangan->harga_hidangan}}</p>
+                                                <div class="row">
+                                                    <input type="checkbox" class="form-control col-md-4" name="hidangan[]" value="{{$hidangan->id_hidangan}}">
+                                                    <input type="hidden" class="form-control" name="harga_hidangan{{$hidangan->id_hidangan}}" value="{{$hidangan->harga_hidangan}}">
+                                                    <input type="text" class="form-control col-md-8" name="jumlah_hidangan{{$hidangan->id_hidangan}}" placeholder="Jumlah">
+                                                </div>
+                                              </div>
                                             </div>
                                         </div>
                                         @endforeach

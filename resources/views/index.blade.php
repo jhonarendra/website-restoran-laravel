@@ -43,6 +43,16 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
+    <!-- IF LOFIN -->
+    @if($islogin['login']=='pelanggan')
+    <link href=" {{ asset('ela/css/lib/toastr/toastr.min.css') }}" rel="stylesheet">
+    @elseif($islogin['login']=='pegawai')
+    <link href=" {{ asset('ela/css/lib/toastr/toastr.min.css') }}" rel="stylesheet">
+    @else
+    <!-- Kosong in lah -->
+    @endif
+    
+
     <style type="text/css">
         .fh5co-main-nav .fh5co-menu-2 a.with-icon-jon{
             padding:0px;
@@ -87,13 +97,15 @@
                     </div>
                     <div class="fh5co-menu-2">
                         <a href="#" data-nav-section="menu">Menu</a>
-                        <a href="#" data-nav-section="events">Events</a>
+                        <a href="#" data-nav-section="events">Developer</a>
                         @if($islogin['login']=='pelanggan')
                         <a href="#" data-nav-section="reservation" class="with-icon-jon">
                             <img src="{{asset('images/profil')}}/{{$pelanggan['foto_pelanggan']}}" style="width:30px;height:30px;border-radius: 50%">
                         </a>
                         @elseif($islogin['login']=='pegawai')
-                        <a href="#" data-nav-section="reservation">{{$pegawai['nama_pegawai']}}</a>
+                        <a href="#" data-nav-section="reservation" class="with-icon-jon">
+                            <img src="{{asset('images/profil')}}/{{$pegawai['foto_pegawai']}}" style="width:30px;height:30px;border-radius: 50%">
+                        </a>
                         @else
                         <a href="#" data-nav-section="reservation">Reservation</a>
                         @endif
@@ -169,7 +181,28 @@
                 </div>
                 <div class="row">
                     <div class="fh5co-grid">
+                        <?php
+                            $i = 1;
+                        ?>
+                        @foreach($hidangan as $hidangan)
+
                         <div class="fh5co-v-half to-animate-2">
+                            <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('images/hidangan/'.$hidangan->foto_hidangan) }})"></div>
+                            @if($i==1||$i==4||$i==5)
+                            <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
+                            @elseif($i==2||$i==3||$i==6)
+                            <div class="fh5co-v-col-2 fh5co-text arrow-left">
+                            @endif
+                                <h2>{{$hidangan->nama_hidangan}}</h2>
+                                <span class="pricing">IDR {{$hidangan->harga_hidangan}}</span>
+                            </div>
+                        </div>
+                        <?php
+                            $i+=1;
+                        ?>
+                        @endforeach
+
+                        <!--<div class="fh5co-v-half to-animate-2">
                             <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu2.jpg') }})"></div>
                             <div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
                                 <h2>Fresh Mushrooms</h2>
@@ -177,6 +210,7 @@
                                 <p>Jamur tersedia segar, kering, atau kalengan. Jamur segar tersedia sepanjang tahun, dengan musim puncak di Amerika Serikat adalah April hingga Juni. Jamur liar tersedia musiman, biasanya di musim panas dan musim gugur. Jamur kering dan kalengan juga dapat ditemukan sepanjang tahun. Mereka adalah pilihan makanan rendah kalori, rendah karbohidrat yang dapat digunakan secara berbeda dalam memasak. Restoran kami telah memproduksi Psilocybe cubensis grow kits selama lebih dari 25 tahun. Selama periode ini, kami telah mengoptimalkan kit kami hingga sempurna dan telah berkembang menjadi tidak kurang dari 11 jenis yang berbeda. Perangkat tumbuh kami tidak dijual di situs web ini atau langsung dari Freshmushrooms tetapi secara eksklusif tersedia melalui dealer dan toko online yang dipilih secara hati-hati. Berkat kualitasnya yang sangat terkenal, jaringan dealer ini telah menjadi begitu luas sehingga perangkat kami yang berkembang tersedia hampir di semua tempat di Eropa. Anda selalu dapat menemukan vendor online atau offline.</p>
                             </div>
                         </div>
+
                         <div class="fh5co-v-half">
                             <div class="fh5co-h-row-2 to-animate-2">
                                 <div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url({{ asset('resto/images/special-menu1.jpg')}})"></div>
@@ -221,7 +255,7 @@
                                 <span class="pricing">IDR 25k</span>
                                 <p>Sambil membuat sup yang menyenangkan ini, saya mencoba mengingat berbagai tekstur, warna dan rasa. Pangkal tomat manisnya penuh dengan ayam, brokoli, jagung, dan beberapa jenis kacang. Ini sangat lezat jika Anda menghiasinya dengan irisan cheddar dan daging hancur.</p>
                             </div>
-                        </div>
+                        </div>-->
 
                     </div>
                 </div>
@@ -280,11 +314,11 @@
                                 <li>
                                     <div class="fh5co-food-desc">
                                         <figure>
-                                            <img src="images/pinepple.jpg" class="img-responsive" >
+                                            <img src="{{ asset('images/hidangan/'.$minuman->foto_hidangan) }}" class="img-responsive" style="width:100px;height:100px">
                                         </figure>
                                         <div>
                                             <h3>{{$minuman->nama_hidangan}}</h3>
-                                            <p>Icy mixed coconut cream with pinapple juice.</p>
+                                            <p>{{$minuman->nama_hidangan}}</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
@@ -303,11 +337,11 @@
                                 <li>
                                     <div class="fh5co-food-desc">
                                         <figure>
-                                            <img src="images/spageti.jpg" class="img-responsive" >
+                                            <img src="{{ asset('images/hidangan/'.$makanan->foto_hidangan) }}" class="img-responsive" style="width:100px;height:100px">
                                         </figure>
                                         <div>
                                             <h3>{{$makanan->nama_hidangan}}</h3>
-                                            <p>pasta with sauce tomato.</p>
+                                            <p>{{$makanan->nama_hidangan}}</p>
                                         </div>
                                     </div>
                                     <div class="fh5co-food-pricing">
@@ -318,138 +352,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!--<div class="col-md-6">
-                        <div class="fh5co-food-menu to-animate-2">
-                            <h2 class="fh5co-drinks">Juice</h2>
-                            <ul>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/tropical.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Tropical Juice</h3>
-                                            <p>healty living with healty juice.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 30k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/green%20juice.jpg" class="img-responsive">
-                                        </figure>
-                                        <div>
-                                            <h3>Green Juice</h3>
-                                            <p>cucumber juice.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 22k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/beries.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Berries Juice</h3>
-                                            <p>with berries fresh.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 25k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/heart.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Heartbeat Juice</h3>
-                                            <p>with beetroot with apple and ginger.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 22k
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="fh5co-food-menu to-animate-2">
-                            <h2 class="fh5co-dishes">Steak</h2>
-                            <ul>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/beef.jpg" class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Beef Steak</h3>
-                                            <p>Beef Steak with Western Style sauce</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 170k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/chiken.jpg" class="img-responsive">
-                                        </figure>
-                                        <div>
-                                            <h3> Chicken steak</h3>
-                                            <p>Chicken Steak with Cheese sauce.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 75k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/saus.jpeg" class="img-responsive">
-                                        </figure>
-                                        <div>
-                                            <h3>Italy Sausages</h3>
-                                            <p>Sausages from italy.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 85k
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <figure>
-                                            <img src="images/tuna.jpg"class="img-responsive" >
-                                        </figure>
-                                        <div>
-                                            <h3>Tuna steak</h3>
-                                            <p>Fresh Tuna Steak.</p>
-                                        </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        IDR 85k
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>-->
                 </div>
-                <!--<div class="row">
-                    <div class="col-md-4 col-md-offset-4 text-center to-animate-2">
-                        <p><a href="file:///C:/xampp/htdocs/WAB/menu_ext.html" class="btn btn-primary btn-outline">More Food Menu</a></p>
-                    </div>
-                </div>-->
             </div>
         </div>
 
@@ -458,30 +361,67 @@
             <div class="container">
                 <div class="row text-center fh5co-heading row-padded">
                     <div class="col-md-8 col-md-offset-2 to-animate">
-                        <h2 class="heading">Upcoming Events</h2>
-                        <p class="sub-heading">Event Khusus yang akan datang untuk menemani malam anda.</p>
+                        <h2 class="heading">Developer Team</h2>
+                        <p class="sub-heading">Kelompok 8 Praktikum Pemrograman Internet</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="fh5co-event to-animate-2">
-                            <h3>Kitchen Workshops</h3>
-                            <span class="fh5co-event-meta">November 20th, 2017</span>
-                            <p>Ikuti spesial di restoran kami bersama dengan Chef Gordon Ramsey.</p>
+                            <img src="{{ asset('images/kelompok/jhona.png') }}" style="padding-bottom: 20px" class="img-responsive img-circle">
+                            <h3>Putu Jhonarendra</h3>
+                            <span class="fh5co-event-meta">1605551049</span>
+                            <p>Backend Developer</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="fh5co-event to-animate-2">
-                            <h3>Music Concerts</h3>
-                            <span class="fh5co-event-meta">December 2nd, 2017</span>
-                            <p>Datanglah di Music Concerts spesial di malam Minggu bersama pasangan anda!</p>
+                            <img src="{{ asset('images/kelompok/ilham.png') }}" style="padding-bottom: 20px" class="img-responsive img-circle">
+                            <h3>Ilham Yoga P.</h3>
+                            <span class="fh5co-event-meta">1605551113</span>
+                            <p>Backend Developer</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="fh5co-event to-animate-2">
-                            <h3>Free to Eat Party</h3>
-                            <span class="fh5co-event-meta">December 31th, 2017</span>
-                            <p>Ayo nikmati akhir tahun bersama kami di Free-to-eat party!</p>
+                            <img src="{{ asset('images/kelompok/adhi.png') }}" style="padding-bottom: 20px" class="img-responsive img-circle">
+                            <h3>I Made Adhiarta W.</h3>
+                            <span class="fh5co-event-meta">1605551054</span>
+                            <p>Frontend Developer</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="fh5co-event to-animate-2">
+                            <img src="{{ asset('images/kelompok/gungwira.png') }}" style="padding-bottom: 20px" class="img-responsive img-circle">
+                            <h3>A.A. Bagus Arya W.</h3>
+                            <span class="fh5co-event-meta">1605551023</span>
+                            <p>Frontend Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="fh5co-event to-animate-2">
+                            <img src="{{ asset('images/kelompok/maria.png') }}" style="padding-bottom: 20px" class="img-responsive img-circle">
+                            <h3>Marria Tesalonika S.</h3>
+                            <span class="fh5co-event-meta">1605551097</span>
+                            <p>Laporanend Developer</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="fh5co-event to-animate-2">
+                            <img src="{{ asset('images/kelompok/cen.png') }}" style="padding-bottom: 20px" class="img-responsive img-circle">
+                            <h3>Dwiki Surya Chen</h3>
+                            <span class="fh5co-event-meta">1605552028</span>
+                            <p>Laporanend Developer</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="fh5co-event to-animate-2">
+                            <img src="{{ asset('images/kelompok/boy.png') }}" style="padding-bottom: 20px" class="img-responsive img-circle">
+                            <h3>Boy Jehezkiel K. M.</h3>
+                            <span class="fh5co-event-meta">1605552033</span>
+                            <p>Frontend Developer</p>
                         </div>
                     </div>
                 </div>
@@ -642,6 +582,32 @@
         </script>
         <!-- Main JS -->
         <script src="{{ asset('resto/js/main.js') }}"></script>
+
+        @if($islogin['login']=='pelanggan'||$islogin['login']=='pegawai')
+            <script src="{{ asset('ela/js/lib/toastr/toastr.min.js') }}"></script>
+            <!-- scripit init-->
+            <script type="text/javascript">
+                toastr.success('Kamu login sebagai @if($islogin['login']=='pelanggan') {{$pelanggan['nama_pelanggan']}} @else {{$pegawai['nama_pegawai']}} @endif','Logged In',{
+                    timeOut: 5000,
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut",
+                    "tapToDismiss": false
+
+                })
+            </script>
+        @endif
 
         </body>
     </html>

@@ -18,9 +18,11 @@ class CreateTbHidanganTable extends Migration
             $table->string('nama_hidangan');
             $table->string('jenis_hidangan');
             $table->unsignedInteger('harga_hidangan');
+            $table->string('foto_hidangan');
             $table->timestamps();
         });
         DB::statement("ALTER TABLE tb_hidangan MODIFY jenis_hidangan ENUM('Makanan', 'Minuman') DEFAULT NULL;");
+        DB::statement("ALTER TABLE tb_hidangan MODIFY foto_hidangan VARCHAR(255) DEFAULT NULL;");
     }
 
     /**

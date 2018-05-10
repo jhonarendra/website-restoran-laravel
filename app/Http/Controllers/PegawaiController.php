@@ -35,8 +35,6 @@ class PegawaiController extends Controller {
                 'jumlah_hidangan' => Hidangan::count(),
             ];
 
-            //$pesanan = DetilPemesanan::join('tb_pemesanan', 'tb_pemesanan.id_pemesanan', '=', 'tb_detil_pemesanan.id_pemesanan')->join('tb_hidangan', 'tb_hidangan.id_hidangan', '=', 'tb_detil_pemesanan.id_hidangan')->join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->get();
-
             $pesanan = Pemesanan::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->get();
 
             return view('pegawai.index', compact('pegawai', 'dashboard', 'pesanan'));
@@ -64,7 +62,8 @@ class PegawaiController extends Controller {
 
     public static function showLoginForm(){
     	if (!isset($_SESSION['id_pegawai'])) {
-    		return view('pegawai.auth.login');
+            $alert = false;
+    		return view('pegawai.auth.login', compact('alert'));
     	} else {
     		return redirect('pegawai');
     	}
@@ -87,10 +86,11 @@ class PegawaiController extends Controller {
                     'username_pegawai' => $pegawai->username_pegawai,
                 ];
             }
-            return redirect('pegawai');
+            return redirect('/');
     		
     	} else {
-    		echo 'gagal login';
+            $alert = true;
+            return view('pegawai.auth.login', compact('alert'));
     	}
     }
 
@@ -126,7 +126,7 @@ class PegawaiController extends Controller {
                 'username_pegawai' => $pegawai->username_pegawai,
             ];
         }
-        return redirect('pegawai');
+        return redirect('/');
     }
 
     public function logout(){

@@ -58,7 +58,8 @@ class PelangganController extends Controller {
 
     public static function showLoginForm(){
         if (!isset($_SESSION['id_pelanggan'])) {
-            return view('pelanggan.auth.login');
+            $alert = false;
+            return view('pelanggan.auth.login', compact('alert'));
         } else {
             return redirect('pelanggan');
         }
@@ -78,10 +79,11 @@ class PelangganController extends Controller {
                     'id_pelanggan' => $pelanggan->id_pelanggan,
                 ];
             }
-            return redirect('pelanggan');
+            return redirect('/');
     		
     	} else {
-    		echo 'gagal login';
+            $alert = true;
+    		return view('pelanggan.auth.login', compact('alert'));
     	}
     }
 
@@ -118,7 +120,7 @@ class PelangganController extends Controller {
                 'username_pelanggan' => $pelanggan->username_pelanggan,
             ];
         }
-        return redirect('pelanggan');
+        return redirect('/');
     }
 
     public function logout(){

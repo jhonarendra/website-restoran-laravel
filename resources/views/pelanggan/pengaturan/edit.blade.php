@@ -40,7 +40,7 @@
                         <div class="form-group row">
                             <label for="password_pelanggan" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password_pelanggan" name="password_pelanggan" value="" >
+                                <input type="password" class="form-control" id="password_pelanggan" name="password_pelanggan" placeholder="Masukkan Password Anda" >
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Lanjutkan</button>

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class IndexController extends Controller {
 
     public function index(){
+        $hidangan = Hidangan::limit(6)->get();
         $makanan = Hidangan::where('jenis_hidangan', 'Makanan')->get();
         $minuman = Hidangan::where('jenis_hidangan', 'Minuman')->get();
 
@@ -24,7 +25,7 @@ class IndexController extends Controller {
                 'foto_pelanggan' => $row['foto_pelanggan'],
             ];
             $islogin = ['login' => 'pelanggan'];
-            return view('index', compact('pelanggan', 'islogin', 'makanan', 'minuman'));
+            return view('index', compact('pelanggan', 'islogin', 'hidangan', 'makanan', 'minuman'));
         } else if(isset($_SESSION['id_pegawai'])){
             $row = Pegawai::where('id_pegawai', $_SESSION['id_pegawai'])->first();
             $pegawai = [
@@ -33,12 +34,13 @@ class IndexController extends Controller {
                 'email_pegawai' => $row['email_pegawai'],
                 'username_pegawai' => $row['username_pegawai'],
                 'jabatan_pegawai' => $row['jabatan_pegawai'],
+                'foto_pegawai' => $row['foto_pegawai'],
             ];
             $islogin = ['login' => 'pegawai'];
-            return view('index', compact('pegawai', 'islogin', 'makanan', 'minuman'));
+            return view('index', compact('pegawai', 'islogin', 'hidangan', 'makanan', 'minuman'));
         } else {
             $islogin = ['login' => 'false'];
-            return view('index', compact('islogin', 'makanan', 'minuman'));
+            return view('index', compact('islogin', 'makanan', 'hidangan', 'minuman'));
         }
     }
     public function getHidangan($jenis_hidangan){
