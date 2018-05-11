@@ -168,7 +168,7 @@
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
-            <div class="container-fluid">
+            <div class="container-fluid" style="min-height: 500px">
                 <!-- Start Page Content -->
                 @yield('content')
                 <!-- /# row -->
@@ -176,7 +176,7 @@
             </div>
             <!-- End Container fluid  -->
             <!-- footer -->
-            <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+            <footer class="footer" style="text-align: center"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
             <!-- End footer -->
         </div>
         <!-- End Page wrapper  -->

@@ -78,7 +78,7 @@ class PelangganPengaturanController extends Controller {
             'nama_pelanggan' => $request->nama_pelanggan,
             'email_pelanggan' => $request->email_pelanggan,
             'username_pelanggan' => $request->username_pelanggan,
-            'password_pelanggan' => md5($request->username_pelanggan),
+            'password_pelanggan' => md5($request->password_pelanggan),
             'foto_pelanggan' => $name,
             'updated_at' => date("Y-m-d H:i:s"),
         ];

@@ -37,12 +37,18 @@ class PegawaiPengaturanController extends Controller{
     }
 
     public function update(Request $request, $id){
+        $file = $request->file('foto_pegawai');
+        $format = $file->getClientOriginalExtension();
+        $name = $request->username_pegawai.'.'.$format;
+        $file->move('images/profil', $name);
+
         $data = [
             'nama_pegawai' => $request->nama_pegawai,
             'email_pegawai' => $request->email_pegawai,
             'username_pegawai' => $request->username_pegawai,
-            'password_pegawai' => bcrypt($request->password_pegawai),
+            'password_pegawai' => md5($request->password_pegawai),
             'jabatan_pegawai' => $request->jabatan_pegawai,
+            'foto_pegawai' => $name,
             'updated_at' => date("Y-m-d H:i:s"),
         ];
 

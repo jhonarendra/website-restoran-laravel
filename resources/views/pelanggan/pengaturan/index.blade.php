@@ -8,25 +8,24 @@
 
 @section('content')
                     <a href="{{URL('pelanggan/pengaturan/'.$pelanggan['id_pelanggan'].'/edit')}}" class="btn-primary btn">Edit Profil</a>
+
                         <div class="row">
-                            <div class="col-md-3">
+                            <!-- Column -->
+                            <div class="col-lg-12">
                                 <div class="card">
-                                    <img src="{{ asset('images/profil') }}/{{$pelanggan['foto_pelanggan']}}" style="width:200px; height:200px; border-radius:50%" />
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="form-group">
-                                        <label>Nama</label>
-                                        <p class="form-control-static">{{$pelanggan['nama_pelanggan']}}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <p class="form-control-static">{{$pelanggan['email_pelanggan']}}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <p class="form-control-static">{{$pelanggan['username_pelanggan']}}</p>
+                                    <div class="card-body">
+                                        <div class="card-two">
+                                            <header>
+                                                <div class="avatar">
+                                                    <img src="{{ asset('images/profil') }}/{{$pelanggan['foto_pelanggan']}}" />
+                                                </div>
+                                            </header>
+
+                                            <h3>{{$pelanggan['nama_pelanggan']}}</h3>
+                                            <div class="desc">
+                                                {{$pelanggan['email_pelanggan']}} - {{$pelanggan['username_pelanggan']}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
