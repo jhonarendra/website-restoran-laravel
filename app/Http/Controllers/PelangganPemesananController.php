@@ -31,9 +31,10 @@ class PelangganPemesananController extends Controller {
             return redirect('pelanggan/login');
         }
         $restoran = Restoran::all();
-        $hidangan = Hidangan::all();
+        $makanan = Hidangan::where('jenis_hidangan', 'Makanan')->get();
+        $minuman = Hidangan::where('jenis_hidangan', 'Minuman')->get();
         $pelanggan = PelangganController::getPelanggan();
-        return view('pelanggan.pemesanan.create', compact('restoran', 'hidangan', 'pelanggan'));
+        return view('pelanggan.pemesanan.create', compact('restoran', 'makanan', 'minuman', 'pelanggan'));
     }
 
     public function store(Request $request){

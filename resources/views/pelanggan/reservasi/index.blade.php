@@ -9,7 +9,7 @@
 @section('content')
                     <a href="{{URL('pelanggan/reservasi/create')}}" class="btn btn-success">Reservasi Baru</a>
                     
-                    <div class="card">
+                    <div class="card" style="background: #f5f5f5">
                         <div class="card-body">
                             <div class="table-responsive m-t-40">
                                 <table id="myTable" class="table table-bordered table-striped">

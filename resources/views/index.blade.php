@@ -93,10 +93,10 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b><img src="ela/images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <b><img src="{{asset('images/logo.png')}}" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="ela/images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                        <span><img src="{{asset('images/logo-text.png')}}" alt="homepage" class="dark-logo" /></span>
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -388,7 +388,6 @@
 
                         <button type='submit' class='btn btn-primary btn-flat m-b-30 m-t-30'>Sign in</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-left:10px">Close</button>
-                        <p>Don't have account ? <a href='{{URL('pelanggan/register')}}'> Sign Up Here</a></p>
                     </div>
                 </form>
               </div>

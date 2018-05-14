@@ -9,6 +9,7 @@
 
 @section('content')
 
+<link href=" {{ asset('ela/css/lib/sweetalert/sweetalert.css') }}" rel="stylesheet">
 <a href="{{URL('pegawai/reservasi/create')}}" class="btn btn-success">Reservasi Baru</a>
 
 <div class="card">
@@ -43,10 +44,11 @@
                              <a href="{{URL('pegawai/reservasi/'.$reservasi->id_reservasi.'/edit')}}" class="btn btn-primary">
                                  <i class="fa fa-pencil"></i>
                              </a>
-                             <form action="{{URL('pegawai/reservasi/'.$reservasi->id_reservasi)}}" method="POST">
+
+                             <form action="{{URL('pegawai/reservasi/'.$reservasi->id_reservasi)}}" method="POST" onsubmit="sweetconfirm()">
                                  {{ csrf_field() }}
                                  {{ method_field('DELETE')}}
-                                 <button type="submit" class="btn btn-danger">
+                                 <button class="btn btn-danger" type="submit">
                                      <i class="fa fa-trash"></i>
                                  </button>
                              </form>
@@ -67,4 +69,28 @@
 <script src="{{asset('ela/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('ela/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('ela/js/lib/datatables/datatables-init.js')}}"></script>
+
+
+<script src="{{ asset('ela/js/lib/sweetalert/sweetalert.min.js') }}"></script>
+<!-- scripit init-->
+<script type="text/javascript">
+    $('form').submit(function(e){
+        var form = this;
+        e.preventDefault();
+        swal({
+                title: "Are you sure to delete ?",
+                text: "You will not be able to recover this imaginary file !!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it !!",
+                closeOnConfirm: false
+            },
+            function(){
+                form.submit();
+            }
+        );
+    });
+
+</script>
 @endsection

@@ -24,6 +24,12 @@
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <style type="text/css">
+        .sidebar-nav > ul > li > a.active{
+            background: #faebcd;
+        }
+        ta
+    </style>
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -39,7 +45,13 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{URL('/')}}">8-Stars Restaurant</a>
+                    <a class="navbar-brand" href="{{URL('/')}}">
+                        <!-- Logo icon -->
+                        <b><img src="{{asset('images/logo.png')}}" alt="homepage" class="dark-logo" /></b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span><img src="{{asset('images/logo-text.png')}}" alt="homepage" class="dark-logo" /></span>
+                    </a>
                 </div>
                 <!-- End Logo -->
                 <div class="navbar-collapse">
@@ -122,11 +134,11 @@
         </div>
         <!-- End header header -->
         <!-- Left Sidebar  -->
-        <div class="left-sidebar">
+        <div class="left-sidebar" style="background: #faebcd">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <nav class="sidebar-nav" style="background: #faebcd">
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Pelanggan</li>
@@ -156,9 +168,9 @@
         <!-- Page wrapper  -->
         <div class="page-wrapper">
             <!-- Bread crumb -->
-            <div class="row page-titles">
+            <div class="row page-titles" style="margin: 0;">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">@yield('title')</h3> </div>
+                    <h3 style="color: #5e493a">@yield('title')</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="">Home</a></li>
@@ -168,7 +180,7 @@
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
-            <div class="container-fluid" style="min-height: 500px">
+            <div class="container-fluid" style="padding-top: 30px;min-height: 500px;background-image:url({{ asset('resto/images/wood_1.png')}});">
                 <!-- Start Page Content -->
                 @yield('content')
                 <!-- /# row -->

@@ -21,6 +21,7 @@ class CreateTbReservasiTable extends Migration
             $table->string('no_meja_reservasi');
             $table->string('status_reservasi');
             $table->timestamps();
+            $table->unsignedInteger('deleted');
 
             $table->foreign('id_restoran')->references('id_restoran')->on('tb_restoran');
             $table->foreign('id_pelanggan')->references('id_pelanggan')->on('tb_pelanggan');
@@ -29,6 +30,7 @@ class CreateTbReservasiTable extends Migration
         DB::statement("ALTER TABLE tb_reservasi MODIFY id_pegawai INT(10) unsigned DEFAULT 0;");
         DB::statement("ALTER TABLE tb_reservasi MODIFY status_reservasi ENUM('Selesai', 'Batal', 'Sedang Berlangsung', 'Menunggu Konfirmasi', 'Dikonfirmasi') DEFAULT 'Menunggu Konfirmasi';");
         DB::statement("ALTER TABLE tb_reservasi MODIFY no_meja_reservasi VARCHAR(255) DEFAULT NULL;");
+        DB::statement("ALTER TABLE tb_reservasi MODIFY deleted INT(1) DEFAULT 0;");
     }
 
     /**

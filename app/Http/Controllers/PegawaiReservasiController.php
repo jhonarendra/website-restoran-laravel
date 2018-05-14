@@ -17,7 +17,7 @@ class PegawaiReservasiController extends Controller {
             return redirect('pegawai/login');
         }
         $pegawai = PegawaiController::getPegawai();
-        $reservasi = Reservasi::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_reservasi.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_reservasi.id_pelanggan')->select('tb_reservasi.*', 'nama_restoran', 'nama_pegawai', 'nama_pelanggan')->get();
+        $reservasi = Reservasi::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_reservasi.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_reservasi.id_pelanggan')->select('tb_reservasi.*', 'nama_restoran', 'nama_pegawai', 'nama_pelanggan')->where('deleted', 0) ->get();
         return view('pegawai.reservasi.index', compact('reservasi', 'pegawai'));
     }
 
@@ -38,7 +38,7 @@ class PegawaiReservasiController extends Controller {
         $data = [
             'id_restoran' => $request->id_restoran,
             'id_pelanggan' => $request->id_pelanggan,
-            'id_pegawai' => $pegawai['id_pegawai'],
+            'id_pegawai' => $request->id_pegawai,
             'no_meja_reservasi' => $request->no_meja_reservasi,
             'status_reservasi' => $request->status_reservasi,
             'created_at' => date("Y-m-d H:i:s"),
@@ -78,7 +78,10 @@ class PegawaiReservasiController extends Controller {
     }
 
     public function destroy($id){
-        Reservasi::where('id_reservasi', $id)->delete();
+        $data = [
+            'deleted' => 1,
+        ];
+        Reservasi::where('id_reservasi', $id)->update($data);
         return redirect('pegawai/reservasi');
     }
 }

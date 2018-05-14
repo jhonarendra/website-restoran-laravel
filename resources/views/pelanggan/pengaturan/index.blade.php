@@ -12,7 +12,7 @@
                         <div class="row">
                             <!-- Column -->
                             <div class="col-lg-12">
-                                <div class="card">
+                                <div class="card" style="background: #f5f5f5">
                                     <div class="card-body">
                                         <div class="card-two">
                                             <header>

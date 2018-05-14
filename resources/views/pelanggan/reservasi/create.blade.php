@@ -10,7 +10,7 @@
                     @foreach($reservasi as $reservasi)
 
                     <div class="col-lg-6">
-                        <div class="card">
+                        <div class="card" style="background: #f5f5f5">
                                 <div class="basic-form">
                                     <form method="POST" action="{{ URL('pelanggan/reservasi') }}">
                                         {{ csrf_field() }}
