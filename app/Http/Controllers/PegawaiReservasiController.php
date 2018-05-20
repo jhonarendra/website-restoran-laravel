@@ -60,7 +60,7 @@ class PegawaiReservasiController extends Controller {
         $pelanggan = Pelanggan::all();
         $pegawais = Pegawai::all();
         $restoran = Restoran::all();
-        $reservasi = Reservasi::where('id_reservasi', $id)->get();
+        $reservasi = Reservasi::where('deleted', 0)->where('id_reservasi', $id)->get();
         return view('pegawai.reservasi.edit', compact('reservasi', 'pegawais', 'pelanggan', 'restoran', 'pegawai'));
     }
 

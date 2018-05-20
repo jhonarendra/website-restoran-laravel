@@ -2,6 +2,7 @@
 
 @section('title', 'Buat Reservasi')
 
+@section('foto_pegawai', $pegawai['foto_pegawai'])
 @section('nama_pegawai', $pegawai['nama_pegawai'])
 @section('email_pegawai', $pegawai['email_pegawai'])
 @section('jabatan_pegawai', $pegawai['jabatan_pegawai'])

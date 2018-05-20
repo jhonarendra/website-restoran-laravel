@@ -31,13 +31,15 @@ class PegawaiController extends Controller {
             $dashboard = [
                 'jumlah_pelanggan' => Pelanggan::count(),
                 'jumlah_pesanan' => Pemesanan::count(),
-                'jumlah_reservasi' => Reservasi::count(),
+                'jumlah_reservasi' => Reservasi::where('deleted', 0)->count(),
                 'jumlah_hidangan' => Hidangan::count(),
             ];
 
             $pesanan = Pemesanan::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->get();
 
-            return view('pegawai.index', compact('pegawai', 'dashboard', 'pesanan'));
+            $reservasi = Reservasi::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_reservasi.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->where('deleted', 0)->get();
+
+            return view('pegawai.index', compact('pegawai', 'dashboard','reservasi', 'pesanan'));
         }
         
         return view('pegawai.index', compact('pegawai'));
