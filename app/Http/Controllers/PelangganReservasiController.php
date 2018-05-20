@@ -16,7 +16,7 @@ class PelangganReservasiController extends Controller {
             return redirect('pelanggan/login');
         }
         $pelanggan = PelangganController::getPelanggan();
-        $reservasi = Reservasi::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_reservasi.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->select('tb_reservasi.*', 'nama_restoran', 'nama_pegawai')->where('id_pelanggan', $pelanggan['id_pelanggan'])->get();
+        $reservasi = Reservasi::join('tb_restoran', 'tb_restoran.id_restoran', '=', 'tb_reservasi.id_restoran')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->select('tb_reservasi.*', 'nama_restoran', 'nama_pegawai')->where('id_pelanggan', $pelanggan['id_pelanggan'])->where('deleted', 0)->get();
         return view('pelanggan.reservasi.index', compact('reservasi', 'pelanggan'));
     }
     

@@ -7,28 +7,49 @@
 @section('jabatan_pegawai', $pegawai['jabatan_pegawai'])
 
 @section('content')
+
+<div class="col-lg-8">
+    <div class="card" style="background: #f5f5f5">
+        <div class="basic-form">
+
+
                     @foreach($pemesanan as $pemesanan)
                     <form method="POST" action="{{URL('pegawai/pemesanan', $pemesanan->id_pemesanan)}}">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Restoran</label>
+                            <label for="" class="col-sm-2 col-form-label">Restoran</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="" name="id_restoran" value="{{$pemesanan->id_restoran}}" >
+                                <select name="id_restoran" class="form-control">
+                                    @foreach($restoran as $restoran)
+                                    <option value="{{$restoran->id_restoran}}" @if($restoran->id_restoran == $pemesanan->id_restoran) selected @endif>{{$restoran->nama_restoran.' - '.$restoran->alamat_restoran}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Pelanggan</label>
+                            <label for="" class="col-sm-2 col-form-label">Nama Pelanggan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="" name="id_pelanggan" value="{{$pemesanan->id_pelanggan}}" >
+                                <select name="id_pelanggan" class="form-control">
+                                    @foreach($pelanggan as $pelanggan)
+                                    <option value="{{$pelanggan->id_pelanggan}}" @if($pelanggan->id_pelanggan == $pemesanan->id_pelanggan) selected @endif>{{$pelanggan->nama_pelanggan}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">ID Pegawai</label>
+                            <label for="" class="col-sm-2 col-form-label">Nama Pegawai</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="" name="id_pegawai" value="{{$pemesanan->id_pegawai}}" >
+                                <select name="id_pegawai" class="form-control">
+                                    @foreach($pegawais as $pegawais)
+                                    <option value="{{$pegawais->id_pegawai}}" @if($pegawais->id_pegawai == $pemesanan->id_pegawai) selected @endif>{{$pegawais->nama_pegawai}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Total Pemesanan</label>
                             <div class="col-sm-10">
@@ -57,4 +78,7 @@
                         </div>
                     </form>
                     @endforeach
+        </div>
+    </div>
+</div>
 @endsection

@@ -103,7 +103,10 @@ class PegawaiPemesananController extends Controller {
         }
         $pegawai = PegawaiController::getPegawai();
         $pemesanan = Pemesanan::where('id_pemesanan', $id)->get();
-        return view('pegawai.pemesanan.edit', compact('pemesanan', 'pegawai'));
+        $restoran = Restoran::all();
+        $pelanggan = Pelanggan::all();
+        $pegawais = Pegawai::all();
+        return view('pegawai.pemesanan.edit', compact('pemesanan','restoran','pelanggan','pegawais', 'pegawai'));
     }
 
     public function update(Request $request, $id){

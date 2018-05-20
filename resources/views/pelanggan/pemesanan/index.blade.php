@@ -34,7 +34,9 @@
                                             <td>{{$pemesanan->total_pemesanan}}</td>
                                             <td>{{$pemesanan->status_pemesanan}}</td>
                                             <td>
-                                                <a href="{{URL('pelanggan/pemesanan/'.$pemesanan->id_pemesanan)}}" class="btn btn-primary">Rincian</a>
+                                                <a href="{{URL('pelanggan/pemesanan/'.$pemesanan->id_pemesanan)}}" class="btn btn-primary">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         @endforeach
