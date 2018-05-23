@@ -7,6 +7,10 @@
 @section('email_pelanggan', $pelanggan['email_pelanggan'])
 
 @section('content')
+
+        <div class="col-lg-8">
+            <div class="card" style="background: #f5f5f5">
+                <div class="basic-form">
                     <form method="POST" action="{{URL('pelanggan/pengaturan', $pelanggan['id_pelanggan'])}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PATCH') }}
@@ -44,7 +48,10 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Lanjutkan</button>
-                        <a class="btn btn-danger" href="../reservasi">Batal</a>
+                        <a class="btn btn-danger" href="../pengaturan">Batal</a>
                     </form>
+                </div>
+            </div>
+        </div>
 
 @endsection

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Pelanggan;
+use App\Pemesanan;
+use App\Reservasi;
+use App\DetilPemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PegawaiController;
@@ -23,25 +26,27 @@ class PegawaiPelangganController extends Controller{
             return redirect('pegawai/login');
         }
         $pegawai = PegawaiController::getPegawai();
-        return view('pegawai.pelanggan.create');
+        return view('pegawai.pelanggan.create', compact('pegawai'));
     }
 
     public function store(Request $request){
-        $this->validate($request, [
-            'nama_pelanggan' => 'required',
-            'email_pelanggan' => 'required',
-            'username_pelanggan' => 'required',
-            'password_pelanggan' => 'required',
-        ]);
+
+        $file = $request->file('foto_pelanggan');
+        $format = $file->getClientOriginalExtension();
+        $name = $request->username.'.'.$format;
+        $file->move('images/profil', $name);
+
 
         $data = [
-            'nama_pelanggan' => $request->nama_pelanggan,
-            'email_pelanggan' => $request->email_pelanggan,
-            'username_pelanggan' => $request->username_pelanggan,
-            'password_pelanggan' => md5($request->password_pelanggan),
+            'nama_pelanggan' => $request->name,
+            'email_pelanggan' => $request->email,
+            'username_pelanggan' => $request->username,
+            'password_pelanggan' => md5($request->password),
+            'foto_pelanggan' => $name,
             'created_at' => date("Y-m-d H:i:s"),
-            'updated_at' => date("Y-m-d H:i:s")
+            'updated_at' => date("Y-m-d H:i:s"),
         ];
+
         Pelanggan::insert($data);
         return redirect('pegawai/pelanggan');
     }
@@ -56,7 +61,7 @@ class PegawaiPelangganController extends Controller{
         }
         $pegawai = PegawaiController::getPegawai();
         $pelanggan = Pelanggan::where('id_pelanggan', $id)->get();
-        return view('pegawai.pelanggan.edit', compact('pelanggan'));
+        return view('pegawai.pelanggan.edit', compact('pelanggan', 'pegawai'));
     }
 
     public function update(Request $request, $id){
@@ -72,8 +77,16 @@ class PegawaiPelangganController extends Controller{
     }
 
     public function destroy($id){
-        /* Jangan dihapus, maunya kasi status="Tidak Aktif"
+        Reservasi::where('id_pelanggan', $id)->delete();
+
+        $sql = Pemesanan::select('id_pemesanan')->where('id_pelanggan', $id)->get();
+
+        foreach ($sql as $sql) {
+            $id_pemesanan = $sql->id_pemesanan;
+            DetilPemesanan::where('id_pemesanan', $id_pemesanan)->delete();
+        }
+
         Pelanggan::where('id_pelanggan', $id)->delete();
-        return redirect('pegawai/pelanggan');*/
+        return redirect('pegawai/pelanggan');
     }
 }

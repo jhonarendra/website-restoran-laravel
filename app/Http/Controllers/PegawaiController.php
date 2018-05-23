@@ -35,9 +35,9 @@ class PegawaiController extends Controller {
                 'jumlah_hidangan' => Hidangan::count(),
             ];
 
-            $pesanan = Pemesanan::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->get();
+            $pesanan = Pemesanan::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_pemesanan.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_pemesanan.id_pegawai')->orderBy('id_pemesanan','desc')->get();
 
-            $reservasi = Reservasi::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_reservasi.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->where('deleted', 0)->get();
+            $reservasi = Reservasi::join('tb_pelanggan', 'tb_pelanggan.id_pelanggan', '=', 'tb_reservasi.id_pelanggan')->join('tb_pegawai', 'tb_pegawai.id_pegawai', '=', 'tb_reservasi.id_pegawai')->where('deleted', 0)->orderBy('id_reservasi','desc')->get();
 
             return view('pegawai.index', compact('pegawai', 'dashboard','reservasi', 'pesanan'));
         }

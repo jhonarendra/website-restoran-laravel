@@ -15,8 +15,11 @@ class PegawaiHidanganController extends Controller {
             return redirect('pegawai/login');
         }
         $pegawai = PegawaiController::getPegawai();
-        $hidangan = Hidangan::all();
-        return view('pegawai.hidangan.index', compact('hidangan', 'pegawai'));
+        
+        $makanan = Hidangan::where('jenis_hidangan', 'Makanan')->get();
+        $minuman = Hidangan::where('jenis_hidangan', 'Minuman')->get();
+
+        return view('pegawai.hidangan.index', compact('makanan', 'minuman', 'pegawai'));
     }
 
     public function create(){
@@ -66,12 +69,24 @@ class PegawaiHidanganController extends Controller {
     }
 
     public function update(Request $request, $id){
+        $this->validate($request, [
+            'nama_hidangan' => 'required',
+            'jenis_hidangan' => 'required',
+            'harga_hidangan' => 'required',
+        ]);
+
+        $file = $request->file('foto_hidangan');
+        $format = $file->getClientOriginalExtension();
+        $name = $request->nama_hidangan.'.'.$format;
+        $file->move('images/hidangan', $name);
+
         $data = [
             'nama_hidangan' => $request->nama_hidangan,
             'jenis_hidangan' => $request->jenis_hidangan,
-            'updated_at' => date("Y-m-d H:i:s"),
+            'harga_hidangan' => $request->harga_hidangan,
+            'foto_hidangan' => $name,
+            'updated_at' => date("Y-m-d H:i:s")
         ];
-
         Hidangan::where('id_hidangan', $id)->update($data);
 
         return redirect('pegawai/hidangan');

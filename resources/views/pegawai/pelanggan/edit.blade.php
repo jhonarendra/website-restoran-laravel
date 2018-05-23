@@ -8,6 +8,9 @@
 @section('jabatan_pegawai', $pegawai['jabatan_pegawai'])
 
 @section('content')
+<div class="col-lg-8">
+    <div class="card" style="background: #f5f5f5">
+        <div class="basic-form">
                     @foreach($pelanggan as $pelanggan)
                     <form method="POST" action="{{URL('pegawai/pelanggan', $pelanggan->id_pelanggan)}}">
                         {{ csrf_field() }}
@@ -41,4 +44,7 @@
                         </div>
                     </form>
                     @endforeach
+                </div>
+            </div>
+        </div>
 @endsection
