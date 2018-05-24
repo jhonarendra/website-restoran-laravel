@@ -8,6 +8,9 @@
 @section('jabatan_pegawai', $pegawai['jabatan_pegawai'])
 
 @section('content')
+<div class="col-lg-12">
+    <div class="card" style="background: #f5f5f5">
+        <div class="basic-form">
 
                     <a href="{{URL('pegawai/pemesanan/create')}}" class="btn btn-success">Tambah Pemesanan</a>
 
@@ -33,4 +36,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
 @endsection

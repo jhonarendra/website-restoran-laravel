@@ -8,6 +8,10 @@
 @section('jabatan_pegawai', $pegawai['jabatan_pegawai'])
 
 @section('content')
+
+<div class="col-lg-8">
+                    <div class="card" style="background: #f5f5f5">
+                            <div class="basic-form">
                     <form method="POST" action="{{URL('pegawai/pengaturan', $pegawai['id_pegawai'])}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
@@ -67,4 +71,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
 @endsection
