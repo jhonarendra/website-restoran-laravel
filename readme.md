@@ -47,7 +47,9 @@ Lalu masukkan perintah berikut untuk insert beberapa data ke database
 php artisan db:seed
 ```
 
-5. Siap dijalankan... 
+5. Siap dijalankan...
+
+<p align="center">Apabila memerlukan database sqldump, file bernama prognet8.sql</p>
 
 ## Contributing
 
@@ -71,6 +73,9 @@ git commit -m "pesan"
 ```
 git push origin master
 ```
+
+## Online Demo
+http://prognet8.tk/public
 
 ## Kelompok 8
 
