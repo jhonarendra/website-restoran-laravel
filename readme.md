@@ -1,6 +1,8 @@
-![](https://raw.githubusercontent.com/jhonarendra/prognet8/master/public/images/logo.png)
-  ![](https://raw.githubusercontent.com/jhonarendra/prognet8/master/public/images/logo-text.png)
-<p>Website restoran dengan framework Laravel 5.6</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/jhonarendra/prognet8/master/public/images/logo.png" />
+<img src="https://raw.githubusercontent.com/jhonarendra/prognet8/master/public/images/logo-text.png" />
+</p>
+<p align="center">Website restoran dengan framework Laravel 5.6</p>
 
 ## Installation
 
