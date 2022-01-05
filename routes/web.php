@@ -1,5 +1,15 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\App\KeuanganController;
+use App\Http\Controllers\App\DompetController;
+use App\Http\Controllers\App\AnggaranController;
+use App\Http\Controllers\App\KategoriController;
+use App\Http\Controllers\App\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,39 +21,32 @@
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth
+Route::get('/login', [AuthController::class, 'showFormLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showFormRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 
-Route::group(['prefix'=>'pelanggan'], function(){
-	Route::get('', 'PelangganController@index');
 
-	Route::get('login', 'PelangganController@showLoginForm');
-	Route::post('login', 'PelangganController@login');
-	Route::get('logout', 'PelangganController@logout');
-	Route::get('register', 'PelangganController@showRegisterForm');
-	Route::post('register', 'PelangganController@register');
 
-	Route::resource('reservasi', 'PelangganReservasiController');
-	Route::resource('pemesanan', 'PelangganPemesananController');
-	Route::resource('hidangan', 'PelangganHidanganController');
-	Route::resource('pengaturan', 'PelangganPengaturanController');
+/*
+|--------------------------------------------------------------------------
+| Application
+|--------------------------------------------------------------------------
+|
+| Aplikasi utama
+|
+|
+*/
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('/app', [HomeController::class, 'app'])->name('app');
+	Route::get('/app/{any}', [HomeController::class, 'app'])->where('any','.*');
+
+	Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::group(['prefix'=>'pegawai'], function(){
-	Route::get('', 'PegawaiController@index');
-
-	Route::get('login', 'PegawaiController@showLoginForm');
-	Route::post('login', 'PegawaiController@login');
-	Route::get('logout', 'PegawaiController@logout');
-	Route::get('register', 'PegawaiController@showRegisterForm');
-	Route::post('register', 'PegawaiController@register');
-
-	Route::resource('reservasi', 'PegawaiReservasiController');
-	Route::resource('pemesanan', 'PegawaiPemesananController');
-	Route::resource('pelanggan', 'PegawaiPelangganController');
-	Route::resource('pegawai', 'PegawaiPegawaiController');
-	Route::resource('restoran', 'PegawaiRestoranController');
-	Route::resource('hidangan', 'PegawaiHidanganController');
-	Route::resource('pengaturan', 'PegawaiPengaturanController');
+Route::get('/test', function(){
+	return Auth::user();
 });
