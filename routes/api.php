@@ -13,3 +13,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// GAK BISA NGAMBIL AUTH SAMA SESSION KALO PAKE API
+// Route::group(['middleware' => 'auth'], function () {
+
+// });

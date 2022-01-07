@@ -21,32 +21,4 @@ use App\Http\Controllers\App\UserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
-// Auth
-Route::get('/login', [AuthController::class, 'showFormLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/register', [AuthController::class, 'showFormRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Application
-|--------------------------------------------------------------------------
-|
-| Aplikasi utama
-|
-|
-*/
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('/app', [HomeController::class, 'app'])->name('app');
-	Route::get('/app/{any}', [HomeController::class, 'app'])->where('any','.*');
-
-	Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-});
-
-Route::get('/test', function(){
-	return Auth::user();
-});
+Route::get('/{any}', [HomeController::class, 'index'])->where('any','.*');
