@@ -2077,7 +2077,13 @@ var routes = [{
   path: "/",
   name: "Home",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_pages_Home_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Home.vue */ "./resources/js/pages/Home.vue"));
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/index.vue */ "./resources/js/pages/index.vue"));
+  }
+}, {
+  path: "/example",
+  name: "Example",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_example_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/example.vue */ "./resources/js/pages/example.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
@@ -42392,7 +42398,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "app" } }, [_c("router-view")], 1)
+  return _c(
+    "div",
+    { staticStyle: { "overflow-x": "hidden" }, attrs: { id: "app" } },
+    [_c("router-view")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -59335,7 +59346,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "resources_js_pages_Home_vue") return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
