@@ -2075,21 +2075,33 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
 var routes = [{
   path: "/",
-  name: "Home",
+  name: "index",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/index.vue */ "./resources/js/pages/index.vue"));
   }
 }, {
   path: "/login",
-  name: "Login",
+  name: "login",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_login_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/login.vue */ "./resources/js/pages/login.vue"));
   }
 }, {
   path: "/register",
-  name: "Register",
+  name: "register",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_register_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/register.vue */ "./resources/js/pages/register.vue"));
+  }
+}, {
+  path: "/user",
+  name: "user",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/index.vue */ "./resources/js/pages/user/index.vue"));
+  }
+}, {
+  path: "/user/reservasi",
+  name: "user-reservasi",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_reservasi_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/reservasi/index.vue */ "./resources/js/pages/user/reservasi/index.vue"));
   }
 }, {
   path: "/example",
@@ -59540,7 +59552,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

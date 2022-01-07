@@ -1,9 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav :class="`navbar navbar-expand-lg navbar-${variant} bg-${variant}`">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <router-link to="/">
         <img src="/images/logo-text.png" />
-      </a>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,7 +16,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" v-if="$route.name === 'index'">
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
           </li>
@@ -47,7 +47,44 @@
             </div>
           </li> -->
         </ul>
+        <ul class="navbar-nav" v-if="$route.name.includes('user')">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user/reservasi">Reservasi</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user">Pesanan</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user">Pelanggan</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user">Pegawai</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user">Hidangan</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user">Restoran</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/user">Pengaturan</router-link>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  props: {
+    variant: {
+      type: String,
+      default: () => null
+    }
+  }
+}
+</script>

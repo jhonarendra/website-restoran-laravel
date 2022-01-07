@@ -2,7 +2,7 @@
   <div>
     <SliderComp />
 
-    <NavbarComp />
+    <NavbarComp variant="light" />
 
     <AboutComp />
 
