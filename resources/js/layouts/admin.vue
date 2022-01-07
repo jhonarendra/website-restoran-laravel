@@ -3,9 +3,9 @@
     <NavbarComp variant="light" />
     <div class="container pt-5">
       <div class="row">
-        <div class="col-md-3">
+        <div class="user-profile col-md-3">
           <div class="user-photo" style="background-image: url('/images/hidangan/spageti.jpg')" />
-          <ul class="list-group mt-3">
+          <ul class="list-group mt-5">
             <li class="list-group-item">
               Nama Lengkap Saya
             </li>
@@ -53,5 +53,11 @@ export default {
   }
   .list-group-item {
     background: #faebcd;
+  }
+
+  @media (max-width: 767px) {
+    .user-profile {
+      display: none;
+    }
   }
 </style>

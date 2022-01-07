@@ -224,7 +224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.user-photo[data-v-2829c63b] {\n  border: 1px solid #ddd;\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  margin: 0 auto\n}\n.list-group-item[data-v-2829c63b] {\n  background: #faebcd;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.user-photo[data-v-2829c63b] {\n  border: 1px solid #ddd;\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  margin: 0 auto\n}\n.list-group-item[data-v-2829c63b] {\n  background: #faebcd;\n}\n@media (max-width: 767px) {\n.user-profile[data-v-2829c63b] {\n    display: none;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -835,7 +835,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3" }, [
+    return _c("div", { staticClass: "user-profile col-md-3" }, [
       _c("div", {
         staticClass: "user-photo",
         staticStyle: {
@@ -843,7 +843,7 @@ var staticRenderFns = [
         }
       }),
       _vm._v(" "),
-      _c("ul", { staticClass: "list-group mt-3" }, [
+      _c("ul", { staticClass: "list-group mt-5" }, [
         _c("li", { staticClass: "list-group-item" }, [
           _vm._v("\n            Nama Lengkap Saya\n          ")
         ]),

@@ -50,4 +50,38 @@ export default {
     width: 100%;
     height: 100vh
   }
+
+
+
+	.overlay-table-loader, .overlay-page-loader {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: rgba(255,255,255, 0.5);
+  height: 110vh;
+}
+.overlay-page-loader {
+  z-index: 100;
+  height: 100vh;
+  padding-top:30vh;
+  position: fixed;
+}
+.spinner-container {
+  width: 100%;
+}
+
+.spinner-container .spinner,
+.overlay-page-loader .spinner,
+.overlay-table-loader .spinner {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  background-size: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 </style>
