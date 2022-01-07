@@ -31,24 +31,28 @@ export default {
   },
   data () {
     return {
-
+      nav: null,
+      menuNav: null,
+      stickyNav: null
     }
   },
   mounted () {
-    const nav = document.querySelector('nav')
-    const menuNav = document.querySelectorAll('nav li a')
-    let sticky = nav.offsetTop
+    this.nav = document.querySelector('nav')
+    this.menuNav = document.querySelectorAll('nav li a')
+    this.stickyNav = this.nav.offsetTop
 
-    window.onscroll = () => onScroll()
-    function onScroll () {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  methods: {
+    onScroll () {
       let pos = window.pageYOffset
-      if (pos > sticky) {
-        nav.classList.add('fixed-top')
-      } else if (window.pageYOffset < sticky) {
-        nav.classList.remove('fixed-top')
+      if (pos > this.stickyNav) {
+        this.nav.classList.add('fixed-top')
+      } else if (pos < this.stickyNav) {
+        this.nav.classList.remove('fixed-top')
       }
 
-      menuNav.forEach((e) => {
+      this.menuNav.forEach((e) => {
         let elId = e.getAttribute('href')
         let el = null
         if (elId === '#') {
@@ -63,6 +67,9 @@ export default {
         }
       })
     }
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
   }
 }
 </script>

@@ -179,27 +179,29 @@ __webpack_require__.r(__webpack_exports__);
     FooterComp: _components_index_FooterComp__WEBPACK_IMPORTED_MODULE_8__.default
   },
   data: function data() {
-    return {};
+    return {
+      nav: null,
+      menuNav: null,
+      stickyNav: null
+    };
   },
   mounted: function mounted() {
-    var nav = document.querySelector('nav');
-    var menuNav = document.querySelectorAll('nav li a');
-    var sticky = nav.offsetTop;
-
-    window.onscroll = function () {
-      return onScroll();
-    };
-
-    function onScroll() {
+    this.nav = document.querySelector('nav');
+    this.menuNav = document.querySelectorAll('nav li a');
+    this.stickyNav = this.nav.offsetTop;
+    window.addEventListener('scroll', this.onScroll);
+  },
+  methods: {
+    onScroll: function onScroll() {
       var pos = window.pageYOffset;
 
-      if (pos > sticky) {
-        nav.classList.add('fixed-top');
-      } else if (window.pageYOffset < sticky) {
-        nav.classList.remove('fixed-top');
+      if (pos > this.stickyNav) {
+        this.nav.classList.add('fixed-top');
+      } else if (pos < this.stickyNav) {
+        this.nav.classList.remove('fixed-top');
       }
 
-      menuNav.forEach(function (e) {
+      this.menuNav.forEach(function (e) {
         var elId = e.getAttribute('href');
         var el = null;
 
@@ -216,6 +218,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll);
   }
 });
 
@@ -1284,180 +1289,214 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container", attrs: { id: "reservasi" } }, [
+    _c("h3", { staticClass: "text-center display-4 text-dark-brown py-5" }, [
+      _vm._v("Reservasi")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("h4", { staticClass: "text-dark-brown py-4" }, [_vm._v("Daftar")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            attrs: {
+              action: "",
+              method: "POST",
+              enctype: "multipart/form-data"
+            }
+          },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _c(
+              "p",
+              [
+                _vm._v("Sudah punya akun? "),
+                _c("router-link", { attrs: { to: "/login" } }, [
+                  _vm._v("Login")
+                ])
+              ],
+              1
+            )
+          ]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container", attrs: { id: "reservasi" } }, [
-      _c("h3", { staticClass: "text-center display-4 text-dark-brown py-5" }, [
-        _vm._v("Reservasi")
-      ]),
+    return _c("div", { staticClass: "contact-reservasi col-md-6" }, [
+      _c("h4", { staticClass: "text-dark-brown py-4" }, [_vm._v("Kontak")]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "contact-reservasi col-md-6" }, [
-          _c("h4", { staticClass: "text-dark-brown py-4" }, [_vm._v("Kontak")]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "list-group" }, [
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("i", { staticClass: "fa fa-home pr-2" }),
-              _vm._v(
-                "\n          Jalan Raya Batu Belig no. 17X, Seminyak, Bali\n        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("i", { staticClass: "fa fa-phone pr-2" }),
-              _vm._v("\n          (0361) 237-163\n        ")
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("i", { staticClass: "fa fa-envelope pr-2" }),
-              _vm._v("\n          8-stars@gmail.com\n        ")
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("i", { staticClass: "fa fa-globe pr-2" }),
-              _vm._v("\n          Cras justo odio\n        ")
-            ])
-          ])
+      _c("ul", { staticClass: "list-group" }, [
+        _c("li", { staticClass: "list-group-item" }, [
+          _c("i", { staticClass: "fa fa-home pr-2" }),
+          _vm._v(
+            "\n          Jalan Raya Batu Belig no. 17X, Seminyak, Bali\n        "
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("h4", { staticClass: "text-dark-brown py-4" }, [_vm._v("Daftar")]),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              attrs: {
-                action: "",
-                method: "POST",
-                enctype: "multipart/form-data"
-              }
-            },
-            [
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-md-3", attrs: { for: "name" } },
-                  [_vm._v("Name")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      id: "name",
-                      name: "name",
-                      placeholder: "Name",
-                      type: "text",
-                      required: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-md-3", attrs: { for: "email" } },
-                  [_vm._v("Email")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      id: "email",
-                      name: "email",
-                      placeholder: "Email",
-                      type: "email",
-                      required: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-md-3", attrs: { for: "username" } },
-                  [_vm._v("Username")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      id: "username",
-                      name: "username",
-                      placeholder: "Username",
-                      type: "text",
-                      required: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-md-3", attrs: { for: "password" } },
-                  [_vm._v("Password")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      id: "password",
-                      name: "password",
-                      placeholder: "Password",
-                      type: "password",
-                      required: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-md-3", attrs: { for: "foto_pelanggan" } },
-                  [_vm._v("Foto")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      id: "foto_pelanggan",
-                      type: "file",
-                      name: "foto_pelanggan",
-                      required: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c(
-                  "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                  [_vm._v("\n            Daftar\n          ")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v("Sudah punya akun? "),
-                _c("a", { attrs: { href: "" } }, [_c("u", [_vm._v("Login")])])
-              ])
-            ]
-          )
+        _c("li", { staticClass: "list-group-item" }, [
+          _c("i", { staticClass: "fa fa-phone pr-2" }),
+          _vm._v("\n          (0361) 237-163\n        ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item" }, [
+          _c("i", { staticClass: "fa fa-envelope pr-2" }),
+          _vm._v("\n          8-stars@gmail.com\n        ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item" }, [
+          _c("i", { staticClass: "fa fa-globe pr-2" }),
+          _vm._v("\n          Cras justo odio\n        ")
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", { staticClass: "col-md-3", attrs: { for: "name" } }, [
+        _vm._v("Name")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            id: "name",
+            name: "name",
+            placeholder: "Name",
+            type: "text",
+            required: ""
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", { staticClass: "col-md-3", attrs: { for: "email" } }, [
+        _vm._v("Email")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            id: "email",
+            name: "email",
+            placeholder: "Email",
+            type: "email",
+            required: ""
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", { staticClass: "col-md-3", attrs: { for: "username" } }, [
+        _vm._v("Username")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            id: "username",
+            name: "username",
+            placeholder: "Username",
+            type: "text",
+            required: ""
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", { staticClass: "col-md-3", attrs: { for: "password" } }, [
+        _vm._v("Password")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            id: "password",
+            name: "password",
+            placeholder: "Password",
+            type: "password",
+            required: ""
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-md-3", attrs: { for: "foto_pelanggan" } },
+        [_vm._v("Foto")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            id: "foto_pelanggan",
+            type: "file",
+            name: "foto_pelanggan",
+            required: ""
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("\n            Daftar\n          ")]
+      )
     ])
   }
 ]

@@ -64,7 +64,7 @@
               Daftar
             </button>
           </div>
-          <p>Sudah punya akun? <a href=""><u>Login</u></a></p>
+          <p>Sudah punya akun? <router-link to="/login">Login</router-link></p>
         </form>
       </div>
     </div>

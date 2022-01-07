@@ -2080,6 +2080,12 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_pages_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/index.vue */ "./resources/js/pages/index.vue"));
   }
 }, {
+  path: "/login",
+  name: "Login",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_login_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/login.vue */ "./resources/js/pages/login.vue"));
+  }
+}, {
   path: "/example",
   name: "Example",
   component: function component() {
@@ -2089,7 +2095,7 @@ var routes = [{
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   mode: "history",
   // base: process.env.BASE_URL,
-  base: "/app",
+  base: "/",
   routes: routes
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -10511,7 +10517,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__.default);
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_assets_icons_font_awesome_css_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_2__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nhtml {\n\t\tscroll-behavior: smooth;\n}\n.text-brown {\n\t\tcolor: #a99c92!important;\n}\n.text-dark-brown {\n\t\tcolor: #5e493a!important;\n}\n.background-image {\n    background-size: cover;\n    background-position: center;\n    width: 100%;\n    height: 100vh\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nhtml {\n\t\tscroll-behavior: smooth;\n}\n.btn-primary {\n\t\tbox-shadow: rgba(116, 96, 238, 0.14) 0px 2px 2px 0px, rgba(116, 96, 238, 0.2) 0px 3px 1px -2px, rgba(116, 96, 238, 0.12) 0px 1px 5px 0px;\n\t\tbackground: rgb(92, 74, 199);\n\t\tborder-width: 1px;\n\t\tborder-style: solid;\n\t\tborder-color: rgb(92, 74, 199);\n\t\t-o-border-image: initial;\n\t\t   border-image: initial;\n\t\ttransition: all 0.2s ease-in 0s;\n}\n.text-brown {\n\t\tcolor: #a99c92!important;\n}\n.text-dark-brown {\n\t\tcolor: #5e493a!important;\n}\n.background-image {\n    background-size: cover;\n    background-position: center;\n    width: 100%;\n    height: 100vh\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -59528,7 +59534,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

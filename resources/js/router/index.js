@@ -5,13 +5,14 @@ Vue.use(VueRouter);
 
 const routes = [
 	{ path: "/", name: "Home", component: () => import("../pages/index.vue") },
+	{ path: "/login", name: "Login", component: () => import("../pages/login.vue") },
 	{ path: "/example", name: "Example", component: () => import("../pages/example.vue") },
 ];
 
 const router = new VueRouter({
 	mode: "history",
 	// base: process.env.BASE_URL,
-	base: "/app",
+	base: "/",
 	routes
 });
 
