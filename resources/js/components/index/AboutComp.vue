@@ -1,5 +1,5 @@
 <template>
-  <div id="about-section" class="row">
+  <div id="about" class="row">
     <div class="col-md-6 px-0">
       <div
         class="background-image img-left"
@@ -13,7 +13,7 @@
       >
         <div class="about-content">
           <h3 class="display-4 text-white">About</h3>
-          <p class="text-brown">
+          <p class="h6 text-brown" style="font-size: 1.5rem; line-height: 2rem; font-weight: 300">
             8-Stars Restaurant, Restoran dengan gaya khas Western yang sangat
             cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun
             1867, Kami menggunakan bahan - bahan yang berkualitas dan dipilah
@@ -38,11 +38,11 @@
   }
 
   @media (max-width: 767px) {
-    #about-section .background-image.img-left {
+    #about .background-image.img-left {
       height: 200px;
     }
-    #about-section .background-image.about-content-wrapper {
-      height: 80vh;
+    #about .background-image.about-content-wrapper {
+      height: auto;
     }
   }
 </style>

@@ -10511,7 +10511,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__.default);
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_assets_icons_font_awesome_css_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_2__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-brown {\n\t\tcolor: #a99c92!important;\n}\n.text-dark-brown {\n\t\tcolor: #5e493a!important;\n}\n.background-image {\n    background-size: cover;\n    background-position: center;\n    width: 100%;\n    height: 100vh\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nhtml {\n\t\tscroll-behavior: smooth;\n}\n.text-brown {\n\t\tcolor: #a99c92!important;\n}\n.text-dark-brown {\n\t\tcolor: #5e493a!important;\n}\n.background-image {\n    background-size: cover;\n    background-position: center;\n    width: 100%;\n    height: 100vh\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

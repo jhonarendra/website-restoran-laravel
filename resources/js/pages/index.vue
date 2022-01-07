@@ -1,25 +1,16 @@
 <template>
   <div>
-    <!-- slider -->
     <SliderComp />
 
-    <!-- nav -->
     <NavbarComp />
 
-    <!-- about section -->
     <AboutComp />
 
-    <!-- testimoni -->
     <TestimoniComp />
 
-    <!-- menu -->
     <HidanganComp />
 
-
-    <!-- reservasi -->
-    <ReservasiComponent />
-
-
+    <ReservasiComp />
 
     <FooterComp />
   </div>
@@ -45,22 +36,39 @@ export default {
   },
   mounted () {
     const nav = document.querySelector('nav')
+    const menuNav = document.querySelectorAll('nav li a')
     let sticky = nav.offsetTop
+
     window.onscroll = () => onScroll()
     function onScroll () {
-      if (window.pageYOffset > sticky) {
+      let pos = window.pageYOffset
+      if (pos > sticky) {
         nav.classList.add('fixed-top')
       } else if (window.pageYOffset < sticky) {
-        console.log('remove')
         nav.classList.remove('fixed-top')
       }
+
+      menuNav.forEach((e) => {
+        let elId = e.getAttribute('href')
+        let el = null
+        if (elId === '#') {
+          el = document.querySelector('#slider')
+        } else {
+          el = document.querySelector(elId)
+        }
+        if (pos < el.offsetTop && pos + el.offsetHeight > el.offsetTop) {
+          e.classList.add('active')
+        } else {
+          e.classList.remove('active')
+        }
+      })
     }
   }
 }
 </script>
 
 <style>
-  nav.fixed-top + #about-section .background-image {
+  nav.fixed-top + #about .background-image {
     padding-top: 56px;
   }
 </style>

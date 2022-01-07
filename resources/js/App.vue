@@ -17,6 +17,10 @@ export default {
 <style>
 	@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 	@import 'assets/icons/font-awesome/css/font-awesome.min.css';
+
+	html {
+		scroll-behavior: smooth;
+	}
 	
 	.text-brown {
 		color: #a99c92!important;

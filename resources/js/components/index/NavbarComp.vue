@@ -17,19 +17,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Hidangan</a>
+            <a class="nav-link" href="#hidangan">Hidangan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Reservasi</a>
+            <a class="nav-link" href="#reservasi">Reservasi</a>
           </li>
           <!-- <li class="nav-item dropdown">
             <a

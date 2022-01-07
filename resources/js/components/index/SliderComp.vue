@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel slide" data-ride="carousel">
+  <div id="slider" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="container">
         <div

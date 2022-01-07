@@ -1,6 +1,6 @@
 <template>
   <div
-    id="menu"
+    id="hidangan"
     class="background-image"
     style="background-image: url('/images/wood_1.png'); overflow: hidden"
   >
@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style scoped>
-  #menu.background-image {
+  #hidangan.background-image {
     height: auto;
     min-height: 100vh;
     padding: 50px 0;

@@ -130,22 +130,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_index_NavbarComp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/index/NavbarComp */ "./resources/js/components/index/NavbarComp.vue");
-/* harmony import */ var _components_index_SliderComp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/index/SliderComp */ "./resources/js/components/index/SliderComp.vue");
-/* harmony import */ var _components_index_AboutComp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/index/AboutComp */ "./resources/js/components/index/AboutComp.vue");
-/* harmony import */ var _components_index_TestimoniComp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/index/TestimoniComp */ "./resources/js/components/index/TestimoniComp.vue");
-/* harmony import */ var _components_index_HidanganComp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/index/HidanganComp */ "./resources/js/components/index/HidanganComp.vue");
-/* harmony import */ var _components_index_ReservasiComp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/index/ReservasiComp */ "./resources/js/components/index/ReservasiComp.vue");
-/* harmony import */ var _components_index_FooterComp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/index/FooterComp */ "./resources/js/components/index/FooterComp.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_index_NavbarComp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/index/NavbarComp */ "./resources/js/components/index/NavbarComp.vue");
+/* harmony import */ var _components_index_SliderComp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/index/SliderComp */ "./resources/js/components/index/SliderComp.vue");
+/* harmony import */ var _components_index_AboutComp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/index/AboutComp */ "./resources/js/components/index/AboutComp.vue");
+/* harmony import */ var _components_index_TestimoniComp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/index/TestimoniComp */ "./resources/js/components/index/TestimoniComp.vue");
+/* harmony import */ var _components_index_HidanganComp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/index/HidanganComp */ "./resources/js/components/index/HidanganComp.vue");
+/* harmony import */ var _components_index_ReservasiComp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/index/ReservasiComp */ "./resources/js/components/index/ReservasiComp.vue");
+/* harmony import */ var _components_index_FooterComp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/index/FooterComp */ "./resources/js/components/index/FooterComp.vue");
+
+
 //
 //
 //
@@ -173,19 +170,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    NavbarComp: _components_index_NavbarComp__WEBPACK_IMPORTED_MODULE_0__.default,
-    SliderComp: _components_index_SliderComp__WEBPACK_IMPORTED_MODULE_1__.default,
-    AboutComp: _components_index_AboutComp__WEBPACK_IMPORTED_MODULE_2__.default,
-    TestimoniComp: _components_index_TestimoniComp__WEBPACK_IMPORTED_MODULE_3__.default,
-    HidanganComp: _components_index_HidanganComp__WEBPACK_IMPORTED_MODULE_4__.default,
-    ReservasiComp: _components_index_ReservasiComp__WEBPACK_IMPORTED_MODULE_5__.default,
-    FooterComp: _components_index_FooterComp__WEBPACK_IMPORTED_MODULE_6__.default
+    NavbarComp: _components_index_NavbarComp__WEBPACK_IMPORTED_MODULE_2__.default,
+    SliderComp: _components_index_SliderComp__WEBPACK_IMPORTED_MODULE_3__.default,
+    AboutComp: _components_index_AboutComp__WEBPACK_IMPORTED_MODULE_4__.default,
+    TestimoniComp: _components_index_TestimoniComp__WEBPACK_IMPORTED_MODULE_5__.default,
+    HidanganComp: _components_index_HidanganComp__WEBPACK_IMPORTED_MODULE_6__.default,
+    ReservasiComp: _components_index_ReservasiComp__WEBPACK_IMPORTED_MODULE_7__.default,
+    FooterComp: _components_index_FooterComp__WEBPACK_IMPORTED_MODULE_8__.default
   },
   data: function data() {
     return {};
   },
   mounted: function mounted() {
     var nav = document.querySelector('nav');
+    var menuNav = document.querySelectorAll('nav li a');
     var sticky = nav.offsetTop;
 
     window.onscroll = function () {
@@ -193,12 +191,30 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     function onScroll() {
-      if (window.pageYOffset > sticky) {
+      var pos = window.pageYOffset;
+
+      if (pos > sticky) {
         nav.classList.add('fixed-top');
       } else if (window.pageYOffset < sticky) {
-        console.log('remove');
         nav.classList.remove('fixed-top');
       }
+
+      menuNav.forEach(function (e) {
+        var elId = e.getAttribute('href');
+        var el = null;
+
+        if (elId === '#') {
+          el = document.querySelector('#slider');
+        } else {
+          el = document.querySelector(elId);
+        }
+
+        if (pos < el.offsetTop && pos + el.offsetHeight > el.offsetTop) {
+          e.classList.add('active');
+        } else {
+          e.classList.remove('active');
+        }
+      });
     }
   }
 });
@@ -222,7 +238,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.about-content-wrapper[data-v-12e20424] {\n  overflow: hidden;\n}\n.about-content[data-v-12e20424] {\n  padding: 50px;\n}\n@media (max-width: 767px) {\n#about-section .background-image.img-left[data-v-12e20424] {\n    height: 200px;\n}\n#about-section .background-image.about-content-wrapper[data-v-12e20424] {\n    height: 80vh;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.about-content-wrapper[data-v-12e20424] {\n  overflow: hidden;\n}\n.about-content[data-v-12e20424] {\n  padding: 50px;\n}\n@media (max-width: 767px) {\n#about .background-image.img-left[data-v-12e20424] {\n    height: 200px;\n}\n#about .background-image.about-content-wrapper[data-v-12e20424] {\n    height: auto;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -246,7 +262,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#menu.background-image[data-v-6941f24a] {\n  height: auto;\n  min-height: 100vh;\n  padding: 50px 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#hidangan.background-image[data-v-6941f24a] {\n  height: auto;\n  min-height: 100vh;\n  padding: 50px 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -342,7 +358,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nnav.fixed-top + #about-section .background-image {\n  padding-top: 56px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nnav.fixed-top + #about .background-image {\n  padding-top: 56px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -954,7 +970,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row", attrs: { id: "about-section" } }, [
+    return _c("div", { staticClass: "row", attrs: { id: "about" } }, [
       _c("div", { staticClass: "col-md-6 px-0" }, [
         _c("div", {
           staticClass: "background-image img-left",
@@ -975,11 +991,22 @@ var staticRenderFns = [
                 _vm._v("About")
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "text-brown" }, [
-                _vm._v(
-                  "\n          8-Stars Restaurant, Restoran dengan gaya khas Western yang sangat\n          cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun\n          1867, Kami menggunakan bahan - bahan yang berkualitas dan dipilah\n          secara baik dari sumbernya sehingga menghasilkan hasil masakan\n          yang lezat dan berkualitas. 8-Stars Restaurant menyediakan tempat\n          untuk anda yang ingin berbagi momen bersama orang - orang\n          disekitar anda melalui makanan yang kami sediakan, mari pesan\n          tempat anda sekarang.\n        "
-                )
-              ])
+              _c(
+                "p",
+                {
+                  staticClass: "h6 text-brown",
+                  staticStyle: {
+                    "font-size": "1.5rem",
+                    "line-height": "2rem",
+                    "font-weight": "300"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n          8-Stars Restaurant, Restoran dengan gaya khas Western yang sangat\n          cocok untuk berbagai acara dan kebutuhan. Dikenal sejak tahun\n          1867, Kami menggunakan bahan - bahan yang berkualitas dan dipilah\n          secara baik dari sumbernya sehingga menghasilkan hasil masakan\n          yang lezat dan berkualitas. 8-Stars Restaurant menyediakan tempat\n          untuk anda yang ingin berbagi momen bersama orang - orang\n          disekitar anda melalui makanan yang kami sediakan, mari pesan\n          tempat anda sekarang.\n        "
+                  )
+                ]
+              )
             ])
           ]
         )
@@ -1010,7 +1037,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("footer", { staticClass: "footer py-4 text-center" }, [
-    _vm._v("\n  © 2018 All rights reserved\n")
+    _vm._v("\n  © 2022 All rights reserved\n")
   ])
 }
 var staticRenderFns = []
@@ -1044,7 +1071,7 @@ var render = function() {
         "background-image": "url('/images/wood_1.png')",
         overflow: "hidden"
       },
-      attrs: { id: "menu" }
+      attrs: { id: "hidangan" }
     },
     [
       _c("div", { staticClass: "container" }, [
@@ -1198,31 +1225,34 @@ var staticRenderFns = [
             },
             [
               _c("ul", { staticClass: "navbar-nav" }, [
-                _c("li", { staticClass: "nav-item active" }, [
+                _c("li", { staticClass: "nav-item" }, [
                   _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Home "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)")
-                    ])
+                    _vm._v("Home")
                   ])
                 ]),
                 _vm._v(" "),
                 _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("About")
-                  ])
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: "#about" } },
+                    [_vm._v("About")]
+                  )
                 ]),
                 _vm._v(" "),
                 _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Hidangan")
-                  ])
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: "#hidangan" } },
+                    [_vm._v("Hidangan")]
+                  )
                 ]),
                 _vm._v(" "),
                 _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Reservasi")
-                  ])
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: "#reservasi" } },
+                    [_vm._v("Reservasi")]
+                  )
                 ])
               ])
             ]
@@ -1462,7 +1492,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "carousel slide", attrs: { "data-ride": "carousel" } },
+      {
+        staticClass: "carousel slide",
+        attrs: { id: "slider", "data-ride": "carousel" }
+      },
       [
         _c("div", { staticClass: "carousel-inner" }, [
           _c("div", { staticClass: "container" }, [
@@ -1678,7 +1711,7 @@ var render = function() {
       _vm._v(" "),
       _c("HidanganComp"),
       _vm._v(" "),
-      _c("ReservasiComponent"),
+      _c("ReservasiComp"),
       _vm._v(" "),
       _c("FooterComp")
     ],
