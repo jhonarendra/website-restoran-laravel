@@ -113,79 +113,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "background-image",
-        staticStyle: {
-          "background-image": "url('/images/Background_menu.jpg')"
-        }
-      },
-      [
-        _c("div", { attrs: { id: "main-wrapper" } }, [
-          _c("div", { staticClass: "row justify-content-center" }, [
-            _c("div", { staticClass: "col-lg-4" }, [
-              _c("div", { staticClass: "login-content card" }, [
-                _c("div", { staticClass: "login-form" }, [
-                  _c("h4", [_vm._v("Login")]),
+  return _c(
+    "div",
+    {
+      staticClass: "background-image",
+      staticStyle: { "background-image": "url('/images/Background_menu.jpg')" }
+    },
+    [
+      _c("div", { attrs: { id: "main-wrapper" } }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-lg-4" }, [
+            _c("div", { staticClass: "login-content card" }, [
+              _c("div", { staticClass: "login-form" }, [
+                _c("h4", [_vm._v("Login")]),
+                _vm._v(" "),
+                _c("form", { attrs: { method: "POST", action: "" } }, [
+                  _vm._m(0),
                   _vm._v(" "),
-                  _c("form", { attrs: { method: "POST", action: "" } }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Email")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          id: "email",
-                          type: "email",
-                          name: "email",
-                          required: "",
-                          autofocus: ""
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Password")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          id: "password",
-                          type: "password",
-                          name: "password",
-                          required: ""
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("\n                Login\n              ")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "register-link text-center" }, [
                     _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary btn-flat m-b-30 m-t-30",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("\n                Login\n              ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "register-link m-t-15 text-center" },
+                      "p",
                       [
-                        _c("p", [
-                          _vm._v(
-                            "\n                  Belum punya akun?\n                  "
-                          ),
-                          _c("a", { attrs: { href: "" } }, [_vm._v(" Daftar")])
+                        _vm._v("\n                  Belum punya akun? "),
+                        _c("router-link", { attrs: { to: "/register" } }, [
+                          _vm._v("Daftar")
                         ])
-                      ]
+                      ],
+                      1
                     )
                   ])
                 ])
@@ -193,8 +158,47 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ]
-    )
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "email",
+          type: "email",
+          name: "email",
+          required: "",
+          autofocus: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Password")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "password",
+          type: "password",
+          name: "password",
+          required: ""
+        }
+      })
+    ])
   }
 ]
 render._withStripped = true

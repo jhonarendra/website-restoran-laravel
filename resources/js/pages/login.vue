@@ -33,14 +33,13 @@
                 </div>
                 <button
                   type="submit"
-                  class="btn btn-primary btn-flat m-b-30 m-t-30"
+                  class="btn btn-primary"
                 >
                   Login
                 </button>
-                <div class="register-link m-t-15 text-center">
+                <div class="register-link text-center">
                   <p>
-                    Belum punya akun?
-                    <a href=""> Daftar</a>
+                    Belum punya akun? <router-link to="/register">Daftar</router-link>
                   </p>
                 </div>
               </form>
