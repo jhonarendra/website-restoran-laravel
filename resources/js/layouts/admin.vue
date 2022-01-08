@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="col-md-9">
-          <div style="min-height: 100vh" class="text-white">
+          <div style="min-height: 100vh">
             <slot />
           </div>
         </div>

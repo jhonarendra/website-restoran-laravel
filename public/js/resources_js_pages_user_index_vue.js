@@ -848,10 +848,7 @@ var render = function() {
           _c("div", { staticClass: "col-md-9" }, [
             _c(
               "div",
-              {
-                staticClass: "text-white",
-                staticStyle: { "min-height": "100vh" }
-              },
+              { staticStyle: { "min-height": "100vh" } },
               [_vm._t("default")],
               2
             )

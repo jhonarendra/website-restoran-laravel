@@ -523,35 +523,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     columns: {
@@ -2547,44 +2518,37 @@ var render = function() {
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "my-1 flex flex-1 rounded-md" }, [
             _c(
-              "span",
-              {
-                staticClass:
-                  "\n            inline-flex\n            items-center\n            px-3\n            rounded-l-md\n            border border-r-0 border-gray-300\n            dark:border-gray-700\n            bg-gray-50\n            dark:bg-gray-800\n            text-gray-500\n            dark:text-gray-300\n            text-sm\n          "
-              },
-              [_vm._v("\n          sdsd\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
               "form",
               {
-                staticClass: "w-full",
                 attrs: { action: "", method: "" },
                 on: { submit: _vm.setSearch }
               },
               [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.filter.search,
-                      expression: "filter.search"
-                    }
-                  ],
-                  staticClass:
-                    "\n              focus:ring-indigo-500 focus:border-indigo-500\n              w-full\n              flex-1\n              block\n              rounded-none rounded-r-md\n              sm:text-sm\n              border-gray-300\n              dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300\n            ",
-                  attrs: { id: "search", type: "text", placeholder: "Search" },
-                  domProps: { value: _vm.filter.search },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("div", { staticClass: "input-group mb-2 mb-sm-0" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.filter.search,
+                        expression: "filter.search"
                       }
-                      _vm.$set(_vm.filter, "search", $event.target.value)
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "Search" },
+                    domProps: { value: _vm.filter.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.filter, "search", $event.target.value)
+                      }
                     }
-                  }
-                })
+                  })
+                ])
               ]
             )
           ]),
@@ -3268,18 +3232,26 @@ var render = function() {
                           staticClass: "td text-center",
                           attrs: { colspan: _vm.columns.length }
                         },
-                        [_vm._m(0)]
+                        [_vm._m(1)]
                       )
                     ])
                   ])
                 ])
-              : _c("div", [_vm._m(1)])
+              : _c("div", [_vm._m(2)])
           ]
         )
       : _vm._e()
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "fa fa-search" })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -3602,10 +3574,7 @@ var render = function() {
           _c("div", { staticClass: "col-md-9" }, [
             _c(
               "div",
-              {
-                staticClass: "text-white",
-                staticStyle: { "min-height": "100vh" }
-              },
+              { staticStyle: { "min-height": "100vh" } },
               [_vm._t("default")],
               2
             )
@@ -3692,7 +3661,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("admin-layout", [
-    _c("h1", { staticClass: "font-weight-300" }, [_vm._v("Reservasi")]),
+    _c("h1", { staticClass: "font-weight-300 text-white" }, [
+      _vm._v("Reservasi")
+    ]),
     _vm._v(" "),
     _c(
       "div",

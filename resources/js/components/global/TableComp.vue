@@ -3,40 +3,11 @@
     <div class="py-3 sm:flex items-center justify-between px-4 sm:px-0">
       <div class="flex">
         <div class="my-1 flex flex-1 rounded-md">
-          <span
-            class="
-              inline-flex
-              items-center
-              px-3
-              rounded-l-md
-              border border-r-0 border-gray-300
-              dark:border-gray-700
-              bg-gray-50
-              dark:bg-gray-800
-              text-gray-500
-              dark:text-gray-300
-              text-sm
-            "
-          >
-            sdsd
-          </span>
-          <form action="" method="" class="w-full" @submit="setSearch">
-            <input
-              id="search"
-              v-model="filter.search"
-              type="text"
-              class="
-                focus:ring-indigo-500 focus:border-indigo-500
-                w-full
-                flex-1
-                block
-                rounded-none rounded-r-md
-                sm:text-sm
-                border-gray-300
-                dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300
-              "
-              placeholder="Search"
-            >
+          <form action="" method="" @submit="setSearch">
+            <div class="input-group mb-2 mb-sm-0">
+              <div class="input-group-addon"><i class="fa fa-search" /></div>
+              <input v-model="filter.search" type="text" class="form-control" placeholder="Search">
+            </div>
           </form>
         </div>
         <div class="my-1 relative">

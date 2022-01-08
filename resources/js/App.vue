@@ -46,6 +46,30 @@ export default {
 
 
 
+	.input-group-addon {
+		padding: 0.375rem 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem 0 0 0.25rem;
+    border-right: 0;
+	}
+	.input-group .form-control {
+		position: relative;
+		z-index: 2;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+		width: 1%;
+		margin-bottom: 0;
+	}
+
+
+
 
 	.background-image {
     background-size: cover;

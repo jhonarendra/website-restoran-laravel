@@ -1,6 +1,6 @@
 <template>
   <admin-layout>
-    <h1 class="font-weight-300">Reservasi</h1>
+    <h1 class="font-weight-300 text-white">Reservasi</h1>
     <div class="bg-light">
       <table-comp
         :columns="columns"
