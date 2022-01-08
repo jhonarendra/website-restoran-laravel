@@ -33,6 +33,47 @@ export default {
 		transition: all 0.2s ease-in 0s;
 	}
 
+	.circle {
+		border-radius: 50%;
+	}
+
+
+
+	a.card-link, a.card-link:hover {
+		color: #444444;
+		text-decoration: none;
+	}
+
+
+	.show-md {
+		display: none !important;
+	}
+	.hide-md {
+		display: block !important;
+	}
+	.float-right-lg-up {
+		float: right;
+	}
+	
+	@media (max-width: 767px) {
+		.show-md {
+			display: block !important;
+		}
+		.hide-md {
+			display: none !important;
+		}
+	}
+	@media (max-width: 992px) {
+		.flex-1-lg {
+			flex: 1;
+		}
+		.float-right-lg-up {
+			float: none;
+		}
+		.d-flex-lg {
+			display: flex;
+		}
+	}
 	
 	.text-brown {
 		color: #a99c92!important;

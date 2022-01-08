@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="py-3 sm:flex items-center justify-between px-4 sm:px-0">
-      <div class="flex">
-        <div class="my-1 flex flex-1 rounded-md">
+    <div class="row p-4">
+      <div class="col-lg-6 d-flex my-1">
+        <div style="flex: 1">
           <form action="" method="" @submit="setSearch">
             <div class="input-group mb-2 mb-sm-0">
               <div class="input-group-addon"><i class="fa fa-search" /></div>
@@ -10,78 +10,48 @@
             </div>
           </form>
         </div>
-        <div class="my-1 relative">
+        <div>
           <div>
             <button
               title="Tampilkan Per Halaman"
+              class="btn btn-light"
               @click="showPerPageMenu = !showPerPageMenu"
             >
-              ss
+              <i class="fa fa-filter" />
             </button>
           </div>
           <div
-            class="
-              absolute
-              z-40
-              right-0
-              mt-2
-              w-48
-              rounded-md
-              shadow-lg
-              py-1
-              bg-white
-              dark:bg-gray-800
-              ring-1 ring-black ring-opacity-5
-              focus:outline-none
-            "
-            :class="showPerPageMenu ? '' : 'hidden'"
+            class="list-group mt-3"
+            style="position: absolute; z-index: 9"
+            :class="showPerPageMenu ? 'd-block' : 'd-none'"
           >
             <button
               v-for="i in [5, 10, 20, 50, 100]"
               :key="'per-' + i"
               type="button"
-              class="
-                block
-                bg-white
-                dark:bg-gray-800
-                w-full
-                text-left
-                px-4
-                py-2
-                text-sm text-gray-700
-                dark:text-gray-300
-              "
+              title="Mode View"
+              class="list-group-item list-group-item-action bg-white"
               @click="setPerPage(i)"
             >
               Tampilkan tiap {{ i }} data
             </button>
           </div>
         </div>
-        <div v-if="showToggleView" class="mt-1">
+        <div v-if="showToggleView">
           <button
             type="button"
             title="Mode View"
-            color="gray"
-            :icon="
-              view === 'table' ? 'HeroiconsTableIcon' : 'HeroiconsServerIcon'
-            "
-            icon-size="md"
-            add-class="ml-2"
-            @handleClick="setViewMode"
-          />
-          <button
-            type="button"
-            title="Mode View"
+            class="btn btn-light"
             @click="setViewMode"
           >
-            sdfs
+            <i :class="(view === 'table') ? 'fa fa-table' : 'fa fa-columns'" />
           </button>
         </div>
-        <div class="mt-1">
+        <div>
           <slot name="checkbox_action" />
         </div>
       </div>
-      <div class="mt-1 sm:mt-0">
+      <div class="col-lg-6 my-1">
         <slot name="table-action" />
       </div>
     </div>
@@ -93,23 +63,14 @@
     <!-- end slot alert -->
     <div
       v-if="!loading"
-      class="overflow-x-auto overflow-hidden"
-      :class="
-        view === 'table'
-          ? 'shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg'
-          : ''
-      "
     >
-      <div v-if="view === 'table'">
+      <div v-if="view === 'table'" class="table-responsive">
         <table class="table">
           <thead class="thead">
             <tr>
               <th
                 v-for="c in columns"
                 :key="c.field"
-                scope="col"
-                class="th"
-                :class="c.sortable ? 'relative cursor-pointer' : ''"
                 @click="setSort(c)"
               >
                 <input
@@ -117,26 +78,16 @@
                   v-model="checkbox"
                   :value="1"
                   type="checkbox"
-                  class="
-                      focus:ring-indigo-500
-                      h-4
-                      w-4
-                      text-indigo-600
-                      border-gray-300
-                      rounded
-                      cursor-pointer
-                    "
                 >
                 <span v-else>{{ c.label }}</span>
-                <span v-if="c.sortable" class="absolute right-0">
-
+                <span v-if="c.sortable">
                   <span
                     v-if="
                       filter.sortKey === c.field && filter.sortOrder === 'asc'
                     "
                     class="dark:text-gray-200"
                   >
-                    ^
+                    <i class="fa fa-caret-up" />
                   </span>
                   <span
                     v-else-if="
@@ -144,7 +95,7 @@
                     "
                     class="dark:text-gray-200"
                   >
-                    v
+                    <i class="fa fa-caret-up" />
                   </span>
                   <span
                     v-else-if="
@@ -152,7 +103,7 @@
                     "
                     class="dark:text-gray-200"
                   >
-                    ^
+                    <i class="fa fa-caret-down" />
                   </span>
                   <span
                     v-else-if="
@@ -160,16 +111,14 @@
                     "
                     class="dark:text-gray-200"
                   >
-                    v
+                    <i class="fa fa-caret-down" />
                   </span>
-                  <span v-else>ss</span>
                 </span>
               </th>
             </tr>
           </thead>
           <tbody
             v-if="tableData.length > 0"
-            class="tbody"
           >
             <tr v-for="(d, i) in tableData" :key="'row-' + i">
               <td
@@ -185,21 +134,21 @@
           </tbody>
           <tbody v-else class="tbody">
             <tr>
-              <td :colspan="columns.length" class="text-center px-6 py-4 dark:text-gray-300">
+              <td :colspan="columns.length" class="text-center p-4">
                 Tidak ada data
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div v-else-if="view === 'card'">
+      <div v-else-if="view === 'card'" class="mx-4">
         <div v-if="cardGrid === 1">
           <div v-for="(d, i) in tableData" :key="'row-' + i">
             <slot name="cardview" :row="d" />
           </div>
         </div>
-        <div v-if="cardGrid === 2" class="md:grid md:grid-cols-2 md:gap-4">
-          <div v-for="(d, i) in tableData" :key="'row-' + i">
+        <div v-if="cardGrid === 2" class="row">
+          <div v-for="(d, i) in tableData" :key="'row-' + i" class="col-lg-6 my-3">
             <slot name="cardview" :row="d" />
           </div>
         </div>
@@ -207,248 +156,167 @@
     </div>
     <div
       v-if="!loading"
-      class="py-3 flex items-center justify-between px-4 sm:px-0"
     >
-      <div class="flex-1 flex justify-between sm:hidden">
-        <button
-          @click="setPage(filter.curPage - 1 > 0 ? filter.curPage - 1 : 1)"
-        >
-          Sebelum
-        </button>
-        <button
-          @click="
-            setPage(
-              filter.curPage + 1 > meta.numPage
-                ? meta.numPage
-                : filter.curPage + 1
-            )
-          "
-        >
-          Selanjutnya
-        </button>
-      </div>
-      <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-        <div>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
-            Menampilkan
-            {{ " " }}
-            <span class="font-medium">{{ meta.from }}</span>
-            {{ " " }}
-            sampai
-            {{ " " }}
-            <span class="font-medium">{{ meta.to }}</span>
-            {{ " " }}
-            dari
-            {{ " " }}
-            <span class="font-medium">{{ meta.total }}</span>
-            {{ " " }}
-            data
-          </p>
-        </div>
-        <div>
-          <nav
-            class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
-            aria-label="Pagination"
+      <div class="show-md">
+        <div class="d-flex p-4">
+          <button
+            class="btn btn-secondary m-1"
+            @click="setPage(filter.curPage - 1 > 0 ? filter.curPage - 1 : 1)"
           >
-            <button
-              @click="setPage(filter.curPage - 1 > 0 ? filter.curPage - 1 : 1)"
+            Sebelum
+          </button>
+          <button
+            class="btn btn-secondary m-1"
+            @click="
+              setPage(
+                filter.curPage + 1 > meta.numPage
+                  ? meta.numPage
+                  : filter.curPage + 1
+              )
+            "
+          >
+            Selanjutnya
+          </button>
+        </div>
+      </div>
+      <div class="hide-md">
+        <div class="row p-4">
+          <div class="col-md-6">
+            <p>
+              Menampilkan
+              {{ " " }}
+              <span>{{ meta.from }}</span>
+              {{ " " }}
+              sampai
+              {{ " " }}
+              <span>{{ meta.to }}</span>
+              {{ " " }}
+              dari
+              {{ " " }}
+              <span>{{ meta.total }}</span>
+              {{ " " }}
+              data
+            </p>
+          </div>
+          <div class="col-md-6">
+            <nav
+              aria-label="Pagination"
+              class="text-right"
             >
-              sd
-            </button>
-            <div v-if="meta.numPage <= 5">
               <button
-                v-for="i in meta.numPage"
-                :key="'pg-' + i"
-                type="button"
-                class="
-                  relative
-                  inline-flex
-                  items-center
-                  px-4
-                  py-2
-                  border
-                  text-sm
-                  font-medium
-                "
-                :class="
-                  i === filter.curPage
-                    ? 'z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300'
-                    : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                "
-                @click="setPage(i)"
+                class="btn btn-secondary d-inline"
+                @click="setPage(filter.curPage - 1 > 0 ? filter.curPage - 1 : 1)"
               >
-                {{ i }}
+                <i class="fa fa-angle-left" />
               </button>
-            </div>
-            <div v-else>
+              <div v-if="meta.numPage <= 5" class="d-inline">
+                <button
+                  v-for="i in meta.numPage"
+                  :key="'pg-' + i"
+                  type="button"
+                  class="btn"
+                  :class="
+                    i === filter.curPage
+                      ? 'btn-primary'
+                      : 'btn-secondary'
+                  "
+                  @click="setPage(i)"
+                >
+                  {{ i }}
+                </button>
+              </div>
+              <div v-else class="d-inline">
+                <button
+                  v-for="i in firstPage"
+                  :key="'pg-' + i"
+                  type="button"
+                  class="btn"
+                  :class="
+                    i === filter.curPage
+                      ? 'btn-primary'
+                      : 'btn-secondary'
+                  "
+                  @click="setPage(i)"
+                >
+                  {{ i }}
+                </button>
+                <span
+                  v-if="curPage.length !== 0"
+                >
+                  ...
+                </span>
+                <button
+                  v-for="i in curPage"
+                  :key="'pg-' + i"
+                  type="button"
+                  class="btn"
+                  :class="
+                    i === filter.curPage
+                      ? 'btn-primary'
+                      : 'btn-secondary'
+                  "
+                  @click="setPage(i)"
+                >
+                  {{ i }}
+                </button>
+                <span
+                >
+                  ...
+                </span>
+                <button
+                  v-for="i in lastPage"
+                  :key="'pg-' + i"
+                  type="button"
+                  class="btn"
+                  :class="
+                    i === filter.curPage
+                      ? 'btn-primary'
+                      : 'btn-secondary'
+                  "
+                  @click="setPage(i)"
+                >
+                  {{ i }}
+                </button>
+              </div>
               <button
-                v-for="i in firstPage"
-                :key="'pg-' + i"
-                type="button"
-                class="
-                  relative
-                  inline-flex
-                  items-center
-                  px-4
-                  py-2
-                  border
-                  text-sm
-                  font-medium
+                class="btn btn-secondary d-inline"
+                @click="
+                  setPage(
+                    filter.curPage + 1 > meta.numPage
+                      ? meta.numPage
+                      : filter.curPage + 1
+                  )
                 "
-                :class="
-                  i === filter.curPage
-                    ? 'z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300'
-                    : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                "
-                @click="setPage(i)"
               >
-                {{ i }}
+                <i class="fa fa-angle-right" />
               </button>
-              <span
-                v-if="curPage.length !== 0"
-                class="
-                  relative
-                  inline-flex
-                  items-center
-                  px-4
-                  py-2
-                  border border-gray-300
-                  dark:border-gray-700
-                  bg-white
-                  dark:bg-gray-800
-                  text-sm
-                  font-medium
-                  text-gray-700
-                  dark:text-gray-300
-                "
-              >
-                ...
-              </span>
-              <button
-                v-for="i in curPage"
-                :key="'pg-' + i"
-                type="button"
-                class="
-                  relative
-                  inline-flex
-                  items-center
-                  px-4
-                  py-2
-                  border
-                  text-sm
-                  font-medium
-                "
-                :class="
-                  i === filter.curPage
-                    ? 'z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300'
-                    : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                "
-                @click="setPage(i)"
-              >
-                {{ i }}
-              </button>
-              <span
-                class="
-                  relative
-                  inline-flex
-                  items-center
-                  px-4
-                  py-2
-                  border border-gray-300
-                  dark:border-gray-700
-                  bg-white
-                  dark:bg-gray-800
-                  text-sm
-                  font-medium
-                  text-gray-700
-                  dark:text-gray-300
-                "
-              >
-                ...
-              </span>
-              <button
-                v-for="i in lastPage"
-                :key="'pg-' + i"
-                type="button"
-                class="
-                  relative
-                  inline-flex
-                  items-center
-                  px-4
-                  py-2
-                  border
-                  text-sm
-                  font-medium
-                "
-                :class="
-                  i === filter.curPage
-                    ? 'z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300'
-                    : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                "
-                @click="setPage(i)"
-              >
-                {{ i }}
-              </button>
-            </div>
-            <button
-              color="light"
-              icon="HeroiconsChevronRight"
-              add-class="rounded-none rounded-r-md"
-              @handleClick="
-                setPage(
-                  filter.curPage + 1 > meta.numPage
-                    ? meta.numPage
-                    : filter.curPage + 1
-                )
-              "
-            />
-          </nav>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
     <div
       v-if="loading"
-      class="overflow-x-auto overflow-hidden sm:rounded-lg"
-      :class="
-        view === 'table'
-          ? 'shadow border-b border-gray-200 dark:border-gray-700'
-          : ''
-      "
+      class="table-responsive"
     >
       <table
         v-if="view === 'table'"
         class="table"
       >
-        <thead class="thead">
+        <thead>
           <tr>
             <th
               v-for="c in columns"
               :key="c.field"
-              scope="col"
-              class="th"
-              :class="c.sortable ? 'relative cursor-pointer' : ''"
               @click="setSort(c)"
             >
               {{ c.label }}
-              <span v-if="c.sortable" class="absolute right-0">
-                <span
-                  v-if="
-                    filter.sortKey === c.field && filter.sortOrder === 'asc'
-                  "
-                >v</span>
-                <span
-                  v-else-if="
-                    filter.sortKey === c.field && filter.sortOrder === 'desc'
-                  "
-                >^</span>
-                <span v-else>sds</span>
-              </span>
             </th>
           </tr>
         </thead>
-        <tbody class="tbody">
+        <tbody>
           <tr>
-            <td :colspan="columns.length" class="td text-center">
+            <td :colspan="columns.length" class="text-center">
               <div class="spinner-container">
                 <div
                   class="spinner"
@@ -461,7 +329,7 @@
       </table>
       <div v-else>
         <div class="spinner-container">
-          <div class="spinner" />
+          <div class="spinner" style="background-image: url('/images/spinner-primary.svg')" />
         </div>
       </div>
     </div>

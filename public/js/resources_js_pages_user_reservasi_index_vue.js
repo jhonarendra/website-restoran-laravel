@@ -391,138 +391,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     columns: {
@@ -943,6 +811,158 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    data: {
+      type: Object,
+      "default": function _default() {
+        return null;
+      }
+    },
+    tableDataChecked: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    }
+  },
+  data: function data() {
+    return {
+      checked: []
+    };
+  },
+  mounted: function mounted() {
+    if (this.tableDataChecked.includes(this.data.id_reservasi)) {
+      this.checked.push(this.data.id_reservasi);
+    } else {
+      this.checked = [];
+    }
+  },
+  methods: {
+    getBadgeStatus: function getBadgeStatus(status) {
+      // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+      switch (status) {
+        case 0:
+          return {
+            "class": 'badge-secondary',
+            text: 'Menunggu konfirmasi'
+          };
+
+        case 1:
+          return {
+            "class": 'badge-primary',
+            text: 'Dikonfirmasi'
+          };
+
+        case 2:
+          return {
+            "class": 'badge-warning',
+            text: 'Sedang Berlangsung'
+          };
+
+        case 3:
+          return {
+            "class": 'badge-danger',
+            text: 'Batal'
+          };
+
+        case 4:
+          return {
+            "class": 'badge-success',
+            text: 'Selesai'
+          };
+
+        default:
+          return {
+            "class": 'badge-warning',
+            text: 'Belum Dikonfirmasi'
+          };
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=script&lang=js& ***!
@@ -956,6 +976,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_index_FooterComp_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/index/FooterComp.vue */ "./resources/js/components/index/FooterComp.vue");
 /* harmony import */ var _components_index_NavbarComp_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/index/NavbarComp.vue */ "./resources/js/components/index/NavbarComp.vue");
+/* harmony import */ var _components_user_SidebarUser_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/user/SidebarUser.vue */ "./resources/js/components/user/SidebarUser.vue");
 //
 //
 //
@@ -977,32 +998,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     NavbarComp: _components_index_NavbarComp_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    FooterComp: _components_index_FooterComp_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    FooterComp: _components_index_FooterComp_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+    SidebarUser: _components_user_SidebarUser_vue__WEBPACK_IMPORTED_MODULE_2__.default
   }
 });
 
@@ -1021,8 +1024,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.timers.js */ "./node_modules/core-js/modules/web.timers.js");
 /* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/global/TableComp.vue */ "./resources/js/components/global/TableComp.vue");
-/* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/global/TableComp.vue */ "./resources/js/components/global/TableComp.vue");
+/* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
+/* harmony import */ var _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../components/user/reservasi/CardReservasi.vue */ "./resources/js/components/user/reservasi/CardReservasi.vue");
+
+
+
+
+
 
 //
 //
@@ -1038,33 +1057,121 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_2__.default,
-    TableComp: _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_1__.default
+    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_7__.default,
+    TableComp: _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_6__.default,
+    CardReservasi: _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_8__.default
   },
   data: function data() {
     return {
       columns: [{
-        label: 'ID',
-        field: 'id',
+        label: '',
+        field: 'checkbox'
+      }, {
+        label: 'Nomor',
+        field: 'no_reservasi',
         sortable: true
       }, {
-        label: 'Desa',
-        field: 'nama',
+        label: 'Pelanggan',
+        field: 'nama_pelanggan',
         sortable: true
       }, {
-        label: 'Alamat',
-        field: 'alamat',
+        label: 'Restoran',
+        field: 'nama_restoran',
+        sortable: true
+      }, {
+        label: 'Pegawai',
+        field: 'nama_pegawai',
+        sortable: true
+      }, {
+        label: 'Status',
+        field: 'status',
+        sortable: true
+      }, {
+        label: 'Dibuat',
+        field: 'created_at',
         sortable: true
       }, {
         label: 'Aksi',
         field: 'aksi'
       }],
       items: [],
-      tableLoading: true
+      tableLoading: true,
+      tableView: 'table',
+      tableDataChecked: []
     };
   },
   mounted: function mounted() {
@@ -1072,20 +1179,202 @@ __webpack_require__.r(__webpack_exports__);
 
     setTimeout(function () {
       _this.items = [{
-        id: 1,
-        nama: 'jon',
-        alamat: 'tes'
+        id_reservasi: 1,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 1,
+        id_pegawai: 1,
+        no_meja: null,
+        status: 0,
+        // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+        created_at: "2018-05-20 07:49:09",
+        updated_at: "2018-05-20 07:49:09",
+        deleted_at: null
       }, {
-        id: 2,
-        nama: 'jossn',
-        alamat: 't222es'
+        id_reservasi: 2,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 1,
+        id_pegawai: 1,
+        no_meja: null,
+        status: 0,
+        created_at: "2018-05-20 07:49:09",
+        updated_at: "2018-05-20 07:49:09",
+        deleted_at: null
       }, {
-        id: 3,
-        nama: 'jondw',
-        alamat: 'tesdws'
+        id_reservasi: 3,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 1,
+        id_pegawai: 2,
+        no_meja: "202",
+        status: 4,
+        created_at: "2018-05-20 07:49:09",
+        updated_at: "2018-05-20 07:49:09",
+        deleted_at: null
+      }, {
+        id_reservasi: 4,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 3,
+        id_pegawai: 2,
+        no_meja: "222",
+        status: 1,
+        created_at: "2018-05-20 07:50:29",
+        updated_at: "2018-05-20 08:39:05",
+        deleted_at: null
+      }, {
+        id_reservasi: 5,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 4,
+        id_pegawai: 2,
+        no_meja: "2A",
+        status: 1,
+        created_at: "2018-05-23 01:09:50",
+        updated_at: "2018-05-23 01:41:09",
+        deleted_at: null
+      }, {
+        id_reservasi: 6,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 5,
+        id_pegawai: 2,
+        no_meja: "232",
+        status: 1,
+        created_at: "2018-05-23 06:22:21",
+        updated_at: "2018-05-23 06:23:56",
+        deleted_at: "2018-05-24 01:36:38"
+      }, {
+        id_reservasi: 7,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 5,
+        id_pegawai: 2,
+        no_meja: "3A",
+        status: 1,
+        created_at: "2018-05-23 23:17:40",
+        updated_at: "2018-05-24 01:36:38",
+        deleted_at: "2018-05-24 01:36:38"
+      }, {
+        id_reservasi: 8,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 6,
+        id_pegawai: 1,
+        no_meja: null,
+        status: 0,
+        created_at: "2021-11-16 11:31:30",
+        updated_at: "2021-11-16 11:31:30",
+        deleted_at: null
+      }, {
+        id_reservasi: 9,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran: 1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan: 7,
+        id_pegawai: 2,
+        no_meja: "8",
+        status: 1,
+        created_at: "2022-01-07 14:58:48",
+        updated_at: "2022-01-07 15:01:02",
+        deleted_at: null
       }];
       _this.tableLoading = false;
     }, 2000);
+  },
+  methods: {
+    getBadgeStatus: function getBadgeStatus(status) {
+      // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+      switch (status) {
+        case 0:
+          return {
+            "class": 'badge-secondary',
+            text: 'Menunggu konfirmasi'
+          };
+
+        case 1:
+          return {
+            "class": 'badge-primary',
+            text: 'Dikonfirmasi'
+          };
+
+        case 2:
+          return {
+            "class": 'badge-warning',
+            text: 'Sedang Berlangsung'
+          };
+
+        case 3:
+          return {
+            "class": 'badge-danger',
+            text: 'Batal'
+          };
+
+        case 4:
+          return {
+            "class": 'badge-success',
+            text: 'Selesai'
+          };
+
+        default:
+          return {
+            "class": 'badge-warning',
+            text: 'Belum Dikonfirmasi'
+          };
+      }
+    },
+    edit: function edit(row) {
+      console.log(row);
+    },
+    hapus: function hapus(row) {
+      console.log(row);
+    },
+    setTableViewMode: function setTableViewMode(val) {
+      this.tableView = val;
+    },
+    handleCheckbox: function handleCheckbox(val) {
+      var cbVal = [];
+
+      if (val) {
+        document.querySelectorAll('input[name="cbReservasi"]').forEach(function (e) {
+          cbVal.push(parseInt(e.value));
+        });
+      }
+
+      this.tableDataChecked = cbVal;
+    },
+    checkItem: function checkItem(val) {
+      if (!this.tableDataChecked.includes(val)) {
+        this.tableDataChecked.push(val);
+      }
+    }
   }
 });
 
@@ -2090,6 +2379,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n#search[data-v-89e30388] {\n  paddin
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.user-photo[data-v-4605aca4] {\n  border: 1px solid #ddd;\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  margin: 0 auto\n}\n.list-group-item[data-v-4605aca4] {\n  background: #faebcd;\n}\n@media (max-width: 767px) {\n.user-profile[data-v-4605aca4] {\n    display: none;\n}\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=style&index=0&id=2829c63b&scoped=true&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=style&index=0&id=2829c63b&scoped=true&lang=css& ***!
@@ -2107,7 +2420,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.user-photo[data-v-2829c63b] {\n  border: 1px solid #ddd;\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  margin: 0 auto\n}\n.list-group-item[data-v-2829c63b] {\n  background: #faebcd;\n}\n@media (max-width: 767px) {\n.user-profile[data-v-2829c63b] {\n    display: none;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item[data-v-2829c63b] {\n  background: #faebcd;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2231,6 +2544,84 @@ component.options.__file = "resources/js/components/index/NavbarComp.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/user/SidebarUser.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/user/SidebarUser.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true& */ "./resources/js/components/user/SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true&");
+/* harmony import */ var _SidebarUser_vue_vue_type_style_index_0_id_4605aca4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css& */ "./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  script,
+  _SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "4605aca4",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/SidebarUser.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/user/reservasi/CardReservasi.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/user/reservasi/CardReservasi.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardReservasi.vue?vue&type=template&id=d2a060f8& */ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&");
+/* harmony import */ var _CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardReservasi.vue?vue&type=script&lang=js& */ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/reservasi/CardReservasi.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/layouts/admin.vue":
 /*!****************************************!*\
   !*** ./resources/js/layouts/admin.vue ***!
@@ -2343,6 +2734,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardReservasi.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/layouts/admin.vue?vue&type=script&lang=js&":
 /*!*****************************************************************!*\
   !*** ./resources/js/layouts/admin.vue?vue&type=script&lang=js& ***!
@@ -2426,6 +2833,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/user/SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/user/SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardReservasi.vue?vue&type=template&id=d2a060f8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&");
+
+
+/***/ }),
+
 /***/ "./resources/js/layouts/admin.vue?vue&type=template&id=2829c63b&scoped=true&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/layouts/admin.vue?vue&type=template&id=2829c63b&scoped=true& ***!
@@ -2477,6 +2918,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css& ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_style_index_0_id_4605aca4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader/index.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_style_index_0_id_4605aca4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_style_index_0_id_4605aca4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_style_index_0_id_4605aca4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_style_index_0_id_4605aca4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+/***/ }),
+
 /***/ "./resources/js/layouts/admin.vue?vue&type=style&index=0&id=2829c63b&scoped=true&lang=css&":
 /*!*************************************************************************************************!*\
   !*** ./resources/js/layouts/admin.vue?vue&type=style&index=0&id=2829c63b&scoped=true&lang=css& ***!
@@ -2511,504 +2969,471 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "py-3 sm:flex items-center justify-between px-4 sm:px-0" },
-      [
-        _c("div", { staticClass: "flex" }, [
-          _c("div", { staticClass: "my-1 flex flex-1 rounded-md" }, [
-            _c(
-              "form",
-              {
-                attrs: { action: "", method: "" },
-                on: { submit: _vm.setSearch }
-              },
-              [
-                _c("div", { staticClass: "input-group mb-2 mb-sm-0" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.filter.search,
-                        expression: "filter.search"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "Search" },
-                    domProps: { value: _vm.filter.search },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.filter, "search", $event.target.value)
-                      }
+    _c("div", { staticClass: "row p-4" }, [
+      _c("div", { staticClass: "col-lg-6 d-flex my-1" }, [
+        _c("div", { staticStyle: { flex: "1" } }, [
+          _c(
+            "form",
+            {
+              attrs: { action: "", method: "" },
+              on: { submit: _vm.setSearch }
+            },
+            [
+              _c("div", { staticClass: "input-group mb-2 mb-sm-0" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filter.search,
+                      expression: "filter.search"
                     }
-                  })
-                ])
-              ]
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "Search" },
+                  domProps: { value: _vm.filter.search },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.filter, "search", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-light",
+                attrs: { title: "Tampilkan Per Halaman" },
+                on: {
+                  click: function($event) {
+                    _vm.showPerPageMenu = !_vm.showPerPageMenu
+                  }
+                }
+              },
+              [_c("i", { staticClass: "fa fa-filter" })]
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "my-1 relative" }, [
-            _c("div", [
-              _c(
+          _c(
+            "div",
+            {
+              staticClass: "list-group mt-3",
+              class: _vm.showPerPageMenu ? "d-block" : "d-none",
+              staticStyle: { position: "absolute", "z-index": "9" }
+            },
+            _vm._l([5, 10, 20, 50, 100], function(i) {
+              return _c(
                 "button",
                 {
-                  attrs: { title: "Tampilkan Per Halaman" },
+                  key: "per-" + i,
+                  staticClass:
+                    "list-group-item list-group-item-action bg-white",
+                  attrs: { type: "button", title: "Mode View" },
                   on: {
                     click: function($event) {
-                      _vm.showPerPageMenu = !_vm.showPerPageMenu
+                      return _vm.setPerPage(i)
                     }
                   }
                 },
-                [_vm._v("\n            ss\n          ")]
+                [
+                  _vm._v(
+                    "\n            Tampilkan tiap " +
+                      _vm._s(i) +
+                      " data\n          "
+                  )
+                ]
               )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "\n            absolute\n            z-40\n            right-0\n            mt-2\n            w-48\n            rounded-md\n            shadow-lg\n            py-1\n            bg-white\n            dark:bg-gray-800\n            ring-1 ring-black ring-opacity-5\n            focus:outline-none\n          ",
-                class: _vm.showPerPageMenu ? "" : "hidden"
-              },
-              _vm._l([5, 10, 20, 50, 100], function(i) {
-                return _c(
-                  "button",
-                  {
-                    key: "per-" + i,
-                    staticClass:
-                      "\n              block\n              bg-white\n              dark:bg-gray-800\n              w-full\n              text-left\n              px-4\n              py-2\n              text-sm text-gray-700\n              dark:text-gray-300\n            ",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.setPerPage(i)
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n            Tampilkan tiap " +
-                        _vm._s(i) +
-                        " data\n          "
-                    )
-                  ]
-                )
-              }),
-              0
-            )
-          ]),
-          _vm._v(" "),
-          _vm.showToggleView
-            ? _c("div", { staticClass: "mt-1" }, [
-                _c("button", {
-                  attrs: {
-                    type: "button",
-                    title: "Mode View",
-                    color: "gray",
-                    icon:
-                      _vm.view === "table"
-                        ? "HeroiconsTableIcon"
-                        : "HeroiconsServerIcon",
-                    "icon-size": "md",
-                    "add-class": "ml-2"
-                  },
-                  on: { handleClick: _vm.setViewMode }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    attrs: { type: "button", title: "Mode View" },
-                    on: { click: _vm.setViewMode }
-                  },
-                  [_vm._v("\n          sdfs\n        ")]
-                )
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-1" }, [_vm._t("checkbox_action")], 2)
+            }),
+            0
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "mt-1 sm:mt-0" }, [_vm._t("table-action")], 2)
-      ]
-    ),
+        _vm.showToggleView
+          ? _c("div", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-light",
+                  attrs: { type: "button", title: "Mode View" },
+                  on: { click: _vm.setViewMode }
+                },
+                [
+                  _c("i", {
+                    class:
+                      _vm.view === "table" ? "fa fa-table" : "fa fa-columns"
+                  })
+                ]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", [_vm._t("checkbox_action")], 2)
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-6 my-1" }, [_vm._t("table-action")], 2)
+    ]),
     _vm._v(" "),
     _c("div", [_vm._t("table-alert")], 2),
     _vm._v(" "),
     !_vm.loading
-      ? _c(
-          "div",
-          {
-            staticClass: "overflow-x-auto overflow-hidden",
-            class:
-              _vm.view === "table"
-                ? "shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg"
-                : ""
-          },
-          [
-            _vm.view === "table"
-              ? _c("div", [
-                  _c("table", { staticClass: "table" }, [
-                    _c("thead", { staticClass: "thead" }, [
-                      _c(
-                        "tr",
-                        _vm._l(_vm.columns, function(c) {
-                          return _c(
-                            "th",
-                            {
-                              key: c.field,
-                              staticClass: "th",
-                              class: c.sortable
-                                ? "relative cursor-pointer"
-                                : "",
-                              attrs: { scope: "col" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.setSort(c)
-                                }
+      ? _c("div", [
+          _vm.view === "table"
+            ? _c("div", { staticClass: "table-responsive" }, [
+                _c("table", { staticClass: "table" }, [
+                  _c("thead", { staticClass: "thead" }, [
+                    _c(
+                      "tr",
+                      _vm._l(_vm.columns, function(c) {
+                        return _c(
+                          "th",
+                          {
+                            key: c.field,
+                            on: {
+                              click: function($event) {
+                                return _vm.setSort(c)
                               }
-                            },
-                            [
-                              c.field === "checkbox"
-                                ? _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.checkbox,
-                                        expression: "checkbox"
-                                      }
-                                    ],
-                                    staticClass:
-                                      "\n                    focus:ring-indigo-500\n                    h-4\n                    w-4\n                    text-indigo-600\n                    border-gray-300\n                    rounded\n                    cursor-pointer\n                  ",
-                                    attrs: { type: "checkbox" },
-                                    domProps: {
-                                      value: 1,
-                                      checked: Array.isArray(_vm.checkbox)
-                                        ? _vm._i(_vm.checkbox, 1) > -1
-                                        : _vm.checkbox
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        var $$a = _vm.checkbox,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? true : false
-                                        if (Array.isArray($$a)) {
-                                          var $$v = 1,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              (_vm.checkbox = $$a.concat([$$v]))
-                                          } else {
-                                            $$i > -1 &&
-                                              (_vm.checkbox = $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1)))
-                                          }
+                            }
+                          },
+                          [
+                            c.field === "checkbox"
+                              ? _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.checkbox,
+                                      expression: "checkbox"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    value: 1,
+                                    checked: Array.isArray(_vm.checkbox)
+                                      ? _vm._i(_vm.checkbox, 1) > -1
+                                      : _vm.checkbox
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.checkbox,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = 1,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            (_vm.checkbox = $$a.concat([$$v]))
                                         } else {
-                                          _vm.checkbox = $$c
+                                          $$i > -1 &&
+                                            (_vm.checkbox = $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1)))
                                         }
+                                      } else {
+                                        _vm.checkbox = $$c
                                       }
                                     }
-                                  })
-                                : _c("span", [_vm._v(_vm._s(c.label))]),
-                              _vm._v(" "),
-                              c.sortable
-                                ? _c(
-                                    "span",
-                                    { staticClass: "absolute right-0" },
-                                    [
-                                      _vm.filter.sortKey === c.field &&
+                                  }
+                                })
+                              : _c("span", [_vm._v(_vm._s(c.label))]),
+                            _vm._v(" "),
+                            c.sortable
+                              ? _c("span", [
+                                  _vm.filter.sortKey === c.field &&
+                                  _vm.filter.sortOrder === "asc"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "dark:text-gray-200" },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-caret-up"
+                                          })
+                                        ]
+                                      )
+                                    : _vm.filter.sortKey === c.struct &&
                                       _vm.filter.sortOrder === "asc"
-                                        ? _c(
-                                            "span",
-                                            {
-                                              staticClass: "dark:text-gray-200"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                  ^\n                "
-                                              )
-                                            ]
-                                          )
-                                        : _vm.filter.sortKey === c.struct &&
-                                          _vm.filter.sortOrder === "asc"
-                                        ? _c(
-                                            "span",
-                                            {
-                                              staticClass: "dark:text-gray-200"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                  v\n                "
-                                              )
-                                            ]
-                                          )
-                                        : _vm.filter.sortKey === c.field &&
-                                          _vm.filter.sortOrder === "desc"
-                                        ? _c(
-                                            "span",
-                                            {
-                                              staticClass: "dark:text-gray-200"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                  ^\n                "
-                                              )
-                                            ]
-                                          )
-                                        : _vm.filter.sortKey === c.struct &&
-                                          _vm.filter.sortOrder === "desc"
-                                        ? _c(
-                                            "span",
-                                            {
-                                              staticClass: "dark:text-gray-200"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                  v\n                "
-                                              )
-                                            ]
-                                          )
-                                        : _c("span", [_vm._v("ss")])
-                                    ]
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "dark:text-gray-200" },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-caret-up"
+                                          })
+                                        ]
+                                      )
+                                    : _vm.filter.sortKey === c.field &&
+                                      _vm.filter.sortOrder === "desc"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "dark:text-gray-200" },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-caret-down"
+                                          })
+                                        ]
+                                      )
+                                    : _vm.filter.sortKey === c.struct &&
+                                      _vm.filter.sortOrder === "desc"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "dark:text-gray-200" },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-caret-down"
+                                          })
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm.tableData.length > 0
+                    ? _c(
+                        "tbody",
+                        _vm._l(_vm.tableData, function(d, i) {
+                          return _c(
+                            "tr",
+                            { key: "row-" + i },
+                            _vm._l(_vm.columns, function(c, j) {
+                              return _c(
+                                "td",
+                                { key: "rd-" + j, staticClass: "td" },
+                                [
+                                  _vm._t(
+                                    c.field,
+                                    [
+                                      _vm._v(
+                                        "\n                " +
+                                          _vm._s(d[c.field]) +
+                                          "\n              "
+                                      )
+                                    ],
+                                    { row: d }
                                   )
-                                : _vm._e()
-                            ]
+                                ],
+                                2
+                              )
+                            }),
+                            0
                           )
                         }),
                         0
                       )
-                    ]),
+                    : _c("tbody", { staticClass: "tbody" }, [
+                        _c("tr", [
+                          _c(
+                            "td",
+                            {
+                              staticClass: "text-center p-4",
+                              attrs: { colspan: _vm.columns.length }
+                            },
+                            [
+                              _vm._v(
+                                "\n              Tidak ada data\n            "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                ])
+              ])
+            : _vm.view === "card"
+            ? _c("div", { staticClass: "mx-4" }, [
+                _vm.cardGrid === 1
+                  ? _c(
+                      "div",
+                      _vm._l(_vm.tableData, function(d, i) {
+                        return _c(
+                          "div",
+                          { key: "row-" + i },
+                          [_vm._t("cardview", null, { row: d })],
+                          2
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.cardGrid === 2
+                  ? _c(
+                      "div",
+                      { staticClass: "row" },
+                      _vm._l(_vm.tableData, function(d, i) {
+                        return _c(
+                          "div",
+                          { key: "row-" + i, staticClass: "col-lg-6 my-3" },
+                          [_vm._t("cardview", null, { row: d })],
+                          2
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.loading
+      ? _c("div", [
+          _c("div", { staticClass: "show-md" }, [
+            _c("div", { staticClass: "d-flex p-4" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary m-1",
+                  on: {
+                    click: function($event) {
+                      return _vm.setPage(
+                        _vm.filter.curPage - 1 > 0 ? _vm.filter.curPage - 1 : 1
+                      )
+                    }
+                  }
+                },
+                [_vm._v("\n          Sebelum\n        ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary m-1",
+                  on: {
+                    click: function($event) {
+                      return _vm.setPage(
+                        _vm.filter.curPage + 1 > _vm.meta.numPage
+                          ? _vm.meta.numPage
+                          : _vm.filter.curPage + 1
+                      )
+                    }
+                  }
+                },
+                [_vm._v("\n          Selanjutnya\n        ")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "hide-md" }, [
+            _c("div", { staticClass: "row p-4" }, [
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("p", [
+                  _vm._v(
+                    "\n            Menampilkan\n            " +
+                      _vm._s(" ") +
+                      "\n            "
+                  ),
+                  _c("span", [_vm._v(_vm._s(_vm.meta.from))]),
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(" ") +
+                      "\n            sampai\n            " +
+                      _vm._s(" ") +
+                      "\n            "
+                  ),
+                  _c("span", [_vm._v(_vm._s(_vm.meta.to))]),
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(" ") +
+                      "\n            dari\n            " +
+                      _vm._s(" ") +
+                      "\n            "
+                  ),
+                  _c("span", [_vm._v(_vm._s(_vm.meta.total))]),
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(" ") +
+                      "\n            data\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c(
+                  "nav",
+                  {
+                    staticClass: "text-right",
+                    attrs: { "aria-label": "Pagination" }
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary d-inline",
+                        on: {
+                          click: function($event) {
+                            return _vm.setPage(
+                              _vm.filter.curPage - 1 > 0
+                                ? _vm.filter.curPage - 1
+                                : 1
+                            )
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-angle-left" })]
+                    ),
                     _vm._v(" "),
-                    _vm.tableData.length > 0
+                    _vm.meta.numPage <= 5
                       ? _c(
-                          "tbody",
-                          { staticClass: "tbody" },
-                          _vm._l(_vm.tableData, function(d, i) {
+                          "div",
+                          { staticClass: "d-inline" },
+                          _vm._l(_vm.meta.numPage, function(i) {
                             return _c(
-                              "tr",
-                              { key: "row-" + i },
-                              _vm._l(_vm.columns, function(c, j) {
-                                return _c(
-                                  "td",
-                                  { key: "rd-" + j, staticClass: "td" },
-                                  [
-                                    _vm._t(
-                                      c.field,
-                                      [
-                                        _vm._v(
-                                          "\n                " +
-                                            _vm._s(d[c.field]) +
-                                            "\n              "
-                                        )
-                                      ],
-                                      { row: d }
-                                    )
-                                  ],
-                                  2
+                              "button",
+                              {
+                                key: "pg-" + i,
+                                staticClass: "btn",
+                                class:
+                                  i === _vm.filter.curPage
+                                    ? "btn-primary"
+                                    : "btn-secondary",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.setPage(i)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(i) +
+                                    "\n              "
                                 )
-                              }),
-                              0
+                              ]
                             )
                           }),
                           0
                         )
-                      : _c("tbody", { staticClass: "tbody" }, [
-                          _c("tr", [
-                            _c(
-                              "td",
-                              {
-                                staticClass:
-                                  "text-center px-6 py-4 dark:text-gray-300",
-                                attrs: { colspan: _vm.columns.length }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              Tidak ada data\n            "
-                                )
-                              ]
-                            )
-                          ])
-                        ])
-                  ])
-                ])
-              : _vm.view === "card"
-              ? _c("div", [
-                  _vm.cardGrid === 1
-                    ? _c(
-                        "div",
-                        _vm._l(_vm.tableData, function(d, i) {
-                          return _c(
-                            "div",
-                            { key: "row-" + i },
-                            [_vm._t("cardview", null, { row: d })],
-                            2
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.cardGrid === 2
-                    ? _c(
-                        "div",
-                        { staticClass: "md:grid md:grid-cols-2 md:gap-4" },
-                        _vm._l(_vm.tableData, function(d, i) {
-                          return _c(
-                            "div",
-                            { key: "row-" + i },
-                            [_vm._t("cardview", null, { row: d })],
-                            2
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ])
-              : _vm._e()
-          ]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    !_vm.loading
-      ? _c(
-          "div",
-          {
-            staticClass: "py-3 flex items-center justify-between px-4 sm:px-0"
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "flex-1 flex justify-between sm:hidden" },
-              [
-                _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.setPage(
-                          _vm.filter.curPage - 1 > 0
-                            ? _vm.filter.curPage - 1
-                            : 1
-                        )
-                      }
-                    }
-                  },
-                  [_vm._v("\n        Sebelum\n      ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.setPage(
-                          _vm.filter.curPage + 1 > _vm.meta.numPage
-                            ? _vm.meta.numPage
-                            : _vm.filter.curPage + 1
-                        )
-                      }
-                    }
-                  },
-                  [_vm._v("\n        Selanjutnya\n      ")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "hidden sm:flex-1 sm:flex sm:items-center sm:justify-between"
-              },
-              [
-                _c("div", [
-                  _c(
-                    "p",
-                    { staticClass: "text-sm text-gray-700 dark:text-gray-300" },
-                    [
-                      _vm._v(
-                        "\n          Menampilkan\n          " +
-                          _vm._s(" ") +
-                          "\n          "
-                      ),
-                      _c("span", { staticClass: "font-medium" }, [
-                        _vm._v(_vm._s(_vm.meta.from))
-                      ]),
-                      _vm._v(
-                        "\n          " +
-                          _vm._s(" ") +
-                          "\n          sampai\n          " +
-                          _vm._s(" ") +
-                          "\n          "
-                      ),
-                      _c("span", { staticClass: "font-medium" }, [
-                        _vm._v(_vm._s(_vm.meta.to))
-                      ]),
-                      _vm._v(
-                        "\n          " +
-                          _vm._s(" ") +
-                          "\n          dari\n          " +
-                          _vm._s(" ") +
-                          "\n          "
-                      ),
-                      _c("span", { staticClass: "font-medium" }, [
-                        _vm._v(_vm._s(_vm.meta.total))
-                      ]),
-                      _vm._v(
-                        "\n          " +
-                          _vm._s(" ") +
-                          "\n          data\n        "
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "nav",
-                    {
-                      staticClass:
-                        "relative z-0 inline-flex rounded-md shadow-sm -space-x-px",
-                      attrs: { "aria-label": "Pagination" }
-                    },
-                    [
-                      _c(
-                        "button",
-                        {
-                          on: {
-                            click: function($event) {
-                              return _vm.setPage(
-                                _vm.filter.curPage - 1 > 0
-                                  ? _vm.filter.curPage - 1
-                                  : 1
-                              )
-                            }
-                          }
-                        },
-                        [_vm._v("\n            sd\n          ")]
-                      ),
-                      _vm._v(" "),
-                      _vm.meta.numPage <= 5
-                        ? _c(
-                            "div",
-                            _vm._l(_vm.meta.numPage, function(i) {
+                      : _c(
+                          "div",
+                          { staticClass: "d-inline" },
+                          [
+                            _vm._l(_vm.firstPage, function(i) {
                               return _c(
                                 "button",
                                 {
                                   key: "pg-" + i,
-                                  staticClass:
-                                    "\n                relative\n                inline-flex\n                items-center\n                px-4\n                py-2\n                border\n                text-sm\n                font-medium\n              ",
+                                  staticClass: "btn",
                                   class:
                                     i === _vm.filter.curPage
-                                      ? "z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300"
-                                      : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700",
+                                      ? "btn-primary"
+                                      : "btn-secondary",
                                   attrs: { type: "button" },
                                   on: {
                                     click: function($event) {
@@ -3018,137 +3443,89 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n              " +
+                                    "\n                " +
                                       _vm._s(i) +
-                                      "\n            "
+                                      "\n              "
                                   )
                                 ]
                               )
                             }),
-                            0
-                          )
-                        : _c(
-                            "div",
-                            [
-                              _vm._l(_vm.firstPage, function(i) {
-                                return _c(
-                                  "button",
-                                  {
-                                    key: "pg-" + i,
-                                    staticClass:
-                                      "\n                relative\n                inline-flex\n                items-center\n                px-4\n                py-2\n                border\n                text-sm\n                font-medium\n              ",
-                                    class:
-                                      i === _vm.filter.curPage
-                                        ? "z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300"
-                                        : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.setPage(i)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n              " +
-                                        _vm._s(i) +
-                                        "\n            "
-                                    )
-                                  ]
-                                )
-                              }),
-                              _vm._v(" "),
-                              _vm.curPage.length !== 0
-                                ? _c(
-                                    "span",
-                                    {
-                                      staticClass:
-                                        "\n                relative\n                inline-flex\n                items-center\n                px-4\n                py-2\n                border border-gray-300\n                dark:border-gray-700\n                bg-white\n                dark:bg-gray-800\n                text-sm\n                font-medium\n                text-gray-700\n                dark:text-gray-300\n              "
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n              ...\n            "
-                                      )
-                                    ]
+                            _vm._v(" "),
+                            _vm.curPage.length !== 0
+                              ? _c("span", [
+                                  _vm._v(
+                                    "\n                ...\n              "
                                   )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm._l(_vm.curPage, function(i) {
-                                return _c(
-                                  "button",
-                                  {
-                                    key: "pg-" + i,
-                                    staticClass:
-                                      "\n                relative\n                inline-flex\n                items-center\n                px-4\n                py-2\n                border\n                text-sm\n                font-medium\n              ",
-                                    class:
-                                      i === _vm.filter.curPage
-                                        ? "z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300"
-                                        : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.setPage(i)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n              " +
-                                        _vm._s(i) +
-                                        "\n            "
-                                    )
-                                  ]
-                                )
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm._l(_vm.curPage, function(i) {
+                              return _c(
+                                "button",
                                 {
-                                  staticClass:
-                                    "\n                relative\n                inline-flex\n                items-center\n                px-4\n                py-2\n                border border-gray-300\n                dark:border-gray-700\n                bg-white\n                dark:bg-gray-800\n                text-sm\n                font-medium\n                text-gray-700\n                dark:text-gray-300\n              "
-                                },
-                                [_vm._v("\n              ...\n            ")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.lastPage, function(i) {
-                                return _c(
-                                  "button",
-                                  {
-                                    key: "pg-" + i,
-                                    staticClass:
-                                      "\n                relative\n                inline-flex\n                items-center\n                px-4\n                py-2\n                border\n                text-sm\n                font-medium\n              ",
-                                    class:
-                                      i === _vm.filter.curPage
-                                        ? "z-10 bg-indigo-50 dark:bg-gray-900 border-indigo-500 dark:border-gray-700 text-indigo-600 dark:text-gray-300"
-                                        : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.setPage(i)
-                                      }
+                                  key: "pg-" + i,
+                                  staticClass: "btn",
+                                  class:
+                                    i === _vm.filter.curPage
+                                      ? "btn-primary"
+                                      : "btn-secondary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.setPage(i)
                                     }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n              " +
-                                        _vm._s(i) +
-                                        "\n            "
-                                    )
-                                  ]
-                                )
-                              })
-                            ],
-                            2
-                          ),
-                      _vm._v(" "),
-                      _c("button", {
-                        attrs: {
-                          color: "light",
-                          icon: "HeroiconsChevronRight",
-                          "add-class": "rounded-none rounded-r-md"
-                        },
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(i) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            }),
+                            _vm._v(" "),
+                            _c("span", [
+                              _vm._v("\n                ...\n              ")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.lastPage, function(i) {
+                              return _c(
+                                "button",
+                                {
+                                  key: "pg-" + i,
+                                  staticClass: "btn",
+                                  class:
+                                    i === _vm.filter.curPage
+                                      ? "btn-primary"
+                                      : "btn-secondary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.setPage(i)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(i) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
+                        ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary d-inline",
                         on: {
-                          handleClick: function($event) {
+                          click: function($event) {
                             return _vm.setPage(
                               _vm.filter.curPage + 1 > _vm.meta.numPage
                                 ? _vm.meta.numPage
@@ -3156,90 +3533,61 @@ var render = function() {
                             )
                           }
                         }
-                      })
-                    ]
-                  )
-                ])
-              ]
-            )
-          ]
-        )
+                      },
+                      [_c("i", { staticClass: "fa fa-angle-right" })]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
       : _vm._e(),
     _vm._v(" "),
     _vm.loading
-      ? _c(
-          "div",
-          {
-            staticClass: "overflow-x-auto overflow-hidden sm:rounded-lg",
-            class:
-              _vm.view === "table"
-                ? "shadow border-b border-gray-200 dark:border-gray-700"
-                : ""
-          },
-          [
-            _vm.view === "table"
-              ? _c("table", { staticClass: "table" }, [
-                  _c("thead", { staticClass: "thead" }, [
-                    _c(
-                      "tr",
-                      _vm._l(_vm.columns, function(c) {
-                        return _c(
-                          "th",
-                          {
-                            key: c.field,
-                            staticClass: "th",
-                            class: c.sortable ? "relative cursor-pointer" : "",
-                            attrs: { scope: "col" },
-                            on: {
-                              click: function($event) {
-                                return _vm.setSort(c)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(c.label) +
-                                "\n            "
-                            ),
-                            c.sortable
-                              ? _c(
-                                  "span",
-                                  { staticClass: "absolute right-0" },
-                                  [
-                                    _vm.filter.sortKey === c.field &&
-                                    _vm.filter.sortOrder === "asc"
-                                      ? _c("span", [_vm._v("v")])
-                                      : _vm.filter.sortKey === c.field &&
-                                        _vm.filter.sortOrder === "desc"
-                                      ? _c("span", [_vm._v("^")])
-                                      : _c("span", [_vm._v("sds")])
-                                  ]
-                                )
-                              : _vm._e()
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", { staticClass: "tbody" }, [
-                    _c("tr", [
-                      _c(
-                        "td",
+      ? _c("div", { staticClass: "table-responsive" }, [
+          _vm.view === "table"
+            ? _c("table", { staticClass: "table" }, [
+                _c("thead", [
+                  _c(
+                    "tr",
+                    _vm._l(_vm.columns, function(c) {
+                      return _c(
+                        "th",
                         {
-                          staticClass: "td text-center",
-                          attrs: { colspan: _vm.columns.length }
+                          key: c.field,
+                          on: {
+                            click: function($event) {
+                              return _vm.setSort(c)
+                            }
+                          }
                         },
-                        [_vm._m(1)]
+                        [
+                          _vm._v(
+                            "\n            " + _vm._s(c.label) + "\n          "
+                          )
+                        ]
                       )
-                    ])
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        attrs: { colspan: _vm.columns.length }
+                      },
+                      [_vm._m(1)]
+                    )
                   ])
                 ])
-              : _c("div", [_vm._m(2)])
-          ]
-        )
+              ])
+            : _c("div", [_vm._m(2)])
+        ])
       : _vm._e()
   ])
 }
@@ -3270,7 +3618,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "spinner-container" }, [
-      _c("div", { staticClass: "spinner" })
+      _c("div", {
+        staticClass: "spinner",
+        staticStyle: {
+          "background-image": "url('/images/spinner-primary.svg')"
+        }
+      })
     ])
   }
 ]
@@ -3545,6 +3898,255 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "user-profile" }, [
+      _c("div", {
+        staticClass: "user-photo",
+        staticStyle: {
+          "background-image": "url('/images/hidangan/spageti.jpg')"
+        }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticClass: "text-center text-white mt-3 font-weight-300" }, [
+        _vm._v("Nama Lengkap Saya")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-center" }, [
+        _c("span", { staticClass: "badge badge-success" }, [_vm._v("Admin")])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "list-group mt-3" }, [
+        _c("li", { staticClass: "list-group-item" }, [
+          _c("i", { staticClass: "fa fa-envelope pr-2" }),
+          _vm._v(" email@gmail.com\n    ")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item" }, [
+          _c("i", { staticClass: "fa fa-user pr-2" }),
+          _vm._v(" username")
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item" }, [
+          _c("i", { staticClass: "fa fa-phone pr-2" }),
+          _vm._v("0899298292")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "list-group mt-3" }, [
+        _c(
+          "a",
+          {
+            staticClass: "list-group-item list-group-item-action bg-white",
+            attrs: { href: "#" }
+          },
+          [_vm._v("\n      Edit Profil\n    ")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("a", { staticClass: "card-link", attrs: { href: "" } }, [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header d-flex p-2" }, [
+        _c("span", { staticClass: "small" }, [
+          _vm._v("Nomor: "),
+          _c("b", [_vm._v(_vm._s(_vm.data.no_reservasi))])
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "badge",
+            class: _vm.getBadgeStatus(_vm.data.status).class,
+            staticStyle: { "margin-left": "auto" }
+          },
+          [
+            _vm._v(
+              "\n        " +
+                _vm._s(_vm.getBadgeStatus(_vm.data.status).text) +
+                "\n      "
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body p-2" }, [
+        _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [_vm._v("Pelanggan")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("img", {
+                staticClass: "circle",
+                attrs: {
+                  src: "/images/hidangan/spageti.jpg",
+                  width: "30",
+                  height: "30"
+                }
+              }),
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.data.nama_pelanggan) +
+                  "\n          "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-2" }, [
+            _c("div", { staticClass: "col-md-6" }, [_vm._v("Pegawai")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("img", {
+                staticClass: "circle",
+                attrs: {
+                  src: "/images/hidangan/spageti.jpg",
+                  width: "30",
+                  height: "30"
+                }
+              }),
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.data.nama_pegawai) +
+                  "\n          "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-2" }, [
+            _c("div", { staticClass: "col-md-6" }, [_vm._v("Restoran")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("img", {
+                staticClass: "circle",
+                attrs: {
+                  src: "/images/hidangan/spageti.jpg",
+                  width: "30",
+                  height: "30"
+                }
+              }),
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.data.nama_restoran) +
+                  "\n          "
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "card-footer p-2",
+          staticStyle: { position: "relative" }
+        },
+        [
+          _c("p", { staticClass: "small mb-0" }, [
+            _vm._v("Tanggal reservasi: " + _vm._s(_vm.data.created_at))
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.checked,
+                expression: "checked"
+              }
+            ],
+            staticStyle: {
+              position: "absolute",
+              right: "20px",
+              bottom: "10px"
+            },
+            attrs: { name: "cbReservasi", type: "checkbox" },
+            domProps: {
+              value: _vm.data.id_reservasi,
+              checked: Array.isArray(_vm.checked)
+                ? _vm._i(_vm.checked, _vm.data.id_reservasi) > -1
+                : _vm.checked
+            },
+            on: {
+              click: function($event) {
+                return _vm.$emit("checkItem", _vm.data.id_reservasi)
+              },
+              change: function($event) {
+                var $$a = _vm.checked,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = _vm.data.id_reservasi,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.checked = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.checked = $$c
+                }
+              }
+            }
+          })
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=template&id=2829c63b&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=template&id=2829c63b&scoped=true& ***!
@@ -3569,7 +4171,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "container pt-5" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-md-3" }, [_c("SidebarUser")], 1),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-9" }, [
             _c(
@@ -3587,57 +4189,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-profile col-md-3" }, [
-      _c("div", {
-        staticClass: "user-photo",
-        staticStyle: {
-          "background-image": "url('/images/hidangan/spageti.jpg')"
-        }
-      }),
-      _vm._v(" "),
-      _c("h4", { staticClass: "text-center text-white mt-3 font-weight-300" }, [
-        _vm._v("Nama Lengkap Saya")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-center" }, [
-        _c("span", { staticClass: "badge badge-success" }, [_vm._v("Admin")])
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "list-group mt-3" }, [
-        _c("li", { staticClass: "list-group-item" }, [
-          _c("i", { staticClass: "fa fa-envelope pr-2" }),
-          _vm._v(" email@gmail.com\n          ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _c("i", { staticClass: "fa fa-user pr-2" }),
-          _vm._v(" username\n          ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _c("i", { staticClass: "fa fa-phone pr-2" }),
-          _vm._v("0899298292\n          ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "list-group mt-3" }, [
-        _c(
-          "a",
-          {
-            staticClass: "list-group-item list-group-item-action bg-white",
-            attrs: { href: "#" }
-          },
-          [_vm._v("\n            Edit Profil\n          ")]
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -3667,14 +4219,188 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "bg-light" },
+      { staticClass: "card mt-3" },
       [
         _c("table-comp", {
           attrs: {
             columns: _vm.columns,
             items: _vm.items,
-            loading: _vm.tableLoading
-          }
+            loading: _vm.tableLoading,
+            showToggleView: true,
+            view: _vm.tableView,
+            "card-grid": 2
+          },
+          on: {
+            setTableViewMode: _vm.setTableViewMode,
+            handleCheckbox: _vm.handleCheckbox
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "table-action",
+              fn: function() {
+                return [
+                  _c("div", { staticClass: "d-flex-lg float-right-lg-up" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success flex-1-lg mr-1",
+                        attrs: { type: "button", title: "Buat reservasi" }
+                      },
+                      [
+                        _c("i", { staticClass: "fa fa-plus pr-2" }),
+                        _vm._v(" Buat reservasi\n          ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        attrs: { type: "button", title: "Refresh" }
+                      },
+                      [_c("i", { staticClass: "fa fa-globe" })]
+                    )
+                  ])
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "checkbox_action",
+              fn: function() {
+                return [
+                  _vm.tableDataChecked.length > 0
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          attrs: { type: "button" }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    : _vm._e()
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "checkbox",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.tableDataChecked,
+                        expression: "tableDataChecked"
+                      }
+                    ],
+                    attrs: { name: "cbReservasi", type: "checkbox" },
+                    domProps: {
+                      value: row.id_reservasi,
+                      checked: Array.isArray(_vm.tableDataChecked)
+                        ? _vm._i(_vm.tableDataChecked, row.id_reservasi) > -1
+                        : _vm.tableDataChecked
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.tableDataChecked,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = row.id_reservasi,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              (_vm.tableDataChecked = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.tableDataChecked = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.tableDataChecked = $$c
+                        }
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
+              key: "status",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "badge",
+                      class: _vm.getBadgeStatus(row.status).class
+                    },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.getBadgeStatus(row.status).text) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                ]
+              }
+            },
+            {
+              key: "aksi",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary m-1",
+                      on: {
+                        click: function($event) {
+                          return _vm.edit(row)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-eye" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger m-1",
+                      on: {
+                        click: function($event) {
+                          return _vm.hapus(row)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-trash" })]
+                  )
+                ]
+              }
+            },
+            {
+              key: "cardview",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _c("CardReservasi", {
+                    attrs: {
+                      data: row,
+                      tableDataChecked: _vm.tableDataChecked
+                    },
+                    on: { checkItem: _vm.checkItem }
+                  })
+                ]
+              }
+            }
+          ])
         })
       ],
       1
@@ -3704,6 +4430,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! !../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("3de3d078", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=style&index=0&id=4605aca4&scoped=true&lang=css&");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.id, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! !../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("c5b239d4", content, false, {});
 // Hot Module Replacement
 if(false) {}
 

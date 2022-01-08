@@ -1,12 +1,81 @@
 <template>
   <admin-layout>
     <h1 class="font-weight-300 text-white">Reservasi</h1>
-    <div class="bg-light">
+    <div class="card mt-3">
       <table-comp
         :columns="columns"
         :items="items"
         :loading="tableLoading"
+        :showToggleView="true"
+        :view="tableView"
+        :card-grid="2"
+        @setTableViewMode="setTableViewMode"
+        @handleCheckbox="handleCheckbox"
       >
+        <template #table-action>
+          <div class="d-flex-lg float-right-lg-up">
+            <button
+              type="button"
+              title="Buat reservasi"
+              class="btn btn-success flex-1-lg mr-1"
+            >
+              <i class="fa fa-plus pr-2" /> Buat reservasi
+            </button>
+            <button
+              type="button"
+              title="Refresh"
+              class="btn btn-secondary"
+            >
+              <i class="fa fa-globe" />
+            </button>
+          </div>
+        </template>
+        <template #checkbox_action>
+          <button
+            v-if="tableDataChecked.length > 0"
+            type="button"
+            class="btn btn-danger"
+          >
+            <i class="fa fa-trash" />
+          </button>
+        </template>
+        <template #checkbox="{ row }">
+          <input
+            v-model="tableDataChecked"
+            :value="row.id_reservasi"
+            name="cbReservasi"
+            type="checkbox"
+          >
+        </template>
+        <template #status="{ row }">
+          <span
+            class="badge"
+            :class="getBadgeStatus(row.status).class"
+          >
+            {{ getBadgeStatus(row.status).text }}
+          </span>
+        </template>
+        <template #aksi="{ row }">
+          <button
+            class="btn btn-primary m-1"
+            @click="edit(row)"
+          >
+            <i class="fa fa-eye" />
+          </button>
+          <button
+            class="btn btn-danger m-1"
+            @click="hapus(row)"
+          >
+            <i class="fa fa-trash" />
+          </button>
+        </template>
+        <template #cardview="{ row }">
+          <CardReservasi
+            :data="row"
+            :tableDataChecked="tableDataChecked"
+            @checkItem="checkItem"
+          />
+        </template>
       </table-comp>
     </div>
   </admin-layout>
@@ -15,32 +84,233 @@
 <script>
 import TableComp from '../../../components/global/TableComp.vue'
 import AdminLayout from '../../../layouts/admin'
+import CardReservasi from '../../../components/user/reservasi/CardReservasi.vue'
+
 export default {
   components: {
     AdminLayout,
-    TableComp
+    TableComp,
+    CardReservasi
   },
   data () {
     return {
       columns: [
-        { label: 'ID', field: 'id', sortable: true },
-        { label: 'Desa', field: 'nama', sortable: true },
-        { label: 'Alamat', field: 'alamat', sortable: true },
+        { label: '', field: 'checkbox' },
+        { label: 'Nomor', field: 'no_reservasi', sortable: true },
+        { label: 'Pelanggan', field: 'nama_pelanggan', sortable: true },
+        { label: 'Restoran', field: 'nama_restoran', sortable: true },
+        { label: 'Pegawai', field: 'nama_pegawai', sortable: true },
+        { label: 'Status', field: 'status', sortable: true },
+        { label: 'Dibuat', field: 'created_at', sortable: true },
         { label: 'Aksi', field: 'aksi' }
       ],
       items: [],
       tableLoading: true,
+      tableView: 'table',
+      tableDataChecked: []
     }
   },
   mounted () {
     setTimeout(() => {
-      this.items = [
-        { id: 1, nama: 'jon', alamat: 'tes' },
-        { id: 2, nama: 'jossn', alamat: 't222es' },
-        { id: 3, nama: 'jondw', alamat: 'tesdws' }
+      this.items = [ 
+        { 
+        id_reservasi:1,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:1,
+        id_pegawai:1,
+        no_meja:null,
+        status:0, // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+        created_at:"2018-05-20 07:49:09",
+        updated_at:"2018-05-20 07:49:09",
+        deleted_at:null
+        },
+        { 
+        id_reservasi:2,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:1,
+        id_pegawai:1,
+        no_meja:null,
+        status:0,
+        created_at:"2018-05-20 07:49:09",
+        updated_at:"2018-05-20 07:49:09",
+        deleted_at:null
+        },
+        { 
+        id_reservasi:3,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:1,
+        id_pegawai:2,
+        no_meja:"202",
+        status:4,
+        created_at:"2018-05-20 07:49:09",
+        updated_at:"2018-05-20 07:49:09",
+        deleted_at:null
+        },
+        { 
+        id_reservasi:4,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:3,
+        id_pegawai:2,
+        no_meja:"222",
+        status:1,
+        created_at:"2018-05-20 07:50:29",
+        updated_at:"2018-05-20 08:39:05",
+        deleted_at:null
+        },
+        { 
+        id_reservasi:5,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:4,
+        id_pegawai:2,
+        no_meja:"2A",
+        status:1,
+        created_at:"2018-05-23 01:09:50",
+        updated_at:"2018-05-23 01:41:09",
+        deleted_at:null
+        },
+        { 
+        id_reservasi:6,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:5,
+        id_pegawai:2,
+        no_meja:"232",
+        status:1,
+        created_at:"2018-05-23 06:22:21",
+        updated_at:"2018-05-23 06:23:56",
+        deleted_at:"2018-05-24 01:36:38"
+        },
+        { 
+        id_reservasi:7,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:5,
+        id_pegawai:2,
+        no_meja:"3A",
+        status:1,
+        created_at:"2018-05-23 23:17:40",
+        updated_at:"2018-05-24 01:36:38",
+        deleted_at:"2018-05-24 01:36:38"
+        },
+        { 
+        id_reservasi:8,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:6,
+        id_pegawai:1,
+        no_meja:null,
+        status:0,
+        created_at:"2021-11-16 11:31:30",
+        updated_at:"2021-11-16 11:31:30",
+        deleted_at:null
+        },
+        { 
+        id_reservasi:9,
+        no_reservasi: "RE-202/202/XC/0002",
+        id_restoran:1,
+        nama_restoran: "Restoran Saya",
+        nama_pelanggan: "Pelanggan",
+        nama_pegawai: "Pegawai",
+        id_pelanggan:7,
+        id_pegawai:2,
+        no_meja:"8",
+        status:1,
+        created_at:"2022-01-07 14:58:48",
+        updated_at:"2022-01-07 15:01:02",
+        deleted_at:null
+        }
       ]
       this.tableLoading = false
     }, 2000)
+  },
+  methods: {
+    getBadgeStatus (status) {
+      // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+      switch (status) {
+        case 0:
+          return {
+            class: 'badge-secondary',
+            text: 'Menunggu konfirmasi'
+          }
+        case 1:
+          return {
+            class: 'badge-primary',
+            text: 'Dikonfirmasi'
+          }
+        case 2:
+          return {
+            class: 'badge-warning',
+            text: 'Sedang Berlangsung'
+          }
+        case 3:
+          return {
+            class: 'badge-danger',
+            text: 'Batal'
+          }
+        case 4:
+          return {
+            class: 'badge-success',
+            text: 'Selesai'
+          }
+        default:
+          return {
+            class: 'badge-warning',
+            text: 'Belum Dikonfirmasi'
+          }
+      }
+    },
+    edit (row) {
+      console.log(row)
+    },
+    hapus (row) {
+      console.log(row)
+    },
+    setTableViewMode (val) {
+      this.tableView = val
+    },
+    handleCheckbox (val) {
+      const cbVal = []
+      if (val) {
+        document.querySelectorAll('input[name="cbReservasi"]').forEach((e) => {
+          cbVal.push(parseInt(e.value))
+        })
+      }
+      this.tableDataChecked = cbVal
+    },
+    checkItem (val) {
+      if (!this.tableDataChecked.includes(val)) {
+        this.tableDataChecked.push(val)
+      }
+    }
   }
 }
 </script>
