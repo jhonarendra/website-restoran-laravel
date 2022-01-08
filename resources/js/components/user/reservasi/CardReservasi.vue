@@ -1,5 +1,5 @@
 <template>
-  <a href="" class="card-link">
+  <router-link :to="`/user/reservasi/${data.id_reservasi}`" class="card-link">
     <div class="card">
       <div class="card-header d-flex p-2">
         <span class="small">Nomor: <b>{{ data.no_reservasi }}</b></span>
@@ -39,14 +39,6 @@
       </div>
       <div class="card-footer p-2" style="position: relative">
         <p class="small mb-0">Tanggal reservasi: {{ data.created_at }}</p>
-        <!-- <button
-          type="button"
-          class="btn btn-link"
-          style="position: absolute; right: 0px; bottom: 20px;"
-          @click="$emit('checkItem', data.id_reservasi)"
-        >
-          <i :class="(checked) ? 'fa fa-check-circle' : 'fa fa-circle'" />
-        </button> -->
         <input
           v-model="checked"
           :value="data.id_reservasi"
@@ -57,7 +49,7 @@
         >
       </div>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script>

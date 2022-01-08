@@ -882,14 +882,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     data: {
@@ -1043,6 +1035,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//
+//
+//
 //
 //
 //
@@ -1350,8 +1345,10 @@ __webpack_require__.r(__webpack_exports__);
           };
       }
     },
-    edit: function edit(row) {
-      console.log(row);
+    lihat: function lihat(row) {
+      this.$router.push({
+        path: "/user/reservasi/".concat(row.id_reservasi)
+      });
     },
     hapus: function hapus(row) {
       console.log(row);
@@ -3989,156 +3986,163 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("a", { staticClass: "card-link", attrs: { href: "" } }, [
-    _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header d-flex p-2" }, [
-        _c("span", { staticClass: "small" }, [
-          _vm._v("Nomor: "),
-          _c("b", [_vm._v(_vm._s(_vm.data.no_reservasi))])
+  return _c(
+    "router-link",
+    {
+      staticClass: "card-link",
+      attrs: { to: "/user/reservasi/" + _vm.data.id_reservasi }
+    },
+    [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header d-flex p-2" }, [
+          _c("span", { staticClass: "small" }, [
+            _vm._v("Nomor: "),
+            _c("b", [_vm._v(_vm._s(_vm.data.no_reservasi))])
+          ]),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "badge",
+              class: _vm.getBadgeStatus(_vm.data.status).class,
+              staticStyle: { "margin-left": "auto" }
+            },
+            [
+              _vm._v(
+                "\n        " +
+                  _vm._s(_vm.getBadgeStatus(_vm.data.status).text) +
+                  "\n      "
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body p-2" }, [
+          _c("div", [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-6" }, [_vm._v("Pelanggan")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("img", {
+                  staticClass: "circle",
+                  attrs: {
+                    src: "/images/hidangan/spageti.jpg",
+                    width: "30",
+                    height: "30"
+                  }
+                }),
+                _vm._v(
+                  "\n            " +
+                    _vm._s(_vm.data.nama_pelanggan) +
+                    "\n          "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-2" }, [
+              _c("div", { staticClass: "col-md-6" }, [_vm._v("Pegawai")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("img", {
+                  staticClass: "circle",
+                  attrs: {
+                    src: "/images/hidangan/spageti.jpg",
+                    width: "30",
+                    height: "30"
+                  }
+                }),
+                _vm._v(
+                  "\n            " +
+                    _vm._s(_vm.data.nama_pegawai) +
+                    "\n          "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-2" }, [
+              _c("div", { staticClass: "col-md-6" }, [_vm._v("Restoran")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("img", {
+                  staticClass: "circle",
+                  attrs: {
+                    src: "/images/hidangan/spageti.jpg",
+                    width: "30",
+                    height: "30"
+                  }
+                }),
+                _vm._v(
+                  "\n            " +
+                    _vm._s(_vm.data.nama_restoran) +
+                    "\n          "
+                )
+              ])
+            ])
+          ])
         ]),
         _vm._v(" "),
         _c(
-          "span",
+          "div",
           {
-            staticClass: "badge",
-            class: _vm.getBadgeStatus(_vm.data.status).class,
-            staticStyle: { "margin-left": "auto" }
+            staticClass: "card-footer p-2",
+            staticStyle: { position: "relative" }
           },
           [
-            _vm._v(
-              "\n        " +
-                _vm._s(_vm.getBadgeStatus(_vm.data.status).text) +
-                "\n      "
-            )
+            _c("p", { staticClass: "small mb-0" }, [
+              _vm._v("Tanggal reservasi: " + _vm._s(_vm.data.created_at))
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checked,
+                  expression: "checked"
+                }
+              ],
+              staticStyle: {
+                position: "absolute",
+                right: "20px",
+                bottom: "10px"
+              },
+              attrs: { name: "cbReservasi", type: "checkbox" },
+              domProps: {
+                value: _vm.data.id_reservasi,
+                checked: Array.isArray(_vm.checked)
+                  ? _vm._i(_vm.checked, _vm.data.id_reservasi) > -1
+                  : _vm.checked
+              },
+              on: {
+                click: function($event) {
+                  return _vm.$emit("checkItem", _vm.data.id_reservasi)
+                },
+                change: function($event) {
+                  var $$a = _vm.checked,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = _vm.data.id_reservasi,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.checked = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.checked = $$c
+                  }
+                }
+              }
+            })
           ]
         )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body p-2" }, [
-        _c("div", [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-6" }, [_vm._v("Pelanggan")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("img", {
-                staticClass: "circle",
-                attrs: {
-                  src: "/images/hidangan/spageti.jpg",
-                  width: "30",
-                  height: "30"
-                }
-              }),
-              _vm._v(
-                "\n            " +
-                  _vm._s(_vm.data.nama_pelanggan) +
-                  "\n          "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row mt-2" }, [
-            _c("div", { staticClass: "col-md-6" }, [_vm._v("Pegawai")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("img", {
-                staticClass: "circle",
-                attrs: {
-                  src: "/images/hidangan/spageti.jpg",
-                  width: "30",
-                  height: "30"
-                }
-              }),
-              _vm._v(
-                "\n            " +
-                  _vm._s(_vm.data.nama_pegawai) +
-                  "\n          "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row mt-2" }, [
-            _c("div", { staticClass: "col-md-6" }, [_vm._v("Restoran")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("img", {
-                staticClass: "circle",
-                attrs: {
-                  src: "/images/hidangan/spageti.jpg",
-                  width: "30",
-                  height: "30"
-                }
-              }),
-              _vm._v(
-                "\n            " +
-                  _vm._s(_vm.data.nama_restoran) +
-                  "\n          "
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "card-footer p-2",
-          staticStyle: { position: "relative" }
-        },
-        [
-          _c("p", { staticClass: "small mb-0" }, [
-            _vm._v("Tanggal reservasi: " + _vm._s(_vm.data.created_at))
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.checked,
-                expression: "checked"
-              }
-            ],
-            staticStyle: {
-              position: "absolute",
-              right: "20px",
-              bottom: "10px"
-            },
-            attrs: { name: "cbReservasi", type: "checkbox" },
-            domProps: {
-              value: _vm.data.id_reservasi,
-              checked: Array.isArray(_vm.checked)
-                ? _vm._i(_vm.checked, _vm.data.id_reservasi) > -1
-                : _vm.checked
-            },
-            on: {
-              click: function($event) {
-                return _vm.$emit("checkItem", _vm.data.id_reservasi)
-              },
-              change: function($event) {
-                var $$a = _vm.checked,
-                  $$el = $event.target,
-                  $$c = $$el.checked ? true : false
-                if (Array.isArray($$a)) {
-                  var $$v = _vm.data.id_reservasi,
-                    $$i = _vm._i($$a, $$v)
-                  if ($$el.checked) {
-                    $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                  } else {
-                    $$i > -1 &&
-                      (_vm.checked = $$a
-                        .slice(0, $$i)
-                        .concat($$a.slice($$i + 1)))
-                  }
-                } else {
-                  _vm.checked = $$c
-                }
-              }
-            }
-          })
-        ]
-      )
-    ])
-  ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4244,7 +4248,14 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-success flex-1-lg mr-1",
-                        attrs: { type: "button", title: "Buat reservasi" }
+                        attrs: { type: "button", title: "Buat reservasi" },
+                        on: {
+                          click: function($event) {
+                            return _vm.$router.push({
+                              path: "/user/reservasi/buat"
+                            })
+                          }
+                        }
                       },
                       [
                         _c("i", { staticClass: "fa fa-plus pr-2" }),
@@ -4361,9 +4372,10 @@ var render = function() {
                     "button",
                     {
                       staticClass: "btn btn-primary m-1",
+                      attrs: { title: "Lihat" },
                       on: {
                         click: function($event) {
-                          return _vm.edit(row)
+                          return _vm.lihat(row)
                         }
                       }
                     },
@@ -4374,6 +4386,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "btn btn-danger m-1",
+                      attrs: { title: "Hapus" },
                       on: {
                         click: function($event) {
                           return _vm.hapus(row)

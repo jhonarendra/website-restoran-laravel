@@ -18,6 +18,7 @@
               type="button"
               title="Buat reservasi"
               class="btn btn-success flex-1-lg mr-1"
+              @click="$router.push({ path: '/user/reservasi/buat' })"
             >
               <i class="fa fa-plus pr-2" /> Buat reservasi
             </button>
@@ -57,12 +58,14 @@
         </template>
         <template #aksi="{ row }">
           <button
+            title="Lihat"
             class="btn btn-primary m-1"
-            @click="edit(row)"
+            @click="lihat(row)"
           >
             <i class="fa fa-eye" />
           </button>
           <button
+            title="Hapus"
             class="btn btn-danger m-1"
             @click="hapus(row)"
           >
@@ -288,8 +291,8 @@ export default {
           }
       }
     },
-    edit (row) {
-      console.log(row)
+    lihat (row) {
+      this.$router.push({ path: `/user/reservasi/${row.id_reservasi}` })
     },
     hapus (row) {
       console.log(row)

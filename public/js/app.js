@@ -2104,6 +2104,18 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_pages_user_reservasi_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/reservasi/index.vue */ "./resources/js/pages/user/reservasi/index.vue"));
   }
 }, {
+  path: "/user/reservasi/buat",
+  name: "user-reservasi-buat",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_reservasi_buat_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/reservasi/buat.vue */ "./resources/js/pages/user/reservasi/buat.vue"));
+  }
+}, {
+  path: "/user/reservasi/:id",
+  name: "user-reservasi-id",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_reservasi__id_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/reservasi/_id.vue */ "./resources/js/pages/user/reservasi/_id.vue"));
+  }
+}, {
   path: "/example",
   name: "Example",
   component: function component() {
@@ -59552,7 +59564,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
