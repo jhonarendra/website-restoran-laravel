@@ -1020,6 +1020,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1042,8 +1048,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/global/TableComp.vue */ "./resources/js/components/global/TableComp.vue");
-/* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
+/* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.timers.js */ "./node_modules/core-js/modules/web.timers.js");
+/* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/global/TableComp.vue */ "./resources/js/components/global/TableComp.vue");
+/* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
+
 //
 //
 //
@@ -1062,8 +1071,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_1__.default,
-    TableComp: _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_2__.default,
+    TableComp: _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_1__.default
   },
   data: function data() {
     return {
@@ -1083,7 +1092,15 @@ __webpack_require__.r(__webpack_exports__);
         label: 'Aksi',
         field: 'aksi'
       }],
-      items: [{
+      items: [],
+      tableLoading: true
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    setTimeout(function () {
+      _this.items = [{
         id: 1,
         nama: 'jon',
         alamat: 'tes'
@@ -1095,9 +1112,9 @@ __webpack_require__.r(__webpack_exports__);
         id: 3,
         nama: 'jondw',
         alamat: 'tesdws'
-      }],
-      tableLoading: true
-    };
+      }];
+      _this.tableLoading = false;
+    }, 2000);
   }
 });
 
@@ -2036,6 +2053,44 @@ fixRegExpWellKnownSymbolLogic('split', 2, function (SPLIT, nativeSplit, maybeCal
     }
   ];
 }, UNSUPPORTED_Y);
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/web.timers.js":
+/*!****************************************************!*\
+  !*** ./node_modules/core-js/modules/web.timers.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var userAgent = __webpack_require__(/*! ../internals/engine-user-agent */ "./node_modules/core-js/internals/engine-user-agent.js");
+
+var slice = [].slice;
+var MSIE = /MSIE .\./.test(userAgent); // <- dirty ie9- check
+
+var wrap = function (scheduler) {
+  return function (handler, timeout /* , ...arguments */) {
+    var boundArgs = arguments.length > 2;
+    var args = boundArgs ? slice.call(arguments, 2) : undefined;
+    return scheduler(boundArgs ? function () {
+      // eslint-disable-next-line no-new-func -- spec requirement
+      (typeof handler == 'function' ? handler : Function(handler)).apply(this, args);
+    } : handler, timeout);
+  };
+};
+
+// ie9- setTimeout & setInterval additional parameters fix
+// https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers
+$({ global: true, bind: true, forced: MSIE }, {
+  // `setTimeout` method
+  // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout
+  setTimeout: wrap(global.setTimeout),
+  // `setInterval` method
+  // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-setinterval
+  setInterval: wrap(global.setInterval)
+});
 
 
 /***/ }),
@@ -3576,22 +3631,40 @@ var staticRenderFns = [
         }
       }),
       _vm._v(" "),
-      _c("ul", { staticClass: "list-group mt-5" }, [
+      _c("h4", { staticClass: "text-center text-white mt-3 font-weight-300" }, [
+        _vm._v("Nama Lengkap Saya")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-center" }, [
+        _c("span", { staticClass: "badge badge-success" }, [_vm._v("Admin")])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "list-group mt-3" }, [
         _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            Nama Lengkap Saya\n          ")
+          _c("i", { staticClass: "fa fa-envelope pr-2" }),
+          _vm._v(" email@gmail.com\n          ")
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            email@gmail.com\n          ")
+          _c("i", { staticClass: "fa fa-user pr-2" }),
+          _vm._v(" username\n          ")
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            username\n          ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            0899298292\n          ")
+          _c("i", { staticClass: "fa fa-phone pr-2" }),
+          _vm._v("0899298292\n          ")
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "list-group mt-3" }, [
+        _c(
+          "a",
+          {
+            staticClass: "list-group-item list-group-item-action bg-white",
+            attrs: { href: "#" }
+          },
+          [_vm._v("\n            Edit Profil\n          ")]
+        )
       ])
     ])
   }
@@ -3619,7 +3692,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("admin-layout", [
-    _c("h1", [_vm._v("Reservasi")]),
+    _c("h1", { staticClass: "font-weight-300" }, [_vm._v("Reservasi")]),
     _vm._v(" "),
     _c(
       "div",

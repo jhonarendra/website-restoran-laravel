@@ -5,20 +5,26 @@
       <div class="row">
         <div class="user-profile col-md-3">
           <div class="user-photo" style="background-image: url('/images/hidangan/spageti.jpg')" />
-          <ul class="list-group mt-5">
+          <h4 class="text-center text-white mt-3 font-weight-300">Nama Lengkap Saya</h4>
+          <p class="text-center">
+            <span class="badge badge-success">Admin</span>
+          </p>
+          <ul class="list-group mt-3">
             <li class="list-group-item">
-              Nama Lengkap Saya
+              <i class="fa fa-envelope pr-2" /> email@gmail.com
             </li>
             <li class="list-group-item">
-              email@gmail.com
+              <i class="fa fa-user pr-2" /> username
             </li>
             <li class="list-group-item">
-              username
-            </li>
-            <li class="list-group-item">
-              0899298292
+              <i class="fa fa-phone pr-2" />0899298292
             </li>
           </ul>
+          <div class="list-group mt-3">
+            <a href="#" class="list-group-item list-group-item-action bg-white">
+              Edit Profil
+            </a>
+          </div>
         </div>
         <div class="col-md-9">
           <div style="min-height: 100vh" class="text-white">

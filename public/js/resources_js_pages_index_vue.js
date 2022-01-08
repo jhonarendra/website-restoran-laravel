@@ -272,8 +272,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     FormRegister: _FormRegister__WEBPACK_IMPORTED_MODULE_0__.default
-  },
-  data: function data() {}
+  }
 });
 
 /***/ }),

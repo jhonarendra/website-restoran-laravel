@@ -37,10 +37,7 @@ import FormRegister from './FormRegister'
 export default {
   components: {
     FormRegister
-  },
-  data () {
-    
-  },
+  }
 }
 </script>
 

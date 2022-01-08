@@ -152,6 +152,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -193,6 +199,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -200,7 +210,31 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      menu: ['reservasi', 'pesanan', 'pelanggan', 'pegawai', 'hidangan', 'restoran']
+      menu: [{
+        name: 'reservasi',
+        icon: 'fa fa-taxi',
+        link: '/user/reservasi'
+      }, {
+        name: 'pesanan',
+        icon: 'fa fa-phone',
+        link: '/user/pesanan'
+      }, {
+        name: 'pelanggan',
+        icon: 'fa fa-user-circle',
+        link: '/user/pelanggan'
+      }, {
+        name: 'pegawai',
+        icon: 'fa fa-user-secret',
+        link: '/user/pegawai'
+      }, {
+        name: 'hidangan',
+        icon: 'fa fa-glass',
+        link: '/user/hidangan'
+      }, {
+        name: 'restoran',
+        icon: 'fa fa-home',
+        link: '/user/restoran'
+      }]
     };
   }
 });
@@ -843,22 +877,40 @@ var staticRenderFns = [
         }
       }),
       _vm._v(" "),
-      _c("ul", { staticClass: "list-group mt-5" }, [
+      _c("h4", { staticClass: "text-center text-white mt-3 font-weight-300" }, [
+        _vm._v("Nama Lengkap Saya")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-center" }, [
+        _c("span", { staticClass: "badge badge-success" }, [_vm._v("Admin")])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "list-group mt-3" }, [
         _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            Nama Lengkap Saya\n          ")
+          _c("i", { staticClass: "fa fa-envelope pr-2" }),
+          _vm._v(" email@gmail.com\n          ")
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            email@gmail.com\n          ")
+          _c("i", { staticClass: "fa fa-user pr-2" }),
+          _vm._v(" username\n          ")
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            username\n          ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            0899298292\n          ")
+          _c("i", { staticClass: "fa fa-phone pr-2" }),
+          _vm._v("0899298292\n          ")
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "list-group mt-3" }, [
+        _c(
+          "a",
+          {
+            staticClass: "list-group-item list-group-item-action bg-white",
+            attrs: { href: "#" }
+          },
+          [_vm._v("\n            Edit Profil\n          ")]
+        )
       ])
     ])
   }
@@ -890,13 +942,34 @@ var render = function() {
       "div",
       { staticClass: "row" },
       _vm._l(_vm.menu, function(m) {
-        return _c("div", { key: m, staticClass: "col-md-3 my-2" }, [
-          _c("div", { staticClass: "card text-dark" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h3", [_vm._v(_vm._s(m))])
+        return _c(
+          "div",
+          { key: m.name, staticClass: "col-md-3 my-2" },
+          [
+            _c("router-link", { attrs: { to: m.link } }, [
+              _c("div", { staticClass: "card text-dark" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "card-body text-center",
+                    staticStyle: { "z-index": "10" }
+                  },
+                  [
+                    _c("i", {
+                      class: m.icon,
+                      staticStyle: { "font-size": "2rem" }
+                    }),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "font-weight-300 pt-3" }, [
+                      _vm._v(_vm._s(m.name))
+                    ])
+                  ]
+                )
+              ])
             ])
-          ])
-        ])
+          ],
+          1
+        )
       }),
       0
     )

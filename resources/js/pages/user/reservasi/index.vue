@@ -1,6 +1,6 @@
 <template>
   <admin-layout>
-    <h1>Reservasi</h1>
+    <h1 class="font-weight-300">Reservasi</h1>
     <div class="bg-light">
       <table-comp
         :columns="columns"
@@ -28,13 +28,19 @@ export default {
         { label: 'Alamat', field: 'alamat', sortable: true },
         { label: 'Aksi', field: 'aksi' }
       ],
-      items: [
+      items: [],
+      tableLoading: true,
+    }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.items = [
         { id: 1, nama: 'jon', alamat: 'tes' },
         { id: 2, nama: 'jossn', alamat: 't222es' },
         { id: 3, nama: 'jondw', alamat: 'tesdws' }
-      ],
-      tableLoading: true,
-    }
+      ]
+      this.tableLoading = false
+    }, 2000)
   }
 }
 </script>

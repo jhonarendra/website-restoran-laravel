@@ -40,6 +40,9 @@ export default {
 	.text-dark-brown {
 		color: #5e493a!important;
 	}
+	.font-weight-300 {
+		font-weight: 300;
+	}
 
 
 
