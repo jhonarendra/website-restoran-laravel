@@ -2274,6 +2274,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/reservasi */ "./resources/js/store/modules/reservasi.js");
 /* harmony import */ var _modules_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/user */ "./resources/js/store/modules/user.js");
+/* harmony import */ var _modules_restoran__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/restoran */ "./resources/js/store/modules/restoran.js");
+
 
 
 var state = {
@@ -2282,7 +2284,8 @@ var state = {
   actions: {},
   modules: {
     reservasi: _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__.default,
-    user: _modules_user__WEBPACK_IMPORTED_MODULE_1__.default
+    user: _modules_user__WEBPACK_IMPORTED_MODULE_1__.default,
+    restoran: _modules_restoran__WEBPACK_IMPORTED_MODULE_2__.default
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (state);
@@ -2301,12 +2304,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -2315,31 +2321,8 @@ var data = [{
   id_reservasi: 1,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 1,
-  id_pegawai: 1,
+  id_pelanggan: 2,
+  id_pegawai: 3,
   jumlah_tamu: 3,
   tanggal_reservasi: '2022-01-02 12:23:22',
   keterangan_pelanggan: 'ket',
@@ -2352,307 +2335,19 @@ var data = [{
   deleted_at: null
 }, {
   id_reservasi: 2,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 1,
-  id_pegawai: 1,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
+  no_reservasi: "RE-402/202/XC/0002",
+  id_restoran: 2,
+  id_pelanggan: 2,
+  id_pegawai: 3,
+  jumlah_tamu: 20,
+  tanggal_reservasi: '2022-02-02 12:23:22',
   keterangan_pelanggan: 'ket',
   keterangan_pegawai: 'eke',
   no_meja: null,
   status: 0,
-  created_at: "2018-05-20 07:49:09",
-  updated_at: "2018-05-20 07:49:09",
-  deleted_at: null
-}, {
-  id_reservasi: 3,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 1,
-  id_pegawai: 2,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
-  keterangan_pelanggan: 'ket',
-  keterangan_pegawai: 'eke',
-  no_meja: "202",
-  status: 4,
-  created_at: "2018-05-20 07:49:09",
-  updated_at: "2018-05-20 07:49:09",
-  deleted_at: null
-}, {
-  id_reservasi: 4,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 3,
-  id_pegawai: 2,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
-  keterangan_pelanggan: 'ket',
-  keterangan_pegawai: 'eke',
-  no_meja: "222",
-  status: 1,
-  created_at: "2018-05-20 07:50:29",
-  updated_at: "2018-05-20 08:39:05",
-  deleted_at: null
-}, {
-  id_reservasi: 5,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 4,
-  id_pegawai: 2,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
-  keterangan_pelanggan: 'ket',
-  keterangan_pegawai: 'eke',
-  no_meja: "2A",
-  status: 1,
-  created_at: "2018-05-23 01:09:50",
-  updated_at: "2018-05-23 01:41:09",
-  deleted_at: null
-}, {
-  id_reservasi: 6,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 5,
-  id_pegawai: 2,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
-  keterangan_pelanggan: 'ket',
-  keterangan_pegawai: 'eke',
-  no_meja: "232",
-  status: 1,
-  created_at: "2018-05-23 06:22:21",
-  updated_at: "2018-05-23 06:23:56",
-  deleted_at: "2018-05-24 01:36:38"
-}, {
-  id_reservasi: 7,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 5,
-  id_pegawai: 2,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
-  keterangan_pelanggan: 'ket',
-  keterangan_pegawai: 'eke',
-  no_meja: "3A",
-  status: 1,
-  created_at: "2018-05-23 23:17:40",
-  updated_at: "2018-05-24 01:36:38",
-  deleted_at: "2018-05-24 01:36:38"
-}, {
-  id_reservasi: 8,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 6,
-  id_pegawai: 1,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
-  keterangan_pelanggan: 'ket',
-  keterangan_pegawai: 'eke',
-  no_meja: null,
-  status: 0,
-  created_at: "2021-11-16 11:31:30",
-  updated_at: "2021-11-16 11:31:30",
-  deleted_at: null
-}, {
-  id_reservasi: 9,
-  no_reservasi: "RE-202/202/XC/0002",
-  id_restoran: 1,
-  restoran: {
-    id_restoran: 1,
-    nama_restoran: 'Restoran 1',
-    alamat_restoran: 'Jalan Restoran 1'
-  },
-  pelanggan: {
-    id_user: 1,
-    nama_user: 'Nama User',
-    email: 'emial@sjd.co',
-    username: 'emial',
-    password: 'sds',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan jalan'
-  },
-  pegawai: {
-    id_user: 2,
-    nama_user: 'Nama Pegawai',
-    email: 'sdsdsdsds@ssssx.co',
-    username: 'emial',
-    password: 'ggg',
-    no_hp: '081982983984',
-    alamat: 'Jalan jalan 9'
-  },
-  id_pelanggan: 7,
-  id_pegawai: 2,
-  jumlah_tamu: 3,
-  tanggal_reservasi: '2022-01-02 12:23:22',
-  keterangan_pelanggan: 'ket',
-  keterangan_pegawai: 'eke',
-  no_meja: "8",
-  status: 1,
-  created_at: "2022-01-07 14:58:48",
-  updated_at: "2022-01-07 15:01:02",
+  // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+  created_at: "2018-05-20 17:49:09",
+  updated_at: "2018-05-20 17:49:09",
   deleted_at: null
 }];
 var state = {
@@ -2668,21 +2363,69 @@ var mutations = {
   }
 };
 var actions = {
-  fetchReservasi: function fetchReservasi() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().mark(function _callee() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().wrap(function _callee$(_context) {
+  fetchReservasi: function fetchReservasi(_ref) {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      var getters, commit, dispatch, user, restoran, res, _res, reservasi;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              getters = _ref.getters, commit = _ref.commit, dispatch = _ref.dispatch;
+              user = getters.getAllUser;
+              restoran = getters.getAllRestoran;
+
+              if (!(user.length === 0)) {
+                _context.next = 9;
+                break;
+              }
+
+              _context.next = 6;
+              return dispatch('fetchUser');
+
+            case 6:
+              res = _context.sent;
+              commit('setUser', res.data.data);
+              user = res.data.data;
+
+            case 9:
+              if (!(restoran.length === 0)) {
+                _context.next = 15;
+                break;
+              }
+
+              _context.next = 12;
+              return dispatch('fetchRestoran');
+
+            case 12:
+              _res = _context.sent;
+              commit('setRestoran', _res.data.data);
+              restoran = _res.data.data;
+
+            case 15:
+              reservasi = [];
+              data.forEach(function (e) {
+                var row = e;
+                row.pelanggan = user.find(function (f) {
+                  return f.id_user === e.id_pelanggan;
+                });
+                row.pegawai = user.find(function (f) {
+                  return f.id_user === e.id_pegawai;
+                });
+                row.restoran = restoran.find(function (f) {
+                  return f.id_restoran === e.id_restoran;
+                });
+                reservasi.push(row);
+              });
               return _context.abrupt("return", {
                 data: {
                   status: true,
-                  data: data,
+                  data: reservasi,
                   message: ''
                 }
               });
 
-            case 1:
+            case 18:
             case "end":
               return _context.stop();
           }
@@ -2690,14 +2433,14 @@ var actions = {
       }, _callee);
     }))();
   },
-  showReservasi: function showReservasi(_ref, id) {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().mark(function _callee2() {
+  showReservasi: function showReservasi(_ref2, id) {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
       var getters, show;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().wrap(function _callee2$(_context2) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              getters = _ref.getters;
+              getters = _ref2.getters;
               show = data.find(function (e) {
                 return e.id_reservasi === parseInt(id);
               });
@@ -2741,6 +2484,87 @@ var actions = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/restoran.js":
+/*!************************************************!*\
+  !*** ./resources/js/store/modules/restoran.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var data = [{
+  id_restoran: 1,
+  nama_restoran: 'Restoran Saya',
+  alamat: 'Jalan Restoran Saya',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_restoran: 2,
+  nama_restoran: 'Restoran Kamu',
+  alamat: 'Jalan Restoran Kamu',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var state = {
+  restoran: [],
+  tableViewRestoran: 'table'
+};
+var mutations = {
+  setRestoran: function setRestoran(state, data) {
+    state.restoran = data;
+  },
+  setTableViewRestoran: function setTableViewRestoran(state, data) {
+    state.tableViewRestoran = data;
+  }
+};
+var actions = {
+  fetchRestoran: function fetchRestoran() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+};
+var getters = {
+  getAllRestoran: function getAllRestoran(state) {
+    return state.restoran;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/user.js":
 /*!********************************************!*\
   !*** ./resources/js/store/modules/user.js ***!
@@ -2753,10 +2577,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
@@ -2769,32 +2593,86 @@ var data = [{
   no_hp: '08192929292',
   alamat: 'sd',
   foto: 'sds',
+  tipe_user: 3,
+  // 1 pelanggan, 2 pegawai, 3 admin web
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_user: 2,
+  nama_user: 'Made Po',
+  email: 'wpeopwewpe@weowe.com',
+  username: 'wpeowpeow',
+  password: 'weowpeopwe',
+  no_hp: '081111111111',
+  alamat: 'jalan jalna',
+  foto: 'sjd',
   tipe_user: 1,
+  // 1 pelanggan, 2 pegawai, 3 admin web
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_user: 3,
+  nama_user: 'Gede La',
+  email: 'eioruowslkdf@erqerqwe.com',
+  username: 'qerqwerqwr',
+  password: 'qerqerwqer',
+  no_hp: '081081081081',
+  alamat: 'jalan jalna',
+  foto: 'sjd',
+  tipe_user: 2,
   // 1 pelanggan, 2 pegawai, 3 admin web
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
   deleted_at: null
 }];
 var state = {
-  user: null
+  user: [],
+  userLogin: null
 };
 var mutations = {
   setUser: function setUser(state, data) {
     state.user = data;
+  },
+  setUserLogin: function setUserLogin(state, data) {
+    state.userLogin = data;
   }
 };
 var actions = {
   fetchUser: function fetchUser() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
-      var show;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  fetchUserLogin: function fetchUserLogin() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee2() {
+      var show;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               show = data.find(function (e) {
                 return e.id_user === 1;
               });
-              return _context.abrupt("return", {
+              return _context2.abrupt("return", {
                 data: {
                   status: true,
                   data: show,
@@ -2804,17 +2682,23 @@ var actions = {
 
             case 2:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }))();
+  }
+};
+var getters = {
+  getAllUser: function getAllUser(state) {
+    return state.user;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   state: state,
   mutations: mutations,
-  actions: actions
+  actions: actions,
+  getters: getters
 });
 
 /***/ }),
@@ -7339,6 +7223,29 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/array-for-each.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/array-for-each.js ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $forEach = __webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").forEach;
+var arrayMethodIsStrict = __webpack_require__(/*! ../internals/array-method-is-strict */ "./node_modules/core-js/internals/array-method-is-strict.js");
+
+var STRICT_METHOD = arrayMethodIsStrict('forEach');
+
+// `Array.prototype.forEach` method implementation
+// https://tc39.es/ecma262/#sec-array.prototype.foreach
+module.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
+  return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+// eslint-disable-next-line es/no-array-prototype-foreach -- safe
+} : [].forEach;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/array-includes.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js/internals/array-includes.js ***!
@@ -7458,6 +7365,27 @@ module.exports = {
   // `Array.prototype.filterOut` method
   // https://github.com/tc39/proposal-array-filtering
   filterOut: createMethod(7)
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/array-method-is-strict.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-method-is-strict.js ***!
+  \******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+
+module.exports = function (METHOD_NAME, argument) {
+  var method = [][METHOD_NAME];
+  return !!method && fails(function () {
+    // eslint-disable-next-line no-useless-call,no-throw-literal -- required for testing
+    method.call(null, argument || function () { throw 1; }, 1);
+  });
 };
 
 
@@ -9424,6 +9352,27 @@ $({ target: 'Array', proto: true, forced: SKIPS_HOLES }, {
 
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 addToUnscopables(FIND);
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.array.for-each.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.for-each.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var forEach = __webpack_require__(/*! ../internals/array-for-each */ "./node_modules/core-js/internals/array-for-each.js");
+
+// `Array.prototype.forEach` method
+// https://tc39.es/ecma262/#sec-array.prototype.foreach
+// eslint-disable-next-line es/no-array-prototype-foreach -- safe
+$({ target: 'Array', proto: true, forced: [].forEach != forEach }, {
+  forEach: forEach
+});
 
 
 /***/ }),
