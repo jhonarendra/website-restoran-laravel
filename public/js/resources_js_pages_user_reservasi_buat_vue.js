@@ -115,6 +115,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.keys.js */ "./node_modules/core-js/modules/es.object.keys.js");
+/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -325,7 +356,8 @@ __webpack_require__.r(__webpack_exports__);
         no_meja: '',
         status: 0 // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
 
-      }
+      },
+      pegawai: []
     };
   },
   mounted: function mounted() {
@@ -336,27 +368,52 @@ __webpack_require__.r(__webpack_exports__);
     if (this.restoran.length === 0) {
       this.fetchRestoran();
     }
+
+    this.fetchPegawai();
+
+    if (this.reservasi) {
+      this.setForm(this.reservasi);
+    }
   },
   methods: {
+    setForm: function setForm(data) {
+      var _this = this;
+
+      var key = Object.keys(data);
+      key.forEach(function (e) {
+        _this.form[e] = data[e];
+      });
+    },
     onSubmit: function onSubmit(e) {
       e.preventDefault();
       console.log('submit');
     },
     fetchUserLogin: function fetchUserLogin() {
-      var _this = this;
+      var _this2 = this;
 
       this.$store.dispatch('fetchUserLogin').then(function (res) {
         if (res.data.status) {
-          _this.$store.commit('setUserLogin', res.data.data);
+          _this2.$store.commit('setUserLogin', res.data.data);
         }
       });
     },
     fetchRestoran: function fetchRestoran() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$store.dispatch('fetchRestoran').then(function (res) {
         if (res.data.status) {
-          _this2.$store.commit('setRestoran', res.data.data);
+          _this3.$store.commit('setRestoran', res.data.data);
+        }
+      });
+    },
+    fetchPegawai: function fetchPegawai() {
+      var _this4 = this;
+
+      this.$store.dispatch('fetchUser', {
+        tipe: 2
+      }).then(function (res) {
+        if (res.data.status) {
+          _this4.pegawai = res.data.data;
         }
       });
     },
@@ -505,6 +562,55 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.object.keys.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.keys.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
+var nativeKeys = __webpack_require__(/*! ../internals/object-keys */ "./node_modules/core-js/internals/object-keys.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+
+var FAILS_ON_PRIMITIVES = fails(function () { nativeKeys(1); });
+
+// `Object.keys` method
+// https://tc39.es/ecma262/#sec-object.keys
+$({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
+  keys: function keys(it) {
+    return nativeKeys(toObject(it));
+  }
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/web.dom-collections.for-each.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js/modules/web.dom-collections.for-each.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var DOMIterables = __webpack_require__(/*! ../internals/dom-iterables */ "./node_modules/core-js/internals/dom-iterables.js");
+var forEach = __webpack_require__(/*! ../internals/array-for-each */ "./node_modules/core-js/internals/array-for-each.js");
+var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
+
+for (var COLLECTION_NAME in DOMIterables) {
+  var Collection = global[COLLECTION_NAME];
+  var CollectionPrototype = Collection && Collection.prototype;
+  // some Chrome versions have non-configurable methods on DOMTokenList
+  if (CollectionPrototype && CollectionPrototype.forEach !== forEach) try {
+    createNonEnumerableProperty(CollectionPrototype, 'forEach', forEach);
+  } catch (error) {
+    CollectionPrototype.forEach = forEach;
+  }
+}
+
 
 /***/ }),
 
@@ -1574,12 +1680,16 @@ var render = function() {
                   _vm._v(
                     "\n              " +
                       _vm._s(
-                        _vm.restoran.find(function(e) {
-                          return e.id_restoran === _vm.form.id_restoran
-                        })
+                        _vm.aksi === "buat" || _vm.aksi === "edit"
                           ? _vm.restoran.find(function(e) {
                               return e.id_restoran === _vm.form.id_restoran
-                            }).alamat
+                            })
+                            ? _vm.restoran.find(function(e) {
+                                return e.id_restoran === _vm.form.id_restoran
+                              }).alamat
+                            : ""
+                          : _vm.aksi === "lihat"
+                          ? _vm.reservasi.restoran.alamat
                           : ""
                       ) +
                       "\n            "
@@ -1593,8 +1703,29 @@ var render = function() {
                 _vm.aksi === "buat" || _vm.aksi === "edit"
                   ? _c("td", [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.jumlah_tamu,
+                            expression: "form.jumlah_tamu"
+                          }
+                        ],
                         staticClass: "form-control",
-                        attrs: { type: "text" }
+                        attrs: { type: "number" },
+                        domProps: { value: _vm.form.jumlah_tamu },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "jumlah_tamu",
+                              $event.target.value
+                            )
+                          }
+                        }
                       })
                     ])
                   : _vm._e(),
@@ -1617,8 +1748,29 @@ var render = function() {
                     _vm.aksi === "edit"
                       ? _c("td", [
                           _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.no_meja,
+                                expression: "form.no_meja"
+                              }
+                            ],
                             staticClass: "form-control",
-                            attrs: { type: "text" }
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.form.no_meja },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "no_meja",
+                                  $event.target.value
+                                )
+                              }
+                            }
                           })
                         ])
                       : _vm._e(),
@@ -1627,7 +1779,7 @@ var render = function() {
                       ? _c("td", [
                           _vm._v(
                             "\n              " +
-                              _vm._s(_vm.reservasi.jumlah_tamu) +
+                              _vm._s(_vm.reservasi.no_meja) +
                               " orang\n            "
                           )
                         ])
@@ -1641,10 +1793,57 @@ var render = function() {
                     _vm._v(" "),
                     _vm.aksi === "edit"
                       ? _c("td", [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: { type: "text" }
-                          })
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.id_pegawai,
+                                  expression: "form.id_pegawai"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "id_pegawai",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            _vm._l(_vm.pegawai, function(p) {
+                              return _c(
+                                "option",
+                                {
+                                  key: p.id_user,
+                                  domProps: { value: p.id_user }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(p.nama_user) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            }),
+                            0
+                          )
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -1692,7 +1891,63 @@ var render = function() {
                     _c("td", [_vm._v("Status")]),
                     _vm._v(" "),
                     _vm.aksi === "edit"
-                      ? _c("td", [_vm._v("\n              edit\n            ")])
+                      ? _c("td", [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.status,
+                                  expression: "form.status"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "status",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("option", { domProps: { value: 0 } }, [
+                                _vm._v("Menunggu Dikonfirmasi")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { domProps: { value: 1 } }, [
+                                _vm._v("Dikonfirmasi")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { domProps: { value: 2 } }, [
+                                _vm._v("Sedang Berlangsung")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { domProps: { value: 3 } }, [
+                                _vm._v("Batal")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { domProps: { value: 4 } }, [
+                                _vm._v("Selesai")
+                              ])
+                            ]
+                          )
+                        ])
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.aksi === "lihat"

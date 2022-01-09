@@ -58,11 +58,15 @@ const mutations = {
 }
 
 const actions = {
-  async fetchUser () {
+  async fetchUser ({ getters }, filter) {
+    let user = data
+    if (filter.tipe) {
+      user = user.filter(e => e.tipe_user === filter.tipe)
+    }
     return {
       data: {
         status: true,
-        data,
+        data: user,
         message: ''
       }
     }

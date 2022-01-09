@@ -52,7 +52,7 @@ const actions = {
     let user = getters.getAllUser
     let restoran = getters.getAllRestoran
     if (user.length === 0) {
-      const res = await dispatch('fetchUser')
+      const res = await dispatch('fetchUser', true)
       commit('setUser', res.data.data)
       user = res.data.data
     }
@@ -79,8 +79,25 @@ const actions = {
       }
     }
   },
-  async showReservasi ({ getters }, id) {
+  async showReservasi ({ getters, commit, dispatch }, id) {
+    let user = getters.getAllUser
+    let restoran = getters.getAllRestoran
+    if (user.length === 0) {
+      const res = await dispatch('fetchUser', true)
+      commit('setUser', res.data.data)
+      user = res.data.data
+    }
+    if (restoran.length === 0) {
+      const res = await dispatch('fetchRestoran')
+      commit('setRestoran', res.data.data)
+      restoran = res.data.data
+    }
+
     const show = data.find(e => e.id_reservasi === parseInt(id))
+    show.pelanggan = user.find(f => f.id_user === show.id_pelanggan)
+    show.pegawai = user.find(f => f.id_user === show.id_pegawai)
+    show.restoran = restoran.find(f => f.id_restoran === show.id_restoran)
+
     if (show) {
       return {
         data: {

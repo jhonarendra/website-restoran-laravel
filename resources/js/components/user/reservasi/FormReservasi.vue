@@ -77,18 +77,26 @@
               <td>Alamat Restoran</td>
               <td>
                 {{ 
-                  (restoran.find(e => e.id_restoran === form.id_restoran ))
-                  ? 
-                  restoran.find(e => e.id_restoran === form.id_restoran ).alamat
-                  :
-                  ''
+                  (aksi === 'buat' || aksi === 'edit')
+                    ?
+                    (restoran.find(e => e.id_restoran === form.id_restoran ))
+                      ? 
+                        restoran.find(e => e.id_restoran === form.id_restoran ).alamat
+                      :
+                        ''
+                    :
+                      (aksi === 'lihat')
+                        ?
+                          reservasi.restoran.alamat
+                        :
+                          ''
                 }}
               </td>
             </tr>
             <tr>
               <td>Jumlah Tamu <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
-                <input type="text" class="form-control">
+                <input v-model="form.jumlah_tamu" type="number" class="form-control">
               </td>
               <td v-if="aksi === 'lihat'">
                 {{ reservasi.jumlah_tamu }} orang
@@ -97,16 +105,24 @@
             <tr v-if="aksi === 'lihat' || aksi === 'edit'">
               <td>Nomor Meja</td>
               <td v-if="aksi === 'edit'">
-                <input type="text" class="form-control">
+                <input v-model="form.no_meja" type="text" class="form-control">
               </td>
               <td v-if="aksi === 'lihat'">
-                {{ reservasi.jumlah_tamu }} orang
+                {{ reservasi.no_meja }} orang
               </td>
             </tr>
             <tr v-if="aksi === 'lihat' || aksi === 'edit'">
               <td>Pegawai</td>
               <td v-if="aksi === 'edit'">
-                <input type="text" class="form-control">
+                <select v-model="form.id_pegawai" class="form-control">
+                  <option
+                    v-for="p in pegawai"
+                    :key="p.id_user"
+                    :value="p.id_user"
+                  >
+                    {{ p.nama_user }}
+                  </option>
+                </select>
               </td>
               <td v-if="aksi === 'lihat'">
                 {{ reservasi.pegawai.nama_user }}
@@ -124,7 +140,13 @@
             <tr v-if="aksi === 'edit' || aksi === 'lihat'">
               <td>Status</td>
               <td v-if="aksi === 'edit'">
-                edit
+                <select v-model="form.status" class="form-control">
+                  <option :value="0">Menunggu Dikonfirmasi</option>
+                  <option :value="1">Dikonfirmasi</option>
+                  <option :value="2">Sedang Berlangsung</option>
+                  <option :value="3">Batal</option>
+                  <option :value="4">Selesai</option>
+                </select>
               </td>
               <td v-if="aksi === 'lihat'">
                 <span
@@ -204,7 +226,8 @@ export default {
         keterangan_pegawai: '',
         no_meja: '',
         status: 0 // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
-      }
+      },
+      pegawai: []
     }
   },
   mounted () {
@@ -214,8 +237,19 @@ export default {
     if (this.restoran.length === 0) {
       this.fetchRestoran()
     }
+    this.fetchPegawai()
+
+    if (this.reservasi) {
+      this.setForm(this.reservasi)
+    }
   },
   methods: {
+    setForm (data) {
+      let key = Object.keys(data)
+      key.forEach((e) => {
+        this.form[e] = data[e]
+      })
+    },
     onSubmit (e) {
       e.preventDefault()
       console.log('submit')
@@ -231,6 +265,13 @@ export default {
       this.$store.dispatch('fetchRestoran').then((res) => {
         if (res.data.status) {
           this.$store.commit('setRestoran', res.data.data)
+        }
+      })
+    },
+    fetchPegawai () {
+      this.$store.dispatch('fetchUser', { tipe: 2}).then((res) => {
+        if (res.data.status) {
+          this.pegawai = res.data.data
         }
       })
     },
