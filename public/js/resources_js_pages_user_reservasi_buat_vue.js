@@ -277,6 +277,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reservasi: {
@@ -293,27 +304,59 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    user: function user() {
-      return this.$store.state.user.user;
+    userLogin: function userLogin() {
+      return this.$store.state.user.userLogin;
+    },
+    restoran: function restoran() {
+      return this.$store.state.restoran.restoran;
     }
   },
   data: function data() {
-    return {};
+    return {
+      form: {
+        no_reservasi: '',
+        id_restoran: 0,
+        id_pelanggan: 0,
+        id_pegawai: 0,
+        jumlah_tamu: 0,
+        tanggal_reservasi: '',
+        keterangan_pelanggan: '',
+        keterangan_pegawai: '',
+        no_meja: '',
+        status: 0 // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+
+      }
+    };
   },
   mounted: function mounted() {
-    this.fetchUser();
+    if (!this.userLogin) {
+      this.fetchUserLogin();
+    }
+
+    if (this.restoran.length === 0) {
+      this.fetchRestoran();
+    }
   },
   methods: {
     onSubmit: function onSubmit(e) {
       e.preventDefault();
       console.log('submit');
     },
-    fetchUser: function fetchUser() {
+    fetchUserLogin: function fetchUserLogin() {
       var _this = this;
 
-      this.$store.dispatch('fetchUser').then(function (res) {
+      this.$store.dispatch('fetchUserLogin').then(function (res) {
         if (res.data.status) {
-          _this.$store.commit('setUser', res.data.data);
+          _this.$store.commit('setUserLogin', res.data.data);
+        }
+      });
+    },
+    fetchRestoran: function fetchRestoran() {
+      var _this2 = this;
+
+      this.$store.dispatch('fetchRestoran').then(function (res) {
+        if (res.data.status) {
+          _this2.$store.commit('setRestoran', res.data.data);
         }
       });
     },
@@ -1325,7 +1368,7 @@ var render = function() {
             "table",
             {
               staticClass: "table table-sm table-striped",
-              class: !_vm.user ? "d-none" : ""
+              class: !_vm.userLogin ? "d-none" : ""
             },
             [
               _c("tbody", [
@@ -1337,8 +1380,8 @@ var render = function() {
                       "\n              " +
                         _vm._s(
                           _vm.aksi === "buat"
-                            ? _vm.user
-                              ? _vm.user.nama_user
+                            ? _vm.userLogin
+                              ? _vm.userLogin.nama_user
                               : ""
                             : _vm.aksi === "lihat" || "edit"
                             ? _vm.reservasi
@@ -1358,8 +1401,8 @@ var render = function() {
                     _vm._v(
                       _vm._s(
                         _vm.aksi === "buat"
-                          ? _vm.user
-                            ? _vm.user.email
+                          ? _vm.userLogin
+                            ? _vm.userLogin.email
                             : ""
                           : _vm.aksi === "lihat" || "edit"
                           ? _vm.reservasi
@@ -1378,8 +1421,8 @@ var render = function() {
                     _vm._v(
                       _vm._s(
                         _vm.aksi === "buat"
-                          ? _vm.user
-                            ? _vm.user.username
+                          ? _vm.userLogin
+                            ? _vm.userLogin.username
                             : ""
                           : _vm.aksi === "lihat" || "edit"
                           ? _vm.reservasi
@@ -1398,8 +1441,8 @@ var render = function() {
                     _vm._v(
                       _vm._s(
                         _vm.aksi === "buat"
-                          ? _vm.user
-                            ? _vm.user.no_hp
+                          ? _vm.userLogin
+                            ? _vm.userLogin.no_hp
                             : ""
                           : _vm.aksi === "lihat" || "edit"
                           ? _vm.reservasi
@@ -1418,8 +1461,8 @@ var render = function() {
                     _vm._v(
                       _vm._s(
                         _vm.aksi === "buat"
-                          ? _vm.user
-                            ? _vm.user.alamat
+                          ? _vm.userLogin
+                            ? _vm.userLogin.alamat
                             : ""
                           : _vm.aksi === "lihat" || "edit"
                           ? _vm.reservasi
@@ -1436,7 +1479,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          !_vm.user && _vm.aksi === "buat"
+          !_vm.userLogin && _vm.aksi === "buat"
             ? _c("div", { staticClass: "spinner-container" }, [
                 _c("div", {
                   staticClass: "spinner",
@@ -1459,7 +1502,58 @@ var render = function() {
                 _vm._m(1),
                 _vm._v(" "),
                 _vm.aksi === "buat" || _vm.aksi === "edit"
-                  ? _c("td", [_vm._m(2)])
+                  ? _c("td", [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.id_restoran,
+                              expression: "form.id_restoran"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "id_restoran",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        _vm._l(_vm.restoran, function(r) {
+                          return _c(
+                            "option",
+                            {
+                              key: r.id_restoran,
+                              domProps: { value: r.id_restoran }
+                            },
+                            [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(r.nama_restoran) +
+                                  "\n                "
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ])
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.aksi === "lihat"
@@ -1480,12 +1574,12 @@ var render = function() {
                   _vm._v(
                     "\n              " +
                       _vm._s(
-                        _vm.aksi === "buat"
-                          ? ""
-                          : _vm.aksi === "lihat" || _vm.aksi === "edit"
-                          ? _vm.reservasi
-                            ? _vm.reservasi.restoran.alamat_restoran
-                            : ""
+                        _vm.restoran.find(function(e) {
+                          return e.id_restoran === _vm.form.id_restoran
+                        })
+                          ? _vm.restoran.find(function(e) {
+                              return e.id_restoran === _vm.form.id_restoran
+                            }).alamat
                           : ""
                       ) +
                       "\n            "
@@ -1494,7 +1588,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _vm.aksi === "buat" || _vm.aksi === "edit"
                   ? _c("td", [
@@ -1567,7 +1661,7 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _vm.aksi === "buat" || _vm.aksi === "edit"
                   ? _c("td", [
@@ -1745,16 +1839,6 @@ var staticRenderFns = [
     return _c("td", [
       _vm._v("Restoran "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { staticClass: "form-control" }, [
-      _c("option", [_vm._v("Restoran 1")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("Restoran 2")])
     ])
   },
   function() {

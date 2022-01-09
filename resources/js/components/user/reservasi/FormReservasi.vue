@@ -12,30 +12,30 @@
       <div>
         <table
           class="table table-sm table-striped"
-          :class="(!user) ? 'd-none' : ''"
+          :class="(!userLogin) ? 'd-none' : ''"
         >
           <tbody>
             <tr>
               <td>Nama</td>
               <td>
-                {{ (aksi === 'buat') ? (user) ? user.nama_user : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.nama_user : '' : '' }}
+                {{ (aksi === 'buat') ? (userLogin) ? userLogin.nama_user : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.nama_user : '' : '' }}
               </td>
             </tr>
             <tr>
               <td>Email</td>
-              <td>{{ (aksi === 'buat') ? (user) ? user.email : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.email : '' : '' }}</td>
+              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.email : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.email : '' : '' }}</td>
             </tr>
             <tr>
               <td>Username</td>
-              <td>{{ (aksi === 'buat') ? (user) ? user.username : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.username : '' : '' }}</td>
+              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.username : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.username : '' : '' }}</td>
             </tr>
             <tr>
               <td>Nomor HP</td>
-              <td>{{ (aksi === 'buat') ? (user) ? user.no_hp : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.no_hp : '' : '' }}</td>
+              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.no_hp : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.no_hp : '' : '' }}</td>
             </tr>
             <tr>
               <td>Alamat</td>
-              <td>{{ (aksi === 'buat') ? (user) ? user.alamat : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.alamat : '' : '' }}</td>
+              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.alamat : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.alamat : '' : '' }}</td>
             </tr>
             <tr>
               <td>Foto</td>
@@ -45,7 +45,7 @@
             </tr>
           </tbody>
         </table>
-        <div v-if="!user && aksi === 'buat'" class="spinner-container">
+        <div v-if="!userLogin && aksi === 'buat'" class="spinner-container">
           <div
             class="spinner"
             style="background-image: url('/images/spinner-primary.svg')"
@@ -59,9 +59,14 @@
             <tr>
               <td>Restoran <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
-                <select class="form-control">
-                  <option>Restoran 1</option>
-                  <option>Restoran 2</option>
+                <select v-model="form.id_restoran" class="form-control">
+                  <option
+                    v-for="r in restoran"
+                    :key="r.id_restoran"
+                    :value="r.id_restoran"
+                  >
+                    {{ r.nama_restoran }}
+                  </option>
                 </select>
               </td>
               <td v-if="aksi === 'lihat'">
@@ -71,7 +76,13 @@
             <tr>
               <td>Alamat Restoran</td>
               <td>
-                {{ (aksi === 'buat') ? '' : (aksi === 'lihat' || aksi === 'edit') ? (reservasi) ? reservasi.restoran.alamat_restoran : '' : '' }}
+                {{ 
+                  (restoran.find(e => e.id_restoran === form.id_restoran ))
+                  ? 
+                  restoran.find(e => e.id_restoran === form.id_restoran ).alamat
+                  :
+                  ''
+                }}
               </td>
             </tr>
             <tr>
@@ -173,27 +184,53 @@ export default {
     }
   },
   computed: {
-    user () {
-      return this.$store.state.user.user
+    userLogin () {
+      return this.$store.state.user.userLogin
+    },
+    restoran () {
+      return this.$store.state.restoran.restoran
     }
   },
   data () {
     return {
-      
+      form: {
+        no_reservasi: '',
+        id_restoran: 0,
+        id_pelanggan: 0,
+        id_pegawai: 0,
+        jumlah_tamu: 0,
+        tanggal_reservasi: '',
+        keterangan_pelanggan: '',
+        keterangan_pegawai: '',
+        no_meja: '',
+        status: 0 // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+      }
     }
   },
   mounted () {
-    this.fetchUser()
+    if (!this.userLogin) {
+      this.fetchUserLogin()
+    }
+    if (this.restoran.length === 0) {
+      this.fetchRestoran()
+    }
   },
   methods: {
     onSubmit (e) {
       e.preventDefault()
       console.log('submit')
     },
-    fetchUser () {
-      this.$store.dispatch('fetchUser').then((res) => {
+    fetchUserLogin () {
+      this.$store.dispatch('fetchUserLogin').then((res) => {
         if (res.data.status) {
-          this.$store.commit('setUser', res.data.data)
+          this.$store.commit('setUserLogin', res.data.data)
+        }
+      })
+    },
+    fetchRestoran () {
+      this.$store.dispatch('fetchRestoran').then((res) => {
+        if (res.data.status) {
+          this.$store.commit('setRestoran', res.data.data)
         }
       })
     },
