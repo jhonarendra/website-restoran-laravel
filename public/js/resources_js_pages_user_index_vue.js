@@ -186,6 +186,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -1083,6 +1089,32 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("admin-layout", [
+    _c("h1", { staticClass: "font-weight-300 text-white" }, [_vm._v("Home")]),
+    _vm._v(" "),
+    _c("nav", { attrs: { "aria-label": "breadcrumb", role: "navigation" } }, [
+      _c(
+        "ol",
+        {
+          staticClass: "breadcrumb",
+          staticStyle: { background: "transparent", padding: "0.75rem 0" }
+        },
+        [
+          _c(
+            "li",
+            { staticClass: "breadcrumb-item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "text-brown", attrs: { to: "/user" } },
+                [_vm._v("Home")]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "row" },

@@ -2238,6 +2238,18 @@ var routes = [{
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_example_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/example.vue */ "./resources/js/pages/example.vue"));
   }
+}, {
+  path: "/error/:code/:message/:redirect",
+  name: "error-code-message-redirect",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_error_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/error.vue */ "./resources/js/pages/error.vue"));
+  }
+}, {
+  path: "/*",
+  name: "error",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_error_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/error.vue */ "./resources/js/pages/error.vue"));
+  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   mode: "history",
@@ -2286,10 +2298,153 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
 
 
+
+
+var data = [{
+  id_reservasi: 1,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 1,
+  id_pegawai: 1,
+  jumlah_orang: 3,
+  no_meja: null,
+  status: 0,
+  // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+  created_at: "2018-05-20 07:49:09",
+  updated_at: "2018-05-20 07:49:09",
+  deleted_at: null
+}, {
+  id_reservasi: 2,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 1,
+  id_pegawai: 1,
+  jumlah_orang: 3,
+  no_meja: null,
+  status: 0,
+  created_at: "2018-05-20 07:49:09",
+  updated_at: "2018-05-20 07:49:09",
+  deleted_at: null
+}, {
+  id_reservasi: 3,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 1,
+  id_pegawai: 2,
+  jumlah_orang: 3,
+  no_meja: "202",
+  status: 4,
+  created_at: "2018-05-20 07:49:09",
+  updated_at: "2018-05-20 07:49:09",
+  deleted_at: null
+}, {
+  id_reservasi: 4,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 3,
+  id_pegawai: 2,
+  jumlah_orang: 3,
+  no_meja: "222",
+  status: 1,
+  created_at: "2018-05-20 07:50:29",
+  updated_at: "2018-05-20 08:39:05",
+  deleted_at: null
+}, {
+  id_reservasi: 5,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 4,
+  id_pegawai: 2,
+  jumlah_orang: 3,
+  no_meja: "2A",
+  status: 1,
+  created_at: "2018-05-23 01:09:50",
+  updated_at: "2018-05-23 01:41:09",
+  deleted_at: null
+}, {
+  id_reservasi: 6,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 5,
+  id_pegawai: 2,
+  jumlah_orang: 3,
+  no_meja: "232",
+  status: 1,
+  created_at: "2018-05-23 06:22:21",
+  updated_at: "2018-05-23 06:23:56",
+  deleted_at: "2018-05-24 01:36:38"
+}, {
+  id_reservasi: 7,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 5,
+  id_pegawai: 2,
+  jumlah_orang: 3,
+  no_meja: "3A",
+  status: 1,
+  created_at: "2018-05-23 23:17:40",
+  updated_at: "2018-05-24 01:36:38",
+  deleted_at: "2018-05-24 01:36:38"
+}, {
+  id_reservasi: 8,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 6,
+  id_pegawai: 1,
+  jumlah_orang: 3,
+  no_meja: null,
+  status: 0,
+  created_at: "2021-11-16 11:31:30",
+  updated_at: "2021-11-16 11:31:30",
+  deleted_at: null
+}, {
+  id_reservasi: 9,
+  no_reservasi: "RE-202/202/XC/0002",
+  id_restoran: 1,
+  nama_restoran: "Restoran Saya",
+  nama_pelanggan: "Pelanggan",
+  nama_pegawai: "Pegawai",
+  id_pelanggan: 7,
+  id_pegawai: 2,
+  jumlah_orang: 3,
+  no_meja: "8",
+  status: 1,
+  created_at: "2022-01-07 14:58:48",
+  updated_at: "2022-01-07 15:01:02",
+  deleted_at: null
+}];
 var state = {
   reservasi: [],
   tableViewReservasi: 'table'
@@ -2304,15 +2459,15 @@ var mutations = {
 };
 var actions = {
   fetchReservasi: function fetchReservasi() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               return _context.abrupt("return", {
                 data: {
                   status: true,
-                  data: [],
+                  data: data,
                   message: ''
                 }
               });
@@ -2323,6 +2478,48 @@ var actions = {
           }
         }
       }, _callee);
+    }))();
+  },
+  showReservasi: function showReservasi(_ref, id) {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().mark(function _callee2() {
+      var getters, show;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              getters = _ref.getters;
+              show = data.find(function (e) {
+                return e.id_reservasi === parseInt(id);
+              });
+
+              if (!show) {
+                _context2.next = 6;
+                break;
+              }
+
+              return _context2.abrupt("return", {
+                data: {
+                  status: true,
+                  data: show,
+                  message: ''
+                }
+              });
+
+            case 6:
+              return _context2.abrupt("return", {
+                data: {
+                  status: false,
+                  data: null,
+                  message: 'Data tidak ditemukan'
+                }
+              });
+
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
     }))();
   }
 };
@@ -6775,6 +6972,21 @@ var actions = {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/a-function.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/a-function.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+module.exports = function (it) {
+  if (typeof it != 'function') {
+    throw TypeError(String(it) + ' is not a function');
+  } return it;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/a-possible-prototype.js":
 /*!****************************************************************!*\
   !*** ./node_modules/core-js/internals/a-possible-prototype.js ***!
@@ -6876,6 +7088,118 @@ module.exports = {
   // `Array.prototype.indexOf` method
   // https://tc39.es/ecma262/#sec-array.prototype.indexof
   indexOf: createMethod(false)
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/array-iteration.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/array-iteration.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var bind = __webpack_require__(/*! ../internals/function-bind-context */ "./node_modules/core-js/internals/function-bind-context.js");
+var IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ "./node_modules/core-js/internals/indexed-object.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
+var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
+var arraySpeciesCreate = __webpack_require__(/*! ../internals/array-species-create */ "./node_modules/core-js/internals/array-species-create.js");
+
+var push = [].push;
+
+// `Array.prototype.{ forEach, map, filter, some, every, find, findIndex, filterOut }` methods implementation
+var createMethod = function (TYPE) {
+  var IS_MAP = TYPE == 1;
+  var IS_FILTER = TYPE == 2;
+  var IS_SOME = TYPE == 3;
+  var IS_EVERY = TYPE == 4;
+  var IS_FIND_INDEX = TYPE == 6;
+  var IS_FILTER_OUT = TYPE == 7;
+  var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+  return function ($this, callbackfn, that, specificCreate) {
+    var O = toObject($this);
+    var self = IndexedObject(O);
+    var boundFunction = bind(callbackfn, that, 3);
+    var length = toLength(self.length);
+    var index = 0;
+    var create = specificCreate || arraySpeciesCreate;
+    var target = IS_MAP ? create($this, length) : IS_FILTER || IS_FILTER_OUT ? create($this, 0) : undefined;
+    var value, result;
+    for (;length > index; index++) if (NO_HOLES || index in self) {
+      value = self[index];
+      result = boundFunction(value, index, O);
+      if (TYPE) {
+        if (IS_MAP) target[index] = result; // map
+        else if (result) switch (TYPE) {
+          case 3: return true;              // some
+          case 5: return value;             // find
+          case 6: return index;             // findIndex
+          case 2: push.call(target, value); // filter
+        } else switch (TYPE) {
+          case 4: return false;             // every
+          case 7: push.call(target, value); // filterOut
+        }
+      }
+    }
+    return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : target;
+  };
+};
+
+module.exports = {
+  // `Array.prototype.forEach` method
+  // https://tc39.es/ecma262/#sec-array.prototype.foreach
+  forEach: createMethod(0),
+  // `Array.prototype.map` method
+  // https://tc39.es/ecma262/#sec-array.prototype.map
+  map: createMethod(1),
+  // `Array.prototype.filter` method
+  // https://tc39.es/ecma262/#sec-array.prototype.filter
+  filter: createMethod(2),
+  // `Array.prototype.some` method
+  // https://tc39.es/ecma262/#sec-array.prototype.some
+  some: createMethod(3),
+  // `Array.prototype.every` method
+  // https://tc39.es/ecma262/#sec-array.prototype.every
+  every: createMethod(4),
+  // `Array.prototype.find` method
+  // https://tc39.es/ecma262/#sec-array.prototype.find
+  find: createMethod(5),
+  // `Array.prototype.findIndex` method
+  // https://tc39.es/ecma262/#sec-array.prototype.findIndex
+  findIndex: createMethod(6),
+  // `Array.prototype.filterOut` method
+  // https://github.com/tc39/proposal-array-filtering
+  filterOut: createMethod(7)
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/array-species-create.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-species-create.js ***!
+  \****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var isArray = __webpack_require__(/*! ../internals/is-array */ "./node_modules/core-js/internals/is-array.js");
+var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+
+var SPECIES = wellKnownSymbol('species');
+
+// `ArraySpeciesCreate` abstract operation
+// https://tc39.es/ecma262/#sec-arrayspeciescreate
+module.exports = function (originalArray, length) {
+  var C;
+  if (isArray(originalArray)) {
+    C = originalArray.constructor;
+    // cross-realm fallback
+    if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
+    else if (isObject(C)) {
+      C = C[SPECIES];
+      if (C === null) C = undefined;
+    }
+  } return new (C === undefined ? Array : C)(length === 0 ? 0 : length);
 };
 
 
@@ -7366,6 +7690,40 @@ module.exports = function (exec) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/function-bind-context.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-bind-context.js ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var aFunction = __webpack_require__(/*! ../internals/a-function */ "./node_modules/core-js/internals/a-function.js");
+
+// optional / simple context binding
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 0: return function () {
+      return fn.call(that);
+    };
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/get-built-in.js":
 /*!********************************************************!*\
   !*** ./node_modules/core-js/internals/get-built-in.js ***!
@@ -7595,6 +7953,24 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/is-array.js":
+/*!****************************************************!*\
+  !*** ./node_modules/core-js/internals/is-array.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
+
+// `IsArray` abstract operation
+// https://tc39.es/ecma262/#sec-isarray
+// eslint-disable-next-line es/no-array-isarray -- safe
+module.exports = Array.isArray || function isArray(arg) {
+  return classof(arg) == 'Array';
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/is-forced.js":
 /*!*****************************************************!*\
   !*** ./node_modules/core-js/internals/is-forced.js ***!
@@ -7750,6 +8126,30 @@ var inspectSource = __webpack_require__(/*! ../internals/inspect-source */ "./no
 var WeakMap = global.WeakMap;
 
 module.exports = typeof WeakMap === 'function' && /native code/.test(inspectSource(WeakMap));
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/number-parse-int.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/internals/number-parse-int.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var trim = __webpack_require__(/*! ../internals/string-trim */ "./node_modules/core-js/internals/string-trim.js").trim;
+var whitespaces = __webpack_require__(/*! ../internals/whitespaces */ "./node_modules/core-js/internals/whitespaces.js");
+
+var $parseInt = global.parseInt;
+var hex = /^[+-]?0[Xx]/;
+var FORCED = $parseInt(whitespaces + '08') !== 8 || $parseInt(whitespaces + '0x16') !== 22;
+
+// `parseInt` method
+// https://tc39.es/ecma262/#sec-parseint-string-radix
+module.exports = FORCED ? function parseInt(string, radix) {
+  var S = trim(String(string));
+  return $parseInt(S, (radix >>> 0) || (hex.test(S) ? 16 : 10));
+} : $parseInt;
 
 
 /***/ }),
@@ -8460,6 +8860,44 @@ module.exports = function repeat(count) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/string-trim.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/string-trim.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
+var whitespaces = __webpack_require__(/*! ../internals/whitespaces */ "./node_modules/core-js/internals/whitespaces.js");
+
+var whitespace = '[' + whitespaces + ']';
+var ltrim = RegExp('^' + whitespace + whitespace + '*');
+var rtrim = RegExp(whitespace + whitespace + '*$');
+
+// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
+var createMethod = function (TYPE) {
+  return function ($this) {
+    var string = String(requireObjectCoercible($this));
+    if (TYPE & 1) string = string.replace(ltrim, '');
+    if (TYPE & 2) string = string.replace(rtrim, '');
+    return string;
+  };
+};
+
+module.exports = {
+  // `String.prototype.{ trimLeft, trimStart }` methods
+  // https://tc39.es/ecma262/#sec-string.prototype.trimstart
+  start: createMethod(1),
+  // `String.prototype.{ trimRight, trimEnd }` methods
+  // https://tc39.es/ecma262/#sec-string.prototype.trimend
+  end: createMethod(2),
+  // `String.prototype.trim` method
+  // https://tc39.es/ecma262/#sec-string.prototype.trim
+  trim: createMethod(3)
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/to-absolute-index.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js/internals/to-absolute-index.js ***!
@@ -8657,6 +9095,51 @@ module.exports = function (name) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/whitespaces.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/whitespaces.js ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+// a string of all valid unicode whitespaces
+module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002' +
+  '\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.array.find.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.find.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var $find = __webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").find;
+var addToUnscopables = __webpack_require__(/*! ../internals/add-to-unscopables */ "./node_modules/core-js/internals/add-to-unscopables.js");
+
+var FIND = 'find';
+var SKIPS_HOLES = true;
+
+// Shouldn't skip holes
+if (FIND in []) Array(1)[FIND](function () { SKIPS_HOLES = false; });
+
+// `Array.prototype.find` method
+// https://tc39.es/ecma262/#sec-array.prototype.find
+$({ target: 'Array', proto: true, forced: SKIPS_HOLES }, {
+  find: function find(callbackfn /* , that = undefined */) {
+    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables(FIND);
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.array.iterator.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.iterator.js ***!
@@ -8763,6 +9246,24 @@ var toString = __webpack_require__(/*! ../internals/object-to-string */ "./node_
 if (!TO_STRING_TAG_SUPPORT) {
   redefine(Object.prototype, 'toString', toString, { unsafe: true });
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.parse-int.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/modules/es.parse-int.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var parseIntImplementation = __webpack_require__(/*! ../internals/number-parse-int */ "./node_modules/core-js/internals/number-parse-int.js");
+
+// `parseInt` method
+// https://tc39.es/ecma262/#sec-parseint-string-radix
+$({ global: true, forced: parseInt != parseIntImplementation }, {
+  parseInt: parseIntImplementation
+});
 
 
 /***/ }),
@@ -57973,7 +58474,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1,"resources_js_pages_error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

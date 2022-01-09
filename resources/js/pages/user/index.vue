@@ -1,5 +1,11 @@
 <template>
   <admin-layout>
+    <h1 class="font-weight-300 text-white">Home</h1>
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb" style="background: transparent; padding: 0.75rem 0">
+        <li class="breadcrumb-item"><router-link to="/user" class="text-brown">Home</router-link></li>
+      </ol>
+    </nav>
     <div class="row">
       <div
         v-for="m in menu"

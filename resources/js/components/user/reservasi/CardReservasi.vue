@@ -1,7 +1,7 @@
 <template>
   <router-link :to="`/user/reservasi/${data.id_reservasi}`" class="card-link">
     <div class="card">
-      <div class="card-header d-flex p-2">
+      <div class="card-header d-flex p-2" style="border-bottom: none">
         <span class="small">Nomor: <b>{{ data.no_reservasi }}</b></span>
         <span
           class="badge"
@@ -24,7 +24,7 @@
         </div>
         
       </div>
-      <div class="card-footer p-2" style="position: relative">
+      <div class="card-footer p-2" style="position: relative; border-top: none">
         <p class="small mb-0">Tanggal reservasi: {{ data.created_at }}</p>
         <input
           v-model="checked"
