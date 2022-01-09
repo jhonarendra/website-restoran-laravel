@@ -31,6 +31,16 @@ import router from './router'
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 import App from './App.vue'
 
+
+
+/* 
+    Plugins
+
+*/
+
+import helpers from './plugins/helpers.js'
+Vue.prototype.$helpers = helpers
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

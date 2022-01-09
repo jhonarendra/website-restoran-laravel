@@ -50,34 +50,6 @@ function _asyncToGenerator(fn) {
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ _defineProperty)
-/* harmony export */ });
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
@@ -1959,6 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
+/* harmony import */ var _plugins_helpers_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/helpers.js */ "./resources/js/plugins/helpers.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -1985,6 +1958,13 @@ Vue.use(store);
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 
+/* 
+    Plugins
+
+*/
+
+
+Vue.prototype.$helpers = _plugins_helpers_js__WEBPACK_IMPORTED_MODULE_4__.default;
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -2045,6 +2025,143 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/plugins/helpers.js":
+/*!*****************************************!*\
+  !*** ./resources/js/plugins/helpers.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var core_js_modules_es_date_to_string_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.date.to-string.js */ "./node_modules/core-js/modules/es.date.to-string.js");
+/* harmony import */ var core_js_modules_es_date_to_string_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_date_to_string_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_pad_start_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.pad-start.js */ "./node_modules/core-js/modules/es.string.pad-start.js");
+/* harmony import */ var core_js_modules_es_string_pad_start_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_pad_start_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.regexp.to-string.js */ "./node_modules/core-js/modules/es.regexp.to-string.js");
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  dateFormat: function dateFormat(date) {
+    var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'd m Y h:i';
+    var dateInput = date === 'now' ? new Date() : new Date(date);
+    var formattedDate = '';
+
+    switch (type) {
+      case 'd m Y':
+        formattedDate = dateInput.toLocaleDateString('id', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        break;
+
+      case 'd m Y h:i':
+        formattedDate = dateInput.toLocaleDateString('id', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        formattedDate += ' ' + dateInput.getHours().toString().padStart(2, '0') + ':' + dateInput.getMinutes().toString().padStart(2, '0');
+        break;
+
+      case 'm d, Y':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        break;
+
+      case 'm d':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          month: 'long',
+          day: 'numeric'
+        });
+        break;
+
+      case 'm Y':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          year: 'numeric',
+          month: 'long'
+        });
+        break;
+
+      case 'm-short d':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          month: 'short',
+          day: 'numeric'
+        });
+        break;
+
+      case 'm-short Y':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          year: 'numeric',
+          month: 'short'
+        });
+        break;
+
+      case 'd-numeric':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          day: 'numeric'
+        });
+        break;
+
+      case 'm-numeric':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          month: 'numeric'
+        });
+        break;
+
+      case 'm-long':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          month: 'long'
+        });
+        break;
+
+      case 'h:i':
+        formattedDate = dateInput.getHours().toString().padStart(2, '0') + ':' + dateInput.getMinutes().toString().padStart(2, '0');
+        break;
+
+      case 'Y':
+        formattedDate = dateInput.toLocaleDateString('en', {
+          year: 'numeric'
+        });
+        break;
+
+      case 'object':
+        formattedDate = {
+          year: dateInput.getFullYear().toString().padStart(4, '0'),
+          month: dateInput.toLocaleDateString('en', {
+            month: 'long'
+          }),
+          monthIndex: (dateInput.getMonth() + 1).toString().padStart(2, '0'),
+          day: dateInput.getDate().toString().padStart(2, '0'),
+          dayString: '',
+          hour: dateInput.getHours().toString().padStart(2, '0'),
+          minute: dateInput.getMinutes().toString().padStart(2, '0'),
+          second: dateInput.getSeconds().toString().padStart(2, '0')
+        };
+        break;
+
+      case 'datetime':
+        formattedDate = dateInput.getFullYear().toString().padStart(4, '0') + '-' + (dateInput.getMonth() + 1).toString().padStart(2, '0') + '-' + dateInput.getDate().toString().padStart(2, '0') + 'T' + dateInput.getHours().toString().padStart(2, '0') + ':' + dateInput.getMinutes().toString().padStart(2, '0') + ':' + dateInput.getSeconds().toString().padStart(2, '0');
+        break;
+    }
+
+    return formattedDate;
+  }
+});
 
 /***/ }),
 
@@ -2132,201 +2249,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
 
 /***/ }),
 
-/***/ "./resources/js/services/homeApi.js":
-/*!******************************************!*\
-  !*** ./resources/js/services/homeApi.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-var homeApi = {
-  getDataDashboard: function () {
-    var _getDataDashboard = (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(filter) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (!(filter == 0 || filter == '')) {
-                _context.next = 6;
-                break;
-              }
-
-              _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/keuangan/getDataDashboard');
-
-            case 3:
-              return _context.abrupt("return", _context.sent);
-
-            case 6:
-              _context.next = 8;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/keuangan/getDataDashboard', {
-                params: filter
-              });
-
-            case 8:
-              return _context.abrupt("return", _context.sent);
-
-            case 9:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    function getDataDashboard(_x) {
-      return _getDataDashboard.apply(this, arguments);
-    }
-
-    return getDataDashboard;
-  }(),
-  sinkronData: function () {
-    var _sinkronData = (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(data) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/keuangan/sinkronData', data);
-
-            case 2:
-              return _context2.abrupt("return", _context2.sent);
-
-            case 3:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    function sinkronData(_x2) {
-      return _sinkronData.apply(this, arguments);
-    }
-
-    return sinkronData;
-  }(),
-  getDataSinkron: function () {
-    var _getDataSinkron = (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/keuangan/getDataSinkron');
-
-            case 2:
-              return _context3.abrupt("return", _context3.sent);
-
-            case 3:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    function getDataSinkron() {
-      return _getDataSinkron.apply(this, arguments);
-    }
-
-    return getDataSinkron;
-  }(),
-  getIconDompet: function () {
-    var _getIconDompet = (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee4() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/keuangan/getIconDompet');
-
-            case 2:
-              return _context4.abrupt("return", _context4.sent);
-
-            case 3:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }));
-
-    function getIconDompet() {
-      return _getIconDompet.apply(this, arguments);
-    }
-
-    return getIconDompet;
-  }(),
-  getIconKategori: function () {
-    var _getIconKategori = (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee5() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/keuangan/getIconKategori');
-
-            case 2:
-              return _context5.abrupt("return", _context5.sent);
-
-            case 3:
-            case "end":
-              return _context5.stop();
-          }
-        }
-      }, _callee5);
-    }));
-
-    function getIconKategori() {
-      return _getIconKategori.apply(this, arguments);
-    }
-
-    return getIconKategori;
-  }(),
-  getColor: function () {
-    var _getColor = (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee6() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee6$(_context6) {
-        while (1) {
-          switch (_context6.prev = _context6.next) {
-            case 0:
-              _context6.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/keuangan/getColor');
-
-            case 2:
-              return _context6.abrupt("return", _context6.sent);
-
-            case 3:
-            case "end":
-              return _context6.stop();
-          }
-        }
-      }, _callee6);
-    }));
-
-    function getColor() {
-      return _getColor.apply(this, arguments);
-    }
-
-    return getColor;
-  }()
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (homeApi);
-
-/***/ }),
-
 /***/ "./resources/js/store/index.js":
 /*!*************************************!*\
   !*** ./resources/js/store/index.js ***!
@@ -2338,24 +2260,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _modules_home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/home */ "./resources/js/store/modules/home.js");
+/* harmony import */ var _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/reservasi */ "./resources/js/store/modules/reservasi.js");
 
 var state = {
   state: {},
   mutations: {},
   actions: {},
   modules: {
-    home: _modules_home__WEBPACK_IMPORTED_MODULE_0__.default
+    reservasi: _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__.default
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (state);
 
 /***/ }),
 
-/***/ "./resources/js/store/modules/home.js":
-/*!********************************************!*\
-  !*** ./resources/js/store/modules/home.js ***!
-  \********************************************/
+/***/ "./resources/js/store/modules/reservasi.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/reservasi.js ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2364,929 +2286,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_date_to_string_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.date.to-string.js */ "./node_modules/core-js/modules/es.date.to-string.js");
-/* harmony import */ var core_js_modules_es_date_to_string_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_date_to_string_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
-/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_string_pad_start_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.string.pad-start.js */ "./node_modules/core-js/modules/es.string.pad-start.js");
-/* harmony import */ var core_js_modules_es_string_pad_start_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_pad_start_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es_array_reverse_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.array.reverse.js */ "./node_modules/core-js/modules/es.array.reverse.js");
-/* harmony import */ var core_js_modules_es_array_reverse_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_reverse_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var core_js_modules_es_number_to_fixed_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.number.to-fixed.js */ "./node_modules/core-js/modules/es.number.to-fixed.js");
-/* harmony import */ var core_js_modules_es_number_to_fixed_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_number_to_fixed_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.number.constructor.js */ "./node_modules/core-js/modules/es.number.constructor.js");
-/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _services_homeApi__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../services/homeApi */ "./resources/js/services/homeApi.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-var _mutations;
-
-
-
-
-
-
-
-
-
-
-
-
-var SET_DATA_DASHBOARD = "SET_DATA_DASHBOARD";
-var SET_INIT = "SET_INIT";
-var SET_DARK_MODE = "SET_DARK_MODE";
-var SET_SETTING = "SET_SETTING";
 var state = {
-  dataDashboard: null,
-  setting: {
-    init: false,
-    darkMode: false
+  reservasi: [],
+  tableViewReservasi: 'table'
+};
+var mutations = {
+  setReservasi: function setReservasi(state, data) {
+    state.reservasi = data;
+  },
+  setTableViewReservasi: function setTableViewReservasi(state, data) {
+    state.tableViewReservasi = data;
   }
 };
-var mutations = (_mutations = {}, (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_mutations, SET_DATA_DASHBOARD, function (state, data) {
-  state.dataDashboard = data;
-}), (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_mutations, SET_INIT, function (state, data) {
-  state.setting.init = data;
-}), (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_mutations, SET_DARK_MODE, function (state, data) {
-  state.setting.darkMode = data;
-}), (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_mutations, SET_SETTING, function (state, data) {
-  state.setting = data;
-}), _mutations);
 var actions = {
-  getDataDashboard: function getDataDashboard(_ref, filter) {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee() {
-      var dispatch, getters, commit, today, passTest, transaksiTest, dompetTest, kategoriTest, keuangan, debet, kredit, saldo, dataSaldo, dompet, periode, bulan_filter, tahun_filter, tanggal_default, tgl_k_default, tgl_start, _tanggal_default, tgl_k_default_bulan, _tanggal_default2, bulan_filter_lalu, tahun_filter_lalu, arr_detail_waktu, date_a, tgl_min, month_a, year_a, str_date_a, loop, label, row, tgl_first, bulan_first, tahun_first, tmp_arr_detail_waktu, chart_waktu, debet_filter, debet_lalu, kredit_filter, kredit_lalu, neraca_filter, neraca_lalu, debet_rasio, kredit_rasio, neraca_rasio, neraca, kategori, kat_debet, kat_kredit, data;
-
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee$(_context) {
+  fetchReservasi: function fetchReservasi() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              dispatch = _ref.dispatch, getters = _ref.getters, commit = _ref.commit;
-              today = new Date();
-              passTest = true;
-              _context.next = 5;
-              return dispatch('fetchTransaksi');
-
-            case 5:
-              transaksiTest = getters.getDataTransaksi;
-
-              if (!transaksiTest) {
-                passTest = false;
-              }
-
-              _context.next = 9;
-              return dispatch('fetchDataDompet');
-
-            case 9:
-              dompetTest = getters.getDataDompet;
-
-              if (!dompetTest) {
-                passTest = false;
-              }
-
-              _context.next = 13;
-              return dispatch('fetchDataKategori');
-
-            case 13:
-              kategoriTest = getters.getDataKategori;
-
-              if (!kategoriTest) {
-                passTest = false;
-              }
-
-              if (passTest) {
-                // formatting data dashboard
-                keuangan = [];
-                transaksiTest.forEach(function (e) {
-                  return e.deleted != 1 ? keuangan.push(e) : '';
-                }); // saldo
-
-                debet = 0;
-                kredit = 0;
-                saldo = 0;
-                keuangan.forEach(function (e) {
-                  if (e.kategori.is_transfer === 0 && e.deleted === 0) {
-                    debet += e.debet;
-                    kredit += e.kredit;
-                  }
-                });
-                saldo = debet - kredit;
-                dataSaldo = {
-                  debet: debet,
-                  kredit: kredit,
-                  saldo: saldo
-                }; // formatting dompet
-
-                dompet = [];
-                dompetTest.forEach(function (e) {
-                  return e.deleted != 1 ? dompet.push(e) : '';
-                });
-                dompet.forEach(function (d) {
-                  var debet_dompet = 0;
-                  var kredit_dompet = 0;
-                  var saldo_dompet = 0;
-                  var neraca_bln_ini = 0;
-                  keuangan.forEach(function (k) {
-                    if (d.id_dompet === k.id_dompet) {
-                      debet_dompet += k.debet;
-                      kredit_dompet += k.kredit;
-                    }
-
-                    var bulan_now = today.getMonth() + 1; // inget get month ini dari 0 - 11
-
-                    var tahun_now = today.getFullYear();
-                    var tgl_k = new Date(k.tanggal);
-                    var bulan_k = tgl_k.getMonth() + 1;
-                    var tahun_k = tgl_k.getFullYear();
-
-                    if (d.id_dompet === k.id_dompet && bulan_now === bulan_k && tahun_now === tahun_k) {
-                      neraca_bln_ini += k.debet - k.kredit;
-                    }
-                  });
-                  saldo_dompet = debet_dompet - kredit_dompet;
-                  d.debet_dompet = debet_dompet;
-                  d.kredit_dompet = kredit_dompet;
-                  d.saldo = saldo_dompet;
-                  d.neraca_bln_ini = neraca_bln_ini;
-                }); // formating filter
-
-                periode = '';
-                bulan_filter = '';
-                tahun_filter = '';
-
-                if (filter.waktu != '') {
-                  periode = filter.waktu;
-                } else {
-                  periode = 'bulan';
-                  tanggal_default = '';
-                  keuangan.forEach(function (k, i) {
-                    if (i === 0) {
-                      tanggal_default = k.tanggal;
-                    }
-                  });
-                  tgl_k_default = new Date(tanggal_default);
-                  bulan_filter = tgl_k_default.getMonth() + 1;
-                  tahun_filter = tgl_k_default.getFullYear();
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: [],
+                  message: ''
                 }
+              });
 
-                if (filter.bulan != 0) {
-                  bulan_filter = filter.bulan;
-                  tahun_filter = filter.tahun;
-                }
-
-                if (filter.tahun != 0) {
-                  tahun_filter = filter.tahun;
-                }
-
-                if (filter.tanggalStart != '') {
-                  tgl_start = new Date(filter.tanggalStart);
-                  bulan_filter = tgl_start.getMonth() + 1;
-                  tahun_filter = tgl_start.getFullYear();
-                }
-
-                if (filter.waktu == 'bulan' && filter.bulan == 0) {
-                  periode = 'bulan';
-                  _tanggal_default = '';
-                  keuangan.forEach(function (k, i) {
-                    if (i === 0) {
-                      _tanggal_default = k.tanggal;
-                    }
-                  });
-                  tgl_k_default_bulan = new Date(_tanggal_default);
-                  bulan_filter = tgl_k_default_bulan.getMonth() + 1;
-                  tahun_filter = tgl_k_default_bulan.getFullYear();
-                }
-
-                if (filter.waktu == 'tahun' && filter.tahun == 0) {
-                  periode = 'tahun';
-                  _tanggal_default2 = '';
-                  keuangan.forEach(function (k, i) {
-                    if (i === 0) {
-                      _tanggal_default2 = k.tanggal;
-                    }
-                  });
-                  tahun_filter = new Date(_tanggal_default2).getFullYear();
-                }
-
-                bulan_filter_lalu = 0;
-                tahun_filter_lalu = 0;
-
-                if (periode == 'bulan') {
-                  bulan_filter_lalu = bulan_filter - 1;
-                  tahun_filter_lalu = tahun_filter;
-
-                  if (bulan_filter_lalu == 0) {
-                    bulan_filter_lalu = 12;
-                    tahun_filter_lalu = tahun_filter - 1;
-                  }
-                } else if (periode == 'tahun') {
-                  tahun_filter_lalu = tahun_filter - 1;
-                } else if (periode == 'semua') {// ya semua
-                } // chart
-
-
-                arr_detail_waktu = []; // cari tanggal periode 1 bulan
-
-                date_a = '';
-
-                if (periode === 'bulan') {
-                  date_a = new Date(tahun_filter + '-' + String(bulan_filter).padStart(2, '0') + '-01');
-                } else if (periode === 'tahun') {
-                  date_a = new Date(tahun_filter + '-01-01');
-                } else {
-                  tgl_min = new Date(keuangan[0].tanggal);
-                  keuangan.forEach(function (k, i) {
-                    var tgl_i = new Date(k.tanggal);
-
-                    if (tgl_i < tgl_min) {
-                      tgl_min = tgl_i;
-                    }
-                  });
-                  date_a = tgl_min;
-                }
-
-                month_a = date_a.getMonth();
-                year_a = date_a.getFullYear();
-                str_date_a = '';
-                loop = true;
-
-                while (loop) {
-                  str_date_a = date_a.getFullYear() + '-' + String(date_a.getMonth() + 1).padStart(2, '0') + '-' + String(date_a.getDate()).padStart(2, '0');
-                  label = date_a.toLocaleDateString('id-ID', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric'
-                  });
-
-                  if (tahun_filter === parseInt(today.getFullYear())) {
-                    label = date_a.toLocaleDateString('id-ID', {
-                      month: 'short',
-                      day: 'numeric'
-                    });
-                  }
-
-                  row = {
-                    tanggal: str_date_a,
-                    hari: date_a.getDate(),
-                    bulan: bulan_filter,
-                    tahun: tahun_filter,
-                    label: label
-                  };
-                  arr_detail_waktu.push(row);
-
-                  if (periode === 'bulan') {
-                    if (date_a.getMonth() === month_a) {
-                      loop = true;
-                    } else {
-                      loop = false;
-                    }
-                  } else if (periode === 'tahun') {
-                    if (date_a.getFullYear() === year_a) {
-                      loop = true;
-                    } else {
-                      loop = false;
-                    }
-                  }
-
-                  if (date_a.getDate() === today.getDate() && date_a.getMonth() === today.getMonth() && date_a.getFullYear() === today.getFullYear()) {
-                    loop = false;
-                  }
-
-                  date_a.setDate(date_a.getDate() + 1);
-                }
-
-                arr_detail_waktu = arr_detail_waktu.reverse();
-                saldo = 0;
-                /*
-                	Tambahan. stat pergerakan saldo tiap waktunya
-                	1. cari saldo sampai tanggal awal di periode waktu
-                	2. tinggal + debet - kredit
-                */
-                //1
-                // console.log('tanggal min', arr_detail_waktu[arr_detail_waktu.length - 1].tanggal)
-
-                tgl_first = new Date(arr_detail_waktu[arr_detail_waktu.length - 1].tanggal);
-                bulan_first = tgl_first.getMonth() + 1;
-                tahun_first = tgl_first.getFullYear();
-                keuangan.forEach(function (e) {
-                  var tgl_e = new Date(e.tanggal); // let bulan_e = tgl_e.getMonth() + 1
-
-                  var tahun_e = tgl_e.getFullYear();
-
-                  if (e.kategori.is_transfer === 0 && e.deleted === 0) {
-                    if (tgl_e < tgl_first) {
-                      saldo += e.debet - e.kredit;
-                    }
-                  }
-                }); // console.log('saldo awal', saldo)
-
-                tmp_arr_detail_waktu = [];
-                arr_detail_waktu.reverse().forEach(function (a) {
-                  neraca = 0;
-                  debet = 0;
-                  kredit = 0;
-                  keuangan.forEach(function (k) {
-                    if (k.kategori.is_transfer != 1) {
-                      var tgl_k = new Date(k.tanggal);
-                      var bulan_k = tgl_k.getMonth() + 1;
-                      var tahun_k = tgl_k.getFullYear();
-
-                      if (a['tanggal'] == k.tanggal) {
-                        debet += k.debet;
-                        kredit += k.kredit;
-                        neraca += k.debet - k.kredit;
-                        saldo += k.debet - k.kredit;
-                      }
-                    }
-                  });
-                  tmp_arr_detail_waktu.push({
-                    tanggal: a['tanggal'],
-                    hari: a['hari'],
-                    bulan: a['bulan'],
-                    tahun: a['tahun'],
-                    label: a['label'],
-                    neraca: neraca,
-                    debet: debet,
-                    kredit: kredit,
-                    saldo: saldo
-                  });
-                }); // let chart_waktu = tmp_arr_detail_waktu.reverse()
-
-                chart_waktu = tmp_arr_detail_waktu; // console.log(chart_waktu)
-                // neraca
-
-                debet_filter = 0;
-                debet_lalu = 0;
-                kredit_filter = 0;
-                kredit_lalu = 0;
-                neraca_filter = 0;
-                neraca_lalu = 0;
-                keuangan.forEach(function (k) {
-                  if (k.kategori.is_transfer != 1) {
-                    if (periode == 'bulan') {
-                      var tgl_k = new Date(k.tanggal);
-                      var bulan_k = tgl_k.getMonth() + 1;
-                      var tahun_k = tgl_k.getFullYear();
-
-                      if (bulan_k == bulan_filter && tahun_k == tahun_filter) {
-                        debet_filter += k.debet;
-                        kredit_filter += k.kredit;
-                        neraca_filter += k.debet - k.kredit;
-                      }
-
-                      if (bulan_k == bulan_filter_lalu && tahun_k == tahun_filter_lalu) {
-                        debet_lalu += k.debet;
-                        kredit_lalu += k.kredit;
-                        neraca_lalu += k.debet - k.kredit;
-                      }
-                    } else if (periode == 'tahun') {
-                      var _tgl_k = new Date(k.tanggal);
-
-                      var _tahun_k = _tgl_k.getFullYear();
-
-                      if (_tahun_k == tahun_filter) {
-                        debet_filter += k.debet;
-                        kredit_filter += k.kredit;
-                        neraca_filter += k.debet - k.kredit;
-                      }
-
-                      if (_tahun_k == tahun_filter_lalu) {
-                        debet_lalu += k.debet;
-                        kredit_lalu += k.kredit;
-                        neraca_lalu += k.debet - k.kredit;
-                      }
-                    } else if (periode == 'semua') {
-                      debet_filter += k.debet;
-                      kredit_filter += k.kredit;
-                      neraca_filter += k.debet - k.kredit;
-                    }
-                  }
-                });
-                debet_rasio = 0;
-
-                if (debet_lalu == 0) {
-                  debet_rasio = 100;
-                } else {
-                  debet_rasio = Number((debet_filter - debet_lalu) / debet_lalu * 100).toFixed(2);
-                }
-
-                kredit_rasio = 0;
-
-                if (kredit_lalu == 0) {
-                  kredit_rasio = 100;
-                } else {
-                  kredit_rasio = Number((kredit_filter - kredit_lalu) / kredit_lalu * 100).toFixed(2);
-                }
-
-                neraca_rasio = 0;
-
-                if (neraca_lalu == 0) {
-                  neraca_rasio = 100;
-                } else {
-                  neraca_rasio = Number((neraca_filter - neraca_lalu) / neraca_lalu * 100).toFixed(2);
-                }
-
-                neraca = {
-                  debet: debet_filter,
-                  debet_lalu: debet_lalu,
-                  // tahun lalu, bulan lalu, minggu lalu, dll
-                  debet_rasio: debet_rasio,
-                  kredit: kredit_filter,
-                  kredit_lalu: kredit_lalu,
-                  kredit_rasio: kredit_rasio,
-                  neraca: neraca_filter,
-                  neraca_lalu: neraca_lalu,
-                  neraca_rasio: neraca_rasio
-                }; // per kategori filter waktu
-                // ini gak difilter dulu
-
-                kategori = [];
-                kategoriTest[0].forEach(function (e) {
-                  return e.deleted != 1 && e.is_transfer == 0 ? kategori.push(e) : '';
-                });
-                kategoriTest[1].forEach(function (e) {
-                  return e.deleted != 1 && e.is_transfer == 0 ? kategori.push(e) : '';
-                });
-                kategori.forEach(function (kat) {
-                  var row = [];
-                  var debet_kat = 0;
-                  var kredit_kat = 0;
-                  var debet_kat_lalu = 0;
-                  var kredit_kat_lalu = 0;
-                  var id_dompet = 0; // supaya pas diklik, bisa filter dompetnya
-
-                  keuangan.forEach(function (k) {
-                    if (periode == 'bulan') {
-                      var tgl_k = new Date(k.tanggal);
-                      var bulan_k = tgl_k.getMonth() + 1;
-                      var tahun_k = tgl_k.getFullYear();
-
-                      if (kat.id_kategori == k.id_kategori && bulan_k == bulan_filter && tahun_k == tahun_filter) {
-                        row.push(k);
-                        debet_kat += k.debet;
-                        kredit_kat += k.kredit;
-                        id_dompet = k.id_dompet;
-                      }
-
-                      if (kat.id_kategori == k.id_kategori && bulan_k == bulan_filter_lalu && tahun_k == tahun_filter_lalu) {
-                        debet_kat_lalu += k.debet;
-                        kredit_kat_lalu += k.kredit;
-                      }
-                    } else if (periode == 'tahun') {
-                      var _tgl_k2 = new Date(k.tanggal);
-
-                      var _tahun_k2 = _tgl_k2.getFullYear();
-
-                      if (kat.id_kategori == k.id_kategori && _tahun_k2 == tahun_filter) {
-                        row.push(k);
-                        debet_kat += k.debet;
-                        kredit_kat += k.kredit;
-                        id_dompet = k.id_dompet;
-                      }
-
-                      if (kat.id_kategori == k.id_kategori && _tahun_k2 == tahun_filter_lalu) {
-                        debet_kat_lalu += k.debet;
-                        kredit_kat_lalu += k.kredit;
-                      }
-                    } else if (periode == 'semua') {
-                      if (kat.id_kategori == k.id_kategori) {
-                        row.push(k);
-                        debet_kat += k.debet;
-                        kredit_kat += k.kredit;
-                        id_dompet = k.id_dompet;
-                      }
-                    }
-                  });
-                  kat.debet = debet_kat;
-                  kat.kredit = kredit_kat;
-                  kat.debet_lalu = debet_kat_lalu;
-                  kat.kredit_lalu = kredit_kat_lalu;
-                  kat.id_dompet = id_dompet;
-
-                  if (debet_kat_lalu == 0) {
-                    debet_rasio = 100;
-                  } else {
-                    debet_rasio = Number((debet_kat_lalu - debet_kat) / debet_kat_lalu * 100).toFixed(2);
-
-                    if (kat.jenis == 1) {
-                      debet_rasio = debet_rasio * -1;
-                    }
-                  }
-
-                  if (kredit_kat_lalu == 0) {
-                    kredit_rasio = 100;
-                  } else {
-                    kredit_rasio = Number((kredit_kat_lalu - kredit_kat) / kredit_kat_lalu * 100).toFixed(2);
-
-                    if (kat.jenis == 2) {
-                      kredit_rasio = kredit_rasio * -1;
-                    }
-                  }
-
-                  kat.debet_rasio = debet_rasio;
-                  kat.kredit_rasio = kredit_rasio;
-                  kat.keuangan = row;
-                });
-                kat_debet = [];
-                kat_kredit = [];
-                kategori.forEach(function (kat) {
-                  kat.keuangan = null;
-
-                  if (kat.jenis === 1) {
-                    kat_debet.push(kat);
-                  } else {
-                    kat_kredit.push(kat);
-                  }
-                });
-                kategori = [kat_debet, kat_kredit];
-                data = {
-                  saldo: dataSaldo,
-                  dompet: dompet,
-                  chart_waktu: chart_waktu,
-                  neraca: neraca,
-                  kategori: kategori
-                };
-                commit(SET_DATA_DASHBOARD, data);
-              }
-
-            case 16:
+            case 1:
             case "end":
               return _context.stop();
           }
         }
       }, _callee);
     }))();
-  },
-  initData: function initData(_ref2) {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee2() {
-      var dispatch, getters, commit, userLogin;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              dispatch = _ref2.dispatch, getters = _ref2.getters, commit = _ref2.commit;
-
-              if (localStorage.setting) {
-                _context2.next = 34;
-                break;
-              }
-
-              commit(SET_INIT, true);
-              localStorage.setItem('setting', JSON.stringify(getters.getSetting));
-              console.log('init start');
-              _context2.next = 7;
-              return dispatch('fetchUserLogin');
-
-            case 7:
-              userLogin = getters.getUserLogin;
-
-              if (!(userLogin.sudah_init === 1)) {
-                _context2.next = 19;
-                break;
-              }
-
-              _context2.next = 11;
-              return dispatch('fetchTransaksi');
-
-            case 11:
-              _context2.next = 13;
-              return dispatch('fetchDataDompet');
-
-            case 13:
-              _context2.next = 15;
-              return dispatch('fetchDataKategori');
-
-            case 15:
-              _context2.next = 17;
-              return dispatch('fetchAnggaran');
-
-            case 17:
-              _context2.next = 31;
-              break;
-
-            case 19:
-              _context2.next = 21;
-              return dispatch('setInitialData');
-
-            case 21:
-              console.log('init udah, skgr trx');
-              _context2.next = 24;
-              return dispatch('fetchTransaksi');
-
-            case 24:
-              console.log('trx udah');
-              _context2.next = 27;
-              return dispatch('fetchDataDompet');
-
-            case 27:
-              _context2.next = 29;
-              return dispatch('fetchDataKategori');
-
-            case 29:
-              _context2.next = 31;
-              return dispatch('fetchAnggaran');
-
-            case 31:
-              console.log('init finish');
-              _context2.next = 35;
-              break;
-
-            case 34:
-              commit(SET_SETTING, JSON.parse(localStorage.setting));
-
-            case 35:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }))();
-  },
-  setDarkMode: function setDarkMode(_ref3, data) {
-    var commit = _ref3.commit,
-        getters = _ref3.getters;
-    commit(SET_DARK_MODE, data);
-    localStorage.setItem('setting', JSON.stringify(getters.getSetting));
-  },
-  fetchDataBelumSinkron: function fetchDataBelumSinkron(_ref4) {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee3() {
-      var dispatch, getters, passTest, transaksiTest, dompetTest, kategoriTest, anggaranTest, keuangan, dompet, kategori, anggaran, allKategori;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              dispatch = _ref4.dispatch, getters = _ref4.getters;
-              passTest = true;
-              _context3.next = 4;
-              return dispatch('fetchTransaksi');
-
-            case 4:
-              transaksiTest = getters.getDataTransaksi;
-
-              if (!transaksiTest) {
-                passTest = false;
-              }
-
-              _context3.next = 8;
-              return dispatch('fetchDataDompet');
-
-            case 8:
-              dompetTest = getters.getDataDompet;
-
-              if (!dompetTest) {
-                passTest = false;
-              }
-
-              _context3.next = 12;
-              return dispatch('fetchDataKategori');
-
-            case 12:
-              kategoriTest = getters.getDataKategori;
-
-              if (!kategoriTest) {
-                passTest = false;
-              }
-
-              _context3.next = 16;
-              return dispatch('fetchAnggaran');
-
-            case 16:
-              anggaranTest = getters.getAnggaran;
-
-              if (!anggaranTest) {
-                passTest = false;
-              }
-
-              if (!passTest) {
-                _context3.next = 33;
-                break;
-              }
-
-              keuangan = [];
-              transaksiTest.forEach(function (e) {
-                return e.sync === 0 ? keuangan.push(e) : '';
-              });
-              dompet = [];
-              dompetTest.forEach(function (e) {
-                return e.sync === 0 ? dompet.push(e) : '';
-              });
-              kategori = [];
-              kategoriTest[0].forEach(function (e) {
-                return e.sync === 0 ? kategori.push(e) : '';
-              });
-              kategoriTest[1].forEach(function (e) {
-                return e.sync === 0 ? kategori.push(e) : '';
-              });
-              anggaran = [];
-              anggaranTest.forEach(function (e) {
-                return e.sync === 0 ? anggaran.push(e) : '';
-              }); // masukin kategori ke anggaran
-
-              allKategori = [];
-              kategoriTest[0].forEach(function (e) {
-                return e.deleted != 1 ? allKategori.push(e) : '';
-              });
-              kategoriTest[1].forEach(function (e) {
-                return e.deleted != 1 ? allKategori.push(e) : '';
-              });
-              anggaran.forEach(function (e) {
-                e.kategori = allKategori.find(function (k) {
-                  return k.id_kategori === e.id_kategori;
-                });
-              });
-              return _context3.abrupt("return", {
-                status: true,
-                msg: 'Berhasil mengambil data yang belum sinkron',
-                data: {
-                  transaksi: keuangan,
-                  dompet: dompet,
-                  kategori: kategori,
-                  anggaran: anggaran
-                }
-              });
-
-            case 33:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }))();
-  },
-  sinkronData: function sinkronData(_ref5, data) {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee4() {
-      var dispatch, getters, commit;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              dispatch = _ref5.dispatch, getters = _ref5.getters, commit = _ref5.commit;
-              _context4.next = 3;
-              return _services_homeApi__WEBPACK_IMPORTED_MODULE_12__.default.sinkronData(data);
-
-            case 3:
-              return _context4.abrupt("return", _context4.sent);
-
-            case 4:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }))();
-  },
-  updateLocalData: function updateLocalData(_ref6) {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee5() {
-      var dispatch, getters, commit;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              dispatch = _ref6.dispatch, getters = _ref6.getters, commit = _ref6.commit;
-              _context5.next = 3;
-              return dispatch('fetchStorageTransaksi');
-
-            case 3:
-              _context5.next = 5;
-              return dispatch('fetchStorageDompet');
-
-            case 5:
-              _context5.next = 7;
-              return dispatch('fetchStorageKategori');
-
-            case 7:
-              _context5.next = 9;
-              return dispatch('fetchStorageAnggaran');
-
-            case 9:
-              _context5.next = 11;
-              return dispatch('fetchDataFilter', true);
-
-            case 11:
-              console.log('sinkronisasi finish');
-              return _context5.abrupt("return", {
-                status: true,
-                msg: 'Berhasil sinkronisasi data'
-              });
-
-            case 13:
-            case "end":
-              return _context5.stop();
-          }
-        }
-      }, _callee5);
-    }))();
-  },
-  fetchDataSinkron: function fetchDataSinkron() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee6() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee6$(_context6) {
-        while (1) {
-          switch (_context6.prev = _context6.next) {
-            case 0:
-              _context6.next = 2;
-              return _services_homeApi__WEBPACK_IMPORTED_MODULE_12__.default.getDataSinkron();
-
-            case 2:
-              return _context6.abrupt("return", _context6.sent);
-
-            case 3:
-            case "end":
-              return _context6.stop();
-          }
-        }
-      }, _callee6);
-    }))();
-  },
-  fetchIconDompet: function fetchIconDompet() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee7() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee7$(_context7) {
-        while (1) {
-          switch (_context7.prev = _context7.next) {
-            case 0:
-              _context7.next = 2;
-              return _services_homeApi__WEBPACK_IMPORTED_MODULE_12__.default.getIconDompet();
-
-            case 2:
-              return _context7.abrupt("return", _context7.sent);
-
-            case 3:
-            case "end":
-              return _context7.stop();
-          }
-        }
-      }, _callee7);
-    }))();
-  },
-  fetchIconKategori: function fetchIconKategori() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee8() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee8$(_context8) {
-        while (1) {
-          switch (_context8.prev = _context8.next) {
-            case 0:
-              _context8.next = 2;
-              return _services_homeApi__WEBPACK_IMPORTED_MODULE_12__.default.getIconKategori();
-
-            case 2:
-              return _context8.abrupt("return", _context8.sent);
-
-            case 3:
-            case "end":
-              return _context8.stop();
-          }
-        }
-      }, _callee8);
-    }))();
-  },
-  fetchColor: function fetchColor() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee9() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee9$(_context9) {
-        while (1) {
-          switch (_context9.prev = _context9.next) {
-            case 0:
-              _context9.next = 2;
-              return _services_homeApi__WEBPACK_IMPORTED_MODULE_12__.default.getColor();
-
-            case 2:
-              return _context9.abrupt("return", _context9.sent);
-
-            case 3:
-            case "end":
-              return _context9.stop();
-          }
-        }
-      }, _callee9);
-    }))();
-  }
-};
-var getters = {
-  getDataDashboard: function getDataDashboard(state) {
-    return state.dataDashboard;
-  },
-  getSetting: function getSetting(state) {
-    return state.setting;
-  },
-  checkIsInit: function checkIsInit(state) {
-    return state.setting.init;
-  },
-  getDarkMode: function getDarkMode(state) {
-    return state.setting.darkMode;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   state: state,
   mutations: mutations,
-  actions: actions,
-  getters: getters
+  actions: actions
 });
 
 /***/ }),
@@ -7732,21 +6775,6 @@ var getters = {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/a-function.js":
-/*!******************************************************!*\
-  !*** ./node_modules/core-js/internals/a-function.js ***!
-  \******************************************************/
-/***/ ((module) => {
-
-module.exports = function (it) {
-  if (typeof it != 'function') {
-    throw TypeError(String(it) + ' is not a function');
-  } return it;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/a-possible-prototype.js":
 /*!****************************************************************!*\
   !*** ./node_modules/core-js/internals/a-possible-prototype.js ***!
@@ -7811,29 +6839,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/array-for-each.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/core-js/internals/array-for-each.js ***!
-  \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $forEach = __webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").forEach;
-var arrayMethodIsStrict = __webpack_require__(/*! ../internals/array-method-is-strict */ "./node_modules/core-js/internals/array-method-is-strict.js");
-
-var STRICT_METHOD = arrayMethodIsStrict('forEach');
-
-// `Array.prototype.forEach` method implementation
-// https://tc39.es/ecma262/#sec-array.prototype.foreach
-module.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
-  return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
-// eslint-disable-next-line es/no-array-prototype-foreach -- safe
-} : [].forEach;
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/array-includes.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js/internals/array-includes.js ***!
@@ -7871,139 +6876,6 @@ module.exports = {
   // `Array.prototype.indexOf` method
   // https://tc39.es/ecma262/#sec-array.prototype.indexof
   indexOf: createMethod(false)
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/array-iteration.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/core-js/internals/array-iteration.js ***!
-  \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var bind = __webpack_require__(/*! ../internals/function-bind-context */ "./node_modules/core-js/internals/function-bind-context.js");
-var IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ "./node_modules/core-js/internals/indexed-object.js");
-var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
-var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
-var arraySpeciesCreate = __webpack_require__(/*! ../internals/array-species-create */ "./node_modules/core-js/internals/array-species-create.js");
-
-var push = [].push;
-
-// `Array.prototype.{ forEach, map, filter, some, every, find, findIndex, filterOut }` methods implementation
-var createMethod = function (TYPE) {
-  var IS_MAP = TYPE == 1;
-  var IS_FILTER = TYPE == 2;
-  var IS_SOME = TYPE == 3;
-  var IS_EVERY = TYPE == 4;
-  var IS_FIND_INDEX = TYPE == 6;
-  var IS_FILTER_OUT = TYPE == 7;
-  var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
-  return function ($this, callbackfn, that, specificCreate) {
-    var O = toObject($this);
-    var self = IndexedObject(O);
-    var boundFunction = bind(callbackfn, that, 3);
-    var length = toLength(self.length);
-    var index = 0;
-    var create = specificCreate || arraySpeciesCreate;
-    var target = IS_MAP ? create($this, length) : IS_FILTER || IS_FILTER_OUT ? create($this, 0) : undefined;
-    var value, result;
-    for (;length > index; index++) if (NO_HOLES || index in self) {
-      value = self[index];
-      result = boundFunction(value, index, O);
-      if (TYPE) {
-        if (IS_MAP) target[index] = result; // map
-        else if (result) switch (TYPE) {
-          case 3: return true;              // some
-          case 5: return value;             // find
-          case 6: return index;             // findIndex
-          case 2: push.call(target, value); // filter
-        } else switch (TYPE) {
-          case 4: return false;             // every
-          case 7: push.call(target, value); // filterOut
-        }
-      }
-    }
-    return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : target;
-  };
-};
-
-module.exports = {
-  // `Array.prototype.forEach` method
-  // https://tc39.es/ecma262/#sec-array.prototype.foreach
-  forEach: createMethod(0),
-  // `Array.prototype.map` method
-  // https://tc39.es/ecma262/#sec-array.prototype.map
-  map: createMethod(1),
-  // `Array.prototype.filter` method
-  // https://tc39.es/ecma262/#sec-array.prototype.filter
-  filter: createMethod(2),
-  // `Array.prototype.some` method
-  // https://tc39.es/ecma262/#sec-array.prototype.some
-  some: createMethod(3),
-  // `Array.prototype.every` method
-  // https://tc39.es/ecma262/#sec-array.prototype.every
-  every: createMethod(4),
-  // `Array.prototype.find` method
-  // https://tc39.es/ecma262/#sec-array.prototype.find
-  find: createMethod(5),
-  // `Array.prototype.findIndex` method
-  // https://tc39.es/ecma262/#sec-array.prototype.findIndex
-  findIndex: createMethod(6),
-  // `Array.prototype.filterOut` method
-  // https://github.com/tc39/proposal-array-filtering
-  filterOut: createMethod(7)
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/array-method-is-strict.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/core-js/internals/array-method-is-strict.js ***!
-  \******************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-
-module.exports = function (METHOD_NAME, argument) {
-  var method = [][METHOD_NAME];
-  return !!method && fails(function () {
-    // eslint-disable-next-line no-useless-call,no-throw-literal -- required for testing
-    method.call(null, argument || function () { throw 1; }, 1);
-  });
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/array-species-create.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/core-js/internals/array-species-create.js ***!
-  \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-var isArray = __webpack_require__(/*! ../internals/is-array */ "./node_modules/core-js/internals/is-array.js");
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-
-var SPECIES = wellKnownSymbol('species');
-
-// `ArraySpeciesCreate` abstract operation
-// https://tc39.es/ecma262/#sec-arrayspeciescreate
-module.exports = function (originalArray, length) {
-  var C;
-  if (isArray(originalArray)) {
-    C = originalArray.constructor;
-    // cross-realm fallback
-    if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
-    else if (isObject(C)) {
-      C = C[SPECIES];
-      if (C === null) C = undefined;
-    }
-  } return new (C === undefined ? Array : C)(length === 0 ? 0 : length);
 };
 
 
@@ -8494,40 +7366,6 @@ module.exports = function (exec) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/function-bind-context.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/core-js/internals/function-bind-context.js ***!
-  \*****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var aFunction = __webpack_require__(/*! ../internals/a-function */ "./node_modules/core-js/internals/a-function.js");
-
-// optional / simple context binding
-module.exports = function (fn, that, length) {
-  aFunction(fn);
-  if (that === undefined) return fn;
-  switch (length) {
-    case 0: return function () {
-      return fn.call(that);
-    };
-    case 1: return function (a) {
-      return fn.call(that, a);
-    };
-    case 2: return function (a, b) {
-      return fn.call(that, a, b);
-    };
-    case 3: return function (a, b, c) {
-      return fn.call(that, a, b, c);
-    };
-  }
-  return function (/* ...args */) {
-    return fn.apply(that, arguments);
-  };
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/get-built-in.js":
 /*!********************************************************!*\
   !*** ./node_modules/core-js/internals/get-built-in.js ***!
@@ -8658,33 +7496,6 @@ module.exports = fails(function () {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/inherit-if-required.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/core-js/internals/inherit-if-required.js ***!
-  \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-var setPrototypeOf = __webpack_require__(/*! ../internals/object-set-prototype-of */ "./node_modules/core-js/internals/object-set-prototype-of.js");
-
-// makes subclassing work correct for wrapped built-ins
-module.exports = function ($this, dummy, Wrapper) {
-  var NewTarget, NewTargetPrototype;
-  if (
-    // it can work only with native `setPrototypeOf`
-    setPrototypeOf &&
-    // we haven't completely correct pre-ES6 way for getting `new.target`, so use this
-    typeof (NewTarget = dummy.constructor) == 'function' &&
-    NewTarget !== Wrapper &&
-    isObject(NewTargetPrototype = NewTarget.prototype) &&
-    NewTargetPrototype !== Wrapper.prototype
-  ) setPrototypeOf($this, NewTargetPrototype);
-  return $this;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/inspect-source.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js/internals/inspect-source.js ***!
@@ -8779,24 +7590,6 @@ module.exports = {
   has: has,
   enforce: enforce,
   getterFor: getterFor
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/is-array.js":
-/*!****************************************************!*\
-  !*** ./node_modules/core-js/internals/is-array.js ***!
-  \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
-
-// `IsArray` abstract operation
-// https://tc39.es/ecma262/#sec-isarray
-// eslint-disable-next-line es/no-array-isarray -- safe
-module.exports = Array.isArray || function isArray(arg) {
-  return classof(arg) == 'Array';
 };
 
 
@@ -8957,30 +7750,6 @@ var inspectSource = __webpack_require__(/*! ../internals/inspect-source */ "./no
 var WeakMap = global.WeakMap;
 
 module.exports = typeof WeakMap === 'function' && /native code/.test(inspectSource(WeakMap));
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/number-parse-int.js":
-/*!************************************************************!*\
-  !*** ./node_modules/core-js/internals/number-parse-int.js ***!
-  \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var trim = __webpack_require__(/*! ../internals/string-trim */ "./node_modules/core-js/internals/string-trim.js").trim;
-var whitespaces = __webpack_require__(/*! ../internals/whitespaces */ "./node_modules/core-js/internals/whitespaces.js");
-
-var $parseInt = global.parseInt;
-var hex = /^[+-]?0[Xx]/;
-var FORCED = $parseInt(whitespaces + '08') !== 8 || $parseInt(whitespaces + '0x16') !== 22;
-
-// `parseInt` method
-// https://tc39.es/ecma262/#sec-parseint-string-radix
-module.exports = FORCED ? function parseInt(string, radix) {
-  var S = trim(String(string));
-  return $parseInt(S, (radix >>> 0) || (hex.test(S) ? 16 : 10));
-} : $parseInt;
 
 
 /***/ }),
@@ -9434,6 +8203,33 @@ var TEMPLATE = String(String).split('String');
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/regexp-flags.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/regexp-flags.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
+
+// `RegExp.prototype.flags` getter implementation
+// https://tc39.es/ecma262/#sec-get-regexp.prototype.flags
+module.exports = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.dotAll) result += 's';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/require-object-coercible.js":
 /*!********************************************************************!*\
   !*** ./node_modules/core-js/internals/require-object-coercible.js ***!
@@ -9664,64 +8460,6 @@ module.exports = function repeat(count) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/string-trim.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/core-js/internals/string-trim.js ***!
-  \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
-var whitespaces = __webpack_require__(/*! ../internals/whitespaces */ "./node_modules/core-js/internals/whitespaces.js");
-
-var whitespace = '[' + whitespaces + ']';
-var ltrim = RegExp('^' + whitespace + whitespace + '*');
-var rtrim = RegExp(whitespace + whitespace + '*$');
-
-// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
-var createMethod = function (TYPE) {
-  return function ($this) {
-    var string = String(requireObjectCoercible($this));
-    if (TYPE & 1) string = string.replace(ltrim, '');
-    if (TYPE & 2) string = string.replace(rtrim, '');
-    return string;
-  };
-};
-
-module.exports = {
-  // `String.prototype.{ trimLeft, trimStart }` methods
-  // https://tc39.es/ecma262/#sec-string.prototype.trimstart
-  start: createMethod(1),
-  // `String.prototype.{ trimRight, trimEnd }` methods
-  // https://tc39.es/ecma262/#sec-string.prototype.trimend
-  end: createMethod(2),
-  // `String.prototype.trim` method
-  // https://tc39.es/ecma262/#sec-string.prototype.trim
-  trim: createMethod(3)
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/this-number-value.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/core-js/internals/this-number-value.js ***!
-  \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
-
-// `thisNumberValue` abstract operation
-// https://tc39.es/ecma262/#sec-thisnumbervalue
-module.exports = function (value) {
-  if (typeof value != 'number' && classof(value) != 'Number') {
-    throw TypeError('Incorrect invocation');
-  }
-  return +value;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/to-absolute-index.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js/internals/to-absolute-index.js ***!
@@ -9919,72 +8657,6 @@ module.exports = function (name) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/whitespaces.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/core-js/internals/whitespaces.js ***!
-  \*******************************************************/
-/***/ ((module) => {
-
-// a string of all valid unicode whitespaces
-module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002' +
-  '\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es.array.find.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.find.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var $find = __webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").find;
-var addToUnscopables = __webpack_require__(/*! ../internals/add-to-unscopables */ "./node_modules/core-js/internals/add-to-unscopables.js");
-
-var FIND = 'find';
-var SKIPS_HOLES = true;
-
-// Shouldn't skip holes
-if (FIND in []) Array(1)[FIND](function () { SKIPS_HOLES = false; });
-
-// `Array.prototype.find` method
-// https://tc39.es/ecma262/#sec-array.prototype.find
-$({ target: 'Array', proto: true, forced: SKIPS_HOLES }, {
-  find: function find(callbackfn /* , that = undefined */) {
-    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
-
-// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
-addToUnscopables(FIND);
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es.array.for-each.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.for-each.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var forEach = __webpack_require__(/*! ../internals/array-for-each */ "./node_modules/core-js/internals/array-for-each.js");
-
-// `Array.prototype.forEach` method
-// https://tc39.es/ecma262/#sec-array.prototype.foreach
-// eslint-disable-next-line es/no-array-prototype-foreach -- safe
-$({ target: 'Array', proto: true, forced: [].forEach != forEach }, {
-  forEach: forEach
-});
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/modules/es.array.iterator.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.iterator.js ***!
@@ -10049,35 +8721,6 @@ addToUnscopables('entries');
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es.array.reverse.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.reverse.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var isArray = __webpack_require__(/*! ../internals/is-array */ "./node_modules/core-js/internals/is-array.js");
-
-var nativeReverse = [].reverse;
-var test = [1, 2];
-
-// `Array.prototype.reverse` method
-// https://tc39.es/ecma262/#sec-array.prototype.reverse
-// fix for Safari 12.0 bug
-// https://bugs.webkit.org/show_bug.cgi?id=188794
-$({ target: 'Array', proto: true, forced: String(test) === String(test.reverse()) }, {
-  reverse: function reverse() {
-    // eslint-disable-next-line no-self-assign -- dirty hack
-    if (isArray(this)) this.length = this.length;
-    return nativeReverse.call(this);
-  }
-});
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/modules/es.date.to-string.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.date.to-string.js ***!
@@ -10105,233 +8748,6 @@ if (new Date(NaN) + '' != INVALID_DATE) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es.number.constructor.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/core-js/modules/es.number.constructor.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var isForced = __webpack_require__(/*! ../internals/is-forced */ "./node_modules/core-js/internals/is-forced.js");
-var redefine = __webpack_require__(/*! ../internals/redefine */ "./node_modules/core-js/internals/redefine.js");
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
-var inheritIfRequired = __webpack_require__(/*! ../internals/inherit-if-required */ "./node_modules/core-js/internals/inherit-if-required.js");
-var toPrimitive = __webpack_require__(/*! ../internals/to-primitive */ "./node_modules/core-js/internals/to-primitive.js");
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-var create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js/internals/object-create.js");
-var getOwnPropertyNames = __webpack_require__(/*! ../internals/object-get-own-property-names */ "./node_modules/core-js/internals/object-get-own-property-names.js").f;
-var getOwnPropertyDescriptor = __webpack_require__(/*! ../internals/object-get-own-property-descriptor */ "./node_modules/core-js/internals/object-get-own-property-descriptor.js").f;
-var defineProperty = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f;
-var trim = __webpack_require__(/*! ../internals/string-trim */ "./node_modules/core-js/internals/string-trim.js").trim;
-
-var NUMBER = 'Number';
-var NativeNumber = global[NUMBER];
-var NumberPrototype = NativeNumber.prototype;
-
-// Opera ~12 has broken Object#toString
-var BROKEN_CLASSOF = classof(create(NumberPrototype)) == NUMBER;
-
-// `ToNumber` abstract operation
-// https://tc39.es/ecma262/#sec-tonumber
-var toNumber = function (argument) {
-  var it = toPrimitive(argument, false);
-  var first, third, radix, maxCode, digits, length, index, code;
-  if (typeof it == 'string' && it.length > 2) {
-    it = trim(it);
-    first = it.charCodeAt(0);
-    if (first === 43 || first === 45) {
-      third = it.charCodeAt(2);
-      if (third === 88 || third === 120) return NaN; // Number('+0x1') should be NaN, old V8 fix
-    } else if (first === 48) {
-      switch (it.charCodeAt(1)) {
-        case 66: case 98: radix = 2; maxCode = 49; break; // fast equal of /^0b[01]+$/i
-        case 79: case 111: radix = 8; maxCode = 55; break; // fast equal of /^0o[0-7]+$/i
-        default: return +it;
-      }
-      digits = it.slice(2);
-      length = digits.length;
-      for (index = 0; index < length; index++) {
-        code = digits.charCodeAt(index);
-        // parseInt parses a string to a first unavailable symbol
-        // but ToNumber should return NaN if a string contains unavailable symbols
-        if (code < 48 || code > maxCode) return NaN;
-      } return parseInt(digits, radix);
-    }
-  } return +it;
-};
-
-// `Number` constructor
-// https://tc39.es/ecma262/#sec-number-constructor
-if (isForced(NUMBER, !NativeNumber(' 0o1') || !NativeNumber('0b1') || NativeNumber('+0x1'))) {
-  var NumberWrapper = function Number(value) {
-    var it = arguments.length < 1 ? 0 : value;
-    var dummy = this;
-    return dummy instanceof NumberWrapper
-      // check on 1..constructor(foo) case
-      && (BROKEN_CLASSOF ? fails(function () { NumberPrototype.valueOf.call(dummy); }) : classof(dummy) != NUMBER)
-        ? inheritIfRequired(new NativeNumber(toNumber(it)), dummy, NumberWrapper) : toNumber(it);
-  };
-  for (var keys = DESCRIPTORS ? getOwnPropertyNames(NativeNumber) : (
-    // ES3:
-    'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,' +
-    // ES2015 (in case, if modules with ES2015 Number statics required before):
-    'EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,' +
-    'MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger,' +
-    // ESNext
-    'fromString,range'
-  ).split(','), j = 0, key; keys.length > j; j++) {
-    if (has(NativeNumber, key = keys[j]) && !has(NumberWrapper, key)) {
-      defineProperty(NumberWrapper, key, getOwnPropertyDescriptor(NativeNumber, key));
-    }
-  }
-  NumberWrapper.prototype = NumberPrototype;
-  NumberPrototype.constructor = NumberWrapper;
-  redefine(global, NUMBER, NumberWrapper);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es.number.to-fixed.js":
-/*!************************************************************!*\
-  !*** ./node_modules/core-js/modules/es.number.to-fixed.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var toInteger = __webpack_require__(/*! ../internals/to-integer */ "./node_modules/core-js/internals/to-integer.js");
-var thisNumberValue = __webpack_require__(/*! ../internals/this-number-value */ "./node_modules/core-js/internals/this-number-value.js");
-var repeat = __webpack_require__(/*! ../internals/string-repeat */ "./node_modules/core-js/internals/string-repeat.js");
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-
-var nativeToFixed = 1.0.toFixed;
-var floor = Math.floor;
-
-var pow = function (x, n, acc) {
-  return n === 0 ? acc : n % 2 === 1 ? pow(x, n - 1, acc * x) : pow(x * x, n / 2, acc);
-};
-
-var log = function (x) {
-  var n = 0;
-  var x2 = x;
-  while (x2 >= 4096) {
-    n += 12;
-    x2 /= 4096;
-  }
-  while (x2 >= 2) {
-    n += 1;
-    x2 /= 2;
-  } return n;
-};
-
-var multiply = function (data, n, c) {
-  var index = -1;
-  var c2 = c;
-  while (++index < 6) {
-    c2 += n * data[index];
-    data[index] = c2 % 1e7;
-    c2 = floor(c2 / 1e7);
-  }
-};
-
-var divide = function (data, n) {
-  var index = 6;
-  var c = 0;
-  while (--index >= 0) {
-    c += data[index];
-    data[index] = floor(c / n);
-    c = (c % n) * 1e7;
-  }
-};
-
-var dataToString = function (data) {
-  var index = 6;
-  var s = '';
-  while (--index >= 0) {
-    if (s !== '' || index === 0 || data[index] !== 0) {
-      var t = String(data[index]);
-      s = s === '' ? t : s + repeat.call('0', 7 - t.length) + t;
-    }
-  } return s;
-};
-
-var FORCED = nativeToFixed && (
-  0.00008.toFixed(3) !== '0.000' ||
-  0.9.toFixed(0) !== '1' ||
-  1.255.toFixed(2) !== '1.25' ||
-  1000000000000000128.0.toFixed(0) !== '1000000000000000128'
-) || !fails(function () {
-  // V8 ~ Android 4.3-
-  nativeToFixed.call({});
-});
-
-// `Number.prototype.toFixed` method
-// https://tc39.es/ecma262/#sec-number.prototype.tofixed
-$({ target: 'Number', proto: true, forced: FORCED }, {
-  toFixed: function toFixed(fractionDigits) {
-    var number = thisNumberValue(this);
-    var fractDigits = toInteger(fractionDigits);
-    var data = [0, 0, 0, 0, 0, 0];
-    var sign = '';
-    var result = '0';
-    var e, z, j, k;
-
-    if (fractDigits < 0 || fractDigits > 20) throw RangeError('Incorrect fraction digits');
-    // eslint-disable-next-line no-self-compare -- NaN check
-    if (number != number) return 'NaN';
-    if (number <= -1e21 || number >= 1e21) return String(number);
-    if (number < 0) {
-      sign = '-';
-      number = -number;
-    }
-    if (number > 1e-21) {
-      e = log(number * pow(2, 69, 1)) - 69;
-      z = e < 0 ? number * pow(2, -e, 1) : number / pow(2, e, 1);
-      z *= 0x10000000000000;
-      e = 52 - e;
-      if (e > 0) {
-        multiply(data, 0, z);
-        j = fractDigits;
-        while (j >= 7) {
-          multiply(data, 1e7, 0);
-          j -= 7;
-        }
-        multiply(data, pow(10, j, 1), 0);
-        j = e - 1;
-        while (j >= 23) {
-          divide(data, 1 << 23);
-          j -= 23;
-        }
-        divide(data, 1 << j);
-        multiply(data, 1, 1);
-        divide(data, 2);
-        result = dataToString(data);
-      } else {
-        multiply(data, 0, z);
-        multiply(data, 1 << -e, 0);
-        result = dataToString(data) + repeat.call('0', fractDigits);
-      }
-    }
-    if (fractDigits > 0) {
-      k = result.length;
-      result = sign + (k <= fractDigits
-        ? '0.' + repeat.call('0', fractDigits - k) + result
-        : result.slice(0, k - fractDigits) + '.' + result.slice(k - fractDigits));
-    } else {
-      result = sign + result;
-    } return result;
-  }
-});
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/modules/es.object.to-string.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js/modules/es.object.to-string.js ***!
@@ -10351,20 +8767,38 @@ if (!TO_STRING_TAG_SUPPORT) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es.parse-int.js":
-/*!******************************************************!*\
-  !*** ./node_modules/core-js/modules/es.parse-int.js ***!
-  \******************************************************/
+/***/ "./node_modules/core-js/modules/es.regexp.to-string.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.regexp.to-string.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var parseIntImplementation = __webpack_require__(/*! ../internals/number-parse-int */ "./node_modules/core-js/internals/number-parse-int.js");
+"use strict";
 
-// `parseInt` method
-// https://tc39.es/ecma262/#sec-parseint-string-radix
-$({ global: true, forced: parseInt != parseIntImplementation }, {
-  parseInt: parseIntImplementation
-});
+var redefine = __webpack_require__(/*! ../internals/redefine */ "./node_modules/core-js/internals/redefine.js");
+var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+var flags = __webpack_require__(/*! ../internals/regexp-flags */ "./node_modules/core-js/internals/regexp-flags.js");
+
+var TO_STRING = 'toString';
+var RegExpPrototype = RegExp.prototype;
+var nativeToString = RegExpPrototype[TO_STRING];
+
+var NOT_GENERIC = fails(function () { return nativeToString.call({ source: 'a', flags: 'b' }) != '/a/b'; });
+// FF44- RegExp#toString has a wrong name
+var INCORRECT_NAME = nativeToString.name != TO_STRING;
+
+// `RegExp.prototype.toString` method
+// https://tc39.es/ecma262/#sec-regexp.prototype.tostring
+if (NOT_GENERIC || INCORRECT_NAME) {
+  redefine(RegExp.prototype, TO_STRING, function toString() {
+    var R = anObject(this);
+    var p = String(R.source);
+    var rf = R.flags;
+    var f = String(rf === undefined && R instanceof RegExp && !('flags' in RegExpPrototype) ? flags.call(R) : rf);
+    return '/' + p + '/' + f;
+  }, { unsafe: true });
+}
 
 
 /***/ }),
@@ -10428,31 +8862,6 @@ $({ target: 'String', proto: true, forced: WEBKIT_BUG }, {
     return $padStart(this, maxLength, arguments.length > 1 ? arguments[1] : undefined);
   }
 });
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/web.dom-collections.for-each.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/core-js/modules/web.dom-collections.for-each.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var DOMIterables = __webpack_require__(/*! ../internals/dom-iterables */ "./node_modules/core-js/internals/dom-iterables.js");
-var forEach = __webpack_require__(/*! ../internals/array-for-each */ "./node_modules/core-js/internals/array-for-each.js");
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-
-for (var COLLECTION_NAME in DOMIterables) {
-  var Collection = global[COLLECTION_NAME];
-  var CollectionPrototype = Collection && Collection.prototype;
-  // some Chrome versions have non-configurable methods on DOMTokenList
-  if (CollectionPrototype && CollectionPrototype.forEach !== forEach) try {
-    createNonEnumerableProperty(CollectionPrototype, 'forEach', forEach);
-  } catch (error) {
-    CollectionPrototype.forEach = forEach;
-  }
-}
 
 
 /***/ }),

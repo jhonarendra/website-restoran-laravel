@@ -31,11 +31,18 @@
     border-radius: 50%;
     margin: 0 auto
   }
+  @media (max-width: 992px) {
+    .user-photo {
+      height: auto;
+      padding-bottom: 100%;
+      width: 100%;
+    }
+  }
   .list-group-item {
     background: #faebcd;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 769px) {
     .user-profile {
       display: none;
     }

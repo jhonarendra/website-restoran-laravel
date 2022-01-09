@@ -13,27 +13,14 @@
       </div>
       <div class="card-body p-2">
         <div>
-          <div class="row">
-            <div class="col-md-6">Pelanggan</div>
-            <div class="col-md-6">
-              <img src="/images/hidangan/spageti.jpg" class="circle" width="30" height="30">
+          <img src="/images/hidangan/spageti.jpg" class="circle mr-2" width="30" height="30">
               {{ data.nama_pelanggan}}
-            </div>
-          </div>
-          <div class="row mt-2">
-            <div class="col-md-6">Pegawai</div>
-            <div class="col-md-6">
-              <img src="/images/hidangan/spageti.jpg" class="circle" width="30" height="30">
-              {{ data.nama_pegawai}}
-            </div>
-          </div>
-          <div class="row mt-2">
-            <div class="col-md-6">Restoran</div>
-            <div class="col-md-6">
-              <img src="/images/hidangan/spageti.jpg" class="circle" width="30" height="30">
-              {{ data.nama_restoran}}
-            </div>
-          </div>
+        </div>
+        <div class="mt-2">
+          <i class="fa fa-map-marker" /> {{ data.nama_restoran }}
+        </div>
+        <div class="mt-2">
+          <i class="fa fa-users" /> {{ data.jumlah_orang }} orang
         </div>
         
       </div>

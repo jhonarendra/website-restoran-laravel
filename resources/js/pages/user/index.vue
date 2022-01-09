@@ -4,10 +4,10 @@
       <div
         v-for="m in menu"
         :key="m.name"
-        class="col-md-3 my-2"
+        class="col-6 col-lg-3 my-2"
       >
-        <router-link :to="m.link">
-          <div class="card text-dark">
+        <router-link :to="m.link" class="card-link">
+          <div class="menu-item card text-dark">
             <div class="card-body text-center" style="z-index: 10;">
               <i :class="m.icon" style="font-size: 2rem" />
               <h3 class="font-weight-300 pt-3">{{ m.name }}</h3>
@@ -40,3 +40,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  @media (max-width: 576px) {
+    .menu-item h3 {
+      font-size: 1rem;
+    }
+  }
+</style>
