@@ -58,6 +58,15 @@
         <template #no_reservasi="{ row }">
           <span class="small" style="white-space: nowrap">{{ row.no_reservasi }}</span>
         </template>
+        <template #nama_pelanggan="{ row }">
+          {{ row.pelanggan.nama_user }}
+        </template>
+        <template #nama_restoran="{ row }">
+          {{ row.restoran.nama_restoran }}
+        </template>
+        <template #nama_pegawai="{ row }">
+          {{ row.pegawai.nama_user }}
+        </template>
         <template #status="{ row }">
           <span
             class="badge"
@@ -114,9 +123,9 @@ export default {
       columns: [
         { label: '', field: 'checkbox' },
         { label: 'Nomor', field: 'no_reservasi', sortable: true },
-        { label: 'Pelanggan', field: 'nama_pelanggan', sortable: true },
-        { label: 'Restoran', field: 'nama_restoran', sortable: true },
-        { label: 'Pegawai', field: 'nama_pegawai', sortable: true },
+        { label: 'Pelanggan', field: 'nama_pelanggan', struct: 'pelanggan.nama_user', sortable: true },
+        { label: 'Restoran', field: 'nama_restoran', struct: 'restoran.nama_restoran', sortable: true },
+        { label: 'Pegawai', field: 'nama_pegawai', struct: 'pegawai.nama_user', sortable: true },
         { label: 'Status', field: 'status', sortable: true },
         { label: 'Dibuat', field: 'created_at', sortable: true },
         { label: 'Aksi', field: 'aksi' }

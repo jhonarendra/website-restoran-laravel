@@ -8,16 +8,29 @@
         <li class="breadcrumb-item active text-white" aria-current="page">Buat Reservasi</li>
       </ol>
     </nav>
+    <div class="card mt-3">
+      <div class="card-body">
+        <FormReservasi
+          aksi="buat"
+        />
+      </div>
+    </div>
   </admin-layout>
 </template>
 
 
 <script>
 import AdminLayout from '../../../layouts/admin'
+import FormReservasi from '../../../components/user/reservasi/FormReservasi.vue'
 
 export default {
   components: {
-    AdminLayout,
+    AdminLayout, FormReservasi
+  },
+  data () {
+    return {
+
+    }
   }
 }
 </script>

@@ -2273,13 +2273,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/reservasi */ "./resources/js/store/modules/reservasi.js");
+/* harmony import */ var _modules_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/user */ "./resources/js/store/modules/user.js");
+
 
 var state = {
   state: {},
   mutations: {},
   actions: {},
   modules: {
-    reservasi: _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__.default
+    reservasi: _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__.default,
+    user: _modules_user__WEBPACK_IMPORTED_MODULE_1__.default
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (state);
@@ -2312,12 +2315,35 @@ var data = [{
   id_reservasi: 1,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 1,
   id_pegawai: 1,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: null,
   status: 0,
   // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
@@ -2328,12 +2354,35 @@ var data = [{
   id_reservasi: 2,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 1,
   id_pegawai: 1,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: null,
   status: 0,
   created_at: "2018-05-20 07:49:09",
@@ -2343,12 +2392,35 @@ var data = [{
   id_reservasi: 3,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 1,
   id_pegawai: 2,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: "202",
   status: 4,
   created_at: "2018-05-20 07:49:09",
@@ -2358,12 +2430,35 @@ var data = [{
   id_reservasi: 4,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 3,
   id_pegawai: 2,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: "222",
   status: 1,
   created_at: "2018-05-20 07:50:29",
@@ -2373,12 +2468,35 @@ var data = [{
   id_reservasi: 5,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 4,
   id_pegawai: 2,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: "2A",
   status: 1,
   created_at: "2018-05-23 01:09:50",
@@ -2388,12 +2506,35 @@ var data = [{
   id_reservasi: 6,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 5,
   id_pegawai: 2,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: "232",
   status: 1,
   created_at: "2018-05-23 06:22:21",
@@ -2403,12 +2544,35 @@ var data = [{
   id_reservasi: 7,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 5,
   id_pegawai: 2,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: "3A",
   status: 1,
   created_at: "2018-05-23 23:17:40",
@@ -2418,12 +2582,35 @@ var data = [{
   id_reservasi: 8,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 6,
   id_pegawai: 1,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: null,
   status: 0,
   created_at: "2021-11-16 11:31:30",
@@ -2433,12 +2620,35 @@ var data = [{
   id_reservasi: 9,
   no_reservasi: "RE-202/202/XC/0002",
   id_restoran: 1,
-  nama_restoran: "Restoran Saya",
-  nama_pelanggan: "Pelanggan",
-  nama_pegawai: "Pegawai",
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran 1',
+    alamat_restoran: 'Jalan Restoran 1'
+  },
+  pelanggan: {
+    id_user: 1,
+    nama_user: 'Nama User',
+    email: 'emial@sjd.co',
+    username: 'emial',
+    password: 'sds',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan jalan'
+  },
+  pegawai: {
+    id_user: 2,
+    nama_user: 'Nama Pegawai',
+    email: 'sdsdsdsds@ssssx.co',
+    username: 'emial',
+    password: 'ggg',
+    no_hp: '081982983984',
+    alamat: 'Jalan jalan 9'
+  },
   id_pelanggan: 7,
   id_pegawai: 2,
-  jumlah_orang: 3,
+  jumlah_tamu: 3,
+  tanggal_reservasi: '2022-01-02 12:23:22',
+  keterangan_pelanggan: 'ket',
+  keterangan_pegawai: 'eke',
   no_meja: "8",
   status: 1,
   created_at: "2022-01-07 14:58:48",
@@ -2520,6 +2730,84 @@ var actions = {
           }
         }
       }, _callee2);
+    }))();
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/user.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/user.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
+/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var data = [{
+  id_user: 1,
+  nama_user: 'Putu Pa',
+  email: 'kdlsdkf@fjdkf.com',
+  username: 'lakdfjlasd',
+  password: 'sdfsdfsd',
+  no_hp: '08192929292',
+  alamat: 'sd',
+  foto: 'sds',
+  tipe_user: 1,
+  // 1 pelanggan, 2 pegawai, 3 admin web
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var state = {
+  user: null
+};
+var mutations = {
+  setUser: function setUser(state, data) {
+    state.user = data;
+  }
+};
+var actions = {
+  fetchUser: function fetchUser() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      var show;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              show = data.find(function (e) {
+                return e.id_user === 1;
+              });
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: show,
+                  message: ''
+                }
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
     }))();
   }
 };

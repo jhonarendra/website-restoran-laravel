@@ -10,6 +10,21 @@
             <li class="breadcrumb-item active text-white" aria-current="page">Reservasi #{{ reservasi.no_reservasi }}</li>
           </ol>
         </nav>
+        <div class="card mt-3">
+          <div class="card-body">
+            <button
+              class="btn"
+              :class="(aksi === 'lihat') ? 'btn-primary' : 'btn-danger'"
+              @click="(aksi === 'lihat') ? aksi = 'edit' : aksi = 'lihat'"
+            >
+              {{ (aksi === 'lihat') ? 'Edit' : 'Batal' }}
+            </button>
+            <FormReservasi
+              :aksi="aksi"
+              :reservasi="reservasi"
+            />
+          </div>
+        </div>
       </div>
       <div v-else class="text-center">
         <i class="fa fa-exclamation-triangle text-brown" style="font-size: 4rem" />
@@ -30,15 +45,17 @@
 <script>
 import swal from 'sweetalert'
 import AdminLayout from '../../../layouts/admin'
+import FormReservasi from '../../../components/user/reservasi/FormReservasi.vue'
 
 export default {
   components: {
-    AdminLayout,
+    AdminLayout, FormReservasi
   },
   data () {
     return {
       reservasi: {},
-      loading: false
+      loading: false,
+      aksi: 'lihat'
     }
   },
   mounted () {

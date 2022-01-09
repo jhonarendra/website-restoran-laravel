@@ -1,4 +1,5 @@
 import reservasi from './modules/reservasi'
+import user from './modules/user'
 
 const state = {
   state: {
@@ -8,7 +9,7 @@ const state = {
   actions: {
   },
   modules: {
-    reservasi
+    reservasi, user
   }
 }
 export default state

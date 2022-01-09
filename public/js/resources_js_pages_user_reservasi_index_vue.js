@@ -1123,6 +1123,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1145,14 +1154,17 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         label: 'Pelanggan',
         field: 'nama_pelanggan',
+        struct: 'pelanggan.nama_user',
         sortable: true
       }, {
         label: 'Restoran',
         field: 'nama_restoran',
+        struct: 'restoran.nama_restoran',
         sortable: true
       }, {
         label: 'Pegawai',
         field: 'nama_pegawai',
+        struct: 'pegawai.nama_user',
         sortable: true
       }, {
         label: 'Status',
@@ -4127,18 +4139,20 @@ var render = function() {
               }
             }),
             _vm._v(
-              "\n            " + _vm._s(_vm.data.nama_pelanggan) + "\n      "
+              "\n            " +
+                _vm._s(_vm.data.pelanggan.nama_user) +
+                "\n      "
             )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2" }, [
             _c("i", { staticClass: "fa fa-map-marker" }),
-            _vm._v(" " + _vm._s(_vm.data.nama_restoran) + "\n      ")
+            _vm._v(" " + _vm._s(_vm.data.restoran.nama_restoran) + "\n      ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2" }, [
             _c("i", { staticClass: "fa fa-users" }),
-            _vm._v(" " + _vm._s(_vm.data.jumlah_orang) + " orang\n      ")
+            _vm._v(" " + _vm._s(_vm.data.jumlah_tamu) + " orang\n      ")
           ])
         ]),
         _vm._v(" "),
@@ -4448,6 +4462,41 @@ var render = function() {
                       staticStyle: { "white-space": "nowrap" }
                     },
                     [_vm._v(_vm._s(row.no_reservasi))]
+                  )
+                ]
+              }
+            },
+            {
+              key: "nama_pelanggan",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _vm._v(
+                    "\n        " + _vm._s(row.pelanggan.nama_user) + "\n      "
+                  )
+                ]
+              }
+            },
+            {
+              key: "nama_restoran",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _vm._v(
+                    "\n        " +
+                      _vm._s(row.restoran.nama_restoran) +
+                      "\n      "
+                  )
+                ]
+              }
+            },
+            {
+              key: "nama_pegawai",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _vm._v(
+                    "\n        " + _vm._s(row.pegawai.nama_user) + "\n      "
                   )
                 ]
               }

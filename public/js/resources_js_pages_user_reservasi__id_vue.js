@@ -104,6 +104,246 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    reservasi: {
+      type: Object,
+      "default": function _default() {
+        return null;
+      }
+    },
+    aksi: {
+      type: String,
+      "default": function _default() {
+        return null;
+      }
+    }
+  },
+  computed: {
+    user: function user() {
+      return this.$store.state.user.user;
+    }
+  },
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    this.fetchUser();
+  },
+  methods: {
+    fetchUser: function fetchUser() {
+      var _this = this;
+
+      this.$store.dispatch('fetchUser').then(function (res) {
+        if (res.data.status) {
+          _this.$store.commit('setUser', res.data.data);
+        }
+      });
+    },
+    getBadgeStatus: function getBadgeStatus(status) {
+      // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
+      switch (status) {
+        case 0:
+          return {
+            "class": 'badge-secondary',
+            text: 'Menunggu konfirmasi'
+          };
+
+        case 1:
+          return {
+            "class": 'badge-primary',
+            text: 'Dikonfirmasi'
+          };
+
+        case 2:
+          return {
+            "class": 'badge-warning',
+            text: 'Sedang Berlangsung'
+          };
+
+        case 3:
+          return {
+            "class": 'badge-danger',
+            text: 'Batal'
+          };
+
+        case 4:
+          return {
+            "class": 'badge-success',
+            text: 'Selesai'
+          };
+
+        default:
+          return {
+            "class": 'badge-warning',
+            text: 'Belum Dikonfirmasi'
+          };
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=script&lang=js& ***!
@@ -168,6 +408,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
+/* harmony import */ var _components_user_reservasi_FormReservasi_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/user/reservasi/FormReservasi.vue */ "./resources/js/components/user/reservasi/FormReservasi.vue");
 
 //
 //
@@ -198,16 +439,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_2__.default
+    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_2__.default,
+    FormReservasi: _components_user_reservasi_FormReservasi_vue__WEBPACK_IMPORTED_MODULE_3__.default
   },
   data: function data() {
     return {
       reservasi: {},
-      loading: false
+      loading: false,
+      aksi: 'lihat'
     };
   },
   mounted: function mounted() {
@@ -446,6 +705,45 @@ component.options.__file = "resources/js/components/user/SidebarUser.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/user/reservasi/FormReservasi.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/user/reservasi/FormReservasi.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FormReservasi_vue_vue_type_template_id_6118bb60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormReservasi.vue?vue&type=template&id=6118bb60& */ "./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=template&id=6118bb60&");
+/* harmony import */ var _FormReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormReservasi.vue?vue&type=script&lang=js& */ "./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _FormReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _FormReservasi_vue_vue_type_template_id_6118bb60___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FormReservasi_vue_vue_type_template_id_6118bb60___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/reservasi/FormReservasi.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/layouts/admin.vue":
 /*!****************************************!*\
   !*** ./resources/js/layouts/admin.vue ***!
@@ -542,6 +840,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FormReservasi.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/layouts/admin.vue?vue&type=script&lang=js&":
 /*!*****************************************************************!*\
   !*** ./resources/js/layouts/admin.vue?vue&type=script&lang=js& ***!
@@ -621,6 +935,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarUser_vue_vue_type_template_id_4605aca4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/SidebarUser.vue?vue&type=template&id=4605aca4&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=template&id=6118bb60&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=template&id=6118bb60& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormReservasi_vue_vue_type_template_id_6118bb60___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormReservasi_vue_vue_type_template_id_6118bb60___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormReservasi_vue_vue_type_template_id_6118bb60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FormReservasi.vue?vue&type=template&id=6118bb60& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=template&id=6118bb60&");
 
 
 /***/ }),
@@ -1033,6 +1364,428 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=template&id=6118bb60&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/FormReservasi.vue?vue&type=template&id=6118bb60& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("form", { attrs: { action: "", method: "POST" } }, [
+    _c("div", [
+      _c("h4", { staticClass: "font-weight-300 py-3" }, [
+        _vm._v("Data Pelanggan")
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "table",
+          {
+            staticClass: "table table-sm table-striped",
+            class: !_vm.user ? "d-none" : ""
+          },
+          [
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [_vm._v("Nama")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(
+                        _vm.aksi === "buat"
+                          ? _vm.user
+                            ? _vm.user.nama_user
+                            : ""
+                          : _vm.aksi === "lihat" || "edit"
+                          ? _vm.reservasi
+                            ? _vm.reservasi.pelanggan.nama_user
+                            : ""
+                          : ""
+                      ) +
+                      "\n            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Email")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(
+                      _vm.aksi === "buat"
+                        ? _vm.user
+                          ? _vm.user.email
+                          : ""
+                        : _vm.aksi === "lihat" || "edit"
+                        ? _vm.reservasi
+                          ? _vm.reservasi.pelanggan.email
+                          : ""
+                        : ""
+                    )
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Username")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(
+                      _vm.aksi === "buat"
+                        ? _vm.user
+                          ? _vm.user.username
+                          : ""
+                        : _vm.aksi === "lihat" || "edit"
+                        ? _vm.reservasi
+                          ? _vm.reservasi.pelanggan.username
+                          : ""
+                        : ""
+                    )
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Nomor HP")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(
+                      _vm.aksi === "buat"
+                        ? _vm.user
+                          ? _vm.user.no_hp
+                          : ""
+                        : _vm.aksi === "lihat" || "edit"
+                        ? _vm.reservasi
+                          ? _vm.reservasi.pelanggan.no_hp
+                          : ""
+                        : ""
+                    )
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Alamat")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(
+                      _vm.aksi === "buat"
+                        ? _vm.user
+                          ? _vm.user.alamat
+                          : ""
+                        : _vm.aksi === "lihat" || "edit"
+                        ? _vm.reservasi
+                          ? _vm.reservasi.pelanggan.alamat
+                          : ""
+                        : ""
+                    )
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        !_vm.user && _vm.aksi === "buat"
+          ? _c("div", { staticClass: "spinner-container" }, [
+              _c("div", {
+                staticClass: "spinner",
+                staticStyle: {
+                  "background-image": "url('/images/spinner-primary.svg')"
+                }
+              })
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("h4", { staticClass: "font-weight-300 py-3" }, [
+        _vm._v("Data Reservasi")
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("table", { staticClass: "table table-sm table-striped" }, [
+          _c("tbody", [
+            _c("tr", [
+              _c("td", [_vm._v("Restoran")]),
+              _vm._v(" "),
+              _vm.aksi === "buat" || _vm.aksi === "edit"
+                ? _c("td", [_vm._m(1)])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.aksi === "lihat"
+                ? _c("td", [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.reservasi.restoran.nama_restoran) +
+                        "\n            "
+                    )
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("Alamat Restoran")]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(
+                      _vm.aksi === "buat"
+                        ? ""
+                        : _vm.aksi === "lihat" || _vm.aksi === "edit"
+                        ? _vm.reservasi
+                          ? _vm.reservasi.restoran.alamat_restoran
+                          : ""
+                        : ""
+                    ) +
+                    "\n            "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("Jumlah Tamu")]),
+              _vm._v(" "),
+              _vm.aksi === "buat" || _vm.aksi === "edit"
+                ? _c("td", [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text" }
+                    })
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.aksi === "lihat"
+                ? _c("td", [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.reservasi.jumlah_tamu) +
+                        " orang\n            "
+                    )
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _vm.aksi === "lihat" || _vm.aksi === "edit"
+              ? _c("tr", [
+                  _c("td", [_vm._v("Nomor Meja")]),
+                  _vm._v(" "),
+                  _vm.aksi === "edit"
+                    ? _c("td", [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: { type: "text" }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.aksi === "lihat"
+                    ? _c("td", [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.reservasi.jumlah_tamu) +
+                            " orang\n            "
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.aksi === "lihat" || _vm.aksi === "edit"
+              ? _c("tr", [
+                  _c("td", [_vm._v("Pegawai")]),
+                  _vm._v(" "),
+                  _vm.aksi === "edit"
+                    ? _c("td", [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: { type: "text" }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.aksi === "lihat"
+                    ? _c("td", [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.reservasi.pegawai.nama_user) +
+                            "\n            "
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("Tanggal Reservasi")]),
+              _vm._v(" "),
+              _vm.aksi === "buat" || _vm.aksi === "edit"
+                ? _c("td", [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "date" }
+                    })
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.aksi === "lihat"
+                ? _c("td", [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(
+                          _vm.$helpers.dateFormat(
+                            _vm.reservasi.tanggal_reservasi
+                          )
+                        ) +
+                        "\n            "
+                    )
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _vm.aksi === "edit" || _vm.aksi === "lihat"
+              ? _c("tr", [
+                  _c("td", [_vm._v("Status")]),
+                  _vm._v(" "),
+                  _vm.aksi === "edit"
+                    ? _c("td", [_vm._v("\n              edit\n            ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.aksi === "lihat"
+                    ? _c("td", [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "badge",
+                            class: _vm.getBadgeStatus(_vm.reservasi.status)
+                              .class
+                          },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(
+                                  _vm.getBadgeStatus(_vm.reservasi.status).text
+                                ) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "Keterangan " + _vm._s(_vm.aksi === "buat" ? "" : "Pelanggan")
+                )
+              ]),
+              _vm._v(" "),
+              _vm.aksi === "buat" || _vm.aksi === "edit"
+                ? _c("td", [_c("textarea", { staticClass: "form-control" })])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.aksi === "lihat"
+                ? _c("td", [_vm._v(_vm._s(_vm.reservasi.keterangan_pelanggan))])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _vm.aksi === "edit" || _vm.aksi === "lihat"
+              ? _c("tr", [
+                  _c("td", [_vm._v("Keterangan Pegawai")]),
+                  _vm._v(" "),
+                  _vm.aksi === "edit"
+                    ? _c("td", [
+                        _c("textarea", { staticClass: "form-control" })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.aksi === "lihat"
+                    ? _c("td", [
+                        _vm._v(_vm._s(_vm.reservasi.keterangan_pegawai))
+                      ])
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.aksi === "edit" || _vm.aksi === "lihat"
+              ? _c("tr", [
+                  _c("td", [_vm._v("Timestamp")]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "small" }, [
+                    _vm._v(
+                      "Dibuat pada " +
+                        _vm._s(
+                          _vm.$helpers.dateFormat(_vm.reservasi.created_at)
+                        ) +
+                        ", Terakhir diubah " +
+                        _vm._s(
+                          _vm.$helpers.dateFormat(_vm.reservasi.updated_at)
+                        )
+                    )
+                  ])
+                ])
+              : _vm._e()
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", [_vm._v("Foto")]),
+      _vm._v(" "),
+      _c("td", [
+        _c("img", {
+          staticClass: "circle mr-2",
+          attrs: {
+            src: "/images/hidangan/spageti.jpg",
+            width: "100",
+            height: "100"
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("select", { staticClass: "form-control" }, [
+      _c("option", [_vm._v("Restoran 1")]),
+      _vm._v(" "),
+      _c("option", [_vm._v("Restoran 2")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=template&id=2829c63b&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/admin.vue?vue&type=template&id=2829c63b&scoped=true& ***!
@@ -1168,7 +1921,43 @@ var render = function() {
                       ]
                     )
                   ]
-                )
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card mt-3" }, [
+                  _c(
+                    "div",
+                    { staticClass: "card-body" },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn",
+                          class:
+                            _vm.aksi === "lihat" ? "btn-primary" : "btn-danger",
+                          on: {
+                            click: function($event) {
+                              _vm.aksi === "lihat"
+                                ? (_vm.aksi = "edit")
+                                : (_vm.aksi = "lihat")
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(_vm.aksi === "lihat" ? "Edit" : "Batal") +
+                              "\n          "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("FormReservasi", {
+                        attrs: { aksi: _vm.aksi, reservasi: _vm.reservasi }
+                      })
+                    ],
+                    1
+                  )
+                ])
               ])
             : _c(
                 "div",
