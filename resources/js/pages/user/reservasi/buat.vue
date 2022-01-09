@@ -10,6 +10,13 @@
     </nav>
     <div class="card mt-3">
       <div class="card-body">
+        <button
+          class="btn btn-danger"
+          @click="$router.push({ path: '/user/reservasi' })"
+          style="position: absolute; top: 20px; right: 20px; z-index: 9"
+        >
+          Kembali
+        </button>
         <FormReservasi
           aksi="buat"
         />

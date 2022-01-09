@@ -1,5 +1,8 @@
 <template>
-  <form action="" method="POST">
+  <form action="" method="POST" @submit="onSubmit">
+    <div v-if="aksi === 'buat'" class="alert alert-primary">
+      Pilih restoran, masukkan jumlah tamu dan tanggal reservasi
+    </div>
     <div>
       <h4 class="font-weight-300 py-3">Data Pelanggan</h4>
       <!--
@@ -54,7 +57,7 @@
         <table class="table table-sm table-striped">
           <tbody>
             <tr>
-              <td>Restoran</td>
+              <td>Restoran <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
                 <select class="form-control">
                   <option>Restoran 1</option>
@@ -72,7 +75,7 @@
               </td>
             </tr>
             <tr>
-              <td>Jumlah Tamu</td>
+              <td>Jumlah Tamu <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
                 <input type="text" class="form-control">
               </td>
@@ -99,7 +102,7 @@
               </td>
             </tr>
             <tr>
-              <td>Tanggal Reservasi</td>
+              <td>Tanggal Reservasi <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
                 <input type="date" class="form-control">
               </td>
@@ -143,6 +146,17 @@
         </table>
       </div>
     </div>
+    <div class="text-right">
+      <slot name="btn-edit" />
+      <button
+        v-if="aksi !== 'lihat'"
+        type="submit"
+        class="btn btn-primary"
+      >
+        <i class="pr-2" :class="(aksi === 'buat') ? 'fa fa-paper-plane' : 'fa fa-save'" />
+        {{ (aksi === 'buat') ? 'Buat Reservasi' : 'Simpan' }}
+      </button>
+    </div>
   </form>
 </template>
 
@@ -172,6 +186,10 @@ export default {
     this.fetchUser()
   },
   methods: {
+    onSubmit (e) {
+      e.preventDefault()
+      console.log('submit')
+    },
     fetchUser () {
       this.$store.dispatch('fetchUser').then((res) => {
         if (res.data.status) {

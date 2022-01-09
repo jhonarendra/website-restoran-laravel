@@ -263,6 +263,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reservasi: {
@@ -290,6 +304,10 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchUser();
   },
   methods: {
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      console.log('submit');
+    },
     fetchUser: function fetchUser() {
       var _this = this;
 
@@ -405,6 +423,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
 /* harmony import */ var _components_user_reservasi_FormReservasi_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/user/reservasi/FormReservasi.vue */ "./resources/js/components/user/reservasi/FormReservasi.vue");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1278,35 +1303,188 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { attrs: { action: "", method: "POST" } }, [
-    _c("div", [
-      _c("h4", { staticClass: "font-weight-300 py-3" }, [
-        _vm._v("Data Pelanggan")
-      ]),
+  return _c(
+    "form",
+    { attrs: { action: "", method: "POST" }, on: { submit: _vm.onSubmit } },
+    [
+      _vm.aksi === "buat"
+        ? _c("div", { staticClass: "alert alert-primary" }, [
+            _vm._v(
+              "\n    Pilih restoran, masukkan jumlah tamu dan tanggal reservasi\n  "
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", [
-        _c(
-          "table",
-          {
-            staticClass: "table table-sm table-striped",
-            class: !_vm.user ? "d-none" : ""
-          },
-          [
+        _c("h4", { staticClass: "font-weight-300 py-3" }, [
+          _vm._v("Data Pelanggan")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "table",
+            {
+              staticClass: "table table-sm table-striped",
+              class: !_vm.user ? "d-none" : ""
+            },
+            [
+              _c("tbody", [
+                _c("tr", [
+                  _c("td", [_vm._v("Nama")]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(
+                          _vm.aksi === "buat"
+                            ? _vm.user
+                              ? _vm.user.nama_user
+                              : ""
+                            : _vm.aksi === "lihat" || "edit"
+                            ? _vm.reservasi
+                              ? _vm.reservasi.pelanggan.nama_user
+                              : ""
+                            : ""
+                        ) +
+                        "\n            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", [_vm._v("Email")]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.aksi === "buat"
+                          ? _vm.user
+                            ? _vm.user.email
+                            : ""
+                          : _vm.aksi === "lihat" || "edit"
+                          ? _vm.reservasi
+                            ? _vm.reservasi.pelanggan.email
+                            : ""
+                          : ""
+                      )
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", [_vm._v("Username")]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.aksi === "buat"
+                          ? _vm.user
+                            ? _vm.user.username
+                            : ""
+                          : _vm.aksi === "lihat" || "edit"
+                          ? _vm.reservasi
+                            ? _vm.reservasi.pelanggan.username
+                            : ""
+                          : ""
+                      )
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", [_vm._v("Nomor HP")]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.aksi === "buat"
+                          ? _vm.user
+                            ? _vm.user.no_hp
+                            : ""
+                          : _vm.aksi === "lihat" || "edit"
+                          ? _vm.reservasi
+                            ? _vm.reservasi.pelanggan.no_hp
+                            : ""
+                          : ""
+                      )
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", [_vm._v("Alamat")]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.aksi === "buat"
+                          ? _vm.user
+                            ? _vm.user.alamat
+                            : ""
+                          : _vm.aksi === "lihat" || "edit"
+                          ? _vm.reservasi
+                            ? _vm.reservasi.pelanggan.alamat
+                            : ""
+                          : ""
+                      )
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          !_vm.user && _vm.aksi === "buat"
+            ? _c("div", { staticClass: "spinner-container" }, [
+                _c("div", {
+                  staticClass: "spinner",
+                  staticStyle: {
+                    "background-image": "url('/images/spinner-primary.svg')"
+                  }
+                })
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("h4", { staticClass: "font-weight-300 py-3" }, [
+          _vm._v("Data Reservasi")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("table", { staticClass: "table table-sm table-striped" }, [
             _c("tbody", [
               _c("tr", [
-                _c("td", [_vm._v("Nama")]),
+                _vm._m(1),
+                _vm._v(" "),
+                _vm.aksi === "buat" || _vm.aksi === "edit"
+                  ? _c("td", [_vm._m(2)])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.aksi === "lihat"
+                  ? _c("td", [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.reservasi.restoran.nama_restoran) +
+                          "\n            "
+                      )
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Alamat Restoran")]),
                 _vm._v(" "),
                 _c("td", [
                   _vm._v(
                     "\n              " +
                       _vm._s(
                         _vm.aksi === "buat"
-                          ? _vm.user
-                            ? _vm.user.nama_user
-                            : ""
-                          : _vm.aksi === "lihat" || "edit"
+                          ? ""
+                          : _vm.aksi === "lihat" || _vm.aksi === "edit"
                           ? _vm.reservasi
-                            ? _vm.reservasi.pelanggan.nama_user
+                            ? _vm.reservasi.restoran.alamat_restoran
                             : ""
                           : ""
                       ) +
@@ -1316,336 +1494,229 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", [_vm._v("Email")]),
+                _vm._m(3),
                 _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    _vm._s(
-                      _vm.aksi === "buat"
-                        ? _vm.user
-                          ? _vm.user.email
-                          : ""
-                        : _vm.aksi === "lihat" || "edit"
-                        ? _vm.reservasi
-                          ? _vm.reservasi.pelanggan.email
-                          : ""
-                        : ""
-                    )
-                  )
-                ])
+                _vm.aksi === "buat" || _vm.aksi === "edit"
+                  ? _c("td", [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text" }
+                      })
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.aksi === "lihat"
+                  ? _c("td", [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.reservasi.jumlah_tamu) +
+                          " orang\n            "
+                      )
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Username")]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    _vm._s(
-                      _vm.aksi === "buat"
-                        ? _vm.user
-                          ? _vm.user.username
-                          : ""
-                        : _vm.aksi === "lihat" || "edit"
-                        ? _vm.reservasi
-                          ? _vm.reservasi.pelanggan.username
-                          : ""
-                        : ""
-                    )
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Nomor HP")]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    _vm._s(
-                      _vm.aksi === "buat"
-                        ? _vm.user
-                          ? _vm.user.no_hp
-                          : ""
-                        : _vm.aksi === "lihat" || "edit"
-                        ? _vm.reservasi
-                          ? _vm.reservasi.pelanggan.no_hp
-                          : ""
-                        : ""
-                    )
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Alamat")]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    _vm._s(
-                      _vm.aksi === "buat"
-                        ? _vm.user
-                          ? _vm.user.alamat
-                          : ""
-                        : _vm.aksi === "lihat" || "edit"
-                        ? _vm.reservasi
-                          ? _vm.reservasi.pelanggan.alamat
-                          : ""
-                        : ""
-                    )
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        !_vm.user && _vm.aksi === "buat"
-          ? _c("div", { staticClass: "spinner-container" }, [
-              _c("div", {
-                staticClass: "spinner",
-                staticStyle: {
-                  "background-image": "url('/images/spinner-primary.svg')"
-                }
-              })
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("h4", { staticClass: "font-weight-300 py-3" }, [
-        _vm._v("Data Reservasi")
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("table", { staticClass: "table table-sm table-striped" }, [
-          _c("tbody", [
-            _c("tr", [
-              _c("td", [_vm._v("Restoran")]),
-              _vm._v(" "),
-              _vm.aksi === "buat" || _vm.aksi === "edit"
-                ? _c("td", [_vm._m(1)])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.aksi === "lihat"
-                ? _c("td", [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.reservasi.restoran.nama_restoran) +
-                        "\n            "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Alamat Restoran")]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(
-                  "\n              " +
-                    _vm._s(
-                      _vm.aksi === "buat"
-                        ? ""
-                        : _vm.aksi === "lihat" || _vm.aksi === "edit"
-                        ? _vm.reservasi
-                          ? _vm.reservasi.restoran.alamat_restoran
-                          : ""
-                        : ""
-                    ) +
-                    "\n            "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Jumlah Tamu")]),
-              _vm._v(" "),
-              _vm.aksi === "buat" || _vm.aksi === "edit"
-                ? _c("td", [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: { type: "text" }
-                    })
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.aksi === "lihat"
-                ? _c("td", [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.reservasi.jumlah_tamu) +
-                        " orang\n            "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _vm.aksi === "lihat" || _vm.aksi === "edit"
-              ? _c("tr", [
-                  _c("td", [_vm._v("Nomor Meja")]),
-                  _vm._v(" "),
-                  _vm.aksi === "edit"
-                    ? _c("td", [
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: { type: "text" }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.aksi === "lihat"
-                    ? _c("td", [
-                        _vm._v(
-                          "\n              " +
-                            _vm._s(_vm.reservasi.jumlah_tamu) +
-                            " orang\n            "
-                        )
-                      ])
-                    : _vm._e()
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.aksi === "lihat" || _vm.aksi === "edit"
-              ? _c("tr", [
-                  _c("td", [_vm._v("Pegawai")]),
-                  _vm._v(" "),
-                  _vm.aksi === "edit"
-                    ? _c("td", [
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: { type: "text" }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.aksi === "lihat"
-                    ? _c("td", [
-                        _vm._v(
-                          "\n              " +
-                            _vm._s(_vm.reservasi.pegawai.nama_user) +
-                            "\n            "
-                        )
-                      ])
-                    : _vm._e()
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Tanggal Reservasi")]),
-              _vm._v(" "),
-              _vm.aksi === "buat" || _vm.aksi === "edit"
-                ? _c("td", [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: { type: "date" }
-                    })
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.aksi === "lihat"
-                ? _c("td", [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(
-                          _vm.$helpers.dateFormat(
-                            _vm.reservasi.tanggal_reservasi
+              _vm.aksi === "lihat" || _vm.aksi === "edit"
+                ? _c("tr", [
+                    _c("td", [_vm._v("Nomor Meja")]),
+                    _vm._v(" "),
+                    _vm.aksi === "edit"
+                      ? _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text" }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.aksi === "lihat"
+                      ? _c("td", [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(_vm.reservasi.jumlah_tamu) +
+                              " orang\n            "
                           )
-                        ) +
-                        "\n            "
-                    )
+                        ])
+                      : _vm._e()
                   ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _vm.aksi === "edit" || _vm.aksi === "lihat"
-              ? _c("tr", [
-                  _c("td", [_vm._v("Status")]),
-                  _vm._v(" "),
-                  _vm.aksi === "edit"
-                    ? _c("td", [_vm._v("\n              edit\n            ")])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.aksi === "lihat"
-                    ? _c("td", [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "badge",
-                            class: _vm.getBadgeStatus(_vm.reservasi.status)
-                              .class
-                          },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(
-                                  _vm.getBadgeStatus(_vm.reservasi.status).text
-                                ) +
-                                "\n              "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [
-                _vm._v(
-                  "Keterangan " + _vm._s(_vm.aksi === "buat" ? "" : "Pelanggan")
-                )
-              ]),
-              _vm._v(" "),
-              _vm.aksi === "buat" || _vm.aksi === "edit"
-                ? _c("td", [_c("textarea", { staticClass: "form-control" })])
                 : _vm._e(),
               _vm._v(" "),
-              _vm.aksi === "lihat"
-                ? _c("td", [_vm._v(_vm._s(_vm.reservasi.keterangan_pelanggan))])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _vm.aksi === "edit" || _vm.aksi === "lihat"
-              ? _c("tr", [
-                  _c("td", [_vm._v("Keterangan Pegawai")]),
-                  _vm._v(" "),
-                  _vm.aksi === "edit"
-                    ? _c("td", [
-                        _c("textarea", { staticClass: "form-control" })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.aksi === "lihat"
-                    ? _c("td", [
-                        _vm._v(_vm._s(_vm.reservasi.keterangan_pegawai))
-                      ])
-                    : _vm._e()
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.aksi === "edit" || _vm.aksi === "lihat"
-              ? _c("tr", [
-                  _c("td", [_vm._v("Timestamp")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "small" }, [
-                    _vm._v(
-                      "Dibuat pada " +
-                        _vm._s(
-                          _vm.$helpers.dateFormat(_vm.reservasi.created_at)
-                        ) +
-                        ", Terakhir diubah " +
-                        _vm._s(
-                          _vm.$helpers.dateFormat(_vm.reservasi.updated_at)
-                        )
-                    )
+              _vm.aksi === "lihat" || _vm.aksi === "edit"
+                ? _c("tr", [
+                    _c("td", [_vm._v("Pegawai")]),
+                    _vm._v(" "),
+                    _vm.aksi === "edit"
+                      ? _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text" }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.aksi === "lihat"
+                      ? _c("td", [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(_vm.reservasi.pegawai.nama_user) +
+                              "\n            "
+                          )
+                        ])
+                      : _vm._e()
                   ])
-                ])
-              : _vm._e()
+                : _vm._e(),
+              _vm._v(" "),
+              _c("tr", [
+                _vm._m(4),
+                _vm._v(" "),
+                _vm.aksi === "buat" || _vm.aksi === "edit"
+                  ? _c("td", [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "date" }
+                      })
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.aksi === "lihat"
+                  ? _c("td", [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(
+                            _vm.$helpers.dateFormat(
+                              _vm.reservasi.tanggal_reservasi
+                            )
+                          ) +
+                          "\n            "
+                      )
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _vm.aksi === "edit" || _vm.aksi === "lihat"
+                ? _c("tr", [
+                    _c("td", [_vm._v("Status")]),
+                    _vm._v(" "),
+                    _vm.aksi === "edit"
+                      ? _c("td", [_vm._v("\n              edit\n            ")])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.aksi === "lihat"
+                      ? _c("td", [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "badge",
+                              class: _vm.getBadgeStatus(_vm.reservasi.status)
+                                .class
+                            },
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    _vm.getBadgeStatus(_vm.reservasi.status)
+                                      .text
+                                  ) +
+                                  "\n              "
+                              )
+                            ]
+                          )
+                        ])
+                      : _vm._e()
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [
+                  _vm._v(
+                    "Keterangan " +
+                      _vm._s(_vm.aksi === "buat" ? "" : "Pelanggan")
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.aksi === "buat" || _vm.aksi === "edit"
+                  ? _c("td", [_c("textarea", { staticClass: "form-control" })])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.aksi === "lihat"
+                  ? _c("td", [
+                      _vm._v(_vm._s(_vm.reservasi.keterangan_pelanggan))
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _vm.aksi === "edit" || _vm.aksi === "lihat"
+                ? _c("tr", [
+                    _c("td", [_vm._v("Keterangan Pegawai")]),
+                    _vm._v(" "),
+                    _vm.aksi === "edit"
+                      ? _c("td", [
+                          _c("textarea", { staticClass: "form-control" })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.aksi === "lihat"
+                      ? _c("td", [
+                          _vm._v(_vm._s(_vm.reservasi.keterangan_pegawai))
+                        ])
+                      : _vm._e()
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.aksi === "edit" || _vm.aksi === "lihat"
+                ? _c("tr", [
+                    _c("td", [_vm._v("Timestamp")]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "small" }, [
+                      _vm._v(
+                        "Dibuat pada " +
+                          _vm._s(
+                            _vm.$helpers.dateFormat(_vm.reservasi.created_at)
+                          ) +
+                          ", Terakhir diubah " +
+                          _vm._s(
+                            _vm.$helpers.dateFormat(_vm.reservasi.updated_at)
+                          )
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ])
           ])
         ])
-      ])
-    ])
-  ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-right" },
+        [
+          _vm._t("btn-edit"),
+          _vm._v(" "),
+          _vm.aksi !== "lihat"
+            ? _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                [
+                  _c("i", {
+                    staticClass: "pr-2",
+                    class:
+                      _vm.aksi === "buat" ? "fa fa-paper-plane" : "fa fa-save"
+                  }),
+                  _vm._v(
+                    "\n      " +
+                      _vm._s(
+                        _vm.aksi === "buat" ? "Buat Reservasi" : "Simpan"
+                      ) +
+                      "\n    "
+                  )
+                ]
+              )
+            : _vm._e()
+        ],
+        2
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -1671,10 +1742,37 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("td", [
+      _vm._v("Restoran "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("select", { staticClass: "form-control" }, [
       _c("option", [_vm._v("Restoran 1")]),
       _vm._v(" "),
       _c("option", [_vm._v("Restoran 2")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _vm._v("Jumlah Tamu "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _vm._v("Tanggal Reservasi "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
   }
 ]
@@ -1804,7 +1902,28 @@ var render = function() {
       _c(
         "div",
         { staticClass: "card-body" },
-        [_c("FormReservasi", { attrs: { aksi: "buat" } })],
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              staticStyle: {
+                position: "absolute",
+                top: "20px",
+                right: "20px",
+                "z-index": "9"
+              },
+              on: {
+                click: function($event) {
+                  return _vm.$router.push({ path: "/user/reservasi" })
+                }
+              }
+            },
+            [_vm._v("\n        Kembali\n      ")]
+          ),
+          _vm._v(" "),
+          _c("FormReservasi", { attrs: { aksi: "buat" } })
+        ],
         1
       )
     ])

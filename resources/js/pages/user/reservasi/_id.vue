@@ -13,16 +13,28 @@
         <div class="card mt-3">
           <div class="card-body">
             <button
-              class="btn"
-              :class="(aksi === 'lihat') ? 'btn-primary' : 'btn-danger'"
-              @click="(aksi === 'lihat') ? aksi = 'edit' : aksi = 'lihat'"
+              class="btn btn-danger"
+              @click="$router.push({ path: '/user/reservasi' })"
+              style="position: absolute; top: 20px; right: 20px;"
             >
-              {{ (aksi === 'lihat') ? 'Edit' : 'Batal' }}
+              Kembali
             </button>
             <FormReservasi
               :aksi="aksi"
               :reservasi="reservasi"
-            />
+            >
+              <template #btn-edit>
+                <button
+                  type="button"
+                  class="btn"
+                  :class="(aksi === 'lihat') ? 'btn-primary' : 'btn-danger'"
+                  @click="(aksi === 'lihat') ? aksi = 'edit' : aksi = 'lihat'"
+                >
+                  <i class="pr-2" :class="(aksi === 'lihat') ? 'fa fa-pencil' : 'fa fa-times'" />
+                  {{ (aksi === 'lihat') ? 'Edit' : 'Batal' }}
+                </button>
+              </template>
+            </FormReservasi>
           </div>
         </div>
       </div>
