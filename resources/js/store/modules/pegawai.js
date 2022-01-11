@@ -1,9 +1,8 @@
 const data = [
   {
     id_pegawai: 1,
-    nama_pegawai: 'Spagetti',
-    jenis: 1, // 1 makanan, 2 minuman
-    harga: 45000,
+    nama_pegawai: 'Made Pegawai',
+    jenis: 1, // 1 admin, 2 pegawai
     foto: '',
     created_at: '2022-10-10 10:10:10',
     updated_at: '2022-10-10 10:10:10',
@@ -11,9 +10,8 @@ const data = [
   },
   {
     id_pegawai: 2,
-    nama_pegawai: 'Mie',
-    jenis: 1, // 1 makanan, 2 minuman
-    harga: 5000,
+    nama_pegawai: 'Nyoman Pegawai',
+    jenis: 2, // 1 admin, 2 pegawai
     foto: '',
     created_at: '2022-10-10 10:10:10',
     updated_at: '2022-10-10 10:10:10',
@@ -21,9 +19,8 @@ const data = [
   },
   {
     id_pegawai: 3,
-    nama_pegawai: 'Es Jeruk',
-    jenis: 2, // 1 makanan, 2 minuman
-    harga: 3000,
+    nama_pegawai: 'Nyoman Pegawai',
+    jenis: 2, // 1 admin, 2 pegawai
     foto: '',
     created_at: '2022-10-10 10:10:10',
     updated_at: '2022-10-10 10:10:10',

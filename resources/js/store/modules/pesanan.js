@@ -18,11 +18,25 @@ const data = [
       id_pegawai: 8,
       nama_pegawai: 'Wayan Li',
     },
+    detail: [
+
+    ],
     total: 200000,
     status: 1, // 0 belum dibayar, 1 sudah bayar, belum dikonfirmasi, 2 sudah bayar, sedang proses, 3 selesai
     created_at: '2022-10-10 10:10:10',
     updated_at: '2022-10-10 10:10:10',
     deleted_at: null
+  }
+]
+
+const detail_pesanan = [
+  {
+    id_detail_pesanan: 1,
+    id_pesanan: 1,
+    id_hidangan: 1,
+    harga: 1000, // catet disini jga, siapa tau setelah trx diubah harganya
+    jumlah: 3,
+    nominal: 3000
   }
 ]
 

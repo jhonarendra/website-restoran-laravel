@@ -1,9 +1,9 @@
 const data = [
   {
     id_pelanggan: 1,
-    nama_pelanggan: 'Spagetti',
-    jenis: 1, // 1 makanan, 2 minuman
-    harga: 45000,
+    nama_pelanggan: 'Johnson',
+    no_hp: '',
+    alamat: '',
     foto: '',
     created_at: '2022-10-10 10:10:10',
     updated_at: '2022-10-10 10:10:10',
@@ -11,9 +11,9 @@ const data = [
   },
   {
     id_pelanggan: 2,
-    nama_pelanggan: 'Mie',
-    jenis: 1, // 1 makanan, 2 minuman
-    harga: 5000,
+    nama_pelanggan: 'Johnson',
+    no_hp: '',
+    alamat: '',
     foto: '',
     created_at: '2022-10-10 10:10:10',
     updated_at: '2022-10-10 10:10:10',
@@ -21,9 +21,9 @@ const data = [
   },
   {
     id_pelanggan: 3,
-    nama_pelanggan: 'Es Jeruk',
-    jenis: 2, // 1 makanan, 2 minuman
-    harga: 3000,
+    nama_pelanggan: 'Johnson',
+    no_hp: '',
+    alamat: '',
     foto: '',
     created_at: '2022-10-10 10:10:10',
     updated_at: '2022-10-10 10:10:10',

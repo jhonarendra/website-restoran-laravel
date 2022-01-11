@@ -2461,30 +2461,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var data = [{
   id_pegawai: 1,
-  nama_pegawai: 'Spagetti',
+  nama_pegawai: 'Made Pegawai',
   jenis: 1,
-  // 1 makanan, 2 minuman
-  harga: 45000,
+  // 1 admin, 2 pegawai
   foto: '',
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
   deleted_at: null
 }, {
   id_pegawai: 2,
-  nama_pegawai: 'Mie',
-  jenis: 1,
-  // 1 makanan, 2 minuman
-  harga: 5000,
+  nama_pegawai: 'Nyoman Pegawai',
+  jenis: 2,
+  // 1 admin, 2 pegawai
   foto: '',
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
   deleted_at: null
 }, {
   id_pegawai: 3,
-  nama_pegawai: 'Es Jeruk',
+  nama_pegawai: 'Nyoman Pegawai',
   jenis: 2,
-  // 1 makanan, 2 minuman
-  harga: 3000,
+  // 1 admin, 2 pegawai
   foto: '',
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
@@ -2558,30 +2555,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var data = [{
   id_pelanggan: 1,
-  nama_pelanggan: 'Spagetti',
-  jenis: 1,
-  // 1 makanan, 2 minuman
-  harga: 45000,
+  nama_pelanggan: 'Johnson',
+  no_hp: '',
+  alamat: '',
   foto: '',
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
   deleted_at: null
 }, {
   id_pelanggan: 2,
-  nama_pelanggan: 'Mie',
-  jenis: 1,
-  // 1 makanan, 2 minuman
-  harga: 5000,
+  nama_pelanggan: 'Johnson',
+  no_hp: '',
+  alamat: '',
   foto: '',
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
   deleted_at: null
 }, {
   id_pelanggan: 3,
-  nama_pelanggan: 'Es Jeruk',
-  jenis: 2,
-  // 1 makanan, 2 minuman
-  harga: 3000,
+  nama_pelanggan: 'Johnson',
+  no_hp: '',
+  alamat: '',
   foto: '',
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
@@ -2769,12 +2763,22 @@ var data = [{
     id_pegawai: 8,
     nama_pegawai: 'Wayan Li'
   },
+  detail: [],
   total: 200000,
   status: 1,
   // 0 belum dibayar, 1 sudah bayar, belum dikonfirmasi, 2 sudah bayar, sedang proses, 3 selesai
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
   deleted_at: null
+}];
+var detail_pesanan = [{
+  id_detail_pesanan: 1,
+  id_pesanan: 1,
+  id_hidangan: 1,
+  harga: 1000,
+  // catet disini jga, siapa tau setelah trx diubah harganya
+  jumlah: 3,
+  nominal: 3000
 }];
 var state = {
   pesanan: [],
@@ -3201,6 +3205,18 @@ var data = [{
   foto: 'sjd',
   tipe_user: 2,
   // 1 pelanggan, 2 pegawai, 3 admin web
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var ygbarunanti = [{
+  id_user: 1,
+  email: 'kdlsdkf@fjdkf.com',
+  password: 'sdfsdfsd',
+  tipe: 1,
+  // 1 pegawai, 2 pelanggan
+  id_entitas: 1,
+  // ke pegawai/pelanggan
   created_at: '2022-10-10 10:10:10',
   updated_at: '2022-10-10 10:10:10',
   deleted_at: null

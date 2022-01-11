@@ -43,6 +43,19 @@ const data = [
   }
 ]
 
+const ygbarunanti = [
+  {
+    id_user: 1,
+    email: 'kdlsdkf@fjdkf.com',
+    password: 'sdfsdfsd',
+    tipe: 1, // 1 pegawai, 2 pelanggan
+    id_entitas: 1, // ke pegawai/pelanggan
+    created_at: '2022-10-10 10:10:10',
+    updated_at: '2022-10-10 10:10:10',
+    deleted_at: null
+  }
+]
+
 const state = {
   user: [],
   userLogin: null
