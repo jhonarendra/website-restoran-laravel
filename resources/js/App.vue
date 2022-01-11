@@ -1,5 +1,12 @@
 <template>
 	<div id="app" style="overflow-x: hidden">
+		<div
+			v-if="modeFrontEnd"
+			class="alert alert-primary w-100 mb-0"
+			style="position: fixed; bottom: 0; z-index: 99; border-radius: 0; border: 0;"
+		>
+			<p>Mode <i>front-end</i> aktif. Data aplikasi tidak terhubung dengan server</p>
+		</div>
 		<router-view/>
 	</div>
 </template>
@@ -8,7 +15,7 @@
 export default {
 	data () {
 		return {
-			
+			modeFrontEnd: true
 		}
 	}
 }

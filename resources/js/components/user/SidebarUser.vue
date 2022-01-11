@@ -20,6 +20,11 @@
         Edit Profil
       </a>
     </div>
+    <div class="list-group mt-3">
+      <router-link to="/login" class="list-group-item list-group-item-action bg-white text-danger">
+        Logout
+      </router-link>
+    </div>
   </div>
 </template>
 

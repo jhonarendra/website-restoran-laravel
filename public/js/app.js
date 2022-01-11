@@ -1911,9 +1911,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      modeFrontEnd: true
+    };
   }
 });
 
@@ -42400,11 +42409,41 @@ var render = function() {
   return _c(
     "div",
     { staticStyle: { "overflow-x": "hidden" }, attrs: { id: "app" } },
-    [_c("router-view")],
+    [
+      _vm.modeFrontEnd
+        ? _c(
+            "div",
+            {
+              staticClass: "alert alert-primary w-100 mb-0",
+              staticStyle: {
+                position: "fixed",
+                bottom: "0",
+                "z-index": "99",
+                "border-radius": "0",
+                border: "0"
+              }
+            },
+            [_vm._m(0)]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("router-view")
+    ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("Mode "),
+      _c("i", [_vm._v("front-end")]),
+      _vm._v(" aktif. Data aplikasi tidak terhubung dengan server")
+    ])
+  }
+]
 render._withStripped = true
 
 

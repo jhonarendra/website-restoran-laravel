@@ -9,10 +9,11 @@
           <div class="login-content card">
             <div class="login-form">
               <h4>Login</h4>
-              <form method="POST" action="">
+              <form method="POST" action="" @submit="onSubmit">
                 <div class="form-group">
                   <label>Email</label>
                   <input
+                    v-model="form.email"
                     id="email"
                     class="form-control"
                     type="email"
@@ -24,6 +25,7 @@
                 <div class="form-group">
                   <label>Password</label>
                   <input
+                    v-model="form.password"
                     id="password"
                     class="form-control"
                     type="password"
@@ -50,6 +52,25 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      form: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    onSubmit (e) {
+      e.preventDefault()
+      this.$router.push({ path: '/user' })
+    }
+  }
+}
+</script>
 
 <style scoped>
   .login-content {

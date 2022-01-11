@@ -1502,56 +1502,83 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "user-profile" }, [
+    _c("div", {
+      staticClass: "user-photo",
+      staticStyle: { "background-image": "url('/images/hidangan/spageti.jpg')" }
+    }),
+    _vm._v(" "),
+    _c("h4", { staticClass: "text-center text-white mt-3 font-weight-300" }, [
+      _vm._v("Nama Lengkap Saya")
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "list-group mt-3" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "list-group-item list-group-item-action bg-white text-danger",
+            attrs: { to: "/login" }
+          },
+          [_vm._v("\n      Logout\n    ")]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-profile" }, [
-      _c("div", {
-        staticClass: "user-photo",
-        staticStyle: {
-          "background-image": "url('/images/hidangan/spageti.jpg')"
-        }
-      }),
-      _vm._v(" "),
-      _c("h4", { staticClass: "text-center text-white mt-3 font-weight-300" }, [
-        _vm._v("Nama Lengkap Saya")
+    return _c("p", { staticClass: "text-center" }, [
+      _c("span", { staticClass: "badge badge-success" }, [_vm._v("Admin")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "list-group mt-3" }, [
+      _c("li", { staticClass: "list-group-item" }, [
+        _c("i", { staticClass: "fa fa-envelope pr-2" }),
+        _vm._v(" email@gmail.com\n    ")
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "text-center" }, [
-        _c("span", { staticClass: "badge badge-success" }, [_vm._v("Admin")])
+      _c("li", { staticClass: "list-group-item" }, [
+        _c("i", { staticClass: "fa fa-user pr-2" }),
+        _vm._v(" username")
       ]),
       _vm._v(" "),
-      _c("ul", { staticClass: "list-group mt-3" }, [
-        _c("li", { staticClass: "list-group-item" }, [
-          _c("i", { staticClass: "fa fa-envelope pr-2" }),
-          _vm._v(" email@gmail.com\n    ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _c("i", { staticClass: "fa fa-user pr-2" }),
-          _vm._v(" username")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _c("i", { staticClass: "fa fa-phone pr-2" }),
-          _vm._v("0899298292")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "list-group mt-3" }, [
-        _c(
-          "a",
-          {
-            staticClass: "list-group-item list-group-item-action bg-white",
-            attrs: { href: "#" }
-          },
-          [_vm._v("\n      Edit Profil\n    ")]
-        )
+      _c("li", { staticClass: "list-group-item" }, [
+        _c("i", { staticClass: "fa fa-phone pr-2" }),
+        _vm._v("0899298292")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "list-group mt-3" }, [
+      _c(
+        "a",
+        {
+          staticClass: "list-group-item list-group-item-action bg-white",
+          attrs: { href: "#" }
+        },
+        [_vm._v("\n      Edit Profil\n    ")]
+      )
     ])
   }
 ]
