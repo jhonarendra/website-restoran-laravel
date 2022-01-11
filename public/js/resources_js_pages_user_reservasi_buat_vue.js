@@ -1984,7 +1984,32 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _vm.aksi === "buat" || _vm.aksi === "edit"
-                  ? _c("td", [_c("textarea", { staticClass: "form-control" })])
+                  ? _c("td", [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.keterangan_pelanggan,
+                            expression: "form.keterangan_pelanggan"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.form.keterangan_pelanggan },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "keterangan_pelanggan",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.aksi === "lihat"
@@ -2000,7 +2025,30 @@ var render = function() {
                     _vm._v(" "),
                     _vm.aksi === "edit"
                       ? _c("td", [
-                          _c("textarea", { staticClass: "form-control" })
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.keterangan_pegawai,
+                                expression: "form.keterangan_pegawai"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            domProps: { value: _vm.form.keterangan_pegawai },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "keterangan_pegawai",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
                         ])
                       : _vm._e(),
                     _vm._v(" "),

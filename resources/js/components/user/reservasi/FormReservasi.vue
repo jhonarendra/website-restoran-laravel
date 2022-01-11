@@ -160,14 +160,14 @@
             <tr>
               <td>Keterangan {{ (aksi === 'buat') ? '' : 'Pelanggan' }}</td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
-                <textarea class="form-control"></textarea>
+                <textarea v-model="form.keterangan_pelanggan" class="form-control"></textarea>
               </td>
               <td v-if="aksi === 'lihat'">{{ reservasi.keterangan_pelanggan }}</td>
             </tr>
             <tr v-if="aksi === 'edit' || aksi === 'lihat'">
               <td>Keterangan Pegawai</td>
               <td v-if="aksi === 'edit'">
-                <textarea class="form-control"></textarea>
+                <textarea v-model="form.keterangan_pegawai" class="form-control"></textarea>
               </td>
               <td v-if="aksi === 'lihat'">{{ reservasi.keterangan_pegawai }}</td>
             </tr>
