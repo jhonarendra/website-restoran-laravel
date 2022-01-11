@@ -10,6 +10,8 @@ const routes = [
 
   
   { path: "/user", name: "user", component: () => import("../pages/user/index.vue") },
+  { path: "/user/restoran", name: "user-restoran", component: () => import("../pages/user/restoran/index.vue") },
+  { path: "/user/hidangan", name: "user-hidangan", component: () => import("../pages/user/hidangan/index.vue") },
   { path: "/user/reservasi", name: "user-reservasi", component: () => import("../pages/user/reservasi/index.vue") },
   { path: "/user/reservasi/buat", name: "user-reservasi-buat", component: () => import("../pages/user/reservasi/buat.vue") },
   { path: "/user/reservasi/:id", name: "user-reservasi-id", component: () => import("../pages/user/reservasi/_id.vue") },

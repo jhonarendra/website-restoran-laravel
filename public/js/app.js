@@ -2215,6 +2215,18 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_pages_user_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/index.vue */ "./resources/js/pages/user/index.vue"));
   }
 }, {
+  path: "/user/restoran",
+  name: "user-restoran",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_restoran_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/restoran/index.vue */ "./resources/js/pages/user/restoran/index.vue"));
+  }
+}, {
+  path: "/user/hidangan",
+  name: "user-hidangan",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_hidangan_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/hidangan/index.vue */ "./resources/js/pages/user/hidangan/index.vue"));
+  }
+}, {
   path: "/user/reservasi",
   name: "user-reservasi",
   component: function component() {
@@ -2275,6 +2287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/reservasi */ "./resources/js/store/modules/reservasi.js");
 /* harmony import */ var _modules_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/user */ "./resources/js/store/modules/user.js");
 /* harmony import */ var _modules_restoran__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/restoran */ "./resources/js/store/modules/restoran.js");
+/* harmony import */ var _modules_hidangan__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/hidangan */ "./resources/js/store/modules/hidangan.js");
+
 
 
 
@@ -2285,10 +2299,108 @@ var state = {
   modules: {
     reservasi: _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__.default,
     user: _modules_user__WEBPACK_IMPORTED_MODULE_1__.default,
-    restoran: _modules_restoran__WEBPACK_IMPORTED_MODULE_2__.default
+    restoran: _modules_restoran__WEBPACK_IMPORTED_MODULE_2__.default,
+    hidangan: _modules_hidangan__WEBPACK_IMPORTED_MODULE_3__.default
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (state);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/hidangan.js":
+/*!************************************************!*\
+  !*** ./resources/js/store/modules/hidangan.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var data = [{
+  id_hidangan: 1,
+  nama_hidangan: 'Spagetti',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 45000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_hidangan: 2,
+  nama_hidangan: 'Mie',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 5000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_hidangan: 3,
+  nama_hidangan: 'Es Jeruk',
+  jenis: 2,
+  // 1 makanan, 2 minuman
+  harga: 3000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var state = {
+  hidangan: [],
+  tableViewHidangan: 'table'
+};
+var mutations = {
+  setHidangan: function setHidangan(state, data) {
+    state.hidangan = data;
+  },
+  setTableViewHidangan: function setTableViewHidangan(state, data) {
+    state.tableViewHidangan = data;
+  }
+};
+var actions = {
+  fetchHidangan: function fetchHidangan() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+};
+var getters = {
+  getAllHidangan: function getAllHidangan(state) {
+    return state.hidangan;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
+});
 
 /***/ }),
 
@@ -58820,7 +58932,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1,"resources_js_pages_error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_restoran_index_vue":1,"resources_js_pages_user_hidangan_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1,"resources_js_pages_error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
