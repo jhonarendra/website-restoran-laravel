@@ -40,7 +40,8 @@ export default {
         { name: 'pelanggan', icon: 'fa fa-user-circle', link: '/user/pelanggan' },
         { name: 'pegawai', icon: 'fa fa-user-secret', link: '/user/pegawai' },
         { name: 'hidangan', icon: 'fa fa-glass', link: '/user/hidangan' },
-        { name: 'restoran', icon: 'fa fa-home', link: '/user/restoran' }
+        { name: 'restoran', icon: 'fa fa-home', link: '/user/restoran' },
+        { name: 'pengaturan', icon: 'fa fa-gear', link: '/user/pengaturan' }
       ]
     }
   }

@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_user_reservasi_index_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_user_pelanggan_index_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/global/TableComp.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
@@ -811,9 +811,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -828,30 +828,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -890,52 +866,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    if (this.tableDataChecked.includes(this.data.id_reservasi)) {
-      this.checked.push(this.data.id_reservasi);
+    if (this.tableDataChecked.includes(this.data.id_pelanggan)) {
+      this.checked.push(this.data.id_pelanggan);
     } else {
       this.checked = [];
-    }
-  },
-  methods: {
-    getBadgeStatus: function getBadgeStatus(status) {
-      // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
-      switch (status) {
-        case 0:
-          return {
-            "class": 'badge-secondary',
-            text: 'Menunggu konfirmasi'
-          };
-
-        case 1:
-          return {
-            "class": 'badge-primary',
-            text: 'Dikonfirmasi'
-          };
-
-        case 2:
-          return {
-            "class": 'badge-warning',
-            text: 'Sedang Berlangsung'
-          };
-
-        case 3:
-          return {
-            "class": 'badge-danger',
-            text: 'Batal'
-          };
-
-        case 4:
-          return {
-            "class": 'badge-success',
-            text: 'Selesai'
-          };
-
-        default:
-          return {
-            "class": 'badge-warning',
-            text: 'Belum Dikonfirmasi'
-          };
-      }
     }
   }
 });
@@ -990,9 +924,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/reservasi/index.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/pelanggan/index.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/reservasi/index.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/pelanggan/index.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1021,7 +955,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../components/global/TableComp.vue */ "./resources/js/components/global/TableComp.vue");
 /* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
-/* harmony import */ var _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../components/user/reservasi/CardReservasi.vue */ "./resources/js/components/user/reservasi/CardReservasi.vue");
+/* harmony import */ var _components_user_pelanggan_CardPelanggan_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../components/user/pelanggan/CardPelanggan.vue */ "./resources/js/components/user/pelanggan/CardPelanggan.vue");
 
 
 
@@ -1030,6 +964,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1146,7 +1104,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_10__.default,
     TableComp: _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_9__.default,
-    CardReservasi: _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_11__.default
+    CardPelanggan: _components_user_pelanggan_CardPelanggan_vue__WEBPACK_IMPORTED_MODULE_11__.default
   },
   data: function data() {
     return {
@@ -1154,27 +1112,20 @@ __webpack_require__.r(__webpack_exports__);
         label: '',
         field: 'checkbox'
       }, {
-        label: 'Nomor',
-        field: 'no_reservasi',
+        label: 'ID',
+        field: 'id_pelanggan',
         sortable: true
       }, {
-        label: 'Pelanggan',
+        label: 'Nama Pelanggan',
         field: 'nama_pelanggan',
-        struct: 'pelanggan.nama_user',
         sortable: true
       }, {
-        label: 'Restoran',
-        field: 'nama_restoran',
-        struct: 'restoran.nama_restoran',
+        label: 'Harga',
+        field: 'harga',
         sortable: true
       }, {
-        label: 'Pegawai',
-        field: 'nama_pegawai',
-        struct: 'pegawai.nama_user',
-        sortable: true
-      }, {
-        label: 'Status',
-        field: 'status',
+        label: 'Jenis',
+        field: 'jenis',
         sortable: true
       }, {
         label: 'Dibuat',
@@ -1187,31 +1138,38 @@ __webpack_require__.r(__webpack_exports__);
       items: [],
       tableLoading: false,
       tableView: 'table',
-      tableDataChecked: []
+      tableDataChecked: [],
+      aksi: 'tambah',
+      form: {
+        id_pelanggan: '',
+        nama_pelanggan: '',
+        harga: 0,
+        jenis: 1
+      }
     };
   },
   mounted: function mounted() {
-    if (this.$store.state.reservasi.reservasi.length === 0) {
-      this.loadDataReservasi();
+    if (this.$store.state.pelanggan.pelanggan.length === 0) {
+      this.loadDataPelanggan();
     } else {
-      this.items = this.$store.state.reservasi.reservasi;
+      this.items = this.$store.state.pelanggan.pelanggan;
     }
 
-    this.tableView = this.$store.state.reservasi.tableViewReservasi;
+    this.tableView = this.$store.state.pelanggan.tableViewPelanggan;
   },
   methods: {
-    loadDataReservasi: function loadDataReservasi() {
+    loadDataPelanggan: function loadDataPelanggan() {
       var _this = this;
 
       this.tableLoading = true;
       setTimeout(function () {
-        _this.$store.dispatch('fetchReservasi').then(function (res) {
+        _this.$store.dispatch('fetchPelanggan').then(function (res) {
           _this.tableLoading = false;
 
           if (res.data.status) {
             _this.items = res.data.data;
 
-            _this.$store.commit('setReservasi', _this.items);
+            _this.$store.commit('setPelanggan', _this.items);
           } else {
             sweetalert__WEBPACK_IMPORTED_MODULE_8___default()({
               title: 'Gagal',
@@ -1223,63 +1181,38 @@ __webpack_require__.r(__webpack_exports__);
         });
       }, 2000);
     },
-    getBadgeStatus: function getBadgeStatus(status) {
-      // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
-      switch (status) {
-        case 0:
-          return {
-            "class": 'badge-secondary',
-            text: 'Menunggu konfirmasi'
-          };
-
-        case 1:
-          return {
-            "class": 'badge-primary',
-            text: 'Dikonfirmasi'
-          };
-
-        case 2:
-          return {
-            "class": 'badge-warning',
-            text: 'Sedang Berlangsung'
-          };
-
-        case 3:
-          return {
-            "class": 'badge-danger',
-            text: 'Batal'
-          };
-
-        case 4:
-          return {
-            "class": 'badge-success',
-            text: 'Selesai'
-          };
-
-        default:
-          return {
-            "class": 'badge-warning',
-            text: 'Belum Dikonfirmasi'
-          };
-      }
+    tambah: function tambah() {
+      this.aksi = 'tambah';
+      this.form.id_pelanggan = '';
+      this.form.nama_pelanggan = '';
+      this.form.harga = 0;
+      this.form.jenis = 0;
+      $('#modal-pelanggan').modal('show');
     },
     lihat: function lihat(row) {
-      this.$router.push({
-        path: "/user/reservasi/".concat(row.id_reservasi)
-      });
+      this.aksi = 'edit';
+      this.form.id_pelanggan = row.id_pelanggan;
+      this.form.nama_pelanggan = row.nama_pelanggan;
+      this.form.harga = row.harga;
+      this.form.jenis = row.jenis;
+      $('#modal-pelanggan').modal('show');
     },
     hapus: function hapus(row) {
       console.log(row);
     },
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      console.log('submit');
+    },
     setTableViewMode: function setTableViewMode(val) {
       this.tableView = val;
-      this.$store.commit('setTableViewReservasi', val);
+      this.$store.commit('setTableViewPelanggan', val);
     },
     handleCheckbox: function handleCheckbox(val) {
       var cbVal = [];
 
       if (val) {
-        document.querySelectorAll('input[name="cbReservasi"]').forEach(function (e) {
+        document.querySelectorAll('input[name="cbPelanggan"]').forEach(function (e) {
           cbVal.push(parseInt(e.value));
         });
       }
@@ -2608,9 +2541,9 @@ component.options.__file = "resources/js/components/user/SidebarUser.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/user/reservasi/CardReservasi.vue":
+/***/ "./resources/js/components/user/pelanggan/CardPelanggan.vue":
 /*!******************************************************************!*\
-  !*** ./resources/js/components/user/reservasi/CardReservasi.vue ***!
+  !*** ./resources/js/components/user/pelanggan/CardPelanggan.vue ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2619,8 +2552,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardReservasi.vue?vue&type=template&id=d2a060f8& */ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&");
-/* harmony import */ var _CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardReservasi.vue?vue&type=script&lang=js& */ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&");
+/* harmony import */ var _CardPelanggan_vue_vue_type_template_id_ec33b36c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardPelanggan.vue?vue&type=template&id=ec33b36c& */ "./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=template&id=ec33b36c&");
+/* harmony import */ var _CardPelanggan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardPelanggan.vue?vue&type=script&lang=js& */ "./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -2630,9 +2563,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.render,
-  _CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _CardPelanggan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _CardPelanggan_vue_vue_type_template_id_ec33b36c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CardPelanggan_vue_vue_type_template_id_ec33b36c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -2642,7 +2575,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/user/reservasi/CardReservasi.vue"
+component.options.__file = "resources/js/components/user/pelanggan/CardPelanggan.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -2688,9 +2621,9 @@ component.options.__file = "resources/js/layouts/admin.vue"
 
 /***/ }),
 
-/***/ "./resources/js/pages/user/reservasi/index.vue":
+/***/ "./resources/js/pages/user/pelanggan/index.vue":
 /*!*****************************************************!*\
-  !*** ./resources/js/pages/user/reservasi/index.vue ***!
+  !*** ./resources/js/pages/user/pelanggan/index.vue ***!
   \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2699,8 +2632,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _index_vue_vue_type_template_id_3c86fe94___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=3c86fe94& */ "./resources/js/pages/user/reservasi/index.vue?vue&type=template&id=3c86fe94&");
-/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/pages/user/reservasi/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _index_vue_vue_type_template_id_45ca830e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=45ca830e& */ "./resources/js/pages/user/pelanggan/index.vue?vue&type=template&id=45ca830e&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/pages/user/pelanggan/index.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -2711,8 +2644,8 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
   _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _index_vue_vue_type_template_id_3c86fe94___WEBPACK_IMPORTED_MODULE_0__.render,
-  _index_vue_vue_type_template_id_3c86fe94___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _index_vue_vue_type_template_id_45ca830e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _index_vue_vue_type_template_id_45ca830e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -2722,7 +2655,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/pages/user/reservasi/index.vue"
+component.options.__file = "resources/js/pages/user/pelanggan/index.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -2759,9 +2692,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************!*\
-  !*** ./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2770,8 +2703,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardReservasi.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPelanggan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardPelanggan.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPelanggan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -2791,9 +2724,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/user/reservasi/index.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/pages/user/pelanggan/index.vue?vue&type=script&lang=js&":
 /*!******************************************************************************!*\
-  !*** ./resources/js/pages/user/reservasi/index.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/pages/user/pelanggan/index.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2802,7 +2735,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/reservasi/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/pelanggan/index.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
@@ -2875,19 +2808,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&":
+/***/ "./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=template&id=ec33b36c&":
 /*!*************************************************************************************************!*\
-  !*** ./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8& ***!
+  !*** ./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=template&id=ec33b36c& ***!
   \*************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPelanggan_vue_vue_type_template_id_ec33b36c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPelanggan_vue_vue_type_template_id_ec33b36c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardReservasi_vue_vue_type_template_id_d2a060f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardReservasi.vue?vue&type=template&id=d2a060f8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPelanggan_vue_vue_type_template_id_ec33b36c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardPelanggan.vue?vue&type=template&id=ec33b36c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=template&id=ec33b36c&");
 
 
 /***/ }),
@@ -2909,19 +2842,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/user/reservasi/index.vue?vue&type=template&id=3c86fe94&":
+/***/ "./resources/js/pages/user/pelanggan/index.vue?vue&type=template&id=45ca830e&":
 /*!************************************************************************************!*\
-  !*** ./resources/js/pages/user/reservasi/index.vue?vue&type=template&id=3c86fe94& ***!
+  !*** ./resources/js/pages/user/pelanggan/index.vue?vue&type=template&id=45ca830e& ***!
   \************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_3c86fe94___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_3c86fe94___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_45ca830e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_45ca830e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_3c86fe94___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=3c86fe94& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/reservasi/index.vue?vue&type=template&id=3c86fe94&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_45ca830e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=45ca830e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/pelanggan/index.vue?vue&type=template&id=45ca830e&");
 
 
 /***/ }),
@@ -4016,9 +3949,9 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=template&id=ec33b36c&":
 /*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/reservasi/CardReservasi.vue?vue&type=template&id=d2a060f8& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/pelanggan/CardPelanggan.vue?vue&type=template&id=ec33b36c& ***!
   \****************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -4033,131 +3966,72 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "router-link",
+    "div",
     {
-      staticClass: "card-link",
-      attrs: { to: "/user/reservasi/" + _vm.data.id_reservasi }
+      staticClass: "card",
+      on: {
+        click: function($event) {
+          return _vm.$emit("handleShow", _vm.data)
+        }
+      }
     },
     [
-      _c("div", { staticClass: "card" }, [
-        _c(
-          "div",
-          {
-            staticClass: "card-header d-flex p-2",
-            staticStyle: { "border-bottom": "none" }
-          },
-          [
-            _c("span", { staticClass: "small" }, [
-              _vm._v("Nomor: "),
-              _c("b", [_vm._v(_vm._s(_vm.data.no_reservasi))])
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
+      _c(
+        "div",
+        { staticClass: "card-body", staticStyle: { position: "relative" } },
+        [
+          _c("h4", [_vm._v(_vm._s(_vm.data.nama_pelanggan))]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.data.alamat))]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
               {
-                staticClass: "badge",
-                class: _vm.getBadgeStatus(_vm.data.status).class,
-                staticStyle: { "margin-left": "auto" }
-              },
-              [
-                _vm._v(
-                  "\n        " +
-                    _vm._s(_vm.getBadgeStatus(_vm.data.status).text) +
-                    "\n      "
-                )
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body p-2" }, [
-          _c("div", [
-            _c("img", {
-              staticClass: "circle mr-2",
-              attrs: {
-                src: "/images/hidangan/spageti.jpg",
-                width: "30",
-                height: "30"
+                name: "model",
+                rawName: "v-model",
+                value: _vm.checked,
+                expression: "checked"
               }
-            }),
-            _vm._v(
-              "\n            " +
-                _vm._s(_vm.data.pelanggan.nama_user) +
-                "\n      "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-2" }, [
-            _c("i", { staticClass: "fa fa-map-marker" }),
-            _vm._v(" " + _vm._s(_vm.data.restoran.nama_restoran) + "\n      ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-2" }, [
-            _c("i", { staticClass: "fa fa-users" }),
-            _vm._v(" " + _vm._s(_vm.data.jumlah_tamu) + " orang\n      ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "card-footer p-2",
-            staticStyle: { position: "relative", "border-top": "none" }
-          },
-          [
-            _c("p", { staticClass: "small mb-0" }, [
-              _vm._v("Tanggal reservasi: " + _vm._s(_vm.data.created_at))
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.checked,
-                  expression: "checked"
-                }
-              ],
-              staticStyle: {
-                position: "absolute",
-                right: "20px",
-                bottom: "10px"
+            ],
+            staticStyle: {
+              position: "absolute",
+              right: "20px",
+              bottom: "10px"
+            },
+            attrs: { name: "cbPelanggan", type: "checkbox" },
+            domProps: {
+              value: _vm.data.id_pelanggan,
+              checked: Array.isArray(_vm.checked)
+                ? _vm._i(_vm.checked, _vm.data.id_pelanggan) > -1
+                : _vm.checked
+            },
+            on: {
+              click: function($event) {
+                return _vm.$emit("checkItem", _vm.data.id_pelanggan)
               },
-              attrs: { name: "cbReservasi", type: "checkbox" },
-              domProps: {
-                value: _vm.data.id_reservasi,
-                checked: Array.isArray(_vm.checked)
-                  ? _vm._i(_vm.checked, _vm.data.id_reservasi) > -1
-                  : _vm.checked
-              },
-              on: {
-                click: function($event) {
-                  return _vm.$emit("checkItem", _vm.data.id_reservasi)
-                },
-                change: function($event) {
-                  var $$a = _vm.checked,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = _vm.data.id_reservasi,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        (_vm.checked = $$a
-                          .slice(0, $$i)
-                          .concat($$a.slice($$i + 1)))
-                    }
+              change: function($event) {
+                var $$a = _vm.checked,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = _vm.data.id_pelanggan,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.checked = $$a.concat([$$v]))
                   } else {
-                    _vm.checked = $$c
+                    $$i > -1 &&
+                      (_vm.checked = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
                   }
+                } else {
+                  _vm.checked = $$c
                 }
               }
-            })
-          ]
-        )
-      ])
+            }
+          })
+        ]
+      )
     ]
   )
 }
@@ -4217,9 +4091,9 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/reservasi/index.vue?vue&type=template&id=3c86fe94&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/pelanggan/index.vue?vue&type=template&id=45ca830e&":
 /*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/reservasi/index.vue?vue&type=template&id=3c86fe94& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/user/pelanggan/index.vue?vue&type=template&id=45ca830e& ***!
   \***************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -4235,7 +4109,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("admin-layout", [
     _c("h1", { staticClass: "font-weight-300 text-white" }, [
-      _vm._v("Reservasi")
+      _vm._v("Pelanggan")
     ]),
     _vm._v(" "),
     _c("nav", { attrs: { "aria-label": "breadcrumb", role: "navigation" } }, [
@@ -4265,7 +4139,7 @@ var render = function() {
               staticClass: "breadcrumb-item active text-white",
               attrs: { "aria-current": "page" }
             },
-            [_vm._v("Reservasi")]
+            [_vm._v("Pelanggan")]
           )
         ]
       )
@@ -4298,18 +4172,12 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-success flex-1-lg mr-1",
-                        attrs: { type: "button", title: "Buat reservasi" },
-                        on: {
-                          click: function($event) {
-                            return _vm.$router.push({
-                              path: "/user/reservasi/buat"
-                            })
-                          }
-                        }
+                        attrs: { type: "button", title: "Buat pelanggan" },
+                        on: { click: _vm.tambah }
                       },
                       [
                         _c("i", { staticClass: "fa fa-plus pr-2" }),
-                        _vm._v(" Buat reservasi\n          ")
+                        _vm._v(" Tambah pelanggan\n          ")
                       ]
                     ),
                     _vm._v(" "),
@@ -4318,7 +4186,7 @@ var render = function() {
                       {
                         staticClass: "btn btn-secondary",
                         attrs: { type: "button", title: "Refresh" },
-                        on: { click: _vm.loadDataReservasi }
+                        on: { click: _vm.loadDataPelanggan }
                       },
                       [_c("i", { staticClass: "fa fa-globe" })]
                     )
@@ -4359,11 +4227,11 @@ var render = function() {
                         expression: "tableDataChecked"
                       }
                     ],
-                    attrs: { name: "cbReservasi", type: "checkbox" },
+                    attrs: { name: "cbPelanggan", type: "checkbox" },
                     domProps: {
-                      value: row.id_reservasi,
+                      value: row.id_pelanggan,
                       checked: Array.isArray(_vm.tableDataChecked)
-                        ? _vm._i(_vm.tableDataChecked, row.id_reservasi) > -1
+                        ? _vm._i(_vm.tableDataChecked, row.id_pelanggan) > -1
                         : _vm.tableDataChecked
                     },
                     on: {
@@ -4372,7 +4240,7 @@ var render = function() {
                           $$el = $event.target,
                           $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = row.id_reservasi,
+                          var $$v = row.id_pelanggan,
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
@@ -4393,7 +4261,7 @@ var render = function() {
               }
             },
             {
-              key: "no_reservasi",
+              key: "id_pelanggan",
               fn: function(ref) {
                 var row = ref.row
                 return [
@@ -4403,64 +4271,20 @@ var render = function() {
                       staticClass: "small",
                       staticStyle: { "white-space": "nowrap" }
                     },
-                    [_vm._v(_vm._s(row.no_reservasi))]
+                    [_vm._v(_vm._s(row.id_pelanggan))]
                   )
                 ]
               }
             },
             {
-              key: "nama_pelanggan",
-              fn: function(ref) {
-                var row = ref.row
-                return [
-                  _vm._v(
-                    "\n        " + _vm._s(row.pelanggan.nama_user) + "\n      "
-                  )
-                ]
-              }
-            },
-            {
-              key: "nama_restoran",
+              key: "jenis",
               fn: function(ref) {
                 var row = ref.row
                 return [
                   _vm._v(
                     "\n        " +
-                      _vm._s(row.restoran.nama_restoran) +
+                      _vm._s(row.jenis === 1 ? "Makanan" : "Minuman") +
                       "\n      "
-                  )
-                ]
-              }
-            },
-            {
-              key: "nama_pegawai",
-              fn: function(ref) {
-                var row = ref.row
-                return [
-                  _vm._v(
-                    "\n        " + _vm._s(row.pegawai.nama_user) + "\n      "
-                  )
-                ]
-              }
-            },
-            {
-              key: "status",
-              fn: function(ref) {
-                var row = ref.row
-                return [
-                  _c(
-                    "span",
-                    {
-                      staticClass: "badge",
-                      class: _vm.getBadgeStatus(row.status).class
-                    },
-                    [
-                      _vm._v(
-                        "\n          " +
-                          _vm._s(_vm.getBadgeStatus(row.status).text) +
-                          "\n        "
-                      )
-                    ]
                   )
                 ]
               }
@@ -4492,7 +4316,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_c("i", { staticClass: "fa fa-eye" })]
+                    [_c("i", { staticClass: "fa fa-pencil" })]
                   ),
                   _vm._v(" "),
                   _c(
@@ -4516,12 +4340,12 @@ var render = function() {
               fn: function(ref) {
                 var row = ref.row
                 return [
-                  _c("CardReservasi", {
+                  _c("CardPelanggan", {
                     attrs: {
                       data: row,
                       tableDataChecked: _vm.tableDataChecked
                     },
-                    on: { checkItem: _vm.checkItem }
+                    on: { handleShow: _vm.lihat, checkItem: _vm.checkItem }
                   })
                 ]
               }
@@ -4530,6 +4354,177 @@ var render = function() {
         })
       ],
       1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modal-pelanggan",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modal-pelanggan-label",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "form",
+                {
+                  attrs: { action: "", method: "" },
+                  on: { submit: _vm.onSubmit }
+                },
+                [
+                  _c("div", { staticClass: "modal-header" }, [
+                    _c(
+                      "h5",
+                      {
+                        staticClass: "modal-title",
+                        attrs: { id: "modal-pelanggan-label" }
+                      },
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.aksi === "tambah" ? "Tambah" : "Edit") +
+                            "\n            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "close",
+                        attrs: {
+                          type: "button",
+                          "data-dismiss": "modal",
+                          "aria-label": "Close"
+                        }
+                      },
+                      [
+                        _c("span", { attrs: { "aria-hidden": "true" } }, [
+                          _vm._v("×")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "nama_pelanggan" } }, [
+                        _vm._v("Nama Pelanggan")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.nama_pelanggan,
+                            expression: "form.nama_pelanggan"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { id: "nama_pelanggan", type: "text" },
+                        domProps: { value: _vm.form.nama_pelanggan },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "nama_pelanggan",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "harga_pelanggan" } }, [
+                        _vm._v("Harga")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.harga,
+                            expression: "form.harga"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { id: "harga_pelanggan", type: "number" },
+                        domProps: { value: _vm.form.harga },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "harga", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "jenis_pelanggan" } }, [
+                        _vm._v("Harga")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          staticClass: "form-control",
+                          attrs: { id: "jenis_pelanggan" }
+                        },
+                        [
+                          _c("option", { domProps: { value: 1 } }, [
+                            _vm._v("Makanan")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { domProps: { value: 2 } }, [
+                            _vm._v("Minuman")
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Tutup")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Simpan")]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
     )
   ])
 }

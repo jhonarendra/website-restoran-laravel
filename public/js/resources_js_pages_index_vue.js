@@ -1759,7 +1759,10 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/user" } },
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/user/pesanan" }
+                          },
                           [_vm._v("Pesanan")]
                         )
                       ],
@@ -1772,7 +1775,10 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/user" } },
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/user/pelanggan" }
+                          },
                           [_vm._v("Pelanggan")]
                         )
                       ],
@@ -1785,7 +1791,10 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/user" } },
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/user/pegawai" }
+                          },
                           [_vm._v("Pegawai")]
                         )
                       ],
@@ -1798,7 +1807,10 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/user" } },
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/user/hidangan" }
+                          },
                           [_vm._v("Hidangan")]
                         )
                       ],
@@ -1811,7 +1823,10 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/user" } },
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/user/restoran" }
+                          },
                           [_vm._v("Restoran")]
                         )
                       ],
@@ -1824,7 +1839,10 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/user" } },
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/user/pengaturan" }
+                          },
                           [_vm._v("Pengaturan")]
                         )
                       ],

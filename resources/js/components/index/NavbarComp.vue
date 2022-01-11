@@ -55,22 +55,22 @@
             <router-link class="nav-link" to="/user/reservasi">Reservasi</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/user">Pesanan</router-link>
+            <router-link class="nav-link" to="/user/pesanan">Pesanan</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/user">Pelanggan</router-link>
+            <router-link class="nav-link" to="/user/pelanggan">Pelanggan</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/user">Pegawai</router-link>
+            <router-link class="nav-link" to="/user/pegawai">Pegawai</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/user">Hidangan</router-link>
+            <router-link class="nav-link" to="/user/hidangan">Hidangan</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/user">Restoran</router-link>
+            <router-link class="nav-link" to="/user/restoran">Restoran</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/user">Pengaturan</router-link>
+            <router-link class="nav-link" to="/user/pengaturan">Pengaturan</router-link>
           </li>
         </ul>
       </div>

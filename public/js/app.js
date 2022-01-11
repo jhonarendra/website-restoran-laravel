@@ -2227,6 +2227,24 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_pages_user_hidangan_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/hidangan/index.vue */ "./resources/js/pages/user/hidangan/index.vue"));
   }
 }, {
+  path: "/user/pegawai",
+  name: "user-pegawai",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_pegawai_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/pegawai/index.vue */ "./resources/js/pages/user/pegawai/index.vue"));
+  }
+}, {
+  path: "/user/pelanggan",
+  name: "user-pelanggan",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_pelanggan_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/pelanggan/index.vue */ "./resources/js/pages/user/pelanggan/index.vue"));
+  }
+}, {
+  path: "/user/pesanan",
+  name: "user-pesanan",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_pesanan_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/pesanan/index.vue */ "./resources/js/pages/user/pesanan/index.vue"));
+  }
+}, {
   path: "/user/reservasi",
   name: "user-reservasi",
   component: function component() {
@@ -2288,6 +2306,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/user */ "./resources/js/store/modules/user.js");
 /* harmony import */ var _modules_restoran__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/restoran */ "./resources/js/store/modules/restoran.js");
 /* harmony import */ var _modules_hidangan__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/hidangan */ "./resources/js/store/modules/hidangan.js");
+/* harmony import */ var _modules_pegawai__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/pegawai */ "./resources/js/store/modules/pegawai.js");
+/* harmony import */ var _modules_pelanggan__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/pelanggan */ "./resources/js/store/modules/pelanggan.js");
+/* harmony import */ var _modules_pesanan__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/pesanan */ "./resources/js/store/modules/pesanan.js");
+/* harmony import */ var _modules_pengaturan__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/pengaturan */ "./resources/js/store/modules/pengaturan.js");
+
+
+
+
 
 
 
@@ -2300,7 +2326,11 @@ var state = {
     reservasi: _modules_reservasi__WEBPACK_IMPORTED_MODULE_0__.default,
     user: _modules_user__WEBPACK_IMPORTED_MODULE_1__.default,
     restoran: _modules_restoran__WEBPACK_IMPORTED_MODULE_2__.default,
-    hidangan: _modules_hidangan__WEBPACK_IMPORTED_MODULE_3__.default
+    hidangan: _modules_hidangan__WEBPACK_IMPORTED_MODULE_3__.default,
+    pegawai: _modules_pegawai__WEBPACK_IMPORTED_MODULE_4__.default,
+    pelanggan: _modules_pelanggan__WEBPACK_IMPORTED_MODULE_5__.default,
+    pesanan: _modules_pesanan__WEBPACK_IMPORTED_MODULE_6__.default,
+    pengaturan: _modules_pengaturan__WEBPACK_IMPORTED_MODULE_7__.default
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (state);
@@ -2393,6 +2423,389 @@ var actions = {
 var getters = {
   getAllHidangan: function getAllHidangan(state) {
     return state.hidangan;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/pegawai.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/pegawai.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var data = [{
+  id_pegawai: 1,
+  nama_pegawai: 'Spagetti',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 45000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_pegawai: 2,
+  nama_pegawai: 'Mie',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 5000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_pegawai: 3,
+  nama_pegawai: 'Es Jeruk',
+  jenis: 2,
+  // 1 makanan, 2 minuman
+  harga: 3000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var state = {
+  pegawai: [],
+  tableViewPegawai: 'table'
+};
+var mutations = {
+  setPegawai: function setPegawai(state, data) {
+    state.pegawai = data;
+  },
+  setTableViewPegawai: function setTableViewPegawai(state, data) {
+    state.tableViewPegawai = data;
+  }
+};
+var actions = {
+  fetchPegawai: function fetchPegawai() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+};
+var getters = {
+  getAllPegawai: function getAllPegawai(state) {
+    return state.pegawai;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/pelanggan.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/pelanggan.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var data = [{
+  id_pelanggan: 1,
+  nama_pelanggan: 'Spagetti',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 45000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_pelanggan: 2,
+  nama_pelanggan: 'Mie',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 5000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_pelanggan: 3,
+  nama_pelanggan: 'Es Jeruk',
+  jenis: 2,
+  // 1 makanan, 2 minuman
+  harga: 3000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var state = {
+  pelanggan: [],
+  tableViewPelanggan: 'table'
+};
+var mutations = {
+  setPelanggan: function setPelanggan(state, data) {
+    state.pelanggan = data;
+  },
+  setTableViewPelanggan: function setTableViewPelanggan(state, data) {
+    state.tableViewPelanggan = data;
+  }
+};
+var actions = {
+  fetchPelanggan: function fetchPelanggan() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+};
+var getters = {
+  getAllPelanggan: function getAllPelanggan(state) {
+    return state.pelanggan;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/pengaturan.js":
+/*!**************************************************!*\
+  !*** ./resources/js/store/modules/pengaturan.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var data = [{
+  id_pengaturan: 1,
+  nama_pengaturan: 'Spagetti',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 45000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_pengaturan: 2,
+  nama_pengaturan: 'Mie',
+  jenis: 1,
+  // 1 makanan, 2 minuman
+  harga: 5000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}, {
+  id_pengaturan: 3,
+  nama_pengaturan: 'Es Jeruk',
+  jenis: 2,
+  // 1 makanan, 2 minuman
+  harga: 3000,
+  foto: '',
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var state = {
+  pengaturan: [],
+  tableViewPengaturan: 'table'
+};
+var mutations = {
+  setPengaturan: function setPengaturan(state, data) {
+    state.pengaturan = data;
+  },
+  setTableViewPengaturan: function setTableViewPengaturan(state, data) {
+    state.tableViewPengaturan = data;
+  }
+};
+var actions = {
+  fetchPengaturan: function fetchPengaturan() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+};
+var getters = {
+  getAllPengaturan: function getAllPengaturan(state) {
+    return state.pengaturan;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/pesanan.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/pesanan.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var data = [{
+  id_pesanan: 1,
+  no_pesanan: 'PSN/2/2/1/1/1',
+  id_restoran: 1,
+  restoran: {
+    id_restoran: 1,
+    nama_restoran: 'Restoran Saya',
+    alamat: 'Jalan Restoran Saya'
+  },
+  id_pelanggan: 1,
+  pelanggan: {
+    id_pelanggan: 2,
+    nama_pelanggan: 'Made Po'
+  },
+  id_pegawai: 1,
+  pegawai: {
+    id_pegawai: 8,
+    nama_pegawai: 'Wayan Li'
+  },
+  total: 200000,
+  status: 1,
+  // 0 belum dibayar, 1 sudah bayar, belum dikonfirmasi, 2 sudah bayar, sedang proses, 3 selesai
+  created_at: '2022-10-10 10:10:10',
+  updated_at: '2022-10-10 10:10:10',
+  deleted_at: null
+}];
+var state = {
+  pesanan: [],
+  tableViewPesanan: 'table'
+};
+var mutations = {
+  setPesanan: function setPesanan(state, data) {
+    state.pesanan = data;
+  },
+  setTableViewPesanan: function setTableViewPesanan(state, data) {
+    state.tableViewPesanan = data;
+  }
+};
+var actions = {
+  fetchPesanan: function fetchPesanan() {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+};
+var getters = {
+  getAllPesanan: function getAllPesanan(state) {
+    return state.pesanan;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -58932,7 +59345,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_restoran_index_vue":1,"resources_js_pages_user_hidangan_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1,"resources_js_pages_error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_restoran_index_vue":1,"resources_js_pages_user_hidangan_index_vue":1,"resources_js_pages_user_pegawai_index_vue":1,"resources_js_pages_user_pelanggan_index_vue":1,"resources_js_pages_user_pesanan_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1,"resources_js_pages_error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
