@@ -93,6 +93,16 @@ const actions = {
         message: ''
       }
     }
+  },
+  async login ({ getters }, data) {
+    axios.post('/login')
+    return {
+      data: {
+        status: true,
+        data: data,
+        message: ''
+      }
+    }
   }
 }
 

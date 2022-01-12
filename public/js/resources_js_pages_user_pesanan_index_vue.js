@@ -3924,7 +3924,21 @@ var render = function() {
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
-    _vm._m(2),
+    _c(
+      "div",
+      { staticClass: "list-group mt-3" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "list-group-item list-group-item-action bg-white",
+            attrs: { to: "/user/profile" }
+          },
+          [_vm._v("\n      Edit Profil\n    ")]
+        )
+      ],
+      1
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -3960,33 +3974,18 @@ var staticRenderFns = [
     return _c("ul", { staticClass: "list-group mt-3" }, [
       _c("li", { staticClass: "list-group-item" }, [
         _c("i", { staticClass: "fa fa-envelope pr-2" }),
-        _vm._v(" email@gmail.com\n    ")
+        _vm._v("email@gmail.com\n    ")
       ]),
       _vm._v(" "),
       _c("li", { staticClass: "list-group-item" }, [
         _c("i", { staticClass: "fa fa-user pr-2" }),
-        _vm._v(" username")
+        _vm._v("username")
       ]),
       _vm._v(" "),
       _c("li", { staticClass: "list-group-item" }, [
         _c("i", { staticClass: "fa fa-phone pr-2" }),
         _vm._v("0899298292")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "list-group mt-3" }, [
-      _c(
-        "a",
-        {
-          staticClass: "list-group-item list-group-item-action bg-white",
-          attrs: { href: "#" }
-        },
-        [_vm._v("\n      Edit Profil\n    ")]
-      )
     ])
   }
 ]

@@ -1941,6 +1941,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 /* harmony import */ var _plugins_helpers_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/helpers.js */ "./resources/js/plugins/helpers.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -1974,6 +1976,8 @@ Vue.use(store);
 
 
 Vue.prototype.$helpers = _plugins_helpers_js__WEBPACK_IMPORTED_MODULE_4__.default;
+
+Vue.prototype.$axios = (axios__WEBPACK_IMPORTED_MODULE_5___default());
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -2270,6 +2274,18 @@ var routes = [{
   name: "user-reservasi-id",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_user_reservasi__id_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/reservasi/_id.vue */ "./resources/js/pages/user/reservasi/_id.vue"));
+  }
+}, {
+  path: "/user/pengaturan",
+  name: "user-pengaturan",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_pengaturan_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/pengaturan/index.vue */ "./resources/js/pages/user/pengaturan/index.vue"));
+  }
+}, {
+  path: "/user/profile",
+  name: "user-profile",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_user_profile_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/profile/index.vue */ "./resources/js/pages/user/profile/index.vue"));
   }
 }, {
   path: "/example",
@@ -3290,6 +3306,31 @@ var actions = {
           }
         }
       }, _callee2);
+    }))();
+  },
+  login: function login(_ref2, data) {
+    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3() {
+      var getters;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              getters = _ref2.getters;
+              axios.post('/login');
+              return _context3.abrupt("return", {
+                data: {
+                  status: true,
+                  data: data,
+                  message: ''
+                }
+              });
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
     }))();
   }
 };
@@ -59400,7 +59441,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_restoran_index_vue":1,"resources_js_pages_user_hidangan_index_vue":1,"resources_js_pages_user_pegawai_index_vue":1,"resources_js_pages_user_pelanggan_index_vue":1,"resources_js_pages_user_pesanan_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_example_vue":1,"resources_js_pages_error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_index_vue":1,"resources_js_pages_login_vue":1,"resources_js_pages_register_vue":1,"resources_js_pages_user_index_vue":1,"resources_js_pages_user_restoran_index_vue":1,"resources_js_pages_user_hidangan_index_vue":1,"resources_js_pages_user_pegawai_index_vue":1,"resources_js_pages_user_pelanggan_index_vue":1,"resources_js_pages_user_pesanan_index_vue":1,"resources_js_pages_user_reservasi_index_vue":1,"resources_js_pages_user_reservasi_buat_vue":1,"resources_js_pages_user_reservasi__id_vue":1,"resources_js_pages_user_pengaturan_index_vue":1,"resources_js_pages_user_profile_index_vue":1,"resources_js_pages_example_vue":1,"resources_js_pages_error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

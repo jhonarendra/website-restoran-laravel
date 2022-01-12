@@ -36,8 +36,10 @@
                 <button
                   type="submit"
                   class="btn btn-primary"
+                  :disabled="loginLoading"
                 >
-                  Login
+                  <i v-if="loginLoading" class="fa fa-spinner fa-spin" />
+                  <span>Login</span>
                 </button>
                 <div class="register-link text-center">
                   <p>
@@ -54,19 +56,41 @@
 </template>
 
 <script>
+import swal from 'sweetalert'
+
 export default {
   data () {
     return {
       form: {
         email: '',
         password: ''
-      }
+      },
+      loginLoading: false
     }
   },
   methods: {
     onSubmit (e) {
       e.preventDefault()
-      this.$router.push({ path: '/user' })
+      this.loginLoading = true
+      const formData = new FormData()
+      formData.append('email', this.form.email)
+      formData.append('password', this.form.password)
+      setTimeout(() => {
+        this.$store.dispatch('login', formData).then((res) => {
+          this.loginLoading = false
+          if (res.data.status) {
+            this.$router.push({ path: '/user' })
+          }
+        }).catch((err) => {
+          console.log(err)
+          swal({
+            title: 'Gagal',
+            text: 'Ada kesalahan teknis. Harap coba lagi nanti.',
+            icon: 'error',
+            buttons: 'Ok'
+          })
+        })
+      }, 2000)
     }
   }
 }

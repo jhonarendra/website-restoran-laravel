@@ -19,8 +19,11 @@ const routes = [
   { path: "/user/reservasi", name: "user-reservasi", component: () => import("../pages/user/reservasi/index.vue") },
   { path: "/user/reservasi/buat", name: "user-reservasi-buat", component: () => import("../pages/user/reservasi/buat.vue") },
   { path: "/user/reservasi/:id", name: "user-reservasi-id", component: () => import("../pages/user/reservasi/_id.vue") },
-  { path: "/example", name: "Example", component: () => import("../pages/example.vue") },
+  { path: "/user/pengaturan", name: "user-pengaturan", component: () => import("../pages/user/pengaturan/index.vue") },
+  
+  { path: "/user/profile", name: "user-profile", component: () => import("../pages/user/profile/index.vue") },
 
+  { path: "/example", name: "Example", component: () => import("../pages/example.vue") },
   
   { path: "/error/:code/:message/:redirect", name: "error-code-message-redirect", component: () => import("../pages/error.vue") },
   { path: "/*", name: "error", component: () => import("../pages/error.vue") },

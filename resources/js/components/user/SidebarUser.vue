@@ -10,15 +10,15 @@
     </p>
     <ul class="list-group mt-3">
       <li class="list-group-item">
-        <i class="fa fa-envelope pr-2" /> email@gmail.com
+        <i class="fa fa-envelope pr-2" />email@gmail.com
       </li>
-      <li class="list-group-item"><i class="fa fa-user pr-2" /> username</li>
+      <li class="list-group-item"><i class="fa fa-user pr-2" />username</li>
       <li class="list-group-item"><i class="fa fa-phone pr-2" />0899298292</li>
     </ul>
     <div class="list-group mt-3">
-      <a href="#" class="list-group-item list-group-item-action bg-white">
+      <router-link to="/user/profile" class="list-group-item list-group-item-action bg-white">
         Edit Profil
-      </a>
+      </router-link>
     </div>
     <div class="list-group mt-3">
       <router-link to="/login" class="list-group-item list-group-item-action bg-white text-danger">

@@ -41,6 +41,9 @@ import App from './App.vue'
 import helpers from './plugins/helpers.js'
 Vue.prototype.$helpers = helpers
 
+import axios from 'axios'
+Vue.prototype.$axios = axios
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
