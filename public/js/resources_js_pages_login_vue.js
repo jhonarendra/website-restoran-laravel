@@ -101,8 +101,16 @@ __webpack_require__.r(__webpack_exports__);
             _this.$router.push({
               path: '/user'
             });
+          } else {
+            sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
+              title: 'Gagal',
+              text: res.data.message,
+              icon: 'error',
+              buttons: 'Ok'
+            });
           }
         })["catch"](function (err) {
+          _this.loginLoading = false;
           console.log(err);
           sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
             title: 'Gagal',

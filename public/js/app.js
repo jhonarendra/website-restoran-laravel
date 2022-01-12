@@ -1921,7 +1921,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      modeFrontEnd: true
+      modeFrontEnd: false
     };
   }
 });
@@ -3176,9 +3176,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.filter.js */ "./node_modules/core-js/modules/es.array.filter.js");
 /* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.find.js */ "./node_modules/core-js/modules/es.array.find.js");
-/* harmony import */ var core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_js__WEBPACK_IMPORTED_MODULE_3__);
-
 
 
 
@@ -3283,55 +3280,20 @@ var actions = {
     }))();
   },
   fetchUserLogin: function fetchUserLogin() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
-      var show;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              show = data.find(function (e) {
-                return e.id_user === 1;
-              });
-              return _context2.abrupt("return", {
-                data: {
-                  status: true,
-                  data: show,
-                  message: ''
-                }
-              });
-
-            case 2:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }))();
+    var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMCIsImp0aSI6IjFlMTBhNTljYmQyYzZkYjNkYWY1ZDAzMjcxZjhjZWQzM2RmOTI0N2ZiMjY1MTk4NWQ0OGJmZDdmYTU2Nzk2ZjQyMWE0ZDE3NTY2NmI5ZWEyIiwiaWF0IjoxNjQxOTkzNDk0LCJuYmYiOjE2NDE5OTM0OTQsImV4cCI6MTY3MzUyOTQ5NCwic3ViIjoiOCIsInNjb3BlcyI6W119.geidHX71dGcJ_cNMlvyof2Xzi9meFs7s659P0_tyjZaRS63t6UPIg_TcUTMLSGLLVWhTC0O5v5x3TRuyfegaM40cwUh5E8B5cC5u4A-kuOZkTGlse5ZqGKv3Y_2tA3jb1qa5RiUSlFxRJTvZ-y0oN1ZgaopHz7SsMlt133TSf7dZgY8nmMPiAASNa1IC83FrfFkNIaq-9yijYpx4AGEPCkTdG23TytSIYdwnyMGKVTfdNdp0piTD6V6XAgYGkcm1R5Yj2Mgb8L4SJmzVxGYYibTEwrMfpkjAEzhSjfUf4dlcN2JcB5jTUorBT3OnWXEuwWg4Ih_-7kRsX4vNRInZ3LHWSRIMLlugGNFLGld4IfXSrAQ3lOLA5nj3U-y5wNA-muipdWYEcWYmjYLTFw_15_8dS8flarAcj7evktjsnTrx9tF2XEy7Srjhq1wHo36xJvJdRr8MSsT_YRel2s1nPZ0YM4QLWIjONBApOv-IA28zQtesGwXQJP-HQbQ2KpDYGrJ81rmoiZJD5T_D_WjIVyp5BAkMfO_-HlerI5vGSsK73ZHDTF_ARpeYOnI8dfJX73asFWJ-6kxTGQNX1xkTThqpXNgGIZwsbGo2ntxgz3fEmmuZkmHOe9a6LklpPoiETkHdw5iAymOWjky_nVXfq8ouNzHEa0-j0Nz5ZQJ8_M0';
+    return axios.get('/api/user', {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    });
   },
   login: function login(_ref2, data) {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3() {
-      var getters;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              getters = _ref2.getters;
-              axios.post('/login');
-              return _context3.abrupt("return", {
-                data: {
-                  status: true,
-                  data: data,
-                  message: ''
-                }
-              });
-
-            case 3:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }))();
+    var getters = _ref2.getters;
+    return axios.post('/api/login', data);
+  },
+  register: function register(_ref3, data) {
+    var getters = _ref3.getters;
+    return axios.post('/api/register', data);
   }
 };
 var getters = {

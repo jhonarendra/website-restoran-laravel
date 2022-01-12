@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,6 +11,13 @@ class Pelanggan extends Model
 
     protected $table = 'tb_pelanggan';
     protected $primaryKey = 'id_pelanggan';
+
+    protected $fillable = [
+        'nama',
+        'alamat',
+        'no_hp',
+        'foto'
+    ];
 
     public function user()
     {

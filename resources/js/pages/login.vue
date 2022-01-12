@@ -80,8 +80,16 @@ export default {
           this.loginLoading = false
           if (res.data.status) {
             this.$router.push({ path: '/user' })
+          } else {
+            swal({
+              title: 'Gagal',
+              text: res.data.message,
+              icon: 'error',
+              buttons: 'Ok'
+            })
           }
         }).catch((err) => {
+          this.loginLoading = false
           console.log(err)
           swal({
             title: 'Gagal',

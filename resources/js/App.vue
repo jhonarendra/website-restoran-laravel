@@ -15,7 +15,7 @@
 export default {
 	data () {
 		return {
-			modeFrontEnd: true
+			modeFrontEnd: false
 		}
 	}
 }

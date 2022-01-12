@@ -27,6 +27,14 @@ import SidebarUser from '../components/user/SidebarUser.vue'
 export default {
   components: {
     NavbarComp, FooterComp, SidebarUser
+  },
+  mounted () {
+    this.$store.dispatch('fetchUserLogin').then((res) => {
+      console.log(res)
+      if (res.data.status) {
+        console.log(res)
+      }
+    })
   }
 }
 </script>

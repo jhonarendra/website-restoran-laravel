@@ -919,6 +919,15 @@ __webpack_require__.r(__webpack_exports__);
     NavbarComp: _components_index_NavbarComp_vue__WEBPACK_IMPORTED_MODULE_1__.default,
     FooterComp: _components_index_FooterComp_vue__WEBPACK_IMPORTED_MODULE_0__.default,
     SidebarUser: _components_user_SidebarUser_vue__WEBPACK_IMPORTED_MODULE_2__.default
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('fetchUserLogin').then(function (res) {
+      console.log(res);
+
+      if (res.data.status) {
+        console.log(res);
+      }
+    });
   }
 });
 

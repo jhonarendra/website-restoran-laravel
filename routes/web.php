@@ -1,14 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
-
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\App\KeuanganController;
-use App\Http\Controllers\App\DompetController;
-use App\Http\Controllers\App\AnggaranController;
-use App\Http\Controllers\App\KategoriController;
-use App\Http\Controllers\App\UserController;
 
 /*
 |--------------------------------------------------------------------------
