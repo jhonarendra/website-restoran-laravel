@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use SoftDeletes, HasApiTokens, Notifiable;
 
-    protected $table = "rbac_user";
-    protected $primaryKey = 'user_id';
+    protected $table = "tb_user";
+    protected $primaryKey = 'id_user';
 
     /**
      * The attributes that are mass assignable.
@@ -20,8 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nama',
-        'username',
+        'email',
         'password',
     ];
 
@@ -32,7 +32,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
