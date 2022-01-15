@@ -53,6 +53,12 @@ class UserController extends Controller
             'alamat' => $req->alamat,
             'no_hp' => $req->no_hp
         );
+        if ($req->hasFile('foto')) {
+            $file = $req->file('foto');
+            $file_name = date('Ymdhis');
+            $file_name = uniqid($file_name . '_') . '.' . $file->getClientOriginalExtension();
+            $arr_pelanggan['foto'] = $file->storeAs('foto', $file_name, ['disk' => 'local']);
+        }
         $pelanggan = Pelanggan::create($arr_pelanggan);
 
         $hash = Hash::make($req->password);

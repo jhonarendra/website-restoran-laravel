@@ -1,7 +1,7 @@
 <template>
   <form action="" method="POST" enctype="multipart/form-data" @submit="onSubmit">
     <div class="form-group row">
-      <label for="nama" class="col-md-3">Nama</label>
+      <label for="nama" class="col-md-3">Nama <span class="text-danger">*</span></label>
       <div class="col-md-9">
         <input
           v-model="form.nama"
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="no_hp" class="col-md-3">Nomor HP</label>
+      <label for="no_hp" class="col-md-3">Nomor HP <span class="text-danger">*</span></label>
       <div class="col-md-9">
         <input
           id="no_hp"
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="alamat" class="col-md-3">Alamat</label>
+      <label for="alamat" class="col-md-3">Alamat <span class="text-danger">*</span></label>
       <div class="col-md-9">
         <textarea
           id="alamat"
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="email" class="col-md-3">Email</label>
+      <label for="email" class="col-md-3">Email <span class="text-danger">*</span></label>
       <div class="col-md-9">
         <input
           id="email"
@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="password" class="col-md-3">Password</label>
+      <label for="password" class="col-md-3">Password <span class="text-danger">*</span></label>
       <div class="col-md-9">
         <input
           id="password"
@@ -76,6 +76,13 @@
           class="form-control"
           type="file"
           name="foto_pelanggan"
+          accept="Image/*"
+          @change="setFoto"
+        />
+        <img
+          v-if="fotoShow"
+          :src="fotoShow"
+          class="foto-show"
         />
       </div>
     </div>
@@ -109,6 +116,7 @@ export default {
         password: '',
         foto: ''
       },
+      fotoShow: null,
       registerLoading: false
     }
   },
@@ -123,6 +131,7 @@ export default {
       formData.append('no_hp', this.form.no_hp)
       formData.append('email', this.form.email)
       formData.append('password', this.form.password)
+      formData.append('foto', this.form.foto)
       
       this.$store.dispatch('register', formData).then((res) => {
         this.registerLoading = false
@@ -154,6 +163,13 @@ export default {
           buttons: 'Ok'
         })
       })
+    },
+    setFoto (input) {
+      this.fotoShow = null
+      if (input.target.files) {
+        this.form.foto = input.target.files[0]
+        this.fotoShow = URL.createObjectURL(input.target.files[0])
+      }
     }
   }
 }
@@ -170,5 +186,11 @@ export default {
   border-style: initial;
   border-color: initial;
   border-image: initial;
+}
+.foto-show {
+  width: 200px;
+  height: 200px;
+  margin: 20px 0;
+  border-radius: 50%;
 }
 </style>
