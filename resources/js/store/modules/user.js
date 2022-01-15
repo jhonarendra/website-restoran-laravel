@@ -73,7 +73,7 @@ const mutations = {
 const token = localStorage.token
 
 const actions = {
-  async fetchUser ({ getters }, filter) {
+  fetchUser ({ getters }, filter) {
     let user = data
     if (filter.tipe) {
       user = user.filter(e => e.tipe_user === filter.tipe)
@@ -102,6 +102,11 @@ const actions = {
       { headers: { Authorization: `Bearer ${token}` } }
     )
   },
+  updateProfile ({ getters }, data) {
+    return axios.post('/api/updateProfile', data,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+  }
 }
 
 const getters = {

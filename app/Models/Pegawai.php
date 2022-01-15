@@ -11,6 +11,14 @@ class Pegawai extends Model
 
     protected $table = 'tb_pegawai';
     protected $primaryKey = 'id_pegawai';
+    
+    protected $fillable = [
+        'id_restoran',
+        'nama',
+        'alamat',
+        'no_hp',
+        'foto'
+    ];
 
     public function user()
     {

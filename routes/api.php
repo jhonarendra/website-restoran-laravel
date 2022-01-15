@@ -21,5 +21,6 @@ Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
 Route::post('logout', [UserController::class, 'logout'])->middleware('auth:api');
 Route::get('user', [UserController::class, 'getUserLogin'])->middleware('auth:api');
+Route::post('updateProfile', [UserController::class, 'updateProfile'])->middleware('auth:api');
 
 Route::get('file/{path}/{filename}', [FileController::class, 'get']);

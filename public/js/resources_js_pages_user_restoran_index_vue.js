@@ -935,7 +935,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
@@ -4072,11 +4071,6 @@ var render = function() {
           _c("li", { staticClass: "list-group-item" }, [
             _c("i", { staticClass: "fa fa-envelope pr-2" }),
             _vm._v(_vm._s(_vm.userLogin.email) + "\n    ")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-group-item" }, [
-            _c("i", { staticClass: "fa fa-user pr-2" }),
-            _vm._v(_vm._s(_vm.userLogin.email))
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "list-group-item" }, [

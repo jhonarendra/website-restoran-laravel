@@ -29,7 +29,6 @@
       <li class="list-group-item">
         <i class="fa fa-envelope pr-2" />{{ userLogin.email }}
       </li>
-      <li class="list-group-item"><i class="fa fa-user pr-2" />{{ userLogin.email }}</li>
       <li class="list-group-item">
         <i class="fa fa-phone pr-2" />
         {{ (userLogin.pelanggan) ? userLogin.pelanggan.no_hp : (userLogin.pegawai) ? userLogin.pegawai.no_hp : '' }}

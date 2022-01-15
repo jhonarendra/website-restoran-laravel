@@ -72,8 +72,7 @@ class UserController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Registrasi berhasil',
-            'data' => $user,
-            'password' => $hash
+            'data' => $user
         ]);
     }
     public function login(Request $req)
@@ -122,6 +121,60 @@ class UserController extends Controller
             'status' => true,
             'message' => 'Berhasil logout',
             'data' => null
+        ]);
+    }
+    public function updateProfile(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:tb_user',
+            'no_hp' => 'required|numeric|max:9999999999999',
+        ]);
+
+        $unique_email = User::withTrashed()->where([
+            ['email', '=', $req->email],
+            ['id_user', '!=', Auth::user()->id_user]
+        ])->get();
+        if (count($unique_email) > 0) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Email sudah terdaftar',
+                'data' => $req->email
+            ]);
+        }
+
+        $arr = array(
+            'nama' => $req->nama,
+            'alamat' => $req->alamat,
+            'no_hp' => $req->no_hp
+        );
+        if ($req->hasFile('foto')) {
+            // TODO: delete foto sebelumnya
+            $file = $req->file('foto');
+            $file_name = date('Ymdhis');
+            $file_name = uniqid($file_name . '_') . '.' . $file->getClientOriginalExtension();
+            $arr['foto'] = $file->storeAs('foto', $file_name, ['disk' => 'local']);
+        }
+        if (Auth::user()->tipe === 1) {
+            $pegawai = Pegawai::findOrFail(Auth::user()->id_entitas)->update($arr);
+        } else if (Auth::user()-> tipe === 2) {
+            $pelanggan = Pelanggan::findOrFail(Auth::user()->id_entitas)->update($arr);
+        }
+
+
+        $arr_user = array(
+            'email' => $req->email
+        );
+        if ($req->password) {
+            $arr_user['password'] = Hash::make($req->password);
+        }
+        $user = User::findOrFail(Auth::user()->id_user)->update($arr_user);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Registrasi berhasil',
+            'data' => $user
         ]);
     }
 }
