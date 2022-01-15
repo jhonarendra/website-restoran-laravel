@@ -718,18 +718,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
 //
 //
 //
@@ -806,7 +803,84 @@ __webpack_require__.r(__webpack_exports__);
         return null;
       }
     }
-  }
+  },
+  computed: {
+    userLogin: function userLogin() {
+      return this.$store.state.user.userLogin;
+    },
+    menu: function menu() {
+      var m = [];
+
+      if (this.$route.name.includes('user') && this.userLogin) {
+        if (this.userLogin.tipe === 2) {
+          m = [{
+            text: 'Home',
+            link: '/user'
+          }, {
+            text: 'Reservasi',
+            link: '/user/reservasi'
+          }, {
+            text: 'Pesanan',
+            link: '/user/pesanan'
+          }, {
+            text: 'Restoran',
+            link: '/user/restoran'
+          }, {
+            text: 'Hidangan',
+            link: '/user/hidangan'
+          }];
+        } else if (this.userLogin.tipe === 1) {
+          if (this.userLogin.pegawai.jabatan === 1) {
+            m = [{
+              text: 'Home',
+              link: '/user'
+            }, {
+              text: 'Reservasi',
+              link: '/user/reservasi'
+            }, {
+              text: 'Pesanan',
+              link: '/user/pesanan'
+            }, {
+              text: 'Pelanggan',
+              link: '/user/pelanggan'
+            }, {
+              text: 'Pegawai',
+              link: '/user/pegawai'
+            }, {
+              text: 'Restoran',
+              link: '/user/restoran'
+            }, {
+              text: 'Hidangan',
+              link: '/user/hidangan'
+            }, {
+              text: 'Pengaturan',
+              link: '/user/pengaturan'
+            }];
+          } else if (this.userLogin.pegawai.jabatan === 2) {
+            m = [{
+              text: 'Home',
+              link: '/user'
+            }, {
+              text: 'Reservasi',
+              link: '/user/reservasi'
+            }, {
+              text: 'Pesanan',
+              link: '/user/pesanan'
+            }, {
+              text: 'Restoran',
+              link: '/user/restoran'
+            }, {
+              text: 'Hidangan',
+              link: '/user/hidangan'
+            }];
+          }
+        }
+      }
+
+      return m;
+    }
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -1991,6 +2065,38 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
     return A;
   }
 });
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.function.name.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.function.name.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
+var defineProperty = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f;
+
+var FunctionPrototype = Function.prototype;
+var FunctionPrototypeToString = FunctionPrototype.toString;
+var nameRE = /^\s*function ([^ (]*)/;
+var NAME = 'name';
+
+// Function instances `.name` property
+// https://tc39.es/ecma262/#sec-function-instances-name
+if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
+  defineProperty(FunctionPrototype, NAME, {
+    configurable: true,
+    get: function () {
+      try {
+        return FunctionPrototypeToString.call(this).match(nameRE)[1];
+      } catch (error) {
+        return '';
+      }
+    }
+  });
+}
 
 
 /***/ }),
@@ -3791,135 +3897,32 @@ var render = function() {
                     _vm._v(" "),
                     _vm._m(4)
                   ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.$route.name.includes("user")
-                ? _c("ul", { staticClass: "navbar-nav" }, [
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/user" } },
-                          [_vm._v("Home")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: "/user/reservasi" }
-                          },
-                          [_vm._v("Reservasi")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: "/user/pesanan" }
-                          },
-                          [_vm._v("Pesanan")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: "/user/pelanggan" }
-                          },
-                          [_vm._v("Pelanggan")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: "/user/pegawai" }
-                          },
-                          [_vm._v("Pegawai")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: "/user/hidangan" }
-                          },
-                          [_vm._v("Hidangan")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: "/user/restoran" }
-                          },
-                          [_vm._v("Restoran")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: "/user/pengaturan" }
-                          },
-                          [_vm._v("Pengaturan")]
-                        )
-                      ],
-                      1
-                    )
-                  ])
+                : _vm.$route.name.includes("user")
+                ? _c(
+                    "ul",
+                    { staticClass: "navbar-nav" },
+                    _vm._l(_vm.menu, function(m) {
+                      return _c(
+                        "li",
+                        { key: m.link, staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            { staticClass: "nav-link", attrs: { to: m.link } },
+                            [
+                              _vm._v(
+                                "\n            " +
+                                  _vm._s(m.text) +
+                                  "\n          "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  )
                 : _vm._e()
             ]
           )

@@ -47,30 +47,18 @@
             </div>
           </li> -->
         </ul>
-        <ul class="navbar-nav" v-if="$route.name.includes('user')">
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user">Home</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user/reservasi">Reservasi</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user/pesanan">Pesanan</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user/pelanggan">Pelanggan</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user/pegawai">Pegawai</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user/hidangan">Hidangan</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user/restoran">Restoran</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/user/pengaturan">Pengaturan</router-link>
+        <ul class="navbar-nav" v-else-if="$route.name.includes('user')">
+          <li
+            class="nav-item"
+            v-for="m in menu"
+            :key="m.link"
+          >
+            <router-link
+              class="nav-link"
+              :to="m.link"
+            >
+              {{ m.text }}
+            </router-link>
           </li>
         </ul>
       </div>
@@ -85,6 +73,50 @@ export default {
       type: String,
       default: () => null
     }
+  },
+  computed: {
+    userLogin () {
+      return this.$store.state.user.userLogin
+    },
+    menu () {
+      let m = []
+      if (this.$route.name.includes('user') && this.userLogin) {
+        if (this.userLogin.tipe === 2) {
+          m = [
+            { text: 'Home', link: '/user'},
+            { text: 'Reservasi', link: '/user/reservasi'},
+            { text: 'Pesanan', link: '/user/pesanan'},
+            { text: 'Restoran', link: '/user/restoran'},
+            { text: 'Hidangan', link: '/user/hidangan'}
+          ]
+        } else if (this.userLogin.tipe === 1) {
+          if (this.userLogin.pegawai.jabatan === 1) {
+            m = [
+              { text: 'Home', link: '/user'},
+              { text: 'Reservasi', link: '/user/reservasi'},
+              { text: 'Pesanan', link: '/user/pesanan'},
+              { text: 'Pelanggan', link: '/user/pelanggan'},
+              { text: 'Pegawai', link: '/user/pegawai'},
+              { text: 'Restoran', link: '/user/restoran'},
+              { text: 'Hidangan', link: '/user/hidangan'},
+              { text: 'Pengaturan', link: '/user/pengaturan'}
+            ]
+          } else if (this.userLogin.pegawai.jabatan === 2) {
+            m = [
+              { text: 'Home', link: '/user'},
+              { text: 'Reservasi', link: '/user/reservasi'},
+              { text: 'Pesanan', link: '/user/pesanan'},
+              { text: 'Restoran', link: '/user/restoran'},
+              { text: 'Hidangan', link: '/user/hidangan'},
+            ]
+          }
+        }
+      }
+      return m
+    }
+  },
+  methods: {
+
   }
 }
 </script>

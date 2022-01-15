@@ -32,17 +32,42 @@ export default {
   components: {
     AdminLayout
   },
-  data () {
-    return {
-      menu: [
-        { name: 'reservasi', icon: 'fa fa-taxi', link: '/user/reservasi' },
-        { name: 'pesanan', icon: 'fa fa-phone', link: '/user/pesanan' },
-        { name: 'pelanggan', icon: 'fa fa-user-circle', link: '/user/pelanggan' },
-        { name: 'pegawai', icon: 'fa fa-user-secret', link: '/user/pegawai' },
-        { name: 'hidangan', icon: 'fa fa-glass', link: '/user/hidangan' },
-        { name: 'restoran', icon: 'fa fa-home', link: '/user/restoran' },
-        { name: 'pengaturan', icon: 'fa fa-gear', link: '/user/pengaturan' }
-      ]
+  computed: {
+    userLogin () {
+      return this.$store.state.user.userLogin
+    },
+    menu () {
+      let m = []
+      if (this.userLogin) {
+        if (this.userLogin.tipe === 2) {
+          m = [
+            { name: 'reservasi', icon: 'fa fa-taxi', link: '/user/reservasi' },
+            { name: 'pesanan', icon: 'fa fa-phone', link: '/user/pesanan' },
+            { name: 'hidangan', icon: 'fa fa-glass', link: '/user/hidangan' },
+            { name: 'restoran', icon: 'fa fa-home', link: '/user/restoran' }
+          ]
+        } else if (this.userLogin.tipe === 1) {
+          if (this.userLogin.pegawai.jabatan === 1) {
+            m = [
+              { name: 'reservasi', icon: 'fa fa-taxi', link: '/user/reservasi' },
+              { name: 'pesanan', icon: 'fa fa-phone', link: '/user/pesanan' },
+              { name: 'pelanggan', icon: 'fa fa-user-circle', link: '/user/pelanggan' },
+              { name: 'pegawai', icon: 'fa fa-user-secret', link: '/user/pegawai' },
+              { name: 'hidangan', icon: 'fa fa-glass', link: '/user/hidangan' },
+              { name: 'restoran', icon: 'fa fa-home', link: '/user/restoran' },
+              { name: 'pengaturan', icon: 'fa fa-gear', link: '/user/pengaturan' }
+            ]
+          } else if (this.userLogin.pegawai.jabatan === 2) {
+            m = [
+              { name: 'reservasi', icon: 'fa fa-taxi', link: '/user/reservasi' },
+              { name: 'pesanan', icon: 'fa fa-phone', link: '/user/pesanan' },
+              { name: 'hidangan', icon: 'fa fa-glass', link: '/user/hidangan' },
+              { name: 'restoran', icon: 'fa fa-home', link: '/user/restoran' }
+            ]
+          }
+        }
+      }
+      return m
     }
   }
 }
