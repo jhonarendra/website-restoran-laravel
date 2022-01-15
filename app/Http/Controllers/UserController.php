@@ -13,6 +13,20 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function getUserLogin()
+    {
+        $user = Auth::user();
+        if ($user->tipe === 1) {
+            $user = User::with('pegawai')->where('id_user', $user->id_user)->first();
+        } else if ($user->tipe === 2) {
+            $user = User::with('pelanggan')->where('id_user', $user->id_user)->first();
+        }
+        return response()->json([
+            'status' => true,
+            'data' => $user,
+            'message' => 'Berhasil mengambil data'
+        ]);
+    }
     public function register(Request $req)
     {
         $validator = Validator::make($req->all(), [
@@ -93,5 +107,15 @@ class UserController extends Controller
                 'data' => null
             ]);
         }
+    }
+    public function logout()
+    {
+        $user = Auth::user()->token();
+        $user->revoke();
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil logout',
+            'data' => null
+        ]);
     }
 }

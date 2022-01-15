@@ -21,6 +21,6 @@ class Pelanggan extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'id_entitas', 'id_pelanggan');
+        return $this->belongsTo('App\Models\User', 'id_entitas', 'id_pelanggan');
     }
 }

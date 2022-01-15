@@ -30,11 +30,14 @@ export default {
   },
   mounted () {
     this.$store.dispatch('fetchUserLogin').then((res) => {
-      console.log(res)
       if (res.data.status) {
-        console.log(res)
+        this.$store.commit('setUserLogin', res.data.data)
       }
     })
+      .catch(() => {
+        localStorage.removeItem('token')
+        window.location = '/login'
+      })
   }
 }
 </script>

@@ -1,15 +1,17 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from "vue"
+import VueRouter from "vue-router"
 
 Vue.use(VueRouter);
 
+import guard from './guards'
+
 const routes = [
   { path: "/", name: "index", component: () => import("../pages/index.vue") },
-  { path: "/login", name: "login", component: () => import("../pages/login.vue") },
-  { path: "/register", name: "register", component: () => import("../pages/register.vue") },
+  { path: "/login", name: "login", component: () => import("../pages/login.vue"), beforeEnter: guard.noAuth },
+  { path: "/register", name: "register", component: () => import("../pages/register.vue"), beforeEnter: guard.noAuth },
 
   
-  { path: "/user", name: "user", component: () => import("../pages/user/index.vue") },
+  { path: "/user", name: "user", component: () => import("../pages/user/index.vue"), beforeEnter: guard.auth },
   { path: "/user/restoran", name: "user-restoran", component: () => import("../pages/user/restoran/index.vue") },
   { path: "/user/hidangan", name: "user-hidangan", component: () => import("../pages/user/hidangan/index.vue") },
   { path: "/user/pegawai", name: "user-pegawai", component: () => import("../pages/user/pegawai/index.vue") },

@@ -2178,6 +2178,41 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/router/guards.js":
+/*!***************************************!*\
+  !*** ./resources/js/router/guards.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var guard = {
+  auth: function auth(to, from, next) {
+    if (localStorage.token) {
+      next();
+    } else {
+      next({
+        name: 'login'
+      });
+    }
+  },
+  noAuth: function noAuth(to, from, next) {
+    if (!localStorage.token) {
+      next();
+    } else {
+      next({
+        name: 'user'
+      });
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (guard);
+
+/***/ }),
+
 /***/ "./resources/js/router/index.js":
 /*!**************************************!*\
   !*** ./resources/js/router/index.js ***!
@@ -2197,12 +2232,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _guards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./guards */ "./resources/js/router/guards.js");
 
 
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
+
 var routes = [{
   path: "/",
   name: "index",
@@ -2214,19 +2251,22 @@ var routes = [{
   name: "login",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_login_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/login.vue */ "./resources/js/pages/login.vue"));
-  }
+  },
+  beforeEnter: _guards__WEBPACK_IMPORTED_MODULE_5__.default.noAuth
 }, {
   path: "/register",
   name: "register",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_register_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/register.vue */ "./resources/js/pages/register.vue"));
-  }
+  },
+  beforeEnter: _guards__WEBPACK_IMPORTED_MODULE_5__.default.noAuth
 }, {
   path: "/user",
   name: "user",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_user_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/user/index.vue */ "./resources/js/pages/user/index.vue"));
-  }
+  },
+  beforeEnter: _guards__WEBPACK_IMPORTED_MODULE_5__.default.auth
 }, {
   path: "/user/restoran",
   name: "user-restoran",
@@ -3246,6 +3286,7 @@ var mutations = {
     state.userLogin = data;
   }
 };
+var token = localStorage.token;
 var actions = {
   fetchUser: function fetchUser(_ref, filter) {
     return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
@@ -3280,7 +3321,6 @@ var actions = {
     }))();
   },
   fetchUserLogin: function fetchUserLogin() {
-    var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMCIsImp0aSI6IjFlMTBhNTljYmQyYzZkYjNkYWY1ZDAzMjcxZjhjZWQzM2RmOTI0N2ZiMjY1MTk4NWQ0OGJmZDdmYTU2Nzk2ZjQyMWE0ZDE3NTY2NmI5ZWEyIiwiaWF0IjoxNjQxOTkzNDk0LCJuYmYiOjE2NDE5OTM0OTQsImV4cCI6MTY3MzUyOTQ5NCwic3ViIjoiOCIsInNjb3BlcyI6W119.geidHX71dGcJ_cNMlvyof2Xzi9meFs7s659P0_tyjZaRS63t6UPIg_TcUTMLSGLLVWhTC0O5v5x3TRuyfegaM40cwUh5E8B5cC5u4A-kuOZkTGlse5ZqGKv3Y_2tA3jb1qa5RiUSlFxRJTvZ-y0oN1ZgaopHz7SsMlt133TSf7dZgY8nmMPiAASNa1IC83FrfFkNIaq-9yijYpx4AGEPCkTdG23TytSIYdwnyMGKVTfdNdp0piTD6V6XAgYGkcm1R5Yj2Mgb8L4SJmzVxGYYibTEwrMfpkjAEzhSjfUf4dlcN2JcB5jTUorBT3OnWXEuwWg4Ih_-7kRsX4vNRInZ3LHWSRIMLlugGNFLGld4IfXSrAQ3lOLA5nj3U-y5wNA-muipdWYEcWYmjYLTFw_15_8dS8flarAcj7evktjsnTrx9tF2XEy7Srjhq1wHo36xJvJdRr8MSsT_YRel2s1nPZ0YM4QLWIjONBApOv-IA28zQtesGwXQJP-HQbQ2KpDYGrJ81rmoiZJD5T_D_WjIVyp5BAkMfO_-HlerI5vGSsK73ZHDTF_ARpeYOnI8dfJX73asFWJ-6kxTGQNX1xkTThqpXNgGIZwsbGo2ntxgz3fEmmuZkmHOe9a6LklpPoiETkHdw5iAymOWjky_nVXfq8ouNzHEa0-j0Nz5ZQJ8_M0';
     return axios.get('/api/user', {
       headers: {
         Authorization: "Bearer ".concat(token)
@@ -3294,6 +3334,13 @@ var actions = {
   register: function register(_ref3, data) {
     var getters = _ref3.getters;
     return axios.post('/api/register', data);
+  },
+  logout: function logout() {
+    return axios.post('/api/logout', true, {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    });
   }
 };
 var getters = {

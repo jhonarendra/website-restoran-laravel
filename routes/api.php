@@ -18,11 +18,5 @@ use App\Http\Controllers\UserController;
 
 Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return response()->json([
-        'status' => true,
-        'data' => Auth::user(),
-        'message' => 'Berhasil mengambil data'
-    ]);
-});
+Route::post('logout', [UserController::class, 'logout'])->middleware('auth:api');
+Route::get('user', [UserController::class, 'getUserLogin'])->middleware('auth:api');

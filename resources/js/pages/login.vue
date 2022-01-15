@@ -79,7 +79,8 @@ export default {
         this.$store.dispatch('login', formData).then((res) => {
           this.loginLoading = false
           if (res.data.status) {
-            this.$router.push({ path: '/user' })
+            localStorage.setItem('token', res.data.data.token)
+            window.location = '/user'
           } else {
             swal({
               title: 'Gagal',

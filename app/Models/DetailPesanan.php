@@ -14,10 +14,10 @@ class DetailPesanan extends Model
 
     public function hidangan()
     {
-        return $this->belongsTo('App\Hidangan', 'id_hidangan', 'id_hidangan');
+        return $this->belongsTo('App\Models\Hidangan', 'id_hidangan', 'id_hidangan');
     }
     public function pesanan()
     {
-        return $this->belongsTo('App\Pesanan', 'id_pesanan', 'id_pesanan');
+        return $this->belongsTo('App\Models\Pesanan', 'id_pesanan', 'id_pesanan');
     }
 }

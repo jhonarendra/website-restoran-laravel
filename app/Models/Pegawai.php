@@ -14,10 +14,10 @@ class Pegawai extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'id_entitas', 'id_pegawai');
+        return $this->belongsTo('App\Models\User', 'id_entitas', 'id_pegawai');
     }
     public function restoran()
     {
-        return $this->belongsTo('App\Restoran', 'id_restoran', 'id_restoran');
+        return $this->belongsTo('App\Models\Restoran', 'id_restoran', 'id_restoran');
     }
 }

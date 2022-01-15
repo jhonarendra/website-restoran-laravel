@@ -98,9 +98,8 @@ __webpack_require__.r(__webpack_exports__);
           _this.loginLoading = false;
 
           if (res.data.status) {
-            _this.$router.push({
-              path: '/user'
-            });
+            localStorage.setItem('token', res.data.data.token);
+            window.location = '/user';
           } else {
             sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
               title: 'Gagal',

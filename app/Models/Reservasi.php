@@ -14,14 +14,14 @@ class Reservasi extends Model
 
     public function restoran()
     {
-        return $this->belongsTo('App\Restoran', 'id_restoran', 'id_restoran');
+        return $this->belongsTo('App\Models\Restoran', 'id_restoran', 'id_restoran');
     }
     public function pelanggan()
     {
-        return $this->belongsTo('App\Pelanggan', 'id_pelanggan', 'id_pelanggan');
+        return $this->belongsTo('App\Models\Pelanggan', 'id_pelanggan', 'id_pelanggan');
     }
     public function pegawai()
     {
-        return $this->belongsTo('App\Pegawai', 'id_pegawai', 'id_pegawai');
+        return $this->belongsTo('App\Models\Pegawai', 'id_pegawai', 'id_pegawai');
     }
 }
