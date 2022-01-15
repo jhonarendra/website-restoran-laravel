@@ -173,7 +173,7 @@ class UserController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'Registrasi berhasil',
+            'message' => 'Berhasil perbarui profil',
             'data' => $user
         ]);
     }

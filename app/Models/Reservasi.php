@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,6 +11,18 @@ class Reservasi extends Model
 
     protected $table = 'tb_reservasi';
     protected $primaryKey = 'id_reservasi';
+
+    protected $fillable = [
+        'id_restoran',
+        'id_pelanggan',
+        'id_pegawai',
+        'no_reservasi',
+        'no_meja',
+        'status',
+        'keterangan_pelanggan',
+        'keterangan_pegawai',
+        'jumlah_tamu',
+    ];
 
     public function restoran()
     {

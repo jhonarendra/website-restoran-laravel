@@ -18,29 +18,25 @@
             <tr>
               <td>Nama</td>
               <td>
-                {{ (aksi === 'buat') ? (userLogin) ? userLogin.nama_user : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.nama_user : '' : '' }}
+                {{ (aksi === 'buat') ? (userLogin) ? userLogin.pelanggan.nama : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.nama : '' : '' }}
               </td>
             </tr>
             <tr>
               <td>Email</td>
-              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.email : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.email : '' : '' }}</td>
-            </tr>
-            <tr>
-              <td>Username</td>
-              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.username : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.username : '' : '' }}</td>
+              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.email : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.user.email : '' : '' }}</td>
             </tr>
             <tr>
               <td>Nomor HP</td>
-              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.no_hp : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.no_hp : '' : '' }}</td>
+              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.pelanggan.no_hp : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.no_hp : '' : '' }}</td>
             </tr>
             <tr>
               <td>Alamat</td>
-              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.alamat : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.alamat : '' : '' }}</td>
+              <td>{{ (aksi === 'buat') ? (userLogin) ? userLogin.pelanggan.alamat : '' : (aksi === 'lihat' || 'edit') ? (reservasi) ? reservasi.pelanggan.alamat : '' : '' }}</td>
             </tr>
             <tr>
               <td>Foto</td>
               <td>
-                <img src="/images/hidangan/spageti.jpg" class="circle mr-2" width="100" height="100">
+                <img :src="fotoUser" class="circle mr-2" width="100" height="100">
               </td>
             </tr>
           </tbody>
@@ -59,18 +55,22 @@
             <tr>
               <td>Restoran <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
-                <select v-model="form.id_restoran" class="form-control">
+                <select
+                  v-model="form.id_restoran"
+                  class="form-control"
+                  required
+                >
                   <option
                     v-for="r in restoran"
                     :key="r.id_restoran"
                     :value="r.id_restoran"
                   >
-                    {{ r.nama_restoran }}
+                    {{ r.nama }}
                   </option>
                 </select>
               </td>
               <td v-if="aksi === 'lihat'">
-                {{ reservasi.restoran.nama_restoran }}
+                {{ reservasi.restoran.nama }}
               </td>
             </tr>
             <tr>
@@ -96,7 +96,14 @@
             <tr>
               <td>Jumlah Tamu <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
-                <input v-model="form.jumlah_tamu" type="number" class="form-control">
+                <input
+                  v-model="form.jumlah_tamu"
+                  type="number"
+                  min="1"
+                  max="999"
+                  class="form-control"
+                  required
+                >
               </td>
               <td v-if="aksi === 'lihat'">
                 {{ reservasi.jumlah_tamu }} orang
@@ -105,33 +112,48 @@
             <tr v-if="aksi === 'lihat' || aksi === 'edit'">
               <td>Nomor Meja</td>
               <td v-if="aksi === 'edit'">
-                <input v-model="form.no_meja" type="text" class="form-control">
+                <input
+                  v-model="form.no_meja"
+                  type="text"
+                  class="form-control"
+                  required
+                >
               </td>
               <td v-if="aksi === 'lihat'">
-                {{ reservasi.no_meja }} orang
+                {{ (reservasi.no_meja) ? reservasi.no_meja : 'Belum diatur' }}
               </td>
             </tr>
             <tr v-if="aksi === 'lihat' || aksi === 'edit'">
               <td>Pegawai</td>
               <td v-if="aksi === 'edit'">
-                <select v-model="form.id_pegawai" class="form-control">
+                <select
+                  v-model="form.id_pegawai"
+                  class="form-control"
+                  required
+                >
                   <option
                     v-for="p in pegawai"
                     :key="p.id_user"
                     :value="p.id_user"
                   >
-                    {{ p.nama_user }}
+                    {{ p.nama }}
                   </option>
                 </select>
               </td>
               <td v-if="aksi === 'lihat'">
-                {{ reservasi.pegawai.nama_user }}
+                {{ (reservasi.pegawai) ? reservasi.pegawai.nama : 'Belum diatur' }}
               </td>
             </tr>
             <tr>
               <td>Tanggal Reservasi <span class="text-danger">*</span></td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
-                <input type="date" class="form-control">
+                <input
+                  v-model="form.tanggal_reservasi"
+                  type="date"
+                  class="form-control"
+                  required
+                >
+                <small class="text-secondary">Reservasi paling lambat 1 hari sebelum acara</small>
               </td>
               <td v-if="aksi === 'lihat'">
                 {{ $helpers.dateFormat(reservasi.tanggal_reservasi) }}
@@ -140,7 +162,11 @@
             <tr v-if="aksi === 'edit' || aksi === 'lihat'">
               <td>Status</td>
               <td v-if="aksi === 'edit'">
-                <select v-model="form.status" class="form-control">
+                <select
+                  v-model="form.status"
+                  class="form-control"
+                  required
+                >
                   <option :value="0">Menunggu Dikonfirmasi</option>
                   <option :value="1">Dikonfirmasi</option>
                   <option :value="2">Sedang Berlangsung</option>
@@ -161,6 +187,7 @@
               <td>Keterangan {{ (aksi === 'buat') ? '' : 'Pelanggan' }}</td>
               <td v-if="aksi === 'buat' || aksi === 'edit'">
                 <textarea v-model="form.keterangan_pelanggan" class="form-control"></textarea>
+                <small class="text-secondary">Dapat dikosongkan</small>
               </td>
               <td v-if="aksi === 'lihat'">{{ reservasi.keterangan_pelanggan }}</td>
             </tr>
@@ -185,8 +212,17 @@
         v-if="aksi !== 'lihat'"
         type="submit"
         class="btn btn-primary"
+        :disabled="submitLoading"
       >
-        <i class="pr-2" :class="(aksi === 'buat') ? 'fa fa-paper-plane' : 'fa fa-save'" />
+        <i
+          v-if="!submitLoading"
+          class="pr-2"
+          :class="(aksi === 'buat') ? 'fa fa-paper-plane' : 'fa fa-save'"
+        />
+        <i
+          v-else
+          class="fa fa-spinner fa-spin"
+        />
         {{ (aksi === 'buat') ? 'Buat Reservasi' : 'Simpan' }}
       </button>
     </div>
@@ -194,6 +230,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert'
+
 export default {
   props: {
     reservasi: {
@@ -208,6 +246,21 @@ export default {
   computed: {
     userLogin () {
       return this.$store.state.user.userLogin
+    },
+    fotoUser () {
+      let foto = '/images/avatar-1.png'
+      if (this.userLogin) {
+        if (this.userLogin.pelanggan) {
+          if (this.userLogin.pelanggan.foto) {
+            foto = '/api/file/' + this.userLogin.pelanggan.foto
+          }
+        } else if (this.userLogin.pegawai) {
+          if (this.userLogin.pegawai.foto) {
+            foto = '/api/file/' + this.userLogin.pegawai.foto
+          }
+        }
+      }
+      return foto
     },
     restoran () {
       return this.$store.state.restoran.restoran
@@ -227,15 +280,24 @@ export default {
         no_meja: '',
         status: 0 // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
       },
-      pegawai: []
+      pegawai: [],
+      submitLoading: false
     }
   },
   mounted () {
     if (!this.userLogin) {
       this.fetchUserLogin()
+    } else {
+      if (this.aksi === 'buat') {
+        this.form.id_pelanggan = this.userLogin.pelanggan.id_pelanggan
+      }
     }
     if (this.restoran.length === 0) {
       this.fetchRestoran()
+    } else {
+      if (this.aksi === 'buat') {
+        this.form.id_restoran = this.restoran[0].id_restoran
+      }
     }
     this.fetchPegawai()
 
@@ -252,12 +314,46 @@ export default {
     },
     onSubmit (e) {
       e.preventDefault()
-      console.log('submit')
+      
+      if (this.form.jumlah_tamu <= 0) {
+        return false
+      }
+      
+      this.submitLoading = true
+      const formData = new FormData()
+      formData.append('id_pelanggan', this.form.id_pelanggan)
+      formData.append('id_restoran', this.form.id_restoran)
+      formData.append('jumlah_tamu', this.form.jumlah_tamu)
+      formData.append('tanggal_reservasi', this.form.tanggal_reservasi)
+      formData.append('keterangan_pelanggan', this.form.keterangan_pelanggan)
+
+      this.$store.dispatch('storeReservasi', formData).then((res) => {
+        if (res.data.status) {
+          // update reservasi, supaya ketika balik ke index tidak perlu klik load
+          this.$store.dispatch('fetchReservasi').then((r) => {
+            if (r.data.status) {
+              this.$store.commit('setReservasi', res.data.data)
+              swal({
+                title: 'Berhasil',
+                text: res.data.message,
+                icon: 'success',
+                buttons: 'Ok'
+              })
+                .then((val) => {
+                  this.$router.push({ path: '/user/reservasi' })
+                })
+            }
+          })
+        }
+      })
     },
     fetchUserLogin () {
       this.$store.dispatch('fetchUserLogin').then((res) => {
         if (res.data.status) {
           this.$store.commit('setUserLogin', res.data.data)
+          if (this.aksi === 'buat') {
+            this.form.id_pelanggan = res.data.data.pelanggan.id_pelanggan
+          }
         }
       })
     },
@@ -265,6 +361,9 @@ export default {
       this.$store.dispatch('fetchRestoran').then((res) => {
         if (res.data.status) {
           this.$store.commit('setRestoran', res.data.data)
+          if (this.aksi === 'buat') {
+            this.form.id_restoran = res.data.data[0].id_restoran
+          }
         }
       })
     },

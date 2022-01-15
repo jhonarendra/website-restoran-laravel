@@ -36,6 +36,8 @@ const state = {
   tableViewPengaturan: 'table'
 }
 
+const token = localStorage.token
+
 const mutations = {
   setPengaturan(state, data) {
     state.pengaturan = data

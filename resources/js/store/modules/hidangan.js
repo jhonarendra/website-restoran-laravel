@@ -36,6 +36,8 @@ const state = {
   tableViewHidangan: 'table'
 }
 
+const token = localStorage.token
+
 const mutations = {
   setHidangan(state, data) {
     state.hidangan = data

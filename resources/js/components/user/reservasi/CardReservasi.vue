@@ -13,11 +13,11 @@
       </div>
       <div class="card-body p-2">
         <div>
-          <img src="/images/hidangan/spageti.jpg" class="circle mr-2" width="30" height="30">
-              {{ data.pelanggan.nama_user}}
+          <img :src="(data.pelanggan.foto) ? '/api/file/' + data.pelanggan.foto : '/images/avatar-1.png'" class="circle mr-2" width="30" height="30">
+              {{ data.pelanggan.nama}}
         </div>
         <div class="mt-2">
-          <i class="fa fa-map-marker" /> {{ data.restoran.nama_restoran }}
+          <i class="fa fa-map-marker" /> {{ data.restoran.nama }}
         </div>
         <div class="mt-2">
           <i class="fa fa-users" /> {{ data.jumlah_tamu }} orang

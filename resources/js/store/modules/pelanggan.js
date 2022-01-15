@@ -36,6 +36,8 @@ const state = {
   tableViewPelanggan: 'table'
 }
 
+const token = localStorage.token
+
 const mutations = {
   setPelanggan(state, data) {
     state.pelanggan = data

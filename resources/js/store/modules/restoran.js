@@ -31,15 +31,13 @@ const mutations = {
   }
 }
 
+const token = localStorage.token
+
 const actions = {
-  async fetchRestoran () {
-    return {
-      data: {
-        status: true,
-        data,
-        message: ''
-      }
-    }
+  fetchRestoran () {
+    return axios.get('/api/restoran',
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
   }
 }
 

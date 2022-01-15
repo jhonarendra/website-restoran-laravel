@@ -47,8 +47,26 @@ const mutations = {
   }
 }
 
+const token = localStorage.token
+
 const actions = {
-  async fetchReservasi ({ getters, commit, dispatch }) {
+  fetchReservasi ({ getters }) {
+    return axios.get('/api/reservasi',
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+  },
+  storeReservasi ({ getters }, data) {
+    return axios.post('/api/reservasi', data,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+  },
+  showReservasi ({ getters }, id) {
+    return axios.get(`/api/reservasi/${id}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+  },
+  async fetchReservasiFrontEnd ({ getters, commit, dispatch }) {
+    // intuk test data di frontend
     let user = getters.getAllUser
     let restoran = getters.getAllRestoran
     if (user.length === 0) {
@@ -79,7 +97,7 @@ const actions = {
       }
     }
   },
-  async showReservasi ({ getters, commit, dispatch }, id) {
+  async showReservasiFrontEnd ({ getters, commit, dispatch }, id) {
     let user = getters.getAllUser
     let restoran = getters.getAllRestoran
     if (user.length === 0) {

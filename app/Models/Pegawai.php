@@ -22,7 +22,7 @@ class Pegawai extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'id_entitas', 'id_pegawai');
+        return $this->belongsTo('App\Models\User', 'id_pegawai', 'id_entitas');
     }
     public function restoran()
     {

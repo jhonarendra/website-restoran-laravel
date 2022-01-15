@@ -3348,7 +3348,7 @@ var render = function() {
   return _c("div", { staticClass: "user-profile" }, [
     _c("div", {
       staticClass: "user-photo",
-      style: "background-image: url(" + this.fotoUser + ")"
+      style: "background-image: url(" + _vm.fotoUser + ")"
     }),
     _vm._v(" "),
     _vm.userLogin

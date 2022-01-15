@@ -2453,6 +2453,7 @@ var state = {
   hidangan: [],
   tableViewHidangan: 'table'
 };
+var token = localStorage.token;
 var mutations = {
   setHidangan: function setHidangan(state, data) {
     state.hidangan = data;
@@ -2555,6 +2556,7 @@ var mutations = {
     state.tableViewPegawai = data;
   }
 };
+var token = localStorage.token;
 var actions = {
   fetchPegawai: function fetchPegawai() {
     return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
@@ -2641,6 +2643,7 @@ var state = {
   pelanggan: [],
   tableViewPelanggan: 'table'
 };
+var token = localStorage.token;
 var mutations = {
   setPelanggan: function setPelanggan(state, data) {
     state.pelanggan = data;
@@ -2738,6 +2741,7 @@ var state = {
   pengaturan: [],
   tableViewPengaturan: 'table'
 };
+var token = localStorage.token;
 var mutations = {
   setPengaturan: function setPengaturan(state, data) {
     state.pengaturan = data;
@@ -2840,6 +2844,7 @@ var state = {
   pesanan: [],
   tableViewPesanan: 'table'
 };
+var token = localStorage.token;
 var mutations = {
   setPesanan: function setPesanan(state, data) {
     state.pesanan = data;
@@ -2956,8 +2961,33 @@ var mutations = {
     state.tableViewReservasi = data;
   }
 };
+var token = localStorage.token;
 var actions = {
   fetchReservasi: function fetchReservasi(_ref) {
+    var getters = _ref.getters;
+    return axios.get('/api/reservasi', {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    });
+  },
+  storeReservasi: function storeReservasi(_ref2, data) {
+    var getters = _ref2.getters;
+    return axios.post('/api/reservasi', data, {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    });
+  },
+  showReservasi: function showReservasi(_ref3, id) {
+    var getters = _ref3.getters;
+    return axios.get("/api/reservasi/".concat(id), {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    });
+  },
+  fetchReservasiFrontEnd: function fetchReservasiFrontEnd(_ref4) {
     return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
       var getters, commit, dispatch, user, restoran, res, _res, reservasi;
 
@@ -2965,7 +2995,8 @@ var actions = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              getters = _ref.getters, commit = _ref.commit, dispatch = _ref.dispatch;
+              getters = _ref4.getters, commit = _ref4.commit, dispatch = _ref4.dispatch;
+              // intuk test data di frontend
               user = getters.getAllUser;
               restoran = getters.getAllRestoran;
 
@@ -3027,7 +3058,7 @@ var actions = {
       }, _callee);
     }))();
   },
-  showReservasi: function showReservasi(_ref2, id) {
+  showReservasiFrontEnd: function showReservasiFrontEnd(_ref5, id) {
     return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
       var getters, commit, dispatch, user, restoran, res, _res2, show;
 
@@ -3035,7 +3066,7 @@ var actions = {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              getters = _ref2.getters, commit = _ref2.commit, dispatch = _ref2.dispatch;
+              getters = _ref5.getters, commit = _ref5.commit, dispatch = _ref5.dispatch;
               user = getters.getAllUser;
               restoran = getters.getAllRestoran;
 
@@ -3130,11 +3161,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-
-
 var data = [{
   id_restoran: 1,
   nama_restoran: 'Restoran Saya',
@@ -3162,28 +3188,14 @@ var mutations = {
     state.tableViewRestoran = data;
   }
 };
+var token = localStorage.token;
 var actions = {
   fetchRestoran: function fetchRestoran() {
-    return (0,D_htdocs_website_restoran_laravel_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              return _context.abrupt("return", {
-                data: {
-                  status: true,
-                  data: data,
-                  message: ''
-                }
-              });
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }))();
+    return axios.get('/api/restoran', {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    });
   }
 };
 var getters = {

@@ -42,6 +42,8 @@ const mutations = {
   }
 }
 
+const token = localStorage.token
+
 const actions = {
   async fetchPegawai () {
     return {

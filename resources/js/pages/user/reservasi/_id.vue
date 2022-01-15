@@ -25,6 +25,7 @@
             >
               <template #btn-edit>
                 <button
+                  v-if="showTombolEdit"
                   type="button"
                   class="btn"
                   :class="(aksi === 'lihat') ? 'btn-primary' : 'btn-danger'"
@@ -62,6 +63,20 @@ import FormReservasi from '../../../components/user/reservasi/FormReservasi.vue'
 export default {
   components: {
     AdminLayout, FormReservasi
+  },
+  computed: {
+    userLogin () {
+      return this.$store.state.user.userLogin
+    },
+    showTombolEdit () {
+      let s = false
+      if (this.userLogin) {
+        if (this.userLogin.tipe === 1) {
+          s = true
+        }
+      }
+      return s
+    }
   },
   data () {
     return {

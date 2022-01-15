@@ -2,7 +2,7 @@
   <div class="user-profile">
     <div
       class="user-photo"
-      :style="'background-image: url(' + this.fotoUser + ')'"
+      :style="'background-image: url(' + fotoUser + ')'"
     />
     <h4
       v-if="userLogin"

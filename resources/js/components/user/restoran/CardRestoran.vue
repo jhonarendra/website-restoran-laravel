@@ -1,7 +1,7 @@
 <template>
   <div class="card" @click="$emit('handleShow', data)">
     <div class="card-body" style="position: relative">
-      <h4>{{ data.nama_restoran }}</h4>
+      <h4>{{ data.nama }}</h4>
       <p>{{ data.alamat}}</p>
       <input
         v-model="checked"

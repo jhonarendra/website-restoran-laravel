@@ -45,6 +45,8 @@ const state = {
   tableViewPesanan: 'table'
 }
 
+const token = localStorage.token
+
 const mutations = {
   setPesanan(state, data) {
     state.pesanan = data

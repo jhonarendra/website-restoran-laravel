@@ -1199,28 +1199,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.timers.js */ "./node_modules/core-js/modules/web.timers.js");
-/* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
-/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
-/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
-/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_array_splice_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.splice.js */ "./node_modules/core-js/modules/es.array.splice.js");
-/* harmony import */ var core_js_modules_es_array_splice_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_splice_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.array.find-index.js */ "./node_modules/core-js/modules/es.array.find-index.js");
-/* harmony import */ var core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../components/global/TableComp.vue */ "./resources/js/components/global/TableComp.vue");
-/* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
-/* harmony import */ var _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../components/user/reservasi/CardReservasi.vue */ "./resources/js/components/user/reservasi/CardReservasi.vue");
-
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_array_splice_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.splice.js */ "./node_modules/core-js/modules/es.array.splice.js");
+/* harmony import */ var core_js_modules_es_array_splice_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_splice_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.find-index.js */ "./node_modules/core-js/modules/es.array.find-index.js");
+/* harmony import */ var core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../components/global/TableComp.vue */ "./resources/js/components/global/TableComp.vue");
+/* harmony import */ var _layouts_admin__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../layouts/admin */ "./resources/js/layouts/admin.vue");
+/* harmony import */ var _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../components/user/reservasi/CardReservasi.vue */ "./resources/js/components/user/reservasi/CardReservasi.vue");
 
 
 
@@ -1342,46 +1339,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_10__.default,
-    TableComp: _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_9__.default,
-    CardReservasi: _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_11__.default
+    AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_9__.default,
+    TableComp: _components_global_TableComp_vue__WEBPACK_IMPORTED_MODULE_8__.default,
+    CardReservasi: _components_user_reservasi_CardReservasi_vue__WEBPACK_IMPORTED_MODULE_10__.default
+  },
+  computed: {
+    userLogin: function userLogin() {
+      return this.$store.state.user.userLogin;
+    }
+  },
+  watch: {
+    userLogin: function userLogin(newVal) {
+      if (newVal) {
+        this.setTableColumns();
+      }
+    }
   },
   data: function data() {
     return {
-      columns: [{
-        label: '',
-        field: 'checkbox'
-      }, {
-        label: 'Nomor',
-        field: 'no_reservasi',
-        sortable: true
-      }, {
-        label: 'Pelanggan',
-        field: 'nama_pelanggan',
-        struct: 'pelanggan.nama_user',
-        sortable: true
-      }, {
-        label: 'Restoran',
-        field: 'nama_restoran',
-        struct: 'restoran.nama_restoran',
-        sortable: true
-      }, {
-        label: 'Pegawai',
-        field: 'nama_pegawai',
-        struct: 'pegawai.nama_user',
-        sortable: true
-      }, {
-        label: 'Status',
-        field: 'status',
-        sortable: true
-      }, {
-        label: 'Dibuat',
-        field: 'created_at',
-        sortable: true
-      }, {
-        label: 'Aksi',
-        field: 'aksi'
-      }],
+      columns: [],
       items: [],
       tableLoading: false,
       tableView: 'table',
@@ -1389,6 +1365,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    if (this.userLogin) {
+      this.setTableColumns();
+    }
+
     if (this.$store.state.reservasi.reservasi.length === 0) {
       this.loadDataReservasi();
     } else {
@@ -1398,28 +1378,94 @@ __webpack_require__.r(__webpack_exports__);
     this.tableView = this.$store.state.reservasi.tableViewReservasi;
   },
   methods: {
+    setTableColumns: function setTableColumns() {
+      if (this.userLogin.pelanggan) {
+        this.columns = [{
+          label: '',
+          field: 'checkbox'
+        }, {
+          label: 'Nomor',
+          field: 'no_reservasi',
+          sortable: true
+        }, {
+          label: 'Restoran',
+          field: 'nama_restoran',
+          struct: 'restoran.nama_restoran',
+          sortable: true
+        }, {
+          label: 'Pegawai',
+          field: 'nama_pegawai',
+          struct: 'pegawai.nama',
+          sortable: true
+        }, {
+          label: 'Status',
+          field: 'status',
+          sortable: true
+        }, {
+          label: 'Dibuat',
+          field: 'created_at',
+          sortable: true
+        }, {
+          label: 'Aksi',
+          field: 'aksi'
+        }];
+      } else {
+        this.colums = [{
+          label: '',
+          field: 'checkbox'
+        }, {
+          label: 'Nomor',
+          field: 'no_reservasi',
+          sortable: true
+        }, {
+          label: 'Pelanggan',
+          field: 'nama_pelanggan',
+          struct: 'pelanggan.nama',
+          sortable: true
+        }, {
+          label: 'Restoran',
+          field: 'nama_restoran',
+          struct: 'restoran.nama_restoran',
+          sortable: true
+        }, {
+          label: 'Pegawai',
+          field: 'nama_pegawai',
+          struct: 'pegawai.nama',
+          sortable: true
+        }, {
+          label: 'Status',
+          field: 'status',
+          sortable: true
+        }, {
+          label: 'Dibuat',
+          field: 'created_at',
+          sortable: true
+        }, {
+          label: 'Aksi',
+          field: 'aksi'
+        }];
+      }
+    },
     loadDataReservasi: function loadDataReservasi() {
       var _this = this;
 
       this.tableLoading = true;
-      setTimeout(function () {
-        _this.$store.dispatch('fetchReservasi').then(function (res) {
-          _this.tableLoading = false;
+      this.$store.dispatch('fetchReservasi').then(function (res) {
+        _this.tableLoading = false;
 
-          if (res.data.status) {
-            _this.items = res.data.data;
+        if (res.data.status) {
+          _this.items = res.data.data;
 
-            _this.$store.commit('setReservasi', _this.items);
-          } else {
-            sweetalert__WEBPACK_IMPORTED_MODULE_8___default()({
-              title: 'Gagal',
-              text: res.data.message,
-              icon: 'error',
-              buttons: 'Ok'
-            });
-          }
-        });
-      }, 2000);
+          _this.$store.commit('setReservasi', _this.items);
+        } else {
+          sweetalert__WEBPACK_IMPORTED_MODULE_7___default()({
+            title: 'Gagal',
+            text: res.data.message,
+            icon: 'error',
+            buttons: 'Ok'
+          });
+        }
+      });
     },
     getBadgeStatus: function getBadgeStatus(status) {
       // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
@@ -2558,44 +2604,6 @@ for (var COLLECTION_NAME in DOMIterables) {
     CollectionPrototype.forEach = forEach;
   }
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/web.timers.js":
-/*!****************************************************!*\
-  !*** ./node_modules/core-js/modules/web.timers.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var userAgent = __webpack_require__(/*! ../internals/engine-user-agent */ "./node_modules/core-js/internals/engine-user-agent.js");
-
-var slice = [].slice;
-var MSIE = /MSIE .\./.test(userAgent); // <- dirty ie9- check
-
-var wrap = function (scheduler) {
-  return function (handler, timeout /* , ...arguments */) {
-    var boundArgs = arguments.length > 2;
-    var args = boundArgs ? slice.call(arguments, 2) : undefined;
-    return scheduler(boundArgs ? function () {
-      // eslint-disable-next-line no-new-func -- spec requirement
-      (typeof handler == 'function' ? handler : Function(handler)).apply(this, args);
-    } : handler, timeout);
-  };
-};
-
-// ie9- setTimeout & setInterval additional parameters fix
-// https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers
-$({ global: true, bind: true, forced: MSIE }, {
-  // `setTimeout` method
-  // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout
-  setTimeout: wrap(global.setTimeout),
-  // `setInterval` method
-  // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-setinterval
-  setInterval: wrap(global.setInterval)
-});
 
 
 /***/ }),
@@ -4105,7 +4113,7 @@ var render = function() {
   return _c("div", { staticClass: "user-profile" }, [
     _c("div", {
       staticClass: "user-photo",
-      style: "background-image: url(" + this.fotoUser + ")"
+      style: "background-image: url(" + _vm.fotoUser + ")"
     }),
     _vm._v(" "),
     _vm.userLogin
@@ -4265,21 +4273,21 @@ var render = function() {
             _c("img", {
               staticClass: "circle mr-2",
               attrs: {
-                src: "/images/hidangan/spageti.jpg",
+                src: _vm.data.pelanggan.foto
+                  ? "/api/file/" + _vm.data.pelanggan.foto
+                  : "/images/avatar-1.png",
                 width: "30",
                 height: "30"
               }
             }),
             _vm._v(
-              "\n            " +
-                _vm._s(_vm.data.pelanggan.nama_user) +
-                "\n      "
+              "\n            " + _vm._s(_vm.data.pelanggan.nama) + "\n      "
             )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2" }, [
             _c("i", { staticClass: "fa fa-map-marker" }),
-            _vm._v(" " + _vm._s(_vm.data.restoran.nama_restoran) + "\n      ")
+            _vm._v(" " + _vm._s(_vm.data.restoran.nama) + "\n      ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2" }, [
@@ -4603,9 +4611,7 @@ var render = function() {
               fn: function(ref) {
                 var row = ref.row
                 return [
-                  _vm._v(
-                    "\n        " + _vm._s(row.pelanggan.nama_user) + "\n      "
-                  )
+                  _vm._v("\n        " + _vm._s(row.pelanggan.nama) + "\n      ")
                 ]
               }
             },
@@ -4614,11 +4620,7 @@ var render = function() {
               fn: function(ref) {
                 var row = ref.row
                 return [
-                  _vm._v(
-                    "\n        " +
-                      _vm._s(row.restoran.nama_restoran) +
-                      "\n      "
-                  )
+                  _vm._v("\n        " + _vm._s(row.restoran.nama) + "\n      ")
                 ]
               }
             },
@@ -4628,7 +4630,9 @@ var render = function() {
                 var row = ref.row
                 return [
                   _vm._v(
-                    "\n        " + _vm._s(row.pegawai.nama_user) + "\n      "
+                    "\n        " +
+                      _vm._s(row.pegawai ? row.pegawai.nama : "-") +
+                      "\n      "
                   )
                 ]
               }

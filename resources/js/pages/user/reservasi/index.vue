@@ -59,13 +59,13 @@
           <span class="small" style="white-space: nowrap">{{ row.no_reservasi }}</span>
         </template>
         <template #nama_pelanggan="{ row }">
-          {{ row.pelanggan.nama_user }}
+          {{ row.pelanggan.nama }}
         </template>
         <template #nama_restoran="{ row }">
-          {{ row.restoran.nama_restoran }}
+          {{ row.restoran.nama }}
         </template>
         <template #nama_pegawai="{ row }">
-          {{ row.pegawai.nama_user }}
+          {{ (row.pegawai) ? row.pegawai.nama : '-' }}
         </template>
         <template #status="{ row }">
           <span
@@ -118,18 +118,21 @@ export default {
     TableComp,
     CardReservasi
   },
+  computed: {
+    userLogin () {
+      return this.$store.state.user.userLogin
+    }
+  },
+  watch: {
+    userLogin (newVal) {
+      if (newVal) {
+        this.setTableColumns()
+      }
+    }
+  },
   data () {
     return {
-      columns: [
-        { label: '', field: 'checkbox' },
-        { label: 'Nomor', field: 'no_reservasi', sortable: true },
-        { label: 'Pelanggan', field: 'nama_pelanggan', struct: 'pelanggan.nama_user', sortable: true },
-        { label: 'Restoran', field: 'nama_restoran', struct: 'restoran.nama_restoran', sortable: true },
-        { label: 'Pegawai', field: 'nama_pegawai', struct: 'pegawai.nama_user', sortable: true },
-        { label: 'Status', field: 'status', sortable: true },
-        { label: 'Dibuat', field: 'created_at', sortable: true },
-        { label: 'Aksi', field: 'aksi' }
-      ],
+      columns: [],
       items: [],
       tableLoading: false,
       tableView: 'table',
@@ -137,6 +140,9 @@ export default {
     }
   },
   mounted () {
+    if (this.userLogin) {
+      this.setTableColumns()
+    }
     if (this.$store.state.reservasi.reservasi.length === 0) {
       this.loadDataReservasi()
     } else {
@@ -145,24 +151,47 @@ export default {
     this.tableView = this.$store.state.reservasi.tableViewReservasi
   },
   methods: {
+    setTableColumns () {
+      if (this.userLogin.pelanggan) {
+        this.columns = [
+          { label: '', field: 'checkbox' },
+          { label: 'Nomor', field: 'no_reservasi', sortable: true },
+          { label: 'Restoran', field: 'nama_restoran', struct: 'restoran.nama_restoran', sortable: true },
+          { label: 'Pegawai', field: 'nama_pegawai', struct: 'pegawai.nama', sortable: true },
+          { label: 'Status', field: 'status', sortable: true },
+          { label: 'Dibuat', field: 'created_at', sortable: true },
+          { label: 'Aksi', field: 'aksi' }
+        ]
+      } else {
+        this.colums = [
+          { label: '', field: 'checkbox' },
+          { label: 'Nomor', field: 'no_reservasi', sortable: true },
+          { label: 'Pelanggan', field: 'nama_pelanggan', struct: 'pelanggan.nama', sortable: true },
+          { label: 'Restoran', field: 'nama_restoran', struct: 'restoran.nama_restoran', sortable: true },
+          { label: 'Pegawai', field: 'nama_pegawai', struct: 'pegawai.nama', sortable: true },
+          { label: 'Status', field: 'status', sortable: true },
+          { label: 'Dibuat', field: 'created_at', sortable: true },
+          { label: 'Aksi', field: 'aksi' }
+        ]
+      }
+      
+    },
     loadDataReservasi () {
       this.tableLoading = true
-      setTimeout(() => {
-        this.$store.dispatch('fetchReservasi').then((res) => {
-          this.tableLoading = false
-          if (res.data.status) {
-            this.items = res.data.data
-            this.$store.commit('setReservasi', this.items)
-          } else {
-            swal({
-              title: 'Gagal',
-              text: res.data.message,
-              icon: 'error',
-              buttons: 'Ok'
-            })
-          }
-        })
-      }, 2000)
+      this.$store.dispatch('fetchReservasi').then((res) => {
+        this.tableLoading = false
+        if (res.data.status) {
+          this.items = res.data.data
+          this.$store.commit('setReservasi', this.items)
+        } else {
+          swal({
+            title: 'Gagal',
+            text: res.data.message,
+            icon: 'error',
+            buttons: 'Ok'
+          })
+        }
+      })
     },
     getBadgeStatus (status) {
       // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai

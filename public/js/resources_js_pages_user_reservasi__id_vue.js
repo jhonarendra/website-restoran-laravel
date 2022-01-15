@@ -307,6 +307,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -505,6 +507,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reservasi: {
@@ -523,6 +562,23 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     userLogin: function userLogin() {
       return this.$store.state.user.userLogin;
+    },
+    fotoUser: function fotoUser() {
+      var foto = '/images/avatar-1.png';
+
+      if (this.userLogin) {
+        if (this.userLogin.pelanggan) {
+          if (this.userLogin.pelanggan.foto) {
+            foto = '/api/file/' + this.userLogin.pelanggan.foto;
+          }
+        } else if (this.userLogin.pegawai) {
+          if (this.userLogin.pegawai.foto) {
+            foto = '/api/file/' + this.userLogin.pegawai.foto;
+          }
+        }
+      }
+
+      return foto;
     },
     restoran: function restoran() {
       return this.$store.state.restoran.restoran;
@@ -543,16 +599,25 @@ __webpack_require__.r(__webpack_exports__);
         status: 0 // 0=belum dikonfirmasi, 1=dikonfirmasi, 2=sedang berlangsung, 3=batal, 4=selesai
 
       },
-      pegawai: []
+      pegawai: [],
+      submitLoading: false
     };
   },
   mounted: function mounted() {
     if (!this.userLogin) {
       this.fetchUserLogin();
+    } else {
+      if (this.aksi === 'buat') {
+        this.form.id_pelanggan = this.userLogin.pelanggan.id_pelanggan;
+      }
     }
 
     if (this.restoran.length === 0) {
       this.fetchRestoran();
+    } else {
+      if (this.aksi === 'buat') {
+        this.form.id_restoran = this.restoran[0].id_restoran;
+      }
     }
 
     this.fetchPegawai();
@@ -571,35 +636,77 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     onSubmit: function onSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
-      console.log('submit');
+
+      if (this.form.jumlah_tamu <= 0) {
+        return false;
+      }
+
+      this.submitLoading = true;
+      var formData = new FormData();
+      formData.append('id_pelanggan', this.form.id_pelanggan);
+      formData.append('id_restoran', this.form.id_restoran);
+      formData.append('jumlah_tamu', this.form.jumlah_tamu);
+      formData.append('tanggal_reservasi', this.form.tanggal_reservasi);
+      formData.append('keterangan_pelanggan', this.form.keterangan_pelanggan);
+      this.$store.dispatch('storeReservasi', formData).then(function (res) {
+        if (res.data.status) {
+          // update reservasi, supaya ketika balik ke index tidak perlu klik load
+          _this2.$store.dispatch('fetchReservasi').then(function (r) {
+            if (r.data.status) {
+              _this2.$store.commit('setReservasi', res.data.data);
+
+              sweetalert__WEBPACK_IMPORTED_MODULE_3___default()({
+                title: 'Berhasil',
+                text: res.data.message,
+                icon: 'success',
+                buttons: 'Ok'
+              }).then(function (val) {
+                _this2.$router.push({
+                  path: '/user/reservasi'
+                });
+              });
+            }
+          });
+        }
+      });
     },
     fetchUserLogin: function fetchUserLogin() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$store.dispatch('fetchUserLogin').then(function (res) {
         if (res.data.status) {
-          _this2.$store.commit('setUserLogin', res.data.data);
+          _this3.$store.commit('setUserLogin', res.data.data);
+
+          if (_this3.aksi === 'buat') {
+            _this3.form.id_pelanggan = res.data.data.pelanggan.id_pelanggan;
+          }
         }
       });
     },
     fetchRestoran: function fetchRestoran() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.$store.dispatch('fetchRestoran').then(function (res) {
         if (res.data.status) {
-          _this3.$store.commit('setRestoran', res.data.data);
+          _this4.$store.commit('setRestoran', res.data.data);
+
+          if (_this4.aksi === 'buat') {
+            _this4.form.id_restoran = res.data.data[0].id_restoran;
+          }
         }
       });
     },
     fetchPegawai: function fetchPegawai() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.$store.dispatch('fetchUser', {
         tipe: 2
       }).then(function (res) {
         if (res.data.status) {
-          _this4.pegawai = res.data.data;
+          _this5.pegawai = res.data.data;
         }
       });
     },
@@ -782,6 +889,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -789,6 +897,22 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AdminLayout: _layouts_admin__WEBPACK_IMPORTED_MODULE_2__.default,
     FormReservasi: _components_user_reservasi_FormReservasi_vue__WEBPACK_IMPORTED_MODULE_3__.default
+  },
+  computed: {
+    userLogin: function userLogin() {
+      return this.$store.state.user.userLogin;
+    },
+    showTombolEdit: function showTombolEdit() {
+      var s = false;
+
+      if (this.userLogin) {
+        if (this.userLogin.tipe === 1) {
+          s = true;
+        }
+      }
+
+      return s;
+    }
   },
   data: function data() {
     return {
@@ -1765,7 +1889,7 @@ var render = function() {
   return _c("div", { staticClass: "user-profile" }, [
     _c("div", {
       staticClass: "user-photo",
-      style: "background-image: url(" + this.fotoUser + ")"
+      style: "background-image: url(" + _vm.fotoUser + ")"
     }),
     _vm._v(" "),
     _vm.userLogin
@@ -1917,11 +2041,11 @@ var render = function() {
                         _vm._s(
                           _vm.aksi === "buat"
                             ? _vm.userLogin
-                              ? _vm.userLogin.nama_user
+                              ? _vm.userLogin.pelanggan.nama
                               : ""
                             : _vm.aksi === "lihat" || "edit"
                             ? _vm.reservasi
-                              ? _vm.reservasi.pelanggan.nama_user
+                              ? _vm.reservasi.pelanggan.nama
                               : ""
                             : ""
                         ) +
@@ -1942,27 +2066,7 @@ var render = function() {
                             : ""
                           : _vm.aksi === "lihat" || "edit"
                           ? _vm.reservasi
-                            ? _vm.reservasi.pelanggan.email
-                            : ""
-                          : ""
-                      )
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("Username")]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(
-                      _vm._s(
-                        _vm.aksi === "buat"
-                          ? _vm.userLogin
-                            ? _vm.userLogin.username
-                            : ""
-                          : _vm.aksi === "lihat" || "edit"
-                          ? _vm.reservasi
-                            ? _vm.reservasi.pelanggan.username
+                            ? _vm.reservasi.pelanggan.user.email
                             : ""
                           : ""
                       )
@@ -1978,7 +2082,7 @@ var render = function() {
                       _vm._s(
                         _vm.aksi === "buat"
                           ? _vm.userLogin
-                            ? _vm.userLogin.no_hp
+                            ? _vm.userLogin.pelanggan.no_hp
                             : ""
                           : _vm.aksi === "lihat" || "edit"
                           ? _vm.reservasi
@@ -1998,7 +2102,7 @@ var render = function() {
                       _vm._s(
                         _vm.aksi === "buat"
                           ? _vm.userLogin
-                            ? _vm.userLogin.alamat
+                            ? _vm.userLogin.pelanggan.alamat
                             : ""
                           : _vm.aksi === "lihat" || "edit"
                           ? _vm.reservasi
@@ -2010,7 +2114,16 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0)
+                _c("tr", [
+                  _c("td", [_vm._v("Foto")]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("img", {
+                      staticClass: "circle mr-2",
+                      attrs: { src: _vm.fotoUser, width: "100", height: "100" }
+                    })
+                  ])
+                ])
               ])
             ]
           ),
@@ -2035,7 +2148,7 @@ var render = function() {
           _c("table", { staticClass: "table table-sm table-striped" }, [
             _c("tbody", [
               _c("tr", [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _vm.aksi === "buat" || _vm.aksi === "edit"
                   ? _c("td", [
@@ -2051,6 +2164,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
+                          attrs: { required: "" },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -2081,7 +2195,7 @@ var render = function() {
                             [
                               _vm._v(
                                 "\n                  " +
-                                  _vm._s(r.nama_restoran) +
+                                  _vm._s(r.nama) +
                                   "\n                "
                               )
                             ]
@@ -2096,7 +2210,7 @@ var render = function() {
                   ? _c("td", [
                       _vm._v(
                         "\n              " +
-                          _vm._s(_vm.reservasi.restoran.nama_restoran) +
+                          _vm._s(_vm.reservasi.restoran.nama) +
                           "\n            "
                       )
                     ])
@@ -2128,7 +2242,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(2),
+                _vm._m(1),
                 _vm._v(" "),
                 _vm.aksi === "buat" || _vm.aksi === "edit"
                   ? _c("td", [
@@ -2142,7 +2256,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number" },
+                        attrs: {
+                          type: "number",
+                          min: "1",
+                          max: "999",
+                          required: ""
+                        },
                         domProps: { value: _vm.form.jumlah_tamu },
                         on: {
                           input: function($event) {
@@ -2187,7 +2306,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text" },
+                            attrs: { type: "text", required: "" },
                             domProps: { value: _vm.form.no_meja },
                             on: {
                               input: function($event) {
@@ -2209,8 +2328,12 @@ var render = function() {
                       ? _c("td", [
                           _vm._v(
                             "\n              " +
-                              _vm._s(_vm.reservasi.no_meja) +
-                              " orang\n            "
+                              _vm._s(
+                                _vm.reservasi.no_meja
+                                  ? _vm.reservasi.no_meja
+                                  : "Belum diatur"
+                              ) +
+                              "\n            "
                           )
                         ])
                       : _vm._e()
@@ -2235,6 +2358,7 @@ var render = function() {
                                 }
                               ],
                               staticClass: "form-control",
+                              attrs: { required: "" },
                               on: {
                                 change: function($event) {
                                   var $$selectedVal = Array.prototype.filter
@@ -2266,7 +2390,7 @@ var render = function() {
                                 [
                                   _vm._v(
                                     "\n                  " +
-                                      _vm._s(p.nama_user) +
+                                      _vm._s(p.nama) +
                                       "\n                "
                                   )
                                 ]
@@ -2281,7 +2405,11 @@ var render = function() {
                       ? _c("td", [
                           _vm._v(
                             "\n              " +
-                              _vm._s(_vm.reservasi.pegawai.nama_user) +
+                              _vm._s(
+                                _vm.reservasi.pegawai
+                                  ? _vm.reservasi.pegawai.nama
+                                  : "Belum diatur"
+                              ) +
                               "\n            "
                           )
                         ])
@@ -2290,14 +2418,39 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _vm.aksi === "buat" || _vm.aksi === "edit"
                   ? _c("td", [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.tanggal_reservasi,
+                            expression: "form.tanggal_reservasi"
+                          }
+                        ],
                         staticClass: "form-control",
-                        attrs: { type: "date" }
-                      })
+                        attrs: { type: "date", required: "" },
+                        domProps: { value: _vm.form.tanggal_reservasi },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "tanggal_reservasi",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("small", { staticClass: "text-secondary" }, [
+                        _vm._v("Reservasi paling lambat 1 hari sebelum acara")
+                      ])
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -2334,6 +2487,7 @@ var render = function() {
                                 }
                               ],
                               staticClass: "form-control",
+                              attrs: { required: "" },
                               on: {
                                 change: function($event) {
                                   var $$selectedVal = Array.prototype.filter
@@ -2438,7 +2592,11 @@ var render = function() {
                             )
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c("small", { staticClass: "text-secondary" }, [
+                        _vm._v("Dapat dikosongkan")
+                      ])
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -2522,13 +2680,20 @@ var render = function() {
           _vm.aksi !== "lihat"
             ? _c(
                 "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "submit", disabled: _vm.submitLoading }
+                },
                 [
-                  _c("i", {
-                    staticClass: "pr-2",
-                    class:
-                      _vm.aksi === "buat" ? "fa fa-paper-plane" : "fa fa-save"
-                  }),
+                  !_vm.submitLoading
+                    ? _c("i", {
+                        staticClass: "pr-2",
+                        class:
+                          _vm.aksi === "buat"
+                            ? "fa fa-paper-plane"
+                            : "fa fa-save"
+                      })
+                    : _c("i", { staticClass: "fa fa-spinner fa-spin" }),
                   _vm._v(
                     "\n      " +
                       _vm._s(
@@ -2546,25 +2711,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [_vm._v("Foto")]),
-      _vm._v(" "),
-      _c("td", [
-        _c("img", {
-          staticClass: "circle mr-2",
-          attrs: {
-            src: "/images/hidangan/spageti.jpg",
-            width: "100",
-            height: "100"
-          }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -2769,42 +2915,44 @@ var render = function() {
                               key: "btn-edit",
                               fn: function() {
                                 return [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass: "btn",
-                                      class:
-                                        _vm.aksi === "lihat"
-                                          ? "btn-primary"
-                                          : "btn-danger",
-                                      attrs: { type: "button" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.aksi === "lihat"
-                                            ? (_vm.aksi = "edit")
-                                            : (_vm.aksi = "lihat")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass: "pr-2",
-                                        class:
-                                          _vm.aksi === "lihat"
-                                            ? "fa fa-pencil"
-                                            : "fa fa-times"
-                                      }),
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
+                                  _vm.showTombolEdit
+                                    ? _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn",
+                                          class:
                                             _vm.aksi === "lihat"
-                                              ? "Edit"
-                                              : "Batal"
-                                          ) +
-                                          "\n              "
+                                              ? "btn-primary"
+                                              : "btn-danger",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.aksi === "lihat"
+                                                ? (_vm.aksi = "edit")
+                                                : (_vm.aksi = "lihat")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "pr-2",
+                                            class:
+                                              _vm.aksi === "lihat"
+                                                ? "fa fa-pencil"
+                                                : "fa fa-times"
+                                          }),
+                                          _vm._v(
+                                            "\n                " +
+                                              _vm._s(
+                                                _vm.aksi === "lihat"
+                                                  ? "Edit"
+                                                  : "Batal"
+                                              ) +
+                                              "\n              "
+                                          )
+                                        ]
                                       )
-                                    ]
-                                  )
+                                    : _vm._e()
                                 ]
                               },
                               proxy: true
@@ -2812,7 +2960,7 @@ var render = function() {
                           ],
                           null,
                           false,
-                          782169575
+                          4131272400
                         )
                       })
                     ],

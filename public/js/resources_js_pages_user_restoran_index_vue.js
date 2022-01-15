@@ -4020,7 +4020,7 @@ var render = function() {
   return _c("div", { staticClass: "user-profile" }, [
     _c("div", {
       staticClass: "user-photo",
-      style: "background-image: url(" + this.fotoUser + ")"
+      style: "background-image: url(" + _vm.fotoUser + ")"
     }),
     _vm._v(" "),
     _vm.userLogin
@@ -4152,7 +4152,7 @@ var render = function() {
         "div",
         { staticClass: "card-body", staticStyle: { position: "relative" } },
         [
-          _c("h4", [_vm._v(_vm._s(_vm.data.nama_restoran))]),
+          _c("h4", [_vm._v(_vm._s(_vm.data.nama))]),
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(_vm.data.alamat))]),
           _vm._v(" "),
