@@ -863,9 +863,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {};
+  },
   computed: {
     userLogin: function userLogin() {
       return this.$store.state.user.userLogin;
+    },
+    fotoUser: function fotoUser() {
+      var foto = '/images/avatar-1.png';
+
+      if (this.userLogin) {
+        if (this.userLogin.pelanggan) {
+          if (this.userLogin.pelanggan.foto) {
+            foto = '/api/file/' + this.userLogin.pelanggan.foto;
+          }
+        } else if (this.userLogin.pegawai) {
+          if (this.userLogin.pegawai.foto) {
+            foto = '/api/file/' + this.userLogin.pegawai.foto;
+          }
+        }
+      }
+
+      return foto;
     }
   },
   methods: {
@@ -2411,7 +2431,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.user-photo[data-v-4605aca4] {\n  border: 1px solid #ddd;\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  margin: 0 auto\n}\n@media (max-width: 992px) {\n.user-photo[data-v-4605aca4] {\n    height: auto;\n    padding-bottom: 100%;\n    width: 100%;\n}\n}\n.list-group-item[data-v-4605aca4] {\n  background: #faebcd;\n}\n@media (max-width: 769px) {\n.user-profile[data-v-4605aca4] {\n    display: none;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.user-photo[data-v-4605aca4] {\n  border: 1px solid #ddd;\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  margin: 0 auto;\n  background-position: center;\n  background-size: contain;\n}\n@media (max-width: 992px) {\n.user-photo[data-v-4605aca4] {\n    height: auto;\n    padding-bottom: 100%;\n    width: 100%;\n}\n}\n.list-group-item[data-v-4605aca4] {\n  background: #faebcd;\n}\n@media (max-width: 769px) {\n.user-profile[data-v-4605aca4] {\n    display: none;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3978,7 +3998,7 @@ var render = function() {
   return _c("div", { staticClass: "user-profile" }, [
     _c("div", {
       staticClass: "user-photo",
-      staticStyle: { "background-image": "url('/images/hidangan/spageti.jpg')" }
+      style: "background-image: url(" + this.fotoUser + ")"
     }),
     _vm._v(" "),
     _vm.userLogin

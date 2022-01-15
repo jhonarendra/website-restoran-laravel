@@ -2,7 +2,7 @@
   <div class="user-profile">
     <div
       class="user-photo"
-      style="background-image: url('/images/hidangan/spageti.jpg')"
+      :style="'background-image: url(' + this.fotoUser + ')'"
     />
     <h4 v-if="userLogin" class="text-center text-white mt-3 font-weight-300">
       {{ (userLogin.pelanggan) ? userLogin.pelanggan.nama : (userLogin.pegawai) ? userLogin.pegawai.nama : '' }}
@@ -40,9 +40,29 @@
 
 <script>
 export default {
+  data () {
+    return {
+      
+    }
+  },
   computed: {
     userLogin () {
       return this.$store.state.user.userLogin
+    },
+    fotoUser () {
+      let foto = '/images/avatar-1.png'
+      if (this.userLogin) {
+        if (this.userLogin.pelanggan) {
+          if (this.userLogin.pelanggan.foto) {
+            foto = '/api/file/' + this.userLogin.pelanggan.foto
+          }
+        } else if (this.userLogin.pegawai) {
+          if (this.userLogin.pegawai.foto) {
+            foto = '/api/file/' + this.userLogin.pegawai.foto
+          }
+        }
+      }
+      return foto
     }
   },
   methods: {
@@ -65,7 +85,9 @@ export default {
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    margin: 0 auto
+    margin: 0 auto;
+    background-position: center;
+    background-size: contain;
   }
   @media (max-width: 992px) {
     .user-photo {
