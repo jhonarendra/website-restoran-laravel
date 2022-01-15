@@ -236,6 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2677,7 +2678,22 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "login-form" },
-                [_c("h4", [_vm._v("Daftar")]), _vm._v(" "), _c("FormRegister")],
+                [
+                  _c("h4", [_vm._v("Daftar")]),
+                  _vm._v(" "),
+                  _c("FormRegister"),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    { staticClass: "text-center" },
+                    [
+                      _c("router-link", { attrs: { to: "/" } }, [
+                        _vm._v("Home")
+                      ])
+                    ],
+                    1
+                  )
+                ],
                 1
               )
             ])

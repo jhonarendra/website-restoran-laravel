@@ -73,6 +73,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -410,6 +411,16 @@ var render = function() {
                           _vm._v("\n                  Belum punya akun? "),
                           _c("router-link", { attrs: { to: "/register" } }, [
                             _vm._v("Daftar")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        [
+                          _c("router-link", { attrs: { to: "/" } }, [
+                            _vm._v("Home")
                           ])
                         ],
                         1

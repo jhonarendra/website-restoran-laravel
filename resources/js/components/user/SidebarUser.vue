@@ -4,18 +4,34 @@
       class="user-photo"
       :style="'background-image: url(' + this.fotoUser + ')'"
     />
-    <h4 v-if="userLogin" class="text-center text-white mt-3 font-weight-300">
-      {{ (userLogin.pelanggan) ? userLogin.pelanggan.nama : (userLogin.pegawai) ? userLogin.pegawai.nama : '' }}
+    <h4
+      v-if="userLogin"
+      class="text-center mt-3 font-weight-300"
+      :class="$route.name.includes('user') ? 'text-white' : ''"
+    >
+      {{
+        userLogin.pelanggan
+          ? userLogin.pelanggan.nama
+          : userLogin.pegawai
+          ? userLogin.pegawai.nama
+          : ""
+      }}
     </h4>
-    <h4 v-else class="text-center text-white mt-3 font-weight-300">
-      ...
-    </h4>
+    <h4 v-else class="text-center text-white mt-3 font-weight-300">...</h4>
 
-    <p v-if="userLogin" class="text-center" >
-      <span v-if="userLogin.pegawai && userLogin.pegawai.jabatan === 1" class="badge badge-success">Admin</span>
-      <span v-else-if="userLogin.pegawai && userLogin.pegawai.jabatan === 2" class="badge badge-warning">Pegawai</span>
+    <p v-if="userLogin" class="text-center">
+      <span
+        v-if="userLogin.pegawai && userLogin.pegawai.jabatan === 1"
+        class="badge badge-success"
+        >Admin</span
+      >
+      <span
+        v-else-if="userLogin.pegawai && userLogin.pegawai.jabatan === 2"
+        class="badge badge-warning"
+        >Pegawai</span
+      >
     </p>
-    
+
     <p class="text-center">
       <router-link to="/user/profile" class="btn btn-link btn-sm text-brown">
         Edit Profil
@@ -31,7 +47,13 @@
       </li>
       <li class="list-group-item">
         <i class="fa fa-phone pr-2" />
-        {{ (userLogin.pelanggan) ? userLogin.pelanggan.no_hp : (userLogin.pegawai) ? userLogin.pegawai.no_hp : '' }}
+        {{
+          userLogin.pelanggan
+            ? userLogin.pelanggan.no_hp
+            : userLogin.pegawai
+            ? userLogin.pegawai.no_hp
+            : ""
+        }}
       </li>
     </ul>
   </div>
@@ -67,7 +89,6 @@ export default {
   methods: {
     logout () {
       this.$store.dispatch('logout').then((res) => {
-        console.log(res)
         if (res.data.status) {
           localStorage.removeItem('token')
           window.location = '/login'

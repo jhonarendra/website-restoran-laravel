@@ -935,6 +935,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
@@ -964,8 +986,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     logout: function logout() {
       this.$store.dispatch('logout').then(function (res) {
-        console.log(res);
-
         if (res.data.status) {
           localStorage.removeItem('token');
           window.location = '/login';
@@ -4044,7 +4064,10 @@ var render = function() {
     _vm.userLogin
       ? _c(
           "h4",
-          { staticClass: "text-center text-white mt-3 font-weight-300" },
+          {
+            staticClass: "text-center mt-3 font-weight-300",
+            class: _vm.$route.name.includes("user") ? "text-white" : ""
+          },
           [
             _vm._v(
               "\n    " +
@@ -4062,7 +4085,7 @@ var render = function() {
       : _c(
           "h4",
           { staticClass: "text-center text-white mt-3 font-weight-300" },
-          [_vm._v("\n    ...\n  ")]
+          [_vm._v("...")]
         ),
     _vm._v(" "),
     _vm.userLogin

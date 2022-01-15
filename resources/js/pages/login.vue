@@ -45,6 +45,7 @@
                   <p>
                     Belum punya akun? <router-link to="/register">Daftar</router-link>
                   </p>
+                  <p><router-link to="/">Home</router-link></p>
                 </div>
               </form>
             </div>

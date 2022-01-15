@@ -23,7 +23,14 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-6">
+      <div v-if="userLogin" class="col-md-6">
+        <div class="d-flex">
+          <h4 class="text-dark-brown py-4">User Page</h4>
+          <router-link to="/user" class="ml-auto py-4">Ke Halaman User</router-link>
+        </div>
+        <SidebarUser />
+      </div>
+      <div v-else class="col-md-6">
         <h4 class="text-dark-brown py-4">Daftar</h4>
         <FormRegister />
       </div>
@@ -33,10 +40,28 @@
 
 <script>
 import FormRegister from './FormRegister'
+import SidebarUser from './../user/SidebarUser.vue'
 
 export default {
   components: {
-    FormRegister
+    FormRegister, SidebarUser
+  },
+  computed: {
+    userLogin () {
+      return this.$store.state.user.userLogin
+    }
+  },
+  mounted () {
+    if (localStorage.token) {
+      this.$store.dispatch('fetchUserLogin').then((res) => {
+        if (res.data.status) {
+          this.$store.commit('setUserLogin', res.data.data)
+        }
+      })
+        .catch(() => {
+          localStorage.removeItem('token')
+        })
+    }
   }
 }
 </script>

@@ -10,6 +10,7 @@
             <div class="login-form">
               <h4>Daftar</h4>
               <FormRegister />
+              <p class="text-center"><router-link to="/">Home</router-link></p>
             </div>
           </div>
         </div>
